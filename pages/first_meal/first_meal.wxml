@@ -1,0 +1,29 @@
+<!--first_meal.wxml-->
+<view class="container">
+  <view class="top_message">
+    <view class="top_message_t">
+      <text>狗蛋</text>
+      <text>2岁</text>
+      <text>3KG</text>
+    </view>
+    <view class="top_message_m">大胖子</view>
+    <view class="top_message_b">
+      <text>如果你无法简洁的表达你的想法，那只说明你还不够了解它。- 阿尔伯特·爱因斯坦</text>
+    </view>
+  </view>
+  <view class="health_plan">
+    <view class="plan_message">
+      <view class="plan_title">推荐健康计划</view>
+      <view class="plan_p">
+        <text>喂食：</text>
+      </view>
+      <view class="plan_p">
+        <text>运动：</text>
+      </view>
+    </view>
+  </view>
+  <view class="share">
+    <view class="share_friends" bindtap="">分享好友</view>
+    <view class="share_get" bindtap="goToHome">获得全面健康计划</view>
+  </view>
+</view>

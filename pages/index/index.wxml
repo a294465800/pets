@@ -1,0 +1,57 @@
+<!--index.wxml-->
+<view class="container">
+  <!--初次进入显示的界面开始-->
+  <view class="first_time" style="display: none">
+    <view class="img">第一次进入未添加宠物时展示图片介绍说明应用用处亮点</view>
+    <view class="start" bindtap="goToFirst">添加宠物定制专属</view>
+  </view>
+  <!--初次进入显示的界面结束-->
+
+  <!--正式首页开始-->
+  <!--导航部分开始-->
+  <view class="home">
+    <view class="nav">
+      <view class="nav_top">
+        <view class="nav_top_left">
+          <view class="head_img">
+            <image src="/images/head_img.jpg" mode="scaleToFill"></image>
+          </view>
+          <view class="head_word">
+            <view class="head_refresh"></view>
+            <view class="pet_name">狗蛋狗蛋狗蛋狗蛋狗蛋</view>
+            <view class="pet_age">2岁</view>
+          </view>
+        </view>
+        <view class="nav_top_right">
+          <view class="status">状态：</view>
+          <view class="status_progess">
+            <view class="persent">20</view>
+          </view>
+        </view>
+      </view>
+      <!--导航标题循环-->
+      <view class="nav_bottom">
+        <block wx:for="{{nav_head}}" wx:key="unique">
+          <view class="record {{nav_id == item.id?'nav_select':''}}" bindtap="changePart" id="{{item.id}}">{{item.name}}</view>
+        </block>
+      </view>
+    </view>
+    <view class="scroll-part">
+      <scroll-view scroll-y="true" class="scroll-plan">
+        <view class="daily_plan scroll-flex">
+          <view class="daily_plan_head">狗蛋的日常计划</view>
+          <view class="daily_plan_message">
+            <view class="daily_plan_new">
+              <text>喂食：</text>
+              <text>2餐，400g干粮即可</text>
+            </view>
+            <view class="daily_plan_punch"></view>
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+  <!--导航部分结束-->
+
+  <!--首页结束-->
+</view>
