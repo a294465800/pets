@@ -9,7 +9,7 @@
 
   <!--正式首页开始-->
   <!--导航部分开始-->
-  <view class="home">
+  <view class="home" disable-scroll="true">
     <view class="nav">
       <view class="nav_top">
         <view class="nav_top_left">
@@ -36,20 +36,209 @@
         </block>
       </view>
     </view>
-    <view class="scroll-part">
+
+    <!--今日安排开始-->
+    <view class="scroll_wrap {{scroll_id == 0?'scroll_show':''}}">
       <scroll-view scroll-y="true" class="scroll-plan">
+
+        <!--日常计划开始-->
         <view class="daily_plan scroll-flex">
           <view class="daily_plan_head">狗蛋的日常计划</view>
-          <view class="daily_plan_message">
-            <view class="daily_plan_new">
-              <text>喂食：</text>
-              <text>2餐，400g干粮即可</text>
+          <block wx:for="{{daily_plan}}" key="*this">
+            <view class="daily_plan_message">
+              <view class="daily_plan_news">
+                <text class="daily_plan_news_head">{{item.daily_plan_head}}：</text>
+                <text>{{item.daily_plan_content}}</text>
+              </view>
+              <view class="daily_plan_punch {{item.daily_plan_punch?'daily_plan_punch_hover':''}}" bindtap="daily_plan_punch" id="{{index}}">打卡</view>
             </view>
-            <view class="daily_plan_punch"></view>
+          </block>
+        </view>
+        <!--日常计划结束-->
+
+        <!--管家提醒开始-->
+        <view class="scroll-flex manager">
+          <view class="manager_head">
+            <view class="manager_head_title">狗蛋的专属提醒</view>
+            <view class="manager_entry" bindtap="goToMangaer">管理></view>
+          </view>
+          <block wx:for="{{manager_remaid}}" key="*this">
+            <view class="manager_message" wx:if="{{index < 2}}">
+              <view class="manager_message_new">
+                <text>管家提醒距离
+                  <text class="manager_message_item">{{item.title}}</text>还剩</text>
+              </view>
+              <view class="manager_time">{{item.R_time}}天</view>
+            </view>
+            <view class="manager_hide {{managerShow?'manager_show':''}}" wx:else>
+              <view class="manager_message">
+                <view class="manager_message_new">
+                  <text>管家提醒距离
+                    <text class="manager_message_item">{{item.title}}</text>还剩</text>
+                </view>
+                <view class="manager_time">{{item.R_time}}天</view>
+              </view>
+            </view>
+          </block>
+          <view class="manager_more manager_message" bindtap="managerShow" data-show="{{managerShow}}">@</view>
+        </view>
+        <!--管家提醒结束-->
+
+        <!--经历时期开始-->
+        <view class="scroll-flex experience">
+          <view class="daily_plan_head">狗蛋经历的时期</view>
+
+          <block wx:for="{{experience}}" key="*this">
+            <view class="manager_message" wx:if="{{index < 2}}">
+              <view class="manager_message_new">
+                <text class="manager_message_item">{{item.title}}</text>
+                <text>，距离结束还剩
+                  <text class="experience_time">{{item.R_time}}</text>天</text>
+              </view>
+            </view>
+            <view class="manager_hide {{experienceShow?'manager_show':''}}" wx:else>
+              <view class="manager_message">
+                <view class="manager_message_new">
+                  <text class="manager_message_item">{{item.title}}</text>
+                  <text>，距离结束还剩
+                    <text class="experience_time">{{item.R_time}}</text>天</text>
+                </view>
+              </view>
+            </view>
+          </block>
+
+          <view class="manager_more manager_message" bindtap="experienceShow" data-show="{{experienceShow}}">@</view>
+        </view>
+        <!--经历时期结束-->
+
+        <!--知识专题开始-->
+        <view class="scroll-flex knowledge">
+          <view class="manager_head">
+            <view class="manager_head_title">今天狗蛋需要学习的知识专题</view>
+            <view class="manager_entry" bindtap="goToKnowledge">更多></view>
+          </view>
+          <view class="knowledge_article">
+            <view class="knowledge_article_message">
+              <view class="knowledge_article_title">{{daily_knowledge.title}}</view>
+              <view class="knowledge_article_tags">
+                <view class="tags_item" wx:for="{{daily_knowledge.tags}}">{{item}}</view>
+              </view>
+              <view class="knowledge_article_info">
+                <view class="info_item">{{daily_knowledge.add_time}}</view>
+                <view class="info_item">{{daily_knowledge.comment}}</view>
+                <view class="info_item">{{daily_knowledge.read}}+</view>
+              </view>
+            </view>
+            <view class="knowledge_article_img">
+              <image src="{{daily_knowledge.src}}" mode="aspectFit"></image>
+            </view>
           </view>
         </view>
+        <!--知识专题结束-->
+
+        <!--推荐用品开始-->
+        <view class="scroll-flex shop">
+          <view class="manager_head">
+            <view class="manager_head_title">今天给狗蛋推荐的用品是</view>
+            <view class="manager_entry" bindtap="goToKnowledge">更多></view>
+          </view>
+          <view class="shop_part">
+            <view class="shop_img">
+              <image src="{{daily_shop.src}}" mode="aspectFit"></image>
+            </view>
+            <view class="shop_list">
+              <view class="shop_list_title">
+                <view class="shop_item">{{daily_shop.title}}</view>
+                <view class="shop_price">￥{{daily_shop.price}}</view>
+              </view>
+              <view class="shop_intro">{{daily_shop.intro}}</view>
+              <view class="shop_btn">采购</view>
+            </view>
+          </view>
+        </view>
+        <!--推荐用品结束-->
       </scroll-view>
     </view>
+    <!--今日安排结束-->
+
+    <!--成长记录开始-->
+    <view class="scroll_wrap {{scroll_id == 1?'scroll_show':''}}">
+      <scroll-view scroll-y="true" class="scroll-plan">
+
+        <!--成长记录导航开始-->
+        <view class="scroll-flex glow_part">
+          <view class="eat glow_tn">
+            <view class="glow_img">
+              <view class="img"></view>
+              <view class="">喂食</view>
+            </view>
+          </view>
+          <view class="health glow_tn">
+            <view class="glow_img">
+              <view class="img"></view>
+              <view class="">健康</view>
+            </view>
+          </view>
+          <view class="play glow_tn">
+            <view class="glow_img">
+              <view class="img"></view>
+              <view class="">玩耍</view>
+            </view>
+          </view>
+          <view class="body glow_tn">
+            <view class="glow_img">
+              <view class="img"></view>
+              <view class="">身高体重</view>
+            </view>
+          </view>
+          <view class="clean glow_tn">
+            <view class="glow_img">
+              <view class="img"></view>
+              <view class="">清洁</view>
+            </view>
+          </view>
+          <view class="cashbook glow_tn">
+            <view class="glow_img">
+              <view class="img"></view>
+              <view class="">记账本</view>
+            </view>
+          </view>
+        </view>
+        <!--成长记录导航结束-->
+
+        <!--成长列表开始-->
+        <view class="scroll-flex glow_list">
+          <view class="record_part">
+            <view class="record_item">
+              <view class="record_time">2017-03-20</view>
+              <view class="record_title">体重记录</view>
+              <view class="record_title">6个月</view>
+              <view class="record_point"></view>
+            </view>
+            <view class="record_message">
+              <view class="record_messae_title">
+                <view class="record_message_title_h">身高：60.0cm</view>
+                <view class="record_message_title_s"></view>
+              </view>
+              <view class="record_messae_title">
+                <view class="record_message_title_h">体重：37.0kg</view>
+                <view class="record_message_title_s"></view>
+              </view>
+            </view>
+          </view>
+        </view>
+        <!--成长列表结束-->
+
+      </scroll-view>
+    </view>
+    <!--成长记录结束-->
+
+    <view class="scroll_wrap {{scroll_id == 2?'scroll_show':''}}">
+      <scroll-view scroll-y="true" class="scroll-plan">
+        <view class="scroll-flex">11111</view>
+      </scroll-view>
+    </view>
+
   </view>
   <!--导航部分结束-->
 

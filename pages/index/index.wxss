@@ -3,6 +3,7 @@
 /*初次打开时样式*/
 
 .container {
+  box-sizing: border-box;
   border-top: 2px solid #d0d0d0;
 }
 
@@ -20,7 +21,16 @@
   color: #00bcd4;
 }
 
+.home {
+  width: 100%;
+  height: 100%;
+}
+
 /*导航样式*/
+
+.nav {
+  height: 19%;
+}
 
 .nav_top {
   display: flex;
@@ -96,11 +106,14 @@
   color: #fff;
   text-align: center;
 }
+
 .nav_bottom {
   display: flex;
   justify-content: space-around;
   width: 100%;
+  height: 74rpx;
 }
+
 .nav_bottom view {
   font: normal 14px/64rpx "Microsoft YaHei UI";
   flex-grow: 1;
@@ -114,17 +127,308 @@
 }
 
 /*今日安排样式*/
+
+/*通用样式*/
+
+.scroll_wrap {
+  display: none;
+  width: 100%;
+  height: 81%;
+}
+
 .scroll-plan {
   width: 100%;
   height: 100%;
-  background-color: #ccc;
+  box-sizing: border-box;
+  background-color: #eee;
   display: flex;
   flex-direction: column;
-  padding: 30rpx 0;
+  justify-content: center;
   align-items: center;
+  padding-bottom: 30rpx;
 }
+
 .scroll-flex {
   width: 700rpx;
   align-self: center;
   background-color: #fff;
+  margin-top: 30rpx;
+}
+
+/*日常计划*/
+
+.daily_plan_message {
+  display: flex;
+  box-sizing: border-box;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #eee;
+  height: 90rpx;
+  width: 100%;
+  padding: 0 30rpx;
+}
+
+.daily_plan_head {
+  font: normal 12px "Microsoft YaHei Ui";
+  color: #666;
+  padding: 16rpx 40rpx;
+}
+
+.daily_plan_news {
+  font: normal 16px/23px "Microsoft YaHei UI";
+}
+
+.daily_plan_news_head {
+  color: #2c56de;
+}
+
+.daily_plan_punch {
+  color: #fff;
+  background-color: #0a8f08;
+  font: normal 14px "Microsoft YaHei UI";
+  padding: 10rpx;
+  border-radius: 10rpx;
+}
+
+.daily_plan_punch_hover {
+  background-color: #78909c;
+}
+
+/*管理提醒*/
+
+.manager_head {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font: normal 12px "Microsoft YaHei Ui";
+  color: #666;
+  padding: 16rpx 20rpx 16rpx 40rpx;
+}
+
+.manager_message {
+  display: flex;
+  box-sizing: border-box;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #eee;
+  height: 90rpx;
+  width: 100%;
+  padding: 0 30rpx;
+}
+
+.manager_message_new {
+  font: bold 16px/23px "Microsoft YaHei";
+}
+
+.manager_message_item {
+  color: #46a3ff;
+}
+
+.manager_time {
+  color: #00a600;
+}
+
+.manager_more {
+  height: 60rpx;
+  border: none;
+  justify-content: center;
+}
+
+.manager_hide {
+  display: none;
+}
+
+.manager_show {
+  display: block;
+}
+
+/*经历时期*/
+
+.experience_time {
+  color: #f75000;
+}
+
+/*知识专题*/
+
+.knowledge, .shop {
+  height: 280rpx;
+}
+
+.knowledge_article {
+  display: flex;
+  box-sizing: border-box;
+  height: 218rpx;
+  width: 100%;
+  padding: 0 20rpx;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.knowledge_article_message {
+  width: 440rpx;
+  height: 200rpx;
+}
+
+.knowledge_article_title {
+  font: normal 16px "Microsoft YaHei";
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+.knowledge_article_img {
+  width: 220rpx;
+  height: 200rpx;
+  background-color: transparent;
+}
+
+.knowledge_article_img image {
+  width: 100%;
+  height: 100%;
+}
+
+.knowledge_article_tags {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin-top: 10rpx;
+}
+
+.tags_item {
+  padding: 0 10rpx;
+  border: 1px solid #ccc;
+  color: #666;
+  font: normal 12px "Microsoft YaHei";
+  margin-right: 10rpx;
+}
+
+.knowledge_article_info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.info_item {
+  flex-grow: 1;
+  color: #666;
+  font: normal 13px "Microsoft YaHei";
+  margin-top: 10rpx;
+}
+
+/*商品推荐*/
+
+.shop_part {
+  display: flex;
+  box-sizing: border-box;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30rpx 0 20rpx;
+}
+
+.shop_img {
+  width: 180rpx;
+  height: 200rpx;
+}
+
+.shop_img image {
+  width: 100%;
+  height: 100%;
+}
+
+.shop_list {
+  width: 480rpx;
+  height: 180rpx;
+  position: relative;
+}
+
+.shop_list_title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.shop_price {
+  color: #f75000;
+  font: normal 13px "Microsoft YaHei";
+  align-self: center;
+}
+
+.shop_intro {
+  width: 400rpx;
+  font: normal 12px "Microsoft YaHei";
+  margin-top: 20rpx;
+}
+
+.shop_btn {
+  color: #fff;
+  padding: 8rpx 20rpx;
+  background-color: #ff2d2d;
+  border-radius: 10rpx;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.scroll_show {
+  display: block;
+}
+
+/*成长记录*/
+/*成长记录导航*/
+.glow_part {
+  display: flex;
+  width: auto;
+  max-width: 720rpx;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.glow_part .glow_tn {
+  width: 240rpx;
+  height: 240rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  background-color: #fff;
+  color: #333;
+  border: 1px solid #eee;
+}
+
+.img {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 100%;
+  margin:  0 auto 10rpx;
+  background-color: royalblue;
+}
+
+.glow_img view {
+  text-align: center;
+}
+
+/*成长记录列表*/
+.glow_list {
+  display: flex;
+  margin: 30rpx auto 0;
+}
+.record_part {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  min-height: 260rpx;
+  background-color: #fff;
+}
+.record_item {
+  width: 230rpx;
+  border-right: 1px solid #ccc;
+}
+.record_message {
+  width: 460rpx;
 }
