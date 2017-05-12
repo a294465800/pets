@@ -1,2 +1,76 @@
 <!--mine.wxml-->
-<text>mine.wxml</text>
+<view class="container">
+  <!--用户信息开始-->
+  <view class="part user">
+    <image src="/images/head_img.jpg"></image>
+    <view class="userinfo">
+      <view class="userinfo_message">
+        <view class="">微信名</view>
+        <view class="userinfo_id">ID:1234560</view>
+      </view>
+      <view class="userinfo_more">></view>
+    </view>
+  </view>
+  <!--用户信息结束-->
+
+  <!--宠物信息开始-->
+  <view class="part pets">
+    <view class="pets_head">
+      <view class="pets_title">
+        <image src=""></image>
+        <view class="pets_title_message">我的宠物</view>
+      </view>
+      <view class="pets_add">+</view>
+    </view>
+    <view class="pets_list">
+      <view class="pets_name">狗蛋</view>
+      <view class="pets_species">英国短毛猫</view>
+      <view class="pets_age">3个月</view>
+    </view>
+    <view class="pets_list">
+      <view class="pets_name">狗蛋</view>
+      <view class="pets_species">英国短毛猫</view>
+      <view class="pets_age">3个月</view>
+    </view>
+    <view class="pets_list">
+      <view class="pets_name">狗蛋寿司</view>
+      <view class="pets_species">英国短毛猫</view>
+      <view class="pets_age">3个月</view>
+    </view>
+  </view>
+  <!--宠物信息结束-->
+
+  <!--收藏通知开始-->
+  <view class="part inform">
+    <view class="collect title">
+      <image src=""></image>
+      <view class="title_message">我的收藏</view>
+    </view>
+    <view class="inform_news title">
+      <image src=""></image>
+      <view class="title_message">消息通知</view>
+    </view>
+  </view>
+  <!--收藏通知结束-->
+
+  <!--订单开始-->
+  <view class="part order">
+    <view class="collect title">
+      <image src=""></image>
+      <view class="title_message">管家小铺</view>
+    </view>
+    <view class=" title">
+      <image src=""></image>
+      <view class="title_message">我的订单</view>
+    </view>
+  </view>
+  <!--订单结束-->
+
+  <!--建议反馈开始-->
+  <view class="part suggest"></view>
+  <!--建议反馈结束-->
+
+  <!--设置开始-->
+  <view class="part setting"></view>
+  <!--设置结束-->
+</view>

@@ -1,1 +1,107 @@
 /* mine.wxss */
+
+/*通用样式*/
+
+.container {
+  background-color: #eee;
+}
+
+.part {
+  width: 100%;
+  background-color: #fff;
+  margin-bottom: 30rpx;
+  padding: 0 30rpx;
+  box-sizing: border-box;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+}
+
+/*用户版面*/
+
+.user {
+  width: 100%;
+  height: 200rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  border-top: 2px solid #ccc;
+}
+
+.user image {
+  width: 170rpx;
+  height: 170rpx;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 100%;
+}
+
+.userinfo {
+  width: 480rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/*宠物信息*/
+
+.pets_head, .pets_title {
+  display: flex;
+  height: 90rpx;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pets_head image {
+  width: 46rpx;
+  height: 46rpx;
+}
+
+.pets_title {
+  color: #666;
+}
+
+.pets_list {
+  display: flex;
+  height: 80rpx;
+  box-sizing: border-box;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  border-top: 1px solid #eee;
+}
+
+.pets_list view {
+  width: 33.3%;
+  text-align: center;
+}
+
+/*消息通知*/
+
+.inform,
+.order {
+  padding: 0;
+}
+
+.title {
+  height: 90rpx;
+  padding: 0 30rpx;
+  font: normal 16px/90rpx "Microsoft YaHei UI";
+  color: #666;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.collect {
+  border-bottom: 1px solid #ccc;
+}
+
+.title image {
+  width: 46rpx;
+  height: 46rpx;
+}
