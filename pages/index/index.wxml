@@ -44,7 +44,7 @@
         <!--日常计划开始-->
         <view class="daily_plan scroll-flex">
           <view class="daily_plan_head">狗蛋的日常计划</view>
-          <block wx:for="{{daily_plan}}" key="*this">
+          <block wx:for="{{daily_plan}}" wx:key="*this">
             <view class="daily_plan_message">
               <view class="daily_plan_news">
                 <text class="daily_plan_news_head">{{item.daily_plan_head}}：</text>
@@ -62,7 +62,7 @@
             <view class="manager_head_title">狗蛋的专属提醒</view>
             <view class="manager_entry" bindtap="goToMangaer">管理></view>
           </view>
-          <block wx:for="{{manager_remaid}}" key="*this">
+          <block wx:for="{{manager_remaid}}" wx:key="*this">
             <view class="manager_message" wx:if="{{index < 2}}">
               <view class="manager_message_new">
                 <text>管家提醒距离
@@ -88,7 +88,7 @@
         <view class="scroll-flex experience">
           <view class="daily_plan_head">狗蛋经历的时期</view>
 
-          <block wx:for="{{experience}}" key="*this">
+          <block wx:for="{{experience}}" wx:key="*this">
             <view class="manager_message" wx:if="{{index < 2}}">
               <view class="manager_message_new">
                 <text class="manager_message_item">{{item.title}}</text>
@@ -121,7 +121,7 @@
             <view class="knowledge_article_message">
               <view class="knowledge_article_title">{{daily_knowledge.title}}</view>
               <view class="knowledge_article_tags">
-                <view class="tags_item" wx:for="{{daily_knowledge.tags}}">{{item}}</view>
+                <view class="tags_item" wx:for="{{daily_knowledge.tags}}" wx:key="*this">{{item}}</view>
               </view>
               <view class="knowledge_article_info">
                 <view class="info_item">{{daily_knowledge.add_time}}</view>
@@ -208,23 +208,78 @@
 
         <!--成长列表开始-->
         <view class="scroll-flex glow_list">
-          <view class="record_part">
+          <view class="record_part" wx:for="{{grow_records}}" wx:key="*this">
             <view class="record_item">
-              <view class="record_time">2017-03-20</view>
-              <view class="record_title">体重记录</view>
-              <view class="record_title">6个月</view>
+              <view class="record_time">{{item.date}}</view>
+              <view class="record_title">{{item.category.name}}</view>
+              <view class="record_title" wx:if="{{item.category.age}}">{{item.category.age}}</view>
               <view class="record_point"></view>
             </view>
-            <view class="record_message">
-              <view class="record_messae_title">
-                <view class="record_message_title_h">身高：60.0cm</view>
-                <view class="record_message_title_s"></view>
+            <view class="record_space">
+              <view class="record_message">
+                <block wx:for="{{item.category.records}}" wx:key="*this">
+                  <block wx:if="{{index < 1}}">
+                    <view class="record_messae_title">
+                      <view class="record_message_title_h" wx:for="{{item.items}}" wx:key="*this">{{item}}</view>
+                    </view>
+                    <view class="record_message_title_s">{{item.remark}}</view>
+                    <view class="record_img">
+                      <image wx:for="{{item.src}}" wx:key="*this" src="{{item}}" mode="aspectFit"></image>
+                    </view>
+                  </block>
+                  <block wx:else>
+                    <view class="record_more">
+                      <view class="record_time_float">
+                        <view class="record_time">{{item.time}}</view>
+                        <view class="record_point2"></view>
+                      </view>
+                      <view class="record_more_title">
+                        <view class="record_message_title_h">{{item.items[0]}}</view>
+                        <view class="record_message_title_s">{{item.remark}}</view>
+                        <view class="record_img">
+                          <image wx:for="{{item.src}}" wx:key="*this" src="{{item}}" mode="aspectFit"></image>
+                        </view>
+                      </view>
+                    </view>
+                  </block>
+                </block>
+                <!--<view class="record_messae_title">
+                  <view class="record_message_title_h">体重：37.0kg</view>
+                  <view class="record_message_title_s"></view>
+                </view>-->
               </view>
-              <view class="record_messae_title">
-                <view class="record_message_title_h">体重：37.0kg</view>
-                <view class="record_message_title_s"></view>
+              <!--<view class="record_more" wx:for="{{item.records}}" wx:key="*this">
+                <view class="record_time_float">
+                  <view class="record_time">09:30</view>
+                  <view class="record_point2"></view>
+                </view>
+                <view class="record_more_title">
+                  <view class="record_message_title_h">散步、旅游</view>
+                  <view class="record_message_title_s">逛了中山公园，狗蛋很开心呢~</view>
+                </view>
+              </view>-->
+              <!--<view class="record_more">
+                <view class="record_time_float">
+                  <view class="record_time">19:30</view>
+                  <view class="record_point2"></view>
+                </view>
+                <view class="record_more_title">
+                  <view class="record_message_title_h">散步、旅游</view>
+                  <view class="record_message_title_s">逛了中山公园，狗蛋很开心呢~</view>
+                </view>
               </view>
+              <view class="record_more">
+                <view class="record_time_float">
+                  <view class="record_time">19:30</view>
+                  <view class="record_point2"></view>
+                </view>
+                <view class="record_more_title">
+                  <view class="record_message_title_h">散步、旅游</view>
+                  <view class="record_message_title_s">逛了中山公园，狗蛋很开的点点滴滴多对对对心呢~</view>
+                </view>
+              </view>-->
             </view>
+
           </view>
         </view>
         <!--成长列表结束-->

@@ -12,24 +12,26 @@
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#ff963d",
     "list": [
       {
         "pagePath": "pages/index/index",
         "text": "管家",
-        "iconPath": "iconPath",
-        "selectedIconPath": "selectedIconPath"
+        "iconPath": "/images/tab_bar/manager.png",
+        "selectedIconPath": "/images/tab_bar/manager_hover.png"
       },
       {
-        "pagePath": "pages/index/index",
+        "pagePath": "pages/first_meal/first_meal",
         "text": "干货",
-        "iconPath": "iconPath",
-        "selectedIconPath": "selectedIconPath"
+        "iconPath": "/images/tab_bar/news.png",
+        "selectedIconPath": "/images/tab_bar/news_hover.png"
       },
       {
         "pagePath": "pages/index/index",
         "text": "我的",
-        "iconPath": "iconPath",
-        "selectedIconPath": "selectedIconPath"
+        "iconPath": "/images/tab_bar/mine.png",
+        "selectedIconPath": "/images/tab_bar/mine_hover.png"
       }
     ]
   },

@@ -4,6 +4,7 @@
 
 .container {
   box-sizing: border-box;
+  height: 97%;
   border-top: 2px solid #d0d0d0;
 }
 
@@ -24,20 +25,25 @@
 .home {
   width: 100%;
   height: 100%;
+  background-color: #eee;
 }
 
 /*导航样式*/
 
 .nav {
   height: 19%;
+  box-sizing: border-box;
+  background-color: #fff;
 }
 
 .nav_top {
   display: flex;
+  box-sizing: border-box;
   flex-direction: row;
   justify-content: space-between;
   padding: 20rpx 40rpx;
   margin-top: 30rpx;
+  height: 68%;
 }
 
 .nav_top_left, .nav_top_right {
@@ -94,14 +100,14 @@
   width: 200rpx;
   height: 30rpx;
   box-sizing: border-box;
-  border: 2px solid dodgerblue;
+  border: 2px solid #f75000;
   align-self: center;
 }
 
 .persent {
   width: 20%;
   height: 100%;
-  background-color: dodgerblue;
+  background-color: #f75000;
   font: normal 10px/24rpx "Microsoft YaHei UI";
   color: #fff;
   text-align: center;
@@ -111,7 +117,7 @@
   display: flex;
   justify-content: space-around;
   width: 100%;
-  height: 74rpx;
+  height: 32%;
 }
 
 .nav_bottom view {
@@ -133,7 +139,8 @@
 .scroll_wrap {
   display: none;
   width: 100%;
-  height: 81%;
+  height: 76%;
+  margin: 3% 0 2%;
 }
 
 .scroll-plan {
@@ -145,14 +152,13 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-bottom: 30rpx;
 }
 
 .scroll-flex {
   width: 700rpx;
   align-self: center;
   background-color: #fff;
-  margin-top: 30rpx;
+  margin-bottom: 30rpx;
 }
 
 /*日常计划*/
@@ -379,7 +385,9 @@
 }
 
 /*成长记录*/
+
 /*成长记录导航*/
+
 .glow_part {
   display: flex;
   width: auto;
@@ -405,7 +413,7 @@
   width: 100rpx;
   height: 100rpx;
   border-radius: 100%;
-  margin:  0 auto 10rpx;
+  margin: 0 auto 10rpx;
   background-color: royalblue;
 }
 
@@ -414,21 +422,122 @@
 }
 
 /*成长记录列表*/
+
 .glow_list {
   display: flex;
   margin: 30rpx auto 0;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
+
 .record_part {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
-  min-height: 260rpx;
+  justify-content: space-between;
+  min-height: 210rpx;
   background-color: #fff;
 }
-.record_item {
-  width: 230rpx;
-  border-right: 1px solid #ccc;
+
+.record_item, .record_message {
+  padding: 40rpx 0;
 }
-.record_message {
-  width: 460rpx;
+
+.record_item {
+  width: 260rpx;
+  border-right: 1px solid #ccc;
+  text-align: center;
+  position: relative;
+}
+
+.record_space {
+  width: 430rpx;
+}
+
+.record_message, .record_more_title {
+  width: 430rpx;
+  text-align: left;
+  text-indent: 30rpx;
+}
+
+.record_time {
+  font: normal 14px "Microsoft YaHei UI";
+  color: #8e8e8e;
+  text-align: right;
+  padding-right: 40rpx;
+}
+
+.record_title {
+  font: normal 13px "Microsoft YaHei UI";
+  color: #f75000;
+  margin: 10rpx 0;
+}
+
+.record_point {
+  width: 20rpx;
+  height: 20rpx;
+  border-radius: 100%;
+  background-color: #f75000;
+  position: absolute;
+  top: 47rpx;
+  right: -9rpx;
+}
+
+.record_more_wrap {
+  position: relative;
+  top: -30rpx;
+  left: 0;
+}
+
+.record_more {
+  position: relative;
+  margin: 10rpx 0;
+}
+
+.record_time_float {
+  position: absolute;
+  width: 140rpx;
+  top: 0rpx;
+  left: -142rpx;
+}
+
+.record_point2 {
+  width: 20rpx;
+  height: 20rpx;
+  border-radius: 100%;
+  background-color: #8e8e8e;
+  position: absolute;
+  top: 6rpx;
+  right: -9rpx;
+}
+
+.record_message_title_h {
+  font: normal 15px "Microsoft YaHei UI";
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.record_message_title_s {
+  box-sizing: border-box;
+  font: normal 13px "Microsoft YaHei UI";
+  color: #999;
+  padding-left: 30rpx;
+  text-indent: 0;
+}
+
+.record_img {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  width: 400rpx;
+  padding-left: 30rpx;
+  overflow: hidden;
+}
+
+.record_img image {
+  width: 80rpx;
+  height: 80rpx;
+  margin-right: 10rpx;
 }
