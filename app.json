@@ -1,9 +1,11 @@
 {
   "pages": [
+    "pages/news/news",
     "pages/index/index",
     "pages/first_meal/first_meal",
     "pages/first_step/first_step",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/mine/mine"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -22,13 +24,13 @@
         "selectedIconPath": "/images/tab_bar/manager_hover.png"
       },
       {
-        "pagePath": "pages/first_meal/first_meal",
+        "pagePath": "pages/news/news",
         "text": "干货",
         "iconPath": "/images/tab_bar/news.png",
         "selectedIconPath": "/images/tab_bar/news_hover.png"
       },
       {
-        "pagePath": "pages/index/index",
+        "pagePath": "pages/mine/mine",
         "text": "我的",
         "iconPath": "/images/tab_bar/mine.png",
         "selectedIconPath": "/images/tab_bar/mine_hover.png"

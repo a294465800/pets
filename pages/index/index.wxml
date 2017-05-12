@@ -65,16 +65,14 @@
           <block wx:for="{{manager_remaid}}" wx:key="*this">
             <view class="manager_message" wx:if="{{index < 2}}">
               <view class="manager_message_new">
-                <text>管家提醒距离
-                  <text class="manager_message_item">{{item.title}}</text>还剩</text>
+                <text>管家提醒距离<text class="manager_message_item">{{item.title}}</text>还剩</text>
               </view>
               <view class="manager_time">{{item.R_time}}天</view>
             </view>
             <view class="manager_hide {{managerShow?'manager_show':''}}" wx:else>
               <view class="manager_message">
                 <view class="manager_message_new">
-                  <text>管家提醒距离
-                    <text class="manager_message_item">{{item.title}}</text>还剩</text>
+                  <text>管家提醒距离<text class="manager_message_item">{{item.title}}</text>还剩</text>
                 </view>
                 <view class="manager_time">{{item.R_time}}天</view>
               </view>
@@ -92,16 +90,14 @@
             <view class="manager_message" wx:if="{{index < 2}}">
               <view class="manager_message_new">
                 <text class="manager_message_item">{{item.title}}</text>
-                <text>，距离结束还剩
-                  <text class="experience_time">{{item.R_time}}</text>天</text>
+                <text>，距离结束还剩<text class="experience_time">{{item.R_time}}</text>天</text>
               </view>
             </view>
             <view class="manager_hide {{experienceShow?'manager_show':''}}" wx:else>
               <view class="manager_message">
                 <view class="manager_message_new">
                   <text class="manager_message_item">{{item.title}}</text>
-                  <text>，距离结束还剩
-                    <text class="experience_time">{{item.R_time}}</text>天</text>
+                  <text>，距离结束还剩<text class="experience_time">{{item.R_time}}</text>天</text>
                 </view>
               </view>
             </view>
@@ -124,9 +120,18 @@
                 <view class="tags_item" wx:for="{{daily_knowledge.tags}}" wx:key="*this">{{item}}</view>
               </view>
               <view class="knowledge_article_info">
-                <view class="info_item">{{daily_knowledge.add_time}}</view>
-                <view class="info_item">{{daily_knowledge.comment}}</view>
-                <view class="info_item">{{daily_knowledge.read}}+</view>
+                <view class="info_item">
+                  <image src="/images/icon/time.png" mode="aspectFit"></image>
+                  <view>{{daily_knowledge.add_time}}</view>
+                </view>
+                <view class="info_item">
+                  <image src="/images/icon/comment.png" mode="aspectFit"></image>
+                  <view>{{daily_knowledge.comment}}</view>
+                </view>
+                <view class="info_item">
+                  <image src="/images/icon/read.png" mode="aspectFit" class="read"></image>
+                  <view>{{daily_knowledge.read}}+</view>
+                </view>
               </view>
             </view>
             <view class="knowledge_article_img">
@@ -243,41 +248,7 @@
                     </view>
                   </block>
                 </block>
-                <!--<view class="record_messae_title">
-                  <view class="record_message_title_h">体重：37.0kg</view>
-                  <view class="record_message_title_s"></view>
-                </view>-->
               </view>
-              <!--<view class="record_more" wx:for="{{item.records}}" wx:key="*this">
-                <view class="record_time_float">
-                  <view class="record_time">09:30</view>
-                  <view class="record_point2"></view>
-                </view>
-                <view class="record_more_title">
-                  <view class="record_message_title_h">散步、旅游</view>
-                  <view class="record_message_title_s">逛了中山公园，狗蛋很开心呢~</view>
-                </view>
-              </view>-->
-              <!--<view class="record_more">
-                <view class="record_time_float">
-                  <view class="record_time">19:30</view>
-                  <view class="record_point2"></view>
-                </view>
-                <view class="record_more_title">
-                  <view class="record_message_title_h">散步、旅游</view>
-                  <view class="record_message_title_s">逛了中山公园，狗蛋很开心呢~</view>
-                </view>
-              </view>
-              <view class="record_more">
-                <view class="record_time_float">
-                  <view class="record_time">19:30</view>
-                  <view class="record_point2"></view>
-                </view>
-                <view class="record_more_title">
-                  <view class="record_message_title_h">散步、旅游</view>
-                  <view class="record_message_title_s">逛了中山公园，狗蛋很开的点点滴滴多对对对心呢~</view>
-                </view>
-              </view>-->
             </view>
 
           </view>
