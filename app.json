@@ -1,8 +1,8 @@
 {
   "pages": [
+    "pages/index/index",
     "pages/mine/mine",
     "pages/news/news",
-    "pages/index/index",
     "pages/first_meal/first_meal",
     "pages/first_step/first_step",
     "pages/logs/logs"

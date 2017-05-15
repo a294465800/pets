@@ -2,13 +2,13 @@
 <view class="container">
   <!--用户信息开始-->
   <view class="part user">
-    <image src="/images/head_img.jpg"></image>
+    <image src="/images/head_img.jpg" class="user_img"></image>
     <view class="userinfo">
       <view class="userinfo_message">
         <view class="">微信名</view>
         <view class="userinfo_id">ID:1234560</view>
       </view>
-      <view class="userinfo_more">></view>
+      <image src="/images/grow_record/more.png" class="userinfo_more"></image>
     </view>
   </view>
   <!--用户信息结束-->
@@ -17,15 +17,10 @@
   <view class="part pets">
     <view class="pets_head">
       <view class="pets_title">
-        <image src=""></image>
+        <image class="pet_img" src="/images/user/pets.png"></image>
         <view class="pets_title_message">我的宠物</view>
       </view>
-      <view class="pets_add">+</view>
-    </view>
-    <view class="pets_list">
-      <view class="pets_name">狗蛋</view>
-      <view class="pets_species">英国短毛猫</view>
-      <view class="pets_age">3个月</view>
+      <image class="pet_add" src="/images/user/plus.png"></image>
     </view>
     <view class="pets_list">
       <view class="pets_name">狗蛋</view>
@@ -43,34 +38,53 @@
   <!--收藏通知开始-->
   <view class="part inform">
     <view class="collect title">
-      <image src=""></image>
+      <image class="pet_img" src="/images/user/collect.png"></image>
       <view class="title_message">我的收藏</view>
     </view>
     <view class="inform_news title">
-      <image src=""></image>
-      <view class="title_message">消息通知</view>
+      <view class="inform_news_left">
+        <image class="pet_img" src="/images/user/inform.png"></image>
+        <view class="title_message">消息通知</view>
+      </view>
+      <image src="/images/grow_record/more.png" class="userinfo_more"></image>
     </view>
   </view>
   <!--收藏通知结束-->
 
   <!--订单开始-->
   <view class="part order">
-    <view class="collect title">
-      <image src=""></image>
-      <view class="title_message">管家小铺</view>
+    <view class="collect title inform_news">
+      <view class="inform_news_left">
+        <image class="pet_img" src="/images/user/shop.png"></image>
+        <view class="title_message">管家小铺</view>
+      </view>
+      <image src="/images/grow_record/more.png" class="userinfo_more"></image>
     </view>
-    <view class=" title">
-      <image src=""></image>
-      <view class="title_message">我的订单</view>
+    <view class="title inform_news">
+      <view class="inform_news_left">
+        <image class="pet_img" src="/images/user/order.png"></image>
+        <view class="title_message">我的订单</view>
+      </view>
+      <image src="/images/grow_record/more.png" class="userinfo_more"></image>
     </view>
   </view>
   <!--订单结束-->
 
   <!--建议反馈开始-->
-  <view class="part suggest"></view>
+  <view class="part suggest">
+    <view class="title">
+      <image class="pet_img" src="/images/user/suggest.png"></image>
+      <view class="title_message">建议反馈</view>
+    </view>
+  </view>
   <!--建议反馈结束-->
 
   <!--设置开始-->
-  <view class="part setting"></view>
+  <view class="part setting">
+    <view class=" title">
+      <image class="pet_img" src="/images/user/setting.png"></image>
+      <view class="title_message">设置</view>
+    </view>
+  </view>
   <!--设置结束-->
 </view>

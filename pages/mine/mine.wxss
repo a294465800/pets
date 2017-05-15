@@ -9,8 +9,7 @@
 .part {
   width: 100%;
   background-color: #fff;
-  margin-bottom: 30rpx;
-  padding: 0 30rpx;
+  margin-bottom: 20rpx;
   box-sizing: border-box;
   border-top: 1px solid #ccc;
   border-bottom: 1px solid #ccc;
@@ -21,6 +20,8 @@
 .user {
   width: 100%;
   height: 200rpx;
+  box-sizing: border-box;
+  padding: 0 30rpx;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -29,23 +30,31 @@
   border-top: 2px solid #ccc;
 }
 
-.user image {
-  width: 170rpx;
-  height: 170rpx;
-  box-sizing: border-box;
+.user .user_img {
+  width: 140rpx;
+  height: 140rpx;
   border: 1px solid #ccc;
   border-radius: 100%;
 }
 
 .userinfo {
-  width: 480rpx;
+  width: 510rpx;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
 }
 
+.userinfo_more {
+  width: 18rpx;
+  height: 30rpx;
+}
+
 /*宠物信息*/
+
+.pets_head {
+  padding: 0 30rpx;
+}
 
 .pets_head, .pets_title {
   display: flex;
@@ -55,13 +64,49 @@
   align-items: center;
 }
 
-.pets_head image {
-  width: 46rpx;
-  height: 46rpx;
+.pets_title {
+  color: #333;
 }
 
-.pets_title {
-  color: #666;
+.pet_img {
+  width: 38rpx;
+  height: 36rpx;
+  padding: 10rpx;
+  border-radius: 100%;
+  margin-right: 20rpx;
+}
+
+.pets .pet_img {
+  background-color: #ff963d;
+}
+
+.inform .title:nth-child(1) .pet_img {
+  background-color: #ff718f;
+}
+
+.inform .title:nth-child(2) .pet_img {
+  background-color: #91c860;
+}
+
+.order .title:nth-child(1) .pet_img {
+  background-color: #ff7d7d;
+}
+
+.order .title:nth-child(2) .pet_img {
+  background-color: #8caae7;
+}
+
+.suggest .pet_img {
+  background-color: #6dc6ff;
+}
+
+.setting .pet_img {
+  background-color: #73869a;
+}
+
+.pet_add {
+  width: 32rpx;
+  height: 32rpx;
 }
 
 .pets_list {
@@ -72,6 +117,8 @@
   justify-content: space-around;
   align-items: center;
   border-top: 1px solid #eee;
+  font-size: 15px;
+  color: #999;
 }
 
 .pets_list view {
@@ -81,16 +128,15 @@
 
 /*消息通知*/
 
-.inform,
-.order {
+.inform, .order, .suggest, .setting {
   padding: 0;
 }
 
 .title {
-  height: 90rpx;
+  height: 80rpx;
   padding: 0 30rpx;
-  font: normal 16px/90rpx "Microsoft YaHei UI";
-  color: #666;
+  font: normal 16px/80rpx "Microsoft YaHei UI";
+  color: #333;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -98,10 +144,19 @@
 }
 
 .collect {
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #eee;
 }
 
-.title image {
-  width: 46rpx;
-  height: 46rpx;
+.inform_news {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.inform_news_left {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
 }

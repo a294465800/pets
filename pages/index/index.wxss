@@ -34,6 +34,7 @@
   height: 19%;
   box-sizing: border-box;
   background-color: #fff;
+  position: relative;
 }
 
 .nav_top {
@@ -41,31 +42,38 @@
   box-sizing: border-box;
   flex-direction: row;
   justify-content: space-between;
-  padding: 20rpx 40rpx;
+  align-items: center;
+  padding: 0 40rpx 20rpx;
   margin-top: 30rpx;
-  height: 68%;
+  height: 100%;
+  width: 100%;
 }
 
-.nav_top_left, .nav_top_right {
-  display: flex;
-  align-self: center;
-}
-
-.head_img image {
-  width: 80rpx;
-  height: 80rpx;
+.nav_top image {
+  height: 140rpx;
+  width: 140rpx;
   border: 2px solid #9d9d9d;
   border-radius: 100%;
 }
 
+.nav_top_right {
+  width: 460rpx;
+  padding-top: 20rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .head_word {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
   padding-top: 10rpx;
-  text-indent: 29rpx;
-  position: relative;
+  margin-bottom: 50rpx;
 }
 
 .pet_name, .pet_age {
-  font: 700 14px "Microsoft YaHei UI";
+  font: 700 16px "Microsoft YaHei UI";
   color: #5b5b5b;
 }
 
@@ -77,70 +85,102 @@
 }
 
 .head_word .pet_age {
-  font: normal 12px "Microsoft YaHei UI";
-  color: #333;
+  font: normal 14px "Microsoft YaHei UI";
+  color: #999;
 }
 
-.head_refresh {
-  width: 30rpx;
-  height: 30rpx;
-  background-color: #666;
+.head_shift {
+  color: #ff963d;
   border-radius: 100%;
   position: absolute;
-  right: -30rpx;
-  top: 10rpx;
+  right: 40rpx;
+  top: 0rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.status {
-  font: 700 14px "Microsoft YaHei UI";
-  color: #5b5b5b;
+.head_shift image {
+  width: 24rpx;
+  height: 24rpx;
 }
 
-.status_progess {
-  width: 200rpx;
-  height: 30rpx;
-  box-sizing: border-box;
-  border: 2px solid #f75000;
-  align-self: center;
+.progress {
+  width: 100%;
+  height: 14rpx;
+  position: relative;
+  background-color: #ccc;
+  border-radius: 14rpx;
 }
 
-.persent {
-  width: 20%;
-  height: 100%;
-  background-color: #f75000;
-  font: normal 10px/24rpx "Microsoft YaHei UI";
-  color: #fff;
-  text-align: center;
+.percent {
+  font: normal 12px "Microsoft YaHei UI";
+  color: #999;
+  position: absolute;
+  top: -34rpx;
+  right: 0;
+}
+
+.progress_body {
+  width: 0;
+  height: 14rpx;
+  background-color: #ff963d;
+  border-radius: 14rpx;
+  max-width: 100%;
 }
 
 .nav_bottom {
   display: flex;
   justify-content: space-around;
+  background-color: #fff;
   width: 100%;
-  height: 32%;
+  height: 10%;
+  box-sizing: border-box;
 }
 
-.nav_bottom view {
-  font: normal 14px/64rpx "Microsoft YaHei UI";
+.nav_bottom .record {
+  box-sizing: border-box;
+  font: normal 16px/74rpx "Microsoft YaHei UI";
   flex-grow: 1;
   text-align: center;
-  border-bottom: 3px solid transparent;
+  position: relative;
+  border-bottom: 1px solid #ccc;
 }
 
 .nav_bottom .nav_select {
-  font-weight: 700;
-  border-color: red;
+  color: #fff;
+  background-color: #ff963d;
+  border-color: transparent;
+}
+
+.nav_bottom .nav_select::after {
+  content: '';
+  width: 0rpx;
+  height: 0rpx;
+  border-width: 20rpx;
+  border-style: solid;
+  border-color: transparent transparent #fff transparent;
+  position: absolute;
+  bottom: -2rpx;
+  left: 50%;
+  margin-left: -20rpx;
 }
 
 /*今日安排样式*/
 
 /*通用样式*/
 
+.wrap {
+  height: 77%;
+  margin-top: 4%;
+}
+
 .scroll_wrap {
   display: none;
   width: 100%;
-  height: 76%;
-  margin: 3% 0 2%;
+  height: 89%;
+  margin: 0 0 1%;
 }
 
 .scroll-plan {
@@ -150,12 +190,11 @@
   background-color: #eee;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-start;
 }
 
 .scroll-flex {
-  width: 700rpx;
+  width: 100%;
   align-self: center;
   background-color: #fff;
   margin-bottom: 30rpx;
@@ -176,9 +215,46 @@
 }
 
 .daily_plan_head {
-  font: normal 12px "Microsoft YaHei Ui";
-  color: #666;
-  padding: 16rpx 40rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  font: 700 16px "Microsoft YaHei";
+  color: #000;
+  padding: 20rpx 30rpx;
+}
+
+.title_word {
+  height: 50rpx;
+  line-height: 50rpx;
+}
+
+/*标题图片通用样式*/
+
+.title_img {
+  width: 30rpx;
+  height: 30rpx;
+  padding: 10rpx;
+  background-color: #15b0c6;
+  border-radius: 100%;
+  margin-right: 20rpx;
+}
+
+.period {
+  background-color: #8eaeef;
+}
+
+.clock {
+  background-color: #ffa9a9;
+  width: 32rpx;
+}
+
+.knowledge_img {
+  background-color: #ffa75c;
+}
+
+.product {
+  background-color: #ff98d0;
 }
 
 .daily_plan_news {
@@ -186,19 +262,13 @@
 }
 
 .daily_plan_news_head {
-  color: #2c56de;
+  color: #999;
+  margin-right: 20rpx;
 }
 
 .daily_plan_punch {
-  color: #fff;
-  background-color: #0a8f08;
-  font: normal 14px "Microsoft YaHei UI";
-  padding: 10rpx;
-  border-radius: 10rpx;
-}
-
-.daily_plan_punch_hover {
-  background-color: #78909c;
+  width: 40rpx;
+  height: 40rpx;
 }
 
 /*管理提醒*/
@@ -207,9 +277,23 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  font: normal 12px "Microsoft YaHei Ui";
-  color: #666;
-  padding: 16rpx 20rpx 16rpx 40rpx;
+  align-items: center;
+  font: normal 16px "Microsoft YaHei Ui";
+  color: #999;
+  padding-right: 40rpx;
+}
+
+.manager_entry {
+  width: 90rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.manager_entry image {
+  width: 14rpx;
+  height: 30rpx;
 }
 
 .manager_message {
@@ -225,11 +309,11 @@
 }
 
 .manager_message_new {
-  font: bold 16px/23px "Microsoft YaHei";
+  font: normal 16px/23px "Microsoft YaHei";
 }
 
 .manager_message_item {
-  color: #46a3ff;
+  color: #ff963d;
 }
 
 .manager_time {
@@ -237,9 +321,9 @@
 }
 
 .manager_more {
-  height: 60rpx;
-  border: none;
   justify-content: center;
+  font-size: 15px;
+  color: #ccc;
 }
 
 .manager_hide {
@@ -250,16 +334,10 @@
   display: block;
 }
 
-/*经历时期*/
-
-.experience_time {
-  color: #f75000;
-}
-
 /*知识专题*/
 
-.knowledge, .shop {
-  height: 280rpx;
+.knowledge {
+  height: 300rpx;
 }
 
 .knowledge_article {
@@ -305,11 +383,19 @@
 }
 
 .tags_item {
-  padding: 0 10rpx;
-  border: 1px solid #ccc;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
   color: #666;
   font: normal 12px "Microsoft YaHei";
-  margin-right: 10rpx;
+  margin-right: 20rpx;
+}
+
+.tag_img {
+  width: 20rpx;
+  height: 20rpx;
+  margin-right: 6rpx;
 }
 
 .knowledge_article_info {
@@ -337,6 +423,11 @@
 
 /*商品推荐*/
 
+.shop {
+  height: 360rpx;
+  position: relative;
+}
+
 .shop_part {
   display: flex;
   box-sizing: border-box;
@@ -348,7 +439,7 @@
 
 .shop_img {
   width: 180rpx;
-  height: 200rpx;
+  height: 220rpx;
 }
 
 .shop_img image {
@@ -358,36 +449,30 @@
 
 .shop_list {
   width: 480rpx;
-  height: 180rpx;
-  position: relative;
-}
-
-.shop_list_title {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
 }
 
 .shop_price {
-  color: #f75000;
-  font: normal 13px "Microsoft YaHei";
+  color: #ff5000;
+  font: normal 16px "Microsoft YaHei";
   align-self: center;
+  margin-top: 10rpx;
 }
 
 .shop_intro {
   width: 400rpx;
   font: normal 12px "Microsoft YaHei";
   margin-top: 20rpx;
+  color: #999;
 }
 
 .shop_btn {
   color: #fff;
   padding: 8rpx 20rpx;
-  background-color: #ff2d2d;
+  background-color: #ff963d;
   border-radius: 10rpx;
   position: absolute;
-  bottom: 0;
-  right: 0;
+  bottom: 20rpx;
+  right: 30rpx;
 }
 
 .scroll_show {
@@ -398,18 +483,20 @@
 
 /*成长记录导航*/
 
+.scroll_grow {
+  align-items: center;
+}
+
 .glow_part {
   display: flex;
-  width: auto;
-  max-width: 720rpx;
   flex-direction: row;
   justify-content: flex-start;
   flex-wrap: wrap;
 }
 
 .glow_part .glow_tn {
-  width: 240rpx;
-  height: 240rpx;
+  width: 250rpx;
+  height: 250rpx;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -420,14 +507,29 @@
 }
 
 .img {
-  width: 100rpx;
-  height: 100rpx;
+  width: 60rpx;
+  height: 60rpx;
+  padding: 20rpx;
   border-radius: 100%;
-  margin: 0 auto 10rpx;
-  background-color: royalblue;
+  margin: 0 0 10rpx;
+  background: linear-gradient(#ff963d, #fdc60a);
 }
-
-.glow_img view {
+.glow_tn:nth-child(2) .img {
+  background: linear-gradient(#0087fb, #00adfa);
+}
+.glow_tn:nth-child(3) .img {
+  background: linear-gradient(#fd6b42, #fe9263);
+}
+.glow_tn:nth-child(4) .img {
+  background: linear-gradient(#55d63d, #86e451);
+}
+.glow_tn:nth-child(5) .img {
+  background: linear-gradient(#8f5ff9, #ac79fb);
+}
+.glow_tn:nth-child(6) .img {
+  background: linear-gradient(#f45eb8, #ff81ba);
+}
+.glow_img {
   text-align: center;
 }
 
@@ -479,7 +581,7 @@
 
 .record_title {
   font: normal 13px "Microsoft YaHei UI";
-  color: #f75000;
+  color: #ff963d;
   margin: 10rpx 0;
 }
 
@@ -487,7 +589,7 @@
   width: 20rpx;
   height: 20rpx;
   border-radius: 100%;
-  background-color: #f75000;
+  background-color: #ff963d;
   position: absolute;
   top: 47rpx;
   right: -9rpx;

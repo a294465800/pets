@@ -2,6 +2,7 @@
 //获取应用实例
 Page({
   data: {
+    progress: 0,
     scroll_id: 0,
     nav_id: 0,
     nav_head: [{
@@ -10,9 +11,6 @@ Page({
     }, {
       name: '成长记录',
       id: 1
-    }, {
-      name: '问答广场',
-      id: 2
     }],
     daily_plan: [
       {
@@ -90,11 +88,35 @@ Page({
       src: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1494497805444&di=d53add15ca64b8d47258ffe17b39b48c&imgtype=0&src=http%3A%2F%2Fimg2.3lian.com%2F2014%2Ff4%2F77%2Fd%2F68.jpg'
     },
     daily_shop: {
-      title: '小鲜粮肉卷10KG 5条装',
+      title: '小鲜粮肉卷10KG 5条装ssssssssssssssssssss',
       price: '36.00',
       intro: '满足主粮需求 每日提供2000大卡能量 \n 搭配每天1500ml水健康成长',
       src: 'https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3352940552,2713165205&fm=23&gp=0.jpg'
     },
+    grow_nav: [{
+      name: '喂食',
+      src: '/images/grow_record/eat.png'
+    },
+    {
+      name: '健康',
+      src: '/images/grow_record/health.png'
+    },
+    {
+      name: '玩耍',
+      src: '/images/grow_record/play.png'
+    },
+    {
+      name: '身高体重',
+      src: '/images/grow_record/grow.png'
+    },
+    {
+      name: '清洁',
+      src: '/images/grow_record/clean.png'
+    },
+    {
+      name: '记账本',
+      src: '/images/grow_record/paybook.png'
+    }],
     grow_records: [
       {
         date: '2017-03-20',
@@ -214,9 +236,15 @@ Page({
   //打卡
   daily_plan_punch: function (e) {
     let id = Number(e.target.id)
-    let temp = 'daily_plan[' + id + '].daily_plan_punch';
+    let a = e.currentTarget.dataset.length
+    let progress = Number(e.currentTarget.dataset.progress) + 20
+    let temp = 'daily_plan[' + id + '].daily_plan_punch'
+    if (progress > 100){
+      progress = 100
+    }
     this.setData({
-      [temp]: 'true'
+      [temp]: 'true',
+      progress: progress
     })
   },
 
