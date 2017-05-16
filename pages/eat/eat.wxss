@@ -1,5 +1,9 @@
 /* eat.wxss */
 
+.container {
+  background-color: #f0f0f0;
+}
+
 /*表单样式*/
 
 .function_part {
@@ -8,7 +12,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  background-color: #fff;
 }
 
 .each_line, .food_category {
@@ -17,10 +21,81 @@
   justify-content: flex-start;
   align-items: center;
 }
+
+.each_line {
+  margin: 30rpx 0;
+}
+
 .remark {
   align-self: flex-start;
 }
+
 .word {
-  width: 160rpx;
-  text-align: justify;
+  width: 180rpx;
+}
+
+.p_input {
+  font: normal 16px "Microsoft YaHei";
+}
+
+input, textarea {
+  border: 1px solid #999;
+  border-radius: 3px;
+  padding: 0 10rpx;
+}
+
+#food {
+  width: 200rpx;
+}
+
+#weight {
+  width: 120rpx;
+  text-align: center;
+}
+
+#remark {
+  width: 480rpx;
+  height: 160rpx;
+  padding: 10rpx 10rpx;
+}
+
+.g {
+  text-indent: 10rpx;
+}
+
+.food {
+  justify-content: space-between;
+}
+.eat_photo {
+  width: 48rpx;
+  height: 40rpx;
+}
+
+/*上传图片预览样式*/
+.pre_img {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 30rpx 0;
+}
+.img_item {
+  width: 140rpx;
+  height: 140rpx;
+  margin-right: 20rpx;
+}
+
+/*保存按钮*/
+.btn button {
+  width: 260rpx;
+  align-self: center;
+  background-color: #ff963d;
+  color: #fff;
+  border-radius: 20rpx;
+  margin-bottom: 30rpx;
+}
+
+/*列表样式*/
+.list {
+  margin-top: 30rpx;
 }

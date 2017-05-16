@@ -1,0 +1,41 @@
+<view class="scroll-flex glow_list">
+  <view class="record_part" wx:for="{{grow_records}}" wx:key="*this">
+    <view class="record_item">
+      <view class="record_time">{{item.date}}</view>
+      <view class="record_title">{{item.category.name}}</view>
+      <view class="record_title" wx:if="{{item.category.age}}">{{item.category.age}}</view>
+      <view class="record_point"></view>
+    </view>
+    <view class="record_space">
+      <view class="record_message">
+        <block wx:for="{{item.category.records}}" wx:key="*this">
+          <block wx:if="{{index < 1}}">
+            <view class="record_messae_title">
+              <view class="record_message_title_h" wx:for="{{item.items}}" wx:key="*this">{{item}}</view>
+            </view>
+            <view class="record_message_title_s">{{item.remark}}</view>
+            <view class="record_img first_img">
+              <image wx:for="{{item.src}}" wx:key="*this" src="{{item}}" data-src="{{item}}" mode="aspectFit" bindtap="preImage"></image>
+            </view>
+          </block>
+          <block wx:else>
+            <view class="record_more">
+              <view class="record_time_float">
+                <view class="record_time">{{item.time}}</view>
+                <view class="record_point2"></view>
+              </view>
+              <view class="record_more_title">
+                <view class="record_message_title_h">{{item.items[0]}}</view>
+                <view class="record_message_title_s">{{item.remark}}</view>
+                <view class="record_img">
+                  <image wx:for="{{item.src}}" wx:key="*this" src="{{item}}" data-src="{{item}}" mode="aspectFit" bindtap="preImage"></image>
+                </view>
+              </view>
+            </view>
+          </block>
+        </block>
+      </view>
+    </view>
+
+  </view>
+</view>

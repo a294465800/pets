@@ -1,0 +1,19 @@
+<!--health.wxml-->
+<view class="container">
+  <!--引入头时间条开始-->
+  <include src="/pages/common/time.wxml" />
+  <!--引入结束-->
+
+  <!--输入表单开始-->
+  <form class="function_part" bindsubmit="formSubmit">
+  
+  </form>
+  <!--输入表单结束-->
+
+  <!--最近信息列表开始-->
+  <view class="list">
+    <include src="/pages/common/grow_list.wxml" />
+  </view>
+  <!--最近信息列表结束-->
+
+</view>

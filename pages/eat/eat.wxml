@@ -1,22 +1,40 @@
 <!--eat.wxml-->
 <view class="container">
+  <!--引入头时间条开始-->
   <include src="/pages/common/time.wxml" />
+  <!--引入结束-->
+
+  <!--输入表单开始-->
   <form class="function_part" bindsubmit="formSubmit">
     <view class="food each_line">
       <view class="food_category">
         <view class="word">喂食类别：</view>
-        <input placeholder="干粮" name="food" />
+        <input placeholder="干粮" type="text" placeholder-class="p_input" name="food" id="food" />
       </view>
-      <view class="eat_photo"></view>
+      <image src="/images/icon/photo.png" class="eat_photo" mode="aspectFit" bindtap="imageChoose"></image>
     </view>
     <view class="each_line">
       <view class="word">本次份量：</view>
-      <input placeholder="20" name="weight" />
-      <view class="">g</view>
+      <input placeholder="20" type="number" placeholder-class="p_input" name="weight" id="weight" />
+      <view class="g">g</view>
     </view>
     <view class="each_line">
-      <view class="remark word">备注</view>
-      <textarea placeholder="这是备注信息" name="remark" />
+      <view class="remark word">备注：</view>
+      <textarea placeholder="这是备注信息" name="remark" id="remark" maxlength="200" />
+    </view>
+    <view class="pre_img">
+      <image src="{{item}}" wx:for="{{images}}" class="img_item" bindtap="preImage" data-src="{{item}}" mode="aspectFit"></image>
+    </view>
+    <view class="btn">
+      <button form-type="submit">保存</button>
     </view>
   </form>
+  <!--输入表单结束-->
+
+  <!--最近信息列表开始-->
+  <view class="list">
+    <include src="/pages/common/grow_list.wxml" />
+  </view>
+  <!--最近信息列表结束-->
+
 </view>

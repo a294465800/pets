@@ -25,6 +25,7 @@ page {
   color: #ff963d;
   border-top: 1px solid #eee;
   border-bottom: 1px solid #eee;
+  background-color: #fff;
 }
 
 .time_flex {
@@ -41,4 +42,135 @@ page {
 .time_choose image {
   width: 40rpx;
   height: 40rpx;
+}
+
+/*记录列表通用样式*/
+
+.scroll-flex {
+  width: 100%;
+  align-self: center;
+  background-color: #fff;
+  margin-bottom: 30rpx;
+}
+
+.glow_list {
+  display: flex;
+  margin: 30rpx auto 0;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.record_part {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  min-height: 210rpx;
+  background-color: #fff;
+}
+
+.record_item, .record_message {
+  padding: 40rpx 0;
+}
+
+.record_item {
+  width: 260rpx;
+  border-right: 1px solid #ccc;
+  text-align: center;
+  position: relative;
+}
+
+.record_time {
+  font: normal 14px "Microsoft YaHei UI";
+  color: #8e8e8e;
+  text-align: right;
+  padding-right: 40rpx;
+}
+
+.record_time_float {
+  position: absolute;
+  width: 140rpx;
+  top: 0rpx;
+  left: -142rpx;
+}
+
+.record_title {
+  font: normal 13px "Microsoft YaHei UI";
+  color: #ff963d;
+  margin: 10rpx 0;
+}
+
+.record_point {
+  width: 20rpx;
+  height: 20rpx;
+  border-radius: 100%;
+  background-color: #ff963d;
+  position: absolute;
+  top: 47rpx;
+  right: -9rpx;
+}
+
+.record_space {
+  width: 430rpx;
+}
+
+.record_message, .record_more_title {
+  width: 430rpx;
+  text-align: left;
+  text-indent: 30rpx;
+}
+
+.record_message {
+  padding: 40rpx 0;
+}
+
+.first_img {
+  margin-bottom: 30rpx;
+}
+
+.record_message_title_h {
+  font: normal 15px "Microsoft YaHei UI";
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.record_message_title_s {
+  box-sizing: border-box;
+  font: normal 13px "Microsoft YaHei UI";
+  color: #999;
+  padding-left: 30rpx;
+  text-indent: 0;
+}
+
+.record_img {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 400rpx;
+  padding-left: 30rpx;
+  overflow: hidden;
+}
+
+.record_img image {
+  width: 140rpx;
+  height: 140rpx;
+  margin-right: 10rpx;
+}
+
+.record_more {
+  position: relative;
+  margin: 12rpx 0;
+}
+
+.record_point2 {
+  width: 20rpx;
+  height: 20rpx;
+  border-radius: 100%;
+  background-color: #8e8e8e;
+  position: absolute;
+  top: 6rpx;
+  right: -9rpx;
 }

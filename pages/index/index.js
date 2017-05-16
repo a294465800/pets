@@ -273,6 +273,31 @@ Page({
     wx.navigateTo({
       url: '/pages/eat/eat',
     })
+  },
+  health: function (e) {
+    wx.navigateTo({
+      url: '/pages/health/health',
+    })
+  },
+  play: function (e) {
+    wx.navigateTo({
+      url: '/pages/play/play',
+    })
+  },
+  grow: function (e) {
+    wx.navigateTo({
+      url: '/pages/grow/grow',
+    })
+  },
+  clean: function (e) {
+    wx.navigateTo({
+      url: '/pages/clean/clean',
+    })
+  },
+  paybook: function (e) {
+    wx.navigateTo({
+      url: '/pages/paybook/paybook',
+    })
   }
 
 })
