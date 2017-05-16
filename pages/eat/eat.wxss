@@ -1,0 +1,26 @@
+/* eat.wxss */
+
+/*表单样式*/
+
+.function_part {
+  box-sizing: border-box;
+  padding: 20rpx 30rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.each_line, .food_category {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+.remark {
+  align-self: flex-start;
+}
+.word {
+  width: 160rpx;
+  text-align: justify;
+}

@@ -281,6 +281,8 @@
   font: normal 16px "Microsoft YaHei Ui";
   color: #999;
   padding-right: 40rpx;
+  box-sizing: border-box;
+  border-bottom: 1px solid #eee;
 }
 
 .manager_entry {
@@ -337,18 +339,19 @@
 /*知识专题*/
 
 .knowledge {
-  height: 300rpx;
+  height: 340rpx;
 }
 
 .knowledge_article {
   display: flex;
   box-sizing: border-box;
-  height: 218rpx;
+  height: 220rpx;
   width: 100%;
   padding: 0 20rpx;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  margin-top: 24rpx;
 }
 
 .knowledge_article_message {
@@ -435,6 +438,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 0 30rpx 0 20rpx;
+  margin-top: 24rpx;
 }
 
 .shop_img {
@@ -458,11 +462,22 @@
   margin-top: 10rpx;
 }
 
+.shop_item {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
 .shop_intro {
   width: 400rpx;
   font: normal 12px "Microsoft YaHei";
   margin-top: 20rpx;
   color: #999;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
 }
 
 .shop_btn {
@@ -514,21 +529,27 @@
   margin: 0 0 10rpx;
   background: linear-gradient(#ff963d, #fdc60a);
 }
+
 .glow_tn:nth-child(2) .img {
   background: linear-gradient(#0087fb, #00adfa);
 }
+
 .glow_tn:nth-child(3) .img {
   background: linear-gradient(#fd6b42, #fe9263);
 }
+
 .glow_tn:nth-child(4) .img {
   background: linear-gradient(#55d63d, #86e451);
 }
+
 .glow_tn:nth-child(5) .img {
   background: linear-gradient(#8f5ff9, #ac79fb);
 }
+
 .glow_tn:nth-child(6) .img {
   background: linear-gradient(#f45eb8, #ff81ba);
 }
+
 .glow_img {
   text-align: center;
 }

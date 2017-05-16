@@ -88,34 +88,40 @@ Page({
       src: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1494497805444&di=d53add15ca64b8d47258ffe17b39b48c&imgtype=0&src=http%3A%2F%2Fimg2.3lian.com%2F2014%2Ff4%2F77%2Fd%2F68.jpg'
     },
     daily_shop: {
-      title: '小鲜粮肉卷10KG 5条装ssssssssssssssssssss',
+      title: '小鲜粮肉卷10KG 5条装',
       price: '36.00',
-      intro: '满足主粮需求 每日提供2000大卡能量 \n 搭配每天1500ml水健康成长',
+      intro: '满足主粮需求 每日提供2000大卡能量 搭配每天1500ml水',
       src: 'https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3352940552,2713165205&fm=23&gp=0.jpg'
     },
     grow_nav: [{
       name: '喂食',
-      src: '/images/grow_record/eat.png'
+      src: '/images/grow_record/eat.png',
+      en: 'eat'
     },
     {
       name: '健康',
-      src: '/images/grow_record/health.png'
+      src: '/images/grow_record/health.png',
+      en: 'health'
     },
     {
       name: '玩耍',
-      src: '/images/grow_record/play.png'
+      src: '/images/grow_record/play.png',
+      en: 'play'
     },
     {
       name: '身高体重',
-      src: '/images/grow_record/grow.png'
+      src: '/images/grow_record/grow.png',
+      en: 'grow'
     },
     {
       name: '清洁',
-      src: '/images/grow_record/clean.png'
+      src: '/images/grow_record/clean.png',
+      en: 'clean'
     },
     {
       name: '记账本',
-      src: '/images/grow_record/paybook.png'
+      src: '/images/grow_record/paybook.png',
+      en: 'paybook'
     }],
     grow_records: [
       {
@@ -260,5 +266,13 @@ Page({
     this.setData({
       experienceShow: !e.currentTarget.dataset.show
     })
+  },
+
+  //成长记录各页面跳转
+  eat: function(e){
+    wx.navigateTo({
+      url: '/pages/eat/eat',
+    })
   }
+
 })

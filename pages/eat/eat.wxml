@@ -1,0 +1,22 @@
+<!--eat.wxml-->
+<view class="container">
+  <include src="/pages/common/time.wxml" />
+  <form class="function_part" bindsubmit="formSubmit">
+    <view class="food each_line">
+      <view class="food_category">
+        <view class="word">喂食类别：</view>
+        <input placeholder="干粮" name="food" />
+      </view>
+      <view class="eat_photo"></view>
+    </view>
+    <view class="each_line">
+      <view class="word">本次份量：</view>
+      <input placeholder="20" name="weight" />
+      <view class="">g</view>
+    </view>
+    <view class="each_line">
+      <view class="remark word">备注</view>
+      <textarea placeholder="这是备注信息" name="remark" />
+    </view>
+  </form>
+</view>

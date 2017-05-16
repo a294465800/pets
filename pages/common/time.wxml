@@ -1,0 +1,12 @@
+<view class="time_choose">
+  <view class="time_left">
+    <image src="/images/icon/date.png" class="time_flex"></image>
+    <picker mode="date" start="2016-09-01" end="2026-09-01" bindchange="dateChange" class="time_flex" value="{{date}}">
+      <view class="time_picker">{{date}}</view>
+    </picker>
+    <picker mode="time" start="00:00" end="24:00" bindchange="timeChange" class="time_flex" value="{{time}}">
+      <view class="time_picker">{{time}}</view>
+    </picker>
+  </view>
+  <image src="/images/icon/query.png" class="query"></image>
+</view>

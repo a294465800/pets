@@ -209,7 +209,7 @@
           <view class="scroll-flex glow_part">
             <view class="glow_tn" wx:for="{{grow_nav}}" wx:key="*this">
               <view class="glow_img">
-                <image class="img" src="{{item.src}}"></image>
+                <image class="img" src="{{item.src}}" bindtap="{{item.en}}"></image>
                 <view>{{item.name}}</view>
               </view>
             </view>
