@@ -1,8 +1,11 @@
 {
   "pages": [
-    "pages/health/health",
     "pages/index/index",
+    "pages/play/play",
+    "pages/clean/clean",
+    "pages/grow/grow",
     "pages/eat/eat",
+    "pages/health/health",
     "pages/mine/mine",
     "pages/news/news",
     "pages/first_meal/first_meal",

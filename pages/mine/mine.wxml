@@ -1,7 +1,7 @@
 <!--mine.wxml-->
 <view class="container">
   <!--用户信息开始-->
-  <view class="part user">
+  <view class="part user" bind>
     <image src="/images/head_img.jpg" class="user_img"></image>
     <view class="userinfo">
       <view class="userinfo_message">

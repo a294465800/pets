@@ -6,7 +6,37 @@
 
   <!--输入表单开始-->
   <form class="function_part" bindsubmit="formSubmit">
-  
+    <view class="category">
+      <view class="word_2bit">类别：</view>
+      <picker mode="selector" value="{{c_index}}" range="{{category}}" bindchange="categoryChange">
+        <view class="">{{category[c_index]}}</view>
+      </picker>
+    </view>
+    <view class="symptom">
+      <view class="word_2bit">症状：</view>
+      <input type="text" placeholder="浑身无力" placeholder-class="input_p" />
+    </view>
+    <view class="medicine">
+      <view class="medicine_kind">
+        <view class="word_2bit">药品：</view>
+        <input type="text" placeholder="保济丸" placeholder-class="input_p" />
+      </view>
+      <view class="dosage">
+        <view class="word_2bit">用量：</view>
+        <input type="number" placeholder="10" placeholder-class="input_p" />
+        <view class="unit">mg/ml</view>
+      </view>
+      <view class="rate">
+        <view class="word_4bit">用药频率：</view>
+        <picker mode="selector" value="{{r_index}}" range="{{rate}}" bindchange="rateChange">
+          <view class="">{{rate[r_index]}}</view>
+        </picker>
+      </view>
+      <view class="remark">
+        <view class="word_4bit">备注：</view>
+        <textarea placeholder="这里是备注信息" />
+      </view>
+    </view>
   </form>
   <!--输入表单结束-->
 

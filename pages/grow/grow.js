@@ -1,5 +1,6 @@
-// eat.js
+// grow.js
 var app = getApp()
+
 Page({
 
   /**
@@ -8,7 +9,7 @@ Page({
   data: {
     time: app.globalData.time,
     date: '今天',
-    images:[],
+    images: [],
     grow_records: [
       {
         date: '2017-03-20',
@@ -17,7 +18,7 @@ Page({
           age: '',
           records: [
             {
-              items: ['干粮：600g', '零食：100g'],
+              items: ['我擦：600g', '飞食：100g'],
               remark: '',
               src: []
             },
@@ -128,14 +129,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
-    console.log(this.data.grow_records)
     //记录最新时间
     this.setData({
       time: app.globalData.time
     })
   },
-
   //时间日期监听函数
   timeChange: function (e) {
     this.setData({
@@ -169,7 +167,7 @@ Page({
   },
 
   //图片预览
-  preImage: function(e){
+  preImage: function (e) {
     let that = this
     let src = e.currentTarget.dataset.src
     wx.previewImage({

@@ -1,5 +1,11 @@
 //index.js
 //获取应用实例
+var app = getApp()
+//记录当前时间
+function timeRecord() {
+  let time = new Date()
+  app.globalData.time = (10 - time.getHours() <= 0 ? time.getHours() : '0' + time.getHours()) + ':' + ((10 - time.getMinutes()) <= 0 ? time.getMinutes() : '0' + time.getMinutes())
+}
 Page({
   data: {
     progress: 0,
@@ -245,7 +251,7 @@ Page({
     let a = e.currentTarget.dataset.length
     let progress = Number(e.currentTarget.dataset.progress) + 20
     let temp = 'daily_plan[' + id + '].daily_plan_punch'
-    if (progress > 100){
+    if (progress > 100) {
       progress = 100
     }
     this.setData({
@@ -269,34 +275,49 @@ Page({
   },
 
   //成长记录各页面跳转
-  eat: function(e){
+  eat: function (e) {
+    timeRecord()
     wx.navigateTo({
       url: '/pages/eat/eat',
     })
   },
   health: function (e) {
+    timeRecord()
     wx.navigateTo({
       url: '/pages/health/health',
     })
   },
   play: function (e) {
+    timeRecord()
     wx.navigateTo({
       url: '/pages/play/play',
     })
   },
   grow: function (e) {
+    timeRecord()
     wx.navigateTo({
       url: '/pages/grow/grow',
     })
   },
   clean: function (e) {
+    timeRecord()
     wx.navigateTo({
       url: '/pages/clean/clean',
     })
   },
   paybook: function (e) {
+    timeRecord()
     wx.navigateTo({
       url: '/pages/paybook/paybook',
+    })
+  },
+
+  //图片预览
+  preImage: function (e) {
+    let that = this
+    let src = e.currentTarget.dataset.src
+    wx.previewImage({
+      urls: [src],
     })
   }
 

@@ -15,7 +15,7 @@
             </view>
             <view class="record_message_title_s">{{item.remark}}</view>
             <view class="record_img first_img">
-              <image wx:for="{{item.src}}" wx:key="*this" src="{{item}}" data-src="{{item}}" mode="aspectFit" bindtap="preImage"></image>
+              <image wx:for="{{item.src}}" src="{{item}}" data-src="{{item}}" mode="aspectFit" bindtap="preImage" wx:key="*this"></image>
             </view>
           </block>
           <block wx:else>
@@ -28,7 +28,7 @@
                 <view class="record_message_title_h">{{item.items[0]}}</view>
                 <view class="record_message_title_s">{{item.remark}}</view>
                 <view class="record_img">
-                  <image wx:for="{{item.src}}" wx:key="*this" src="{{item}}" data-src="{{item}}" mode="aspectFit" bindtap="preImage"></image>
+                  <image wx:for="{{item.src}}" src="{{item}}" data-src="{{item}}" mode="aspectFit" bindtap="preImage" wx:key="*this"></image>
                 </view>
               </view>
             </view>

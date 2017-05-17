@@ -1,6 +1,5 @@
-// health.js
+// clean.js
 var app = getApp()
-
 Page({
 
   /**
@@ -10,19 +9,13 @@ Page({
     time: app.globalData.time,
     date: '今天',
     images: [],
-    category: ['自查自救', '贴身医生'],
-    rate: ['一天3次', '一天2次', '一天1次'],
-    c_index: 0,
-    r_index: 0
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({
-      time: app.globalData.time
-    })
+
   },
   //时间日期监听函数
   timeChange: function (e) {
@@ -42,15 +35,26 @@ Page({
     }
   },
 
-  //目录选择函数
-  categoryChange: function (e) {
-    this.setData({
-      c_index: e.detail.value
+  //选择图片函数
+  imageChoose: function (e) {
+    let that = this
+    wx.chooseImage({
+      count: 4,
+      success: function (res) {
+        var tempFilePaths = res.tempFilePaths
+        that.setData({
+          images: tempFilePaths
+        })
+      },
     })
   },
-  rateChange: function (e) {
-    this.setData({
-      r_index: e.detail.value
+
+  //图片预览
+  preImage: function (e) {
+    let that = this
+    let src = e.currentTarget.dataset.src
+    wx.previewImage({
+      urls: [src],
     })
   }
 })

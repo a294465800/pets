@@ -23,7 +23,7 @@
       <textarea placeholder="这是备注信息" name="remark" id="remark" maxlength="200" />
     </view>
     <view class="pre_img">
-      <image src="{{item}}" wx:for="{{images}}" class="img_item" bindtap="preImage" data-src="{{item}}" mode="aspectFit"></image>
+      <image src="{{item}}" wx:for="{{images}}" class="img_item" bindtap="preImage" data-src="{{item}}" mode="aspectFit" wx:key="*this"></image>
     </view>
     <view class="btn">
       <button form-type="submit">保存</button>

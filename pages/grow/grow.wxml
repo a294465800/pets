@@ -1,0 +1,48 @@
+<!--grow.wxml-->
+<view class="container">
+  <!--引入头时间条开始-->
+  <include src="/pages/common/time.wxml" />
+  <!--引入结束-->
+
+  <!--输入表单开始-->
+  <form class="function_part" bindsubmit="formSubmit">
+    <view class="height part">
+      <view class="height_left">
+        <view class="word_2bit">身高：</view>
+        <input placeholder="50" type="number" placeholder-class="input_p" />
+        <view class="unit">cm</view>
+      </view>
+      <image src="/images/icon/photo.png" class="photo" bindtap="imageChoose"></image>
+    </view>
+    <view class="body part">
+      <view class="body_left">
+        <view class="word_2bit">体长：</view>
+        <input placeholder="50" type="number" placeholder-class="input_p" />
+        <view class="unit">cm</view>
+      </view>
+      <view class="body_right">
+        <view class="word_2bit">体重：</view>
+        <input placeholder="20" type="number" placeholder-class="input_p" />
+        <view class="unit">kg</view>
+      </view>
+    </view>
+    <view class="remark part">
+      <view class="word_2bit">备注：</view>
+      <textarea placeholder="这是备注信息" placeholder-class="input_p" maxlength="200" />
+    </view>
+    <view class="pre_img">
+      <image src="{{item}}" wx:for="{{images}}" class="img_item" bindtap="preImage" data-src="{{item}}" mode="aspectFit" wx:key="*this"></image>
+    </view>
+    <view class="btn">
+      <button form-type="submit">保存</button>
+    </view>
+  </form>
+  <!--输入表单结束-->
+
+  <!--最近信息列表开始-->
+  <view class="list">
+    <include src="/pages/common/grow_list.wxml" />
+  </view>
+  <!--最近信息列表结束-->
+
+</view>

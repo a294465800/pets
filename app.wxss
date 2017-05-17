@@ -89,9 +89,9 @@ page {
 
 .record_time_float {
   position: absolute;
-  width: 140rpx;
+  width: 260rpx;
   top: 0rpx;
-  left: -142rpx;
+  left: -262rpx;
 }
 
 .record_title {
