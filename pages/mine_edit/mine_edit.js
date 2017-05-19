@@ -1,4 +1,4 @@
-// mine.js
+// mine_edit.js
 var app = getApp()
 
 Page({
@@ -7,7 +7,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    userInfo: {}
+    userInfo: {},
+    sex: ''
   },
 
   /**
@@ -21,12 +22,5 @@ Page({
       })
     })
   },
-
-  //个人中心修改跳转
-  goToMine_edit: function (e) {
-    wx.navigateTo({
-      url: '/pages/mine_edit/mine_edit',
-    })
-  }
-
+  
 })

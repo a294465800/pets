@@ -1,10 +1,10 @@
 <!--news.wxml-->
 <view class="container">
-  <scroll-view class="news" enable-back-to-top="true" scroll-y="true" scroll-top="{{position}}" bindscroll="fixNav" data-fixnav="{{fix_nav}}">
+  <scroll-view class="news" enable-back-to-top="true" scroll-y="true" scroll-top="{{position}}" bindscroll="fixNav">
 
     <!--滚动图开始-->
-    <swiper style="{{fix_nav?'display:none':''}}" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
-      <block wx:for="{{imgUrls}}">
+    <swiper style="{{fix_nav?'display:none':''}}" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" data-fixnav="{{fix_nav}}">
+      <block wx:for="{{imgUrls}}" wx:key="*this">
         <swiper-item>
           <image src="{{item}}" class="slide-image" mode="aspectFill" />
         </swiper-item>
@@ -21,7 +21,7 @@
     <!--导航条结束-->
 
     <!--文章列表开始-->
-      <view class="news_list">
+      <view class="news_list {{fix_nav?'news_list_hover':''}}">
         <view class="news_list_article" wx:for="{{news}}" wx:key="*this">
           <view class="news_article_message">
             <view class="news_article_title">{{item.title}}</view>

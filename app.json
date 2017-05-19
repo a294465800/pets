@@ -1,16 +1,19 @@
 {
   "pages": [
+    "pages/add_pet/add_pet",
     "pages/index/index",
+    "pages/pets_category/pets_category",
+    "pages/first_meal/first_meal",
+    "pages/mine_edit/mine_edit",
+    "pages/mine/mine",
     "pages/play/play",
     "pages/clean/clean",
     "pages/grow/grow",
     "pages/eat/eat",
     "pages/health/health",
-    "pages/mine/mine",
     "pages/news/news",
-    "pages/first_meal/first_meal",
-    "pages/first_step/first_step",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/species/species"
   ],
   "window": {
     "backgroundTextStyle": "light",

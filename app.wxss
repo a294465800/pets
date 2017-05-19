@@ -3,7 +3,7 @@
 page {
   width: 100%;
   height: 100%;
-  font: normal 16px "Microsoft YaHei UI";
+  font: normal 32rpx "Microsoft YaHei UI";
 }
 
 .container {
@@ -23,8 +23,8 @@ page {
   justify-content: space-between;
   padding: 0 30rpx;
   color: #ff963d;
-  border-top: 1px solid #eee;
-  border-bottom: 1px solid #eee;
+  border-top: 2rpx solid #eee;
+  border-bottom: 2rpx solid #eee;
   background-color: #fff;
 }
 
@@ -75,13 +75,13 @@ page {
 
 .record_item {
   width: 260rpx;
-  border-right: 1px solid #ccc;
+  border-right: 2rpx solid #ccc;
   text-align: center;
   position: relative;
 }
 
 .record_time {
-  font: normal 14px "Microsoft YaHei UI";
+  font: normal 28rpx "Microsoft YaHei UI";
   color: #8e8e8e;
   text-align: right;
   padding-right: 40rpx;
@@ -95,7 +95,7 @@ page {
 }
 
 .record_title {
-  font: normal 13px "Microsoft YaHei UI";
+  font: normal 26rpx "Microsoft YaHei UI";
   color: #ff963d;
   margin: 10rpx 0;
 }
@@ -129,7 +129,7 @@ page {
 }
 
 .record_message_title_h {
-  font: normal 15px "Microsoft YaHei UI";
+  font: normal 30rpx "Microsoft YaHei UI";
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -137,7 +137,7 @@ page {
 
 .record_message_title_s {
   box-sizing: border-box;
-  font: normal 13px "Microsoft YaHei UI";
+  font: normal 26rpx "Microsoft YaHei UI";
   color: #999;
   padding-left: 30rpx;
   text-indent: 0;

@@ -1,0 +1,42 @@
+/* add_pet.wxss */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 750rpx;
+}
+
+input {
+  border: 2rpx solid #ccc;
+  text-align: center;
+  height: 100rpx;
+  width: 400rpx;
+  border-radius: 10rpx;
+  font: normal 32rpx "Microsoft YaHei";
+  color: #333;
+}
+
+.input_p {
+  font: normal 32rpx "Microsoft YaHei";
+  color: #ccc;
+}
+
+.photo {
+  width: 280rpx;
+  height: 280rpx;
+  box-sizing: border-box;
+  border: 2rpx solid #ccc;
+  border-radius: 100%;
+}
+
+.btn {
+  width: 600rpx;
+  height: 100rpx;
+  background-color: #ff963d;
+  color: #fff;
+  border-radius: 10rpx;
+  text-align: center;
+  font: normal 42rpx/100rpx "Microsoft YaHei";
+}

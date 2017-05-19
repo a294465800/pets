@@ -22,13 +22,13 @@
 }
 
 .top_message_m {
-  font: normal 22px/32px "Microsoft YaHei UI";
+  font: normal 44rpx/64rpx "Microsoft YaHei UI";
   color: #03a9f4;
   text-align: center;
 }
 
 .top_message_b {
-  font: normal 14px "Microsoft YaHei UI";
+  font: normal 28rpx "Microsoft YaHei UI";
   color: #fff;
   text-indent: 2em;
   padding: 30rpx;
@@ -40,7 +40,7 @@
   height: 23rem;
   width: 100%;
   box-sizing: border-box;
-  border-bottom: 2px solid #d0d0d0;
+  border-bottom: 4rpx solid #d0d0d0;
 }
 
 .plan_title {
@@ -49,7 +49,7 @@
 
 .plan_p {
   padding: 30rpx 60rpx;
-  font: normal 14px "Microsoft YaHei UI";
+  font: normal 28rpx "Microsoft YaHei UI";
 }
 
 /*分享*/
@@ -67,7 +67,7 @@
   height: 35%;
   border-radius: 10rpx;
   text-align: center;
-  font: normal 20px/75rpx "Microsoft YaHei UI";
+  font: normal 40rpx/75rpx "Microsoft YaHei UI";
   align-self: center;
 }
 
@@ -79,6 +79,6 @@
 .share_get {
   box-sizing: border-box;
   background-color: #fff;
-  border: 1px solid #ccc;
+  border: 2rpx solid #ccc;
   color: #666;
 }

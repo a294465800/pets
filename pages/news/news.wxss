@@ -30,14 +30,14 @@ swiper image {
 .nav_title {
   width: 80rpx;
   box-sizing: border-box;
-  font: normal 14px/74rpx "Microsoft YaHei UI";
+  font: normal 28rpx/74rpx "Microsoft YaHei UI";
   text-align: center;
-  border-bottom: 2px solid transparent;
+  border-bottom: 4rpx solid transparent;
 }
 
 .nav_select {
   color: #f75000;
-  border-bottom: 2px solid #f75000;
+  border-bottom: 4rpx solid #f75000;
 }
 
 /*导航置顶*/
@@ -47,7 +47,9 @@ swiper image {
   top: 0;
   left: 0;
 }
-
+.news_list_hover {
+  margin-top: 478rpx;
+}
 /*文章样式*/
 
 .news_list_article {
@@ -59,7 +61,7 @@ swiper image {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  border-top: 1px solid #eee;
+  border-top: 2rpx solid #eee;
 }
 
 .news_article_message {
@@ -68,7 +70,7 @@ swiper image {
 }
 
 .news_article_title {
-  font: normal 16px "Microsoft YaHei";
+  font: normal 32rpx "Microsoft YaHei";
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
@@ -122,7 +124,7 @@ swiper image {
   justify-content: flex-start;
   align-items: center;
   color: #bcbcbc;
-  font: normal 13px "Microsoft YaHei";
+  font: normal 26rpx "Microsoft YaHei";
   margin-top: 10rpx;
 }
 

@@ -1,15 +1,15 @@
 <!--index.wxml-->
 <view class="container">
   <!--初次进入显示的界面开始-->
-  <view class="first_time" style="display: none">
-    <view class="img">第一次进入未添加宠物时展示图片介绍说明应用用处亮点</view>
+  <view class="first_time">
+    <image src="/images/first.png" class="bg"></image>
     <view class="start" bindtap="goToFirst">添加宠物定制专属</view>
   </view>
   <!--初次进入显示的界面结束-->
 
   <!--正式首页开始-->
   <!--导航部分开始-->
-  <view class="home" disable-scroll="true">
+  <view class="home" disable-scroll="true" style="display: none">
     <view class="nav">
       <view class="head_shift">
         <image src="/images/grow_record/shift.png"></image>

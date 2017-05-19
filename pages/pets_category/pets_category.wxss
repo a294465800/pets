@@ -1,0 +1,19 @@
+/* pets_category.wxss */
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+.container image {
+  width: 280rpx;
+  height: 280rpx;
+  border: 2rpx solid #ccc;
+  border-radius: 100%;
+}
+
+.word {
+  text-align: center;
+  font: normal 40rpx "Microsoft YaHei";
+  color: #000;
+}

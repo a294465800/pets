@@ -1,0 +1,70 @@
+/* mine_edit.wxss */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background-color: #eee;
+}
+
+.part {
+  background-color: #fff;
+  margin-top: 40rpx;
+}
+
+.w_part {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 100rpx;
+  box-sizing: border-box;
+  padding: 0 30rpx;
+}
+
+.message {
+  color: #999;
+}
+
+/*用户面板*/
+
+.user {
+  width: 100%;
+  height: 200rpx;
+  box-sizing: border-box;
+  padding: 0 30rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.user .user_img {
+  width: 140rpx;
+  height: 140rpx;
+  border: 2rpx solid #ccc;
+  border-radius: 100%;
+  background-size: cover;
+}
+
+.userinfo {
+  width: 510rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.userinfo_more {
+  width: 18rpx;
+  height: 30rpx;
+}
+
+.userinfo_id {
+  font-size: 30rpx;
+  color: #999;
+}
+
+.sex, .birthday {
+  border-top: 2rpx solid #eee;
+}

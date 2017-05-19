@@ -1,0 +1,6 @@
+<!--add_pet.wxml-->
+<view class="container">
+  <image src="{{img?img:'/images/icon/photo.png'}}" mode="{{flag?'center':'aspectFit'}}" class="photo" bindtap="chooseImg"></image>
+  <input placeholder="请输入爱宠名称" placeholder-class="input_p" type="text" bindinput="getInput" data-input="{{input}}" />
+  <view class="btn" bindtap="goToSpecies">下一步</view>
+</view>

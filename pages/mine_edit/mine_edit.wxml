@@ -1,0 +1,26 @@
+<!--mine_edit.wxml-->
+<view class="container">
+  <!--用户信息开始-->
+  <view class="part">
+    <view class="user" bindtap="goToMine_edit" hover-class="push_class">
+      <image src="{{userInfo.avatarUrl}}" class="user_img"></image>
+      <view class="userinfo">
+        <view class="userinfo_message">
+          <view class="">{{userInfo.nickName}}</view>
+          <view class="userinfo_id">ID:000000</view>
+        </view>
+      </view>
+    </view>
+    <view class="sex w_part">
+      <view class="word">性别</view>
+      <view class="message">{{sex || '无'}}</view>
+    </view>
+    <view class="birthday w_part">
+      <view class="word">生日</view>
+      <view class="message">{{birthday || '无'}}</view>
+    </view>
+  </view>
+  <!--用户信息结束-->
+
+
+</view>

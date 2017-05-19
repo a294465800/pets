@@ -5,21 +5,32 @@
 .container {
   box-sizing: border-box;
   height: 97%;
-  border-top: 2px solid #d0d0d0;
+  border-top: 4rpx solid #d0d0d0;
 }
 
-.img {
-  height: 90%;
+.first_time {
+  height: 100%;
+  width: 100%;
+}
+
+.bg {
+  width: 100%;
+  height: 99%;
+  background-size: cover;
 }
 
 .start {
   width: 100%;
   height: 10%;
+  position: fixed;
   box-sizing: border-box;
-  border-top: 1px solid #9d9d9d;
-  font: normal 20px/53px "Microsoft YaHei UI";
+  border-top: 2rpx solid #9d9d9d;
+  font: normal 40rpx/106rpx "Microsoft YaHei UI";
   text-align: center;
   color: #00bcd4;
+  bottom: 0;
+  left: 0;
+  background-color: #fff;
 }
 
 .home {
@@ -52,7 +63,7 @@
 .nav_top image {
   height: 140rpx;
   width: 140rpx;
-  border: 2px solid #9d9d9d;
+  border: 4rpx solid #9d9d9d;
   border-radius: 100%;
 }
 
@@ -73,7 +84,7 @@
 }
 
 .pet_name, .pet_age {
-  font: 700 16px "Microsoft YaHei UI";
+  font: 700 32rpx "Microsoft YaHei UI";
   color: #5b5b5b;
 }
 
@@ -85,7 +96,7 @@
 }
 
 .head_word .pet_age {
-  font: normal 14px "Microsoft YaHei UI";
+  font: normal 28rpx "Microsoft YaHei UI";
   color: #999;
 }
 
@@ -115,7 +126,7 @@
 }
 
 .percent {
-  font: normal 12px "Microsoft YaHei UI";
+  font: normal 24rpx "Microsoft YaHei UI";
   color: #999;
   position: absolute;
   top: -34rpx;
@@ -141,11 +152,11 @@
 
 .nav_bottom .record {
   box-sizing: border-box;
-  font: normal 16px/74rpx "Microsoft YaHei UI";
+  font: normal 32rpx/74rpx "Microsoft YaHei UI";
   flex-grow: 1;
   text-align: center;
   position: relative;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 2rpx solid #ccc;
 }
 
 .nav_bottom .nav_select {
@@ -172,7 +183,7 @@
 /*通用样式*/
 
 .wrap {
-  height: 77%;
+  height: 78%;
   margin-top: 4%;
 }
 
@@ -208,7 +219,7 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  border-top: 1px solid #eee;
+  border-top: 2rpx solid #eee;
   height: 90rpx;
   width: 100%;
   padding: 0 30rpx;
@@ -219,7 +230,7 @@
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-  font: 700 16px "Microsoft YaHei";
+  font: 700 32rpx "Microsoft YaHei";
   color: #000;
   padding: 20rpx 30rpx;
 }
@@ -258,7 +269,7 @@
 }
 
 .daily_plan_news {
-  font: normal 16px/23px "Microsoft YaHei UI";
+  font: normal 32rpx/46rpx "Microsoft YaHei UI";
 }
 
 .daily_plan_news_head {
@@ -278,11 +289,11 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  font: normal 16px "Microsoft YaHei Ui";
+  font: normal 32rpx "Microsoft YaHei Ui";
   color: #999;
   padding-right: 40rpx;
   box-sizing: border-box;
-  border-bottom: 1px solid #eee;
+  border-bottom: 2rpx solid #eee;
 }
 
 .manager_entry {
@@ -304,14 +315,14 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  border-top: 1px solid #eee;
+  border-top: 2rpx solid #eee;
   height: 90rpx;
   width: 100%;
   padding: 0 30rpx;
 }
 
 .manager_message_new {
-  font: normal 16px/23px "Microsoft YaHei";
+  font: normal 32rpx/46rpx "Microsoft YaHei";
 }
 
 .manager_message_item {
@@ -324,7 +335,7 @@
 
 .manager_more {
   justify-content: center;
-  font-size: 15px;
+  font-size: 30rpx;
   color: #ccc;
 }
 
@@ -360,7 +371,7 @@
 }
 
 .knowledge_article_title {
-  font: normal 16px "Microsoft YaHei";
+  font: normal 32rpx "Microsoft YaHei";
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
@@ -391,7 +402,7 @@
   justify-content: flex-start;
   align-items: center;
   color: #666;
-  font: normal 12px "Microsoft YaHei";
+  font: normal 24rpx "Microsoft YaHei";
   margin-right: 20rpx;
 }
 
@@ -414,7 +425,7 @@
   justify-content: flex-start;
   align-items: center;
   color: #666;
-  font: normal 13px "Microsoft YaHei";
+  font: normal 26rpx "Microsoft YaHei";
   margin-top: 10rpx;
 }
 
@@ -457,7 +468,7 @@
 
 .shop_price {
   color: #ff5000;
-  font: normal 16px "Microsoft YaHei";
+  font: normal 32rpx "Microsoft YaHei";
   align-self: center;
   margin-top: 10rpx;
 }
@@ -471,7 +482,7 @@
 
 .shop_intro {
   width: 400rpx;
-  font: normal 12px "Microsoft YaHei";
+  font: normal 24rpx "Microsoft YaHei";
   margin-top: 20rpx;
   color: #999;
   display: -webkit-box;
@@ -518,7 +529,7 @@
   box-sizing: border-box;
   background-color: #fff;
   color: #333;
-  border: 1px solid #eee;
+  border: 2rpx solid #eee;
 }
 
 .img {

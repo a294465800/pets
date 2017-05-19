@@ -35,14 +35,14 @@
 }
 
 .p_input {
-  font: normal 16px "Microsoft YaHei";
+  font: normal 32rpx "Microsoft YaHei";
 }
 
 input, textarea {
-  border: 1px solid #999;
-  border-radius: 3px;
+  border: 2rpx solid #999;
+  border-radius: 6rpx;
   padding: 0 10rpx;
-  font: normal 16px "Microsoft YaHei";
+  font: normal 32rpx "Microsoft YaHei";
   color: #999;
 }
 

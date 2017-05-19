@@ -1,0 +1,7 @@
+<!--pets_category.wxml-->
+<view class="container">
+  <view class="" bindtap="goToPetImg" data-pet="{{item.category}}" wx:for="{{pets}}">
+    <image src="{{item.src}}" mode="aspectFit"></image>
+    <view class="word">{{item.category}}</view>
+  </view>
+</view>

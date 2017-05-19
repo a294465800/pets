@@ -1,4 +1,6 @@
 // news.js
+let flag1 = 0
+let flag2 = 0
 Page({
 
   /**
@@ -134,18 +136,41 @@ Page({
 
   //导航固定
   fixNav: function (e) {
-    // this.setData({
-    //   fix_nav: !e.currentTarget.dataset.fixnav
-    // })
+    // console.log(e)
+    // let that = this
+    // if (that.data.fix_nav == e.currentTarget.dataset.fixnav) {
+    //   console.log(1)
+    //   return;
+    // } else {
+    //   that.setData({
+    //     fix_nav: !e.currentTarget.dataset.fixnav
+    //   })
+    // }
 
-    if (e.detail.scrollTop >= 100) {
-      this.setData({
-        fix_nav: true
-      })
-    } else if (e.detail.scrollTop <= 100) {
-      this.setData({
-        fix_nav: false
-      })
+    let that = this
+    if (e.detail.scrollTop >= 200) {
+      flag2 = 0
+      if (flag1 == 1) {
+        return
+      } else {
+        flag1 = 1
+        that.setData({
+          fix_nav: true
+        })
+      }
+    } else if (e.detail.scrollTop < 200) {
+      flag1 = 0
+      if (flag2 == 0) {
+        console.log(1)
+        flag2 = 1
+        that.setData({
+          fix_nav: false
+        })
+      } else {
+        return
+      }
+    } else {
+      return
     }
   }
 })

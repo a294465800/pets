@@ -1,11 +1,11 @@
 <!--mine.wxml-->
 <view class="container">
   <!--用户信息开始-->
-  <view class="part user" bind>
-    <image src="/images/head_img.jpg" class="user_img"></image>
+  <view class="part user" bindtap="goToMine_edit" hover-class="push_class">
+    <image src="{{userInfo.avatarUrl}}" class="user_img"></image>
     <view class="userinfo">
       <view class="userinfo_message">
-        <view class="">微信名</view>
+        <view class="">{{userInfo.nickName}}</view>
         <view class="userinfo_id">ID:1234560</view>
       </view>
       <image src="/images/grow_record/more.png" class="userinfo_more"></image>
@@ -22,12 +22,12 @@
       </view>
       <image class="pet_add" src="/images/user/plus.png"></image>
     </view>
-    <view class="pets_list">
+    <view class="pets_list" hover-class="push_class">
       <view class="pets_name">狗蛋</view>
       <view class="pets_species">英国短毛猫</view>
       <view class="pets_age">3个月</view>
     </view>
-    <view class="pets_list">
+    <view class="pets_list" hover-class="push_class">
       <view class="pets_name">狗蛋寿司</view>
       <view class="pets_species">英国短毛猫</view>
       <view class="pets_age">3个月</view>
@@ -37,11 +37,11 @@
 
   <!--收藏通知开始-->
   <view class="part inform">
-    <view class="collect title">
+    <view class="collect title" hover-class="push_class">
       <image class="pet_img" src="/images/user/collect.png"></image>
       <view class="title_message">我的收藏</view>
     </view>
-    <view class="inform_news title">
+    <view class="inform_news title" hover-class="push_class">
       <view class="inform_news_left">
         <image class="pet_img" src="/images/user/inform.png"></image>
         <view class="title_message">消息通知</view>
@@ -53,14 +53,14 @@
 
   <!--订单开始-->
   <view class="part order">
-    <view class="collect title inform_news">
+    <view class="collect title inform_news" hover-class="push_class">
       <view class="inform_news_left">
         <image class="pet_img" src="/images/user/shop.png"></image>
         <view class="title_message">管家小铺</view>
       </view>
       <image src="/images/grow_record/more.png" class="userinfo_more"></image>
     </view>
-    <view class="title inform_news">
+    <view class="title inform_news" hover-class="push_class">
       <view class="inform_news_left">
         <image class="pet_img" src="/images/user/order.png"></image>
         <view class="title_message">我的订单</view>
@@ -72,7 +72,7 @@
 
   <!--建议反馈开始-->
   <view class="part suggest">
-    <view class="title">
+    <view class="title" hover-class="push_class">
       <image class="pet_img" src="/images/user/suggest.png"></image>
       <view class="title_message">建议反馈</view>
     </view>
@@ -81,7 +81,7 @@
 
   <!--设置开始-->
   <view class="part setting">
-    <view class=" title">
+    <view class=" title" hover-class="push_class">
       <image class="pet_img" src="/images/user/setting.png"></image>
       <view class="title_message">设置</view>
     </view>

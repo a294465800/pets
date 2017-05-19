@@ -1,9 +1,0 @@
-<!--first_step.wxml-->
-<view class="container">
-  <text>宠物录入流程</text>
-  <form bindsubmit="save">
-    <view class="subBtn">
-      <button type="primary" form-type="submit">确定录入</button>
-    </view>
-  </form>
-</view>

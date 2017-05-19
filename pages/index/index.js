@@ -232,8 +232,8 @@ Page({
   onLoad: function () {
   },
   goToFirst: function () {
-    wx.redirectTo({
-      url: '/pages/first_step/first_step',
+    wx.navigateTo({
+      url: '/pages/pets_category/pets_category',
     })
   },
 
