@@ -2,7 +2,7 @@
 <view class="container">
   <!--初次进入显示的界面开始-->
   <view class="first_time">
-    <image src="/images/first.png" class="bg"></image>
+    <image src="/images/first.png" class="bg" mode="widthFix"></image>
     <view class="start" bindtap="goToFirst">添加宠物定制专属</view>
   </view>
   <!--初次进入显示的界面结束-->

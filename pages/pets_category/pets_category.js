@@ -10,11 +10,11 @@ Page({
     pets: [
       {
         category: "狗狗",
-        src: '/images/head_img.jpg'
+        src: '/images/dogs.png'
       },
       {
         category: "喵咪",
-        src: '/images/head_img.jpg'
+        src: '/images/cats.png'
       }
     ]
   },

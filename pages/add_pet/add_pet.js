@@ -18,11 +18,14 @@ Page({
   onLoad: function (options) {
 
   },
+
+  //预览、上传图片
   chooseImg: function (e) {
     let that = this
     wx.chooseImage({
       count: 1,
       success: function (res) {
+        app.globalData.first_pet.filePath = res.tempFilePaths
         that.setData({
           img: res.tempFilePaths,
           flag: false
@@ -35,6 +38,8 @@ Page({
       input: e.detail.value
     })
   },
+
+  //检查名称，跳转下个页面
   goToSpecies: function (e) {
     let that = this
     if (!that.data.input) {

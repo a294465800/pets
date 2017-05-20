@@ -1,4 +1,4 @@
-/* mine_edit.wxss */
+/* add_pets.wxss */
 
 .container {
   display: flex;
@@ -40,7 +40,7 @@
   padding: 0 30rpx;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
 }
 
@@ -70,7 +70,7 @@
   color: #999;
 }
 
-.sex, .birthday {
+.name, .species, .sex, .birthday {
   border-top: 2rpx solid #eee;
 }
 
@@ -123,6 +123,7 @@
 }
 
 /*生日*/
+
 .birthday picker {
   width: 80%;
   text-align: right;
@@ -142,6 +143,7 @@
   right: 0;
   background-color: #fff;
 }
+
 .tel_input {
   border-bottom: 2rpx solid #ccc;
   margin-bottom: 30rpx;

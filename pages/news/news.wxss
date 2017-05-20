@@ -71,6 +71,7 @@ swiper image {
 
 .news_article_title {
   font: normal 32rpx "Microsoft YaHei";
+  height: 96rpx;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;

@@ -1,16 +1,17 @@
-// mine_edit.js
-var app = getApp()
-
+// add_pets.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    userInfo: {},
-    sex: '',
-    telnum: '',
-    people_name: '',
+    pet: {
+      src:'/images/head_img.jpg',
+      name: '撕家',
+      species: '阿拉斯加',
+      sex: '男',
+      birthday: '2017-01-05'
+    },
     sex_radio: [{
       name: '男'
     },
@@ -21,25 +22,15 @@ Page({
       name: '秘密'
     }],
     sexHide: true,
-    telHide: true,
-    today: app.globalData.today,
-    birthday: '',
-    telNum: '',
-    telPhone: ''
+    nameHide: true,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var that = this
-    app.getUserInfo(function (userInfo) {
-      that.setData({
-        userInfo: userInfo
-      })
-    })
+  
   },
-
   //性别选择
   sexChoose: function (e) {
     this.setData({
@@ -65,39 +56,37 @@ Page({
     })
   },
 
-  //手机号码
-  telChange: function (e) {
+  //昵称
+  nameChange: function (e) {
     this.setData({
-      telHide: false
+      nameHide: false
     })
   },
-  telInput: function (e) {
-    console.log(e.detail.value)
+  nameInput: function (e) {
     this.setData({
       telNum: e.detail.value
     })
   },
-  telHidden: function (e) {
+  nameHidden: function (e) {
     this.setData({
-      telHide: true
+      nameHide: true
     })
   },
-  telSave: function (e) {
-    let telP = e.currentTarget.dataset.tel
+  nameSave: function (e) {
+    let nameT = e.currentTarget.dataset.name
     let that = this
     //正则判断手机号码
-    if (!(/^1[3|4|5|8][0-9]\d{4,8}$/.test(telP))) {
+    if (!nameT) {
       wx.showModal({
         title: '提示',
-        content: '亲，请输入正确的手机号码',
+        content: '亲，请输入爱宠昵称~',
         showCancel: false
       })
     } else {
       that.setData({
-        telPhone: telP,
-        telHide: true
+        'pet.name': nameT,
+        nameHide: true
       })
     }
   }
-
 })

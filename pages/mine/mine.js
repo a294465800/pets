@@ -27,6 +27,19 @@ Page({
     wx.navigateTo({
       url: '/pages/mine_edit/mine_edit',
     })
-  }
+  },
 
+  //宠物添加跳转
+  goToAdd_pets: function (e) {
+    wx.navigateTo({
+      url: '/pages/add_pets/add_pets',
+    })
+  },
+
+  //管家小铺跳转
+  goToShop: function(e){
+    wx.navigateTo({
+      url: '/pages/shop/shop',
+    })
+  }
 })

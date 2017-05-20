@@ -10,6 +10,7 @@
   height: 280rpx;
   border: 2rpx solid #ccc;
   border-radius: 100%;
+  background-size: cover;
 }
 
 .word {
