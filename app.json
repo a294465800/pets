@@ -1,9 +1,9 @@
 {
   "pages": [
+    "pages/first_step/first_step",
     "pages/shop/shop",
     "pages/index/index",
     "pages/add_pets/add_pets",
-    "pages/first_step/first_step",
     "pages/news/news",
     "pages/mine/mine",
     "pages/mine_edit/mine_edit",

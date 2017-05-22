@@ -9,6 +9,10 @@ swiper {
   font: normal 32rpx "Microsoft YaHei";
   color: #ccc;
 }
+.input_s {
+  font: normal 40rpx "Microsoft YaHei";
+  color: #ccc;
+}
 
 .hide {
   display: none;
@@ -23,16 +27,19 @@ swiper {
   align-items: center;
 }
 
-.first_page image, .fifth_page image, .sixth_page image, .fifth_page image {
+.first_page image, .second_page .second_preImg .species_choose_img,
+.fifth_page image, .sixth_page image, .fifth_page image {
   width: 200rpx;
   height: 200rpx;
   border: 2rpx solid #ccc;
   border-radius: 100%;
   background-size: cover;
-  position: relative
+  box-sizing: border-box;
+  position: relative;
 }
 
-.first_page .word, .fifth_page .word, .sixth_page .word {
+.first_page .word, .second_page .second_preImg .word, .fifth_page .word,
+.sixth_page .word {
   text-align: center;
   font: normal 40rpx "Microsoft YaHei";
   color: #333;
@@ -40,6 +47,77 @@ swiper {
 }
 
 /*第二页面——种类*/
+
+.second_page .second_preImg {
+  text-align: center;
+}
+
+.second_page .second-scroll {
+  height: 550rpx;
+  width: 200%;
+}
+
+.second-scroll {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.species_item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  margin: 0 38rpx;
+}
+
+.species_item .species_img {
+  width: 110rpx;
+  height: 110rpx;
+  border-radius: 100%;
+}
+
+.species_item .species_word {
+  font-size: 28rpx;
+}
+.species_choose_word {
+  height: 60rpx;
+  box-sizing: border-box;
+}
+
+/*其他种类，显示输入按钮*/
+
+.species_input {
+  border: 2rpx solid #eee;
+  margin-top: 10rpx;
+  text-align: center;
+  height: 60rpx;
+  box-sizing: border-box;
+  width: 400rpx;
+  border-radius: 10rpx;
+  font: normal 40rpx "Microsoft YaHei";
+  color: #333;
+}
+
+.word_hide {
+  display: none;
+}
+
+/*进度条
+
+.species_scroll {
+  width: 100%;
+  height: 6rpx;
+  background-color: #eee;
+}
+
+.species_scroll .species_percent {
+  width: 0;
+  height: 6rpx;
+  background-color: #666;
+}*/
 
 /*第三页面——昵称*/
 
@@ -65,7 +143,7 @@ swiper {
   border-radius: 100%;
 }
 
-.third_page .btn, .fourth_page .btn, .seventh_page .btn {
+.second_page .btn, .third_page .btn, .fourth_page .btn, .seventh_page .btn {
   width: 600rpx;
   height: 100rpx;
   background-color: #ff963d;
@@ -92,7 +170,6 @@ swiper {
 /*第五页面——性别*/
 
 .fifth_page image {
-  box-sizing: border-box;
   padding: 50rpx;
   border: none;
 }
@@ -108,7 +185,6 @@ swiper {
 /*第六页面——绝育*/
 
 .sixth_page image {
-  box-sizing: border-box;
   padding: 50rpx;
   background-color: #eee;
 }
@@ -139,7 +215,7 @@ swiper {
 /*选中样式*/
 
 .container .choose {
-  background-color: rgba(75, 214, 99, .5);
+  background-color: rgba(75, 214, 99, 0.5);
   position: absolute;
   top: 0;
   left: 0;

@@ -15,7 +15,22 @@
 
   <!--第二页种类选择开始-->
   <swiper-item>
-    <view class="container second_page">这是宠物种类页面</view>
+    <view class="container second_page">
+      <view class="second_preImg">
+        <image src="{{img.species_img?img.species_img:'/images/first_page/paw.png'}}" mode="{{img.species_img?'aspectFill':'center'}}" class="species_choose_img"></image>
+        <view class="word species_choose_word {{flag.species_hide?'word_hide':''}}">{{input.species_input}}</view>
+        <input class="species_input {{flag.species_hide?'':'word_hide'}}" type="text" placeholder-class="input_s" placeholder="请输入宠物品种" value="{{input.species_other}}" bindinput="getOtherSpecies" />
+      </view>
+      <scroll-view scroll-x="true" bindscroll="species_scroll">
+        <view class="second-scroll">
+          <view class="species_item" wx:for="{{species}}" wx:key="*this" bindtap="chooseSpecies" data-species_img="{{item.src}}" data-species_zn="{{item.zn}}" data-species_name="{{item.name}}">
+            <image src="{{item.src}}" mode="aspectFill" class="species_img" data-species="{{item.name}}"></image>
+            <view class="species_word">{{item.zn}}</view>
+          </view>
+        </view>
+      </scroll-view>
+      <view class="btn" bindtap="addSpecies">下一步</view>
+    </view>
   </swiper-item>
   <!--第二页种类选择结束-->
 
