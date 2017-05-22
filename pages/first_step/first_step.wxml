@@ -1,0 +1,78 @@
+<!--first_step.wxml-->
+<swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" current="{{current_index}}">
+  <!--第一页猫狗选择开始-->
+  <swiper-item>
+    <view class="container first_page">
+      <view bindtap="chooseCategory" data-category="{{item.category}}" wx:for="{{pets}}" wx:key="*this">
+        <image src="{{item.src}}" mode="aspectFit" id="{{index}}">
+          <image src="/images/first_page/yes.png" class=" {{item.check?'choose':''}}"></image>
+        </image>
+        <view class="word">{{item.zn}}</view>
+      </view>
+    </view>
+  </swiper-item>
+  <!--第一页结束-->
+
+  <!--第二页种类选择开始-->
+  <swiper-item>
+    <view class="container second_page">这是宠物种类页面</view>
+  </swiper-item>
+  <!--第二页种类选择结束-->
+
+  <!--第三页姓名填写开始-->
+  <swiper-item bindchange="addPetName">
+    <view class="container third_page">
+      <image src="{{img.head_img?img.head_img:'/images/icon/photo.png'}}" mode="{{flag.head_flag?'center':'aspectFill'}}" class="photo" bindtap="chooseHead"></image>
+      <input placeholder="请输入爱宠名称" placeholder-class="input_p" type="text" bindinput="getHeadInput" data-input="{{input.head_input}}" />
+      <view class="btn" bindtap="addPetName">下一步</view>
+    </view>
+  </swiper-item>
+  <!--第三页结束-->
+
+  <!--第四页生日开始-->
+  <swiper-item>
+    <view class="container fourth_page">
+      <image src="/images/first_page/cake.png" mode="aspectFill" class="photo" bindtap="chooseHead"></image>
+      <picker mode="date" start="1980-01-01" end="{{today}}" value="{{birthday}}" bindchange="chooseBirthday" class="picker">{{birthday}}</picker>
+      <view class="btn" bindtap="addPetBirthday">下一步</view>
+    </view>
+  </swiper-item>
+  <!--第四页结束-->
+
+  <!--第五页性别开始-->
+  <swiper-item>
+    <view class="container fifth_page">
+      <view bindtap="chooseSex" data-sex="{{item.name}}" wx:for="{{sex}}" wx:key="*this">
+        <image src="{{item.src}}" mode="aspectFit" class="{{item.name}}" id="{{index}}">
+          <image src="/images/first_page/yes.png" class=" {{item.check?'choose':''}}"></image>
+        </image>
+        <view class="word">{{item.zn}}</view>
+      </view>
+    </view>
+  </swiper-item>
+  <!--第五页结束-->
+
+  <!--第六页绝育开始-->
+  <swiper-item>
+    <view class="container sixth_page">
+      <view bindtap="chooseBear" data-bear="{{item.name}}" wx:for="{{bear}}" wx:key="*this">
+        <image src="{{item.check?item.src_yes:item.src}}" mode="aspectFit" id="{{index}}" class="{{item.check?'check':''}}"></image>
+        <view class="word">{{item.zn}}</view>
+      </view>
+    </view>
+  </swiper-item>
+  <!--第六页结束-->
+
+  <!--第七页体重开始-->
+  <swiper-item>
+    <view class="container seventh_page">
+      <image src="{{img.weight_img}}" class="weight" bindtap="chooseWeight" mode="aspectFit"></image>
+      <view class="weight_input">
+        <input placeholder="请输入爱宠体重" placeholder-class="input_p" type="number" bindinput="getWeightInput" data-input="{{input.weight_input}}" />
+        <view class="weight_word">KG</view>
+      </view>
+      <view class="btn" bindtap="submit">录入完成</view>
+    </view>
+  </swiper-item>
+  <!--第七页结束-->
+</swiper>

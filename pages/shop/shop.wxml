@@ -23,7 +23,7 @@
 
     <!--商品列表开始-->
     <view class="shop_list {{fix_nav?'shop_list_hover':''}}">
-      <view class="shop_item" wx:for="{{shop_list}}" wx:key="*this" bindtap="{{item.index}}">
+      <view class="shop_item {{index == shop_list.length-1?'last':''}}" wx:for="{{shop_list}}" wx:key="*this" bindtap="{{item.index}}">
         <image src="{{item.src}}" class="shop_img"></image>
         <view class="shop_title">{{item.title}}</view>
         <view class="shop_buy">

@@ -1,0 +1,148 @@
+/* first_step.wxss */
+
+swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.input_p {
+  font: normal 32rpx "Microsoft YaHei";
+  color: #ccc;
+}
+
+.hide {
+  display: none;
+}
+
+/*第一页面——猫狗*/
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.first_page image, .fifth_page image, .sixth_page image, .fifth_page image {
+  width: 200rpx;
+  height: 200rpx;
+  border: 2rpx solid #ccc;
+  border-radius: 100%;
+  background-size: cover;
+  position: relative
+}
+
+.first_page .word, .fifth_page .word, .sixth_page .word {
+  text-align: center;
+  font: normal 40rpx "Microsoft YaHei";
+  color: #333;
+  margin-top: 10rpx;
+}
+
+/*第二页面——种类*/
+
+/*第三页面——昵称*/
+
+.first_page, .third_page, .fourth_page, .fifth_page, .sixth_page, .seventh_page {
+  height: 750rpx;
+}
+
+.third_page input, .fourth_page .picker, .seventh_page .weight_input {
+  border: 2rpx solid #ccc;
+  text-align: center;
+  height: 100rpx;
+  width: 400rpx;
+  border-radius: 10rpx;
+  font: normal 32rpx "Microsoft YaHei";
+  color: #333;
+}
+
+.third_page .photo, .fourth_page .photo {
+  width: 280rpx;
+  height: 280rpx;
+  box-sizing: border-box;
+  border: 2rpx solid #ccc;
+  border-radius: 100%;
+}
+
+.third_page .btn, .fourth_page .btn, .seventh_page .btn {
+  width: 600rpx;
+  height: 100rpx;
+  background-color: #ff963d;
+  color: #fff;
+  border-radius: 10rpx;
+  text-align: center;
+  font: normal 42rpx/100rpx "Microsoft YaHei";
+}
+
+/*第四页面——生日*/
+
+.fourth_page .photo {
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 0;
+  border: none;
+}
+
+.fourth_page .picker {
+  height: 80rpx;
+  line-height: 80rpx;
+}
+
+/*第五页面——性别*/
+
+.fifth_page image {
+  box-sizing: border-box;
+  padding: 50rpx;
+  border: none;
+}
+
+.fifth_page .boy {
+  background-color: #529fef;
+}
+
+.fifth_page .girl {
+  background-color: #fd67bf;
+}
+
+/*第六页面——绝育*/
+
+.sixth_page image {
+  box-sizing: border-box;
+  padding: 50rpx;
+  background-color: #eee;
+}
+
+.sixth_page .check {
+  background-color: #4bd663;
+}
+
+/*第七页——体重*/
+
+.seventh_page .weight {
+  width: 180rpx;
+  height: 180rpx;
+  border-radius: 100%;
+}
+
+.weight_input {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.weight_input input {
+  width: 320rpx;
+}
+
+/*选中样式*/
+
+.container .choose {
+  background-color: rgba(75, 214, 99, .5);
+  position: absolute;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+  padding: 50rpx;
+}

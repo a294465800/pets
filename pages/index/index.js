@@ -233,7 +233,7 @@ Page({
   },
   goToFirst: function () {
     wx.navigateTo({
-      url: '/pages/pets_category/pets_category',
+      url: '/pages/first_step/first_step',
     })
   },
 

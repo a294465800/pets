@@ -40,43 +40,43 @@ Page({
     shop_list: [
       {
         index: 0,
-        src: '/images/cake.png',
+        src: '/images/first_page/cake.png',
+        title: '【全犬型-清热去火】',
+        price: '36.00',
+      },
+      {
+        index: 0,
+        src: '/images/first_page/cake.png',
         title: '【全犬型-清热去火】 尝鲜版深海鱼肉鸡肉喵粮',
         price: '36.00',
       },
       {
         index: 0,
-        src: '/images/cake.png',
+        src: '/images/first_page/cake.png',
         title: '【全犬型-清热去火】 尝鲜版深海鱼肉鸡肉喵粮',
         price: '36.00',
       },
       {
         index: 0,
-        src: '/images/cake.png',
+        src: '/images/first_page/cake.png',
         title: '【全犬型-清热去火】 尝鲜版深海鱼肉鸡肉喵粮',
         price: '36.00',
       },
       {
         index: 0,
-        src: '/images/cake.png',
+        src: '/images/first_page/cake.png',
         title: '【全犬型-清热去火】 尝鲜版深海鱼肉鸡肉喵粮',
         price: '36.00',
       },
       {
         index: 0,
-        src: '/images/cake.png',
+        src: '/images/first_page/cake.png',
         title: '【全犬型-清热去火】 尝鲜版深海鱼肉鸡肉喵粮',
         price: '36.00',
       },
       {
         index: 0,
-        src: '/images/cake.png',
-        title: '【全犬型-清热去火】 尝鲜版深海鱼肉鸡肉喵粮',
-        price: '36.00',
-      },
-      {
-        index: 0,
-        src: '/images/cake.png',
+        src: '/images/first_page/cake.png',
         title: '【全犬型-清热去火】 尝鲜版深海鱼肉鸡肉喵粮',
         price: '36.00',
       }

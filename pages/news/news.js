@@ -46,7 +46,7 @@ Page({
     fix_nav: false,
     news: [
       {
-        title: '1这只狗狗因为表情太拽而被人嫌弃，被人嫌弃，被人嫌弃，被人嫌弃',
+        title: '1这只狗狗因为表情',
         tags: ['可爱', '认真', '呆萌'],
         add_time: '04-12',
         comment: 560,

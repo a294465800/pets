@@ -67,11 +67,14 @@ swiper image {
 .news_article_message {
   width: 440rpx;
   height: 180rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
 .news_article_title {
   font: normal 32rpx "Microsoft YaHei";
-  height: 96rpx;
+  min-height: 68rpx;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
@@ -130,9 +133,10 @@ swiper image {
 }
 
 .news_article_info image {
-  width: 28rpx;
-  height: 28rpx;
+  width: 26rpx;
+  height: 30rpx;
   margin: 0 10rpx 0 0;
+  align-self: center;
 }
 
 .x-scroll {

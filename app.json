@@ -1,20 +1,18 @@
 {
   "pages": [
     "pages/shop/shop",
-    "pages/mine/mine",
-    "pages/add_pets/add_pets",
-    "pages/mine_edit/mine_edit",
     "pages/index/index",
-    "pages/species/species",
-    "pages/add_pet/add_pet",
-    "pages/pets_category/pets_category",
+    "pages/add_pets/add_pets",
+    "pages/first_step/first_step",
+    "pages/news/news",
+    "pages/mine/mine",
+    "pages/mine_edit/mine_edit",
     "pages/first_meal/first_meal",
     "pages/play/play",
     "pages/clean/clean",
     "pages/grow/grow",
     "pages/eat/eat",
     "pages/health/health",
-    "pages/news/news",
     "pages/logs/logs"
   ],
   "window": {
