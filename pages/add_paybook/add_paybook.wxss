@@ -1,0 +1,118 @@
+/* add_paybook.wxss */
+
+.add_paybook {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  height: auto;
+}
+
+.add_paybook_item {
+  margin: 10rpx 28rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 130rpx;
+  height: 160rpx;
+}
+
+.add_paybook_item_img {
+  width: 110rpx;
+  height: 110rpx;
+  box-sizing: border-box;
+  padding: 20rpx;
+  border-radius: 100%;
+  position: relative;
+  overflow: inherit;
+}
+
+.add_paybook_item_word {
+  margin-top: 10rpx;
+}
+
+.add_paybook_item:nth-last-child(1) {
+  justify-content: flex-start;
+}
+
+.click {
+  display: none;
+  width: 36rpx;
+  height: 36rpx;
+  border-radius: 100%;
+  box-sizing: border-box;
+  position: absolute;
+  top: 0rpx;
+  right: 0rpx;
+  background-color: #ff963d;
+  padding: 6rpx;
+}
+
+/*选中样式*/
+
+.select {
+  background-color: #ffdfc4;
+  position: relative;
+}
+
+.show {
+  display: block;
+}
+
+/*内容输入*/
+
+.paybook_input_wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+}
+
+.add_paybook_input {
+  width: 750rpx;
+  height: 90rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border: 2rpx solid #ccc;
+  background-color: #eee;
+  font-size: 30rpx;
+}
+
+.input_label {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.paybook_remark {
+  width: 460rpx;
+}
+
+.paybook_money {
+  margin-left: 30rpx;
+  width: 220rpx;
+}
+
+input {
+  box-sizing: border-box;
+  padding-top: 6rpx;
+}
+
+.unit {
+  margin: 0 4rpx;
+}
+
+.input_p {
+  font-family: "Microsoft YaHei" sans-serif;
+}
+
+.paybook_submit {
+  margin-top: 30rpx;
+  width: 160rpx;
+}

@@ -1,0 +1,27 @@
+<!--article.wxml-->
+<import src="../../wxParse/wxParse.wxml"/>
+<view class="container">
+  <!--文章标题开始-->
+  <view class="article_title">这只狗狗因为表情太拽而被人嫌弃哦~~~~~~~~</view>
+  <!--文章标题结束-->
+
+  <!--文章副标题开始-->
+  <view class="article_subhead">
+    <view class="article_author">作者：狗蛋</view>
+    <view class="article_time">1小时前</view>
+    <view class="article_tags">
+      <view class="tags_item">
+        <image class="tag_img" src="/images/grow_record/tag.png" mode="aspectFit"></image>
+        <view>可爱</view>
+      </view>
+    </view>
+  </view>
+  <!--文章副标题结束-->
+
+
+
+</view>
+
+  <!--引入文章内容开始-->
+  <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+  <!--引入文章结束-->

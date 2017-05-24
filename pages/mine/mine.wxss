@@ -167,7 +167,3 @@
   align-items: center;
 }
 
-/*按压样式*/
-.push_class {
-  background-color: #adadad;
-}

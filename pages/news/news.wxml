@@ -22,7 +22,7 @@
 
     <!--文章列表开始-->
       <view class="news_list {{fix_nav?'news_list_hover':''}}">
-        <view class="news_list_article" wx:for="{{news}}" wx:key="*this">
+        <view class="news_list_article" wx:for="{{news}}" wx:key="*this" bindtap="goToArticle" hover-class="push_class">
           <view class="news_article_message">
             <view class="news_article_title">{{item.title}}</view>
             <view class="news_article_tags">

@@ -105,7 +105,7 @@ swiper image {
   justify-content: flex-start;
   align-items: center;
   color: #bcbcbc;
-  font: normal 12px "Microsoft YaHei";
+  font: normal 24rpx "Microsoft YaHei";
   margin-right: 20rpx;
 }
 

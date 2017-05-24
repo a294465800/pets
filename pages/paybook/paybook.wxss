@@ -1,0 +1,99 @@
+/* paybook.wxss */
+
+/*记账本总支出圆圈*/
+
+.paybook_charge {
+  width: 100%;
+  height: 600rpx;
+  box-sizing: border-box;
+  padding: 20rpx 40rpx;
+  position: relative;
+}
+
+.paybook_time {
+  width: 100%;
+  margin-bottom: 40rpx;
+}
+
+.paybook_time, .paybook_time_month, .paybook_time_year {
+  height: 60rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  color: #ff963d;
+}
+
+.paybook_time_month {
+  width: 150rpx;
+}
+
+.paybook_time_year {
+  width: 120rpx;
+}
+
+.paybook_time image {
+  width: 14rpx;
+  height: 24rpx;
+}
+
+.paybook_date {
+  min-width: 60rpx;
+  text-align: center;
+}
+
+/*账本圆圈*/
+
+.paybook_bg, .paybook_money {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100%;
+}
+
+.paybook_bg {
+  width: 400rpx;
+  height: 400rpx;
+  background: linear-gradient(#ffab63, #feca74);
+  margin: 0 auto;
+}
+
+.paybook_money {
+  width: 346rpx;
+  height: 346rpx;
+  background-color: #fff;
+}
+
+.paybook_money_title {
+  font-size: 28rpx;
+}
+
+.paybook_money_content {
+  font-size: 56rpx;
+  font-weight: bold;
+  margin: 10rpx 0;
+}
+
+
+/*列表*/
+.paybook_list {
+  border-top: 2rpx solid #ccc;
+}
+.paybook_list .glow_list {
+  margin: 0;
+}
+
+/*添加新信息*/
+.addPaybook {
+  width: 90rpx;
+  height: 90rpx;
+  box-sizing: border-box;
+  padding: 26rpx;
+  background-color: #ff963d;
+  border-radius: 100%;
+  position: fixed;
+  right: 30rpx;
+  bottom: 30rpx;
+}

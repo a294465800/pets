@@ -1,0 +1,35 @@
+<!--paybook.wxml-->
+<view class="paybook container">
+
+  <!--记账本总支出圆圈开始-->
+  <view class="paybook_charge">
+    <view class="paybook_time">
+      <view class="paybook_time_month">
+        <image src="/images/icon/left.png" mode="aspectFill" bindtap="lastMonth" data-month="{{month}}"></image>
+        <picker mode="date" class="paybook_date" fields="month" start="1980-01-01" end="{{today}}" value="{{today}}" bindchange="paybookChoose">{{month}}月</picker>
+        <image src="/images/icon/right.png" mode="aspectFill" data-month="{{month}}" bindtap="nextMonth"></image>
+      </view>
+      <view class="paybook_time_year">{{year}}年</view>
+    </view>
+    <view class="paybook_bg">
+      <view class="paybook_money">
+        <view class="paybook_money_title">总支出(元)</view>
+        <view class="paybook_money_content">1200.50</view>
+      </view>
+    </view>
+  </view>
+  <!--记账本圆圈结束-->
+
+  <!--记账本列表开始-->
+  <view class="paybook_list">
+    <!--引入成长列表开始-->
+    <include src="/pages/common/grow_list" />
+    <!--成长列表结束-->
+  </view>
+
+  <!--添加新信息开始-->
+  <image src="/images/icon/plus_w.png" class="addPaybook" bindtap="addPaybook"></image>
+  <!--添加新信息结束-->
+
+  <!--记账本列表结束-->
+</view>

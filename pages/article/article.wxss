@@ -1,0 +1,40 @@
+/* article.wxss */
+@import "/wxParse/wxParse.wxss";
+
+/*文章标题*/
+
+.article_title {
+  padding: 0 20rpx;
+  font: bold 40rpx "Microsoft YaHei";
+}
+
+/*文章副标题*/
+
+.article_subhead, .article_tags, .tags_item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: #bcbcbc;
+  font: normal 24rpx "Microsoft YaHei";
+}
+
+.article_subhead {
+  justify-content: space-around;
+}
+
+.article_tags {
+  justify-content: flex-start;
+  margin-top: 10rpx;
+}
+
+.tags_item {
+  justify-content: flex-start;
+  margin-right: 20rpx;
+}
+
+.tag_img {
+  width: 20rpx;
+  height: 20rpx;
+  margin-right: 6rpx;
+}
+

@@ -262,16 +262,42 @@ Page({
 
   //展示管家提醒列表
   managerShow: function (e) {
-    this.setData({
-      managerShow: !e.currentTarget.dataset.show
-    })
+    let that = this
+    if (e.currentTarget.dataset.show){
+      that.setData({
+        managerShow: false
+      })
+    }else {
+      wx.showLoading({
+        title: '加载中',
+      })
+      setTimeout(function () {
+        wx.hideLoading()
+        that.setData({
+          managerShow: true
+        })
+      }, 200)
+    }
   },
 
   //展示经历列表
   experienceShow: function (e) {
-    this.setData({
-      experienceShow: !e.currentTarget.dataset.show
-    })
+    let that = this
+    if (e.currentTarget.dataset.show) {
+      that.setData({
+        experienceShow: false
+      })
+    } else {
+      wx.showLoading({
+        title: '加载中',
+      })
+      setTimeout(function () {
+        wx.hideLoading()
+        that.setData({
+          experienceShow: true
+        })
+      }, 200)
+    }
   },
 
   //成长记录各页面跳转

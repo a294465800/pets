@@ -172,5 +172,12 @@ Page({
     } else {
       return
     }
+  },
+
+  //具体文章跳转
+  goToArticle: function(e){
+    wx.navigateTo({
+      url: '/pages/article/article',
+    })
   }
 })

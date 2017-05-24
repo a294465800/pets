@@ -11,6 +11,12 @@ page {
   height: 100%;
 }
 
+/*view的点击效果*/
+
+.push_class {
+  background-color: #e0e0e0;
+}
+
 /*时间选择通用模版样式*/
 
 .time_choose {
@@ -172,6 +178,5 @@ page {
   background-color: #8e8e8e;
   position: absolute;
   top: 6rpx;
-  right: -9rpx;
+  right: -11rpx;
 }
-
