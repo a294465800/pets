@@ -1,11 +1,17 @@
 /* article.wxss */
-@import "/wxParse/wxParse.wxss";
+@import "../../wxParse/wxParse.wxss";
+
+.container {
+  height: 92%;
+}
 
 /*文章标题*/
 
 .article_title {
   padding: 0 20rpx;
   font: bold 40rpx "Microsoft YaHei";
+  text-align: center;
+  margin-top: 10rpx;
 }
 
 /*文章副标题*/
@@ -20,6 +26,7 @@
 
 .article_subhead {
   justify-content: space-around;
+  margin: 20rpx 0 40rpx;
 }
 
 .article_tags {
@@ -38,3 +45,189 @@
   margin-right: 6rpx;
 }
 
+/*文章主体*/
+
+.article_content {
+  padding: 0 20rpx;
+}
+
+/*文章点赞*/
+
+.article_love, .article_good, .article_bad {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.article_love {
+  padding: 0 100rpx;
+  margin: 50rpx 0;
+  justify-content: space-around;
+}
+
+.article_love image {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.article_good, .article_bad {
+  border: 2rpx solid #eee;
+  border-radius: 10rpx;
+  width: 130rpx;
+  height: 50rpx;
+  justify-content: space-around;
+  padding: 10rpx 20rpx;
+}
+
+.article_count {
+  font-size: 30rpx;
+}
+
+.article_good {
+  color: #999;
+}
+
+.article_bad {
+  color: #999;
+}
+
+/*点赞样式*/
+
+.article_love_push {
+  color: #ff6464;
+}
+
+/*评论数*/
+
+.article_comment_count {
+  width: 100%;
+  text-align: center;
+  color: #333;
+  font-size: 28rpx;
+  font-weight: bold;
+}
+
+/*评论列表信息*/
+
+.article_comment_item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 20rpx;
+  background-color: #fff;
+}
+
+.article_comment_img {
+  width: 70rpx;
+  height: 70rpx;
+  border-radius: 100%;
+}
+
+.article_comment_count_info {
+  width: 620rpx;
+}
+
+.article_comment_name {
+  font-size: 28rpx;
+}
+
+.article_comment_time {
+  color: #999;
+  font-size: 24rpx;
+  margin: 4rpx 0 10rpx;
+}
+
+
+/*添加评论*/
+
+.add_article_comment {
+  width: 100%;
+  height: 100rpx;
+  box-sizing: border-box;
+  padding: 0 20rpx;
+  background-color: #e0e0e0;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.add_article_comment image {
+  width: 50rpx;
+  height: 50rpx;
+  margin: 0 10rpx;
+}
+
+.input_p {
+  font-family: "Microsoft YaHei";
+}
+
+.article_comment_input {
+  background-color: #fff;
+  border-radius: 100rpx;
+  padding: 16rpx 20rpx 10rpx;
+  width: 500rpx;
+  color: #999;
+}
+
+.hide {
+  display: none;
+}
+
+/*评论填写处*/
+
+.write_article_comment {
+  background-color: #272727;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.form_class {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.write_comment_title {
+  width: 700rpx;
+  height: 60rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+  margin-bottom: 30rpx;
+}
+
+.write_position {
+  width: 700rpx;
+  height: 300rpx;
+  box-sizing: border-box;
+  padding: 20rpx;
+  margin-bottom: 30rpx;
+  align-self: flex-start;
+  background-color: #4f4f4f;
+  color: #fff;
+}
+
+.submit_class {
+  width: 150rpx;
+  height: 60rpx;
+  font-size: 28rpx;
+  color: #ccc;
+  background-color: #4f4f4f;
+}
+
+.submint_active {
+  background-color: #ff963d;
+  color: #fff;
+}
