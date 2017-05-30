@@ -5,22 +5,9 @@
 }
 
 /*表单样式*/
-
-input, textarea {
-  border: 2rpx solid #ccc;
-  border-radius: 10rpx;
-  color: #999;
-  padding: 10rpx;
-}
-
 input {
   width: 140rpx;
   text-align: center;
-}
-
-.input_p {
-  font: normal 32rpx "Microsoft YaHei";
-  color: #999;
 }
 
 .unit {
@@ -33,6 +20,7 @@ input {
 
 .remark .word_2bit {
   align-self: flex-start;
+  padding-top: 20rpx;
 }
 
 textarea {
@@ -83,15 +71,4 @@ textarea {
   width: 140rpx;
   height: 140rpx;
   margin-right: 20rpx;
-}
-
-/*保存按钮*/
-
-.btn button {
-  width: 260rpx;
-  align-self: center;
-  background-color: #ff963d;
-  color: #fff;
-  border-radius: 20rpx;
-  margin-bottom: 30rpx;
 }

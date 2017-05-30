@@ -26,10 +26,10 @@
     <view class="word">手机号码</view>
     <view class="message">{{telPhone || '无'}}</view>
   </view>
-  <view class="w_part out_part" hover-class="push_class" hover-stay-time="150">
+  <!--<view class="w_part out_part" hover-class="push_class" hover-stay-time="150">
     <view class="word">实名认证</view>
     <view class="message">{{people_name || '认证可生成宠物身份证'}}</view>
-  </view>
+  </view>-->
 
   <!--性别选择框开始-->
   <view class="sexChoose {{sexHide?'hide':''}}" bindtap="sexHidden"></view>

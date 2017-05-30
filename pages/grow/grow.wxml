@@ -9,7 +9,7 @@
     <view class="height part">
       <view class="height_left">
         <view class="word_2bit">身高：</view>
-        <input placeholder="50" type="number" placeholder-class="input_p" />
+        <input placeholder="50" type="number" placeholder-class="p_input" />
         <view class="unit">cm</view>
       </view>
       <image src="/images/icon/photo.png" class="photo" bindtap="imageChoose"></image>
@@ -17,18 +17,18 @@
     <view class="body part">
       <view class="body_left">
         <view class="word_2bit">体长：</view>
-        <input placeholder="50" type="number" placeholder-class="input_p" />
+        <input placeholder="50" type="number" placeholder-class="p_input" />
         <view class="unit">cm</view>
       </view>
       <view class="body_right">
         <view class="word_2bit">体重：</view>
-        <input placeholder="20" type="number" placeholder-class="input_p" />
+        <input placeholder="20" type="number" placeholder-class="p_input" />
         <view class="unit">kg</view>
       </view>
     </view>
     <view class="remark part">
       <view class="word_2bit">备注：</view>
-      <textarea placeholder="这是备注信息" placeholder-class="input_p" maxlength="200" />
+      <textarea placeholder="这是备注信息" placeholder-class="p_input" maxlength="200" />
     </view>
     <view class="pre_img">
       <image src="{{item}}" wx:for="{{images}}" class="img_item" bindtap="preImage" data-src="{{item}}" mode="aspectFit" wx:key="*this"></image>

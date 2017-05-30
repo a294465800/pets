@@ -136,7 +136,7 @@
                 <image class="title_img knowledge_img" src="/images/grow_record/konwledge.png" mode="scaleToFill"></image>
                 <view class="title_word">专题知识</view>
               </view>
-              <view class="manager_entry" bindtap="goToMangaer">
+              <view class="manager_entry" bindtap="goTONews">
                 <view>更多</view>
                 <image src="/images/grow_record/more.png" mode="scaleToFill"></image>
               </view>
@@ -173,7 +173,7 @@
           <!--知识专题结束-->
 
           <!--推荐用品开始-->
-          <view class="scroll-flex shop">
+          <!--<view class="scroll-flex shop">
             <view class="manager_head">
               <view class="daily_plan_head">
                 <image class="title_img product" src="/images/grow_record/product.png" mode="scaleToFill"></image>
@@ -195,7 +195,7 @@
               </view>
               <view class="shop_btn">采购</view>
             </view>
-          </view>
+          </view>-->
           <!--推荐用品结束-->
         </scroll-view>
       </view>

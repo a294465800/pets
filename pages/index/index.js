@@ -263,11 +263,11 @@ Page({
   //展示管家提醒列表
   managerShow: function (e) {
     let that = this
-    if (e.currentTarget.dataset.show){
+    if (e.currentTarget.dataset.show) {
       that.setData({
         managerShow: false
       })
-    }else {
+    } else {
       wx.showLoading({
         title: '加载中',
       })
@@ -344,6 +344,20 @@ Page({
     let src = e.currentTarget.dataset.src
     wx.previewImage({
       urls: [src],
+    })
+  },
+
+  //提醒管理
+  goToMangaer: function (e) {
+    wx.navigateTo({
+      url: '/pages/manager_switch/manager_switch',
+    })
+  },
+
+  //文章跳转
+  goTONews: function (e) {
+    wx.switchTab({
+      url: '/pages/news/news',
     })
   }
 

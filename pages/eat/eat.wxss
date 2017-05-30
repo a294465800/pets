@@ -35,27 +35,8 @@
   width: 180rpx;
 }
 
-.p_input {
-  font: normal 28rpx "Microsoft YaHei";
-}
-
-input, textarea {
-  border: 2rpx solid #999;
-  border-radius: 10rpx;
-  padding: 0 10rpx;
-  font: normal 28rpx "Microsoft YaHei";
-  color: #333;
-}
-
-input {
-  padding: 0;
-  box-sizing: border-box;
-  padding-top: 6rpx;
-}
-
 #food, #weight {
   width: 200rpx;
-  height: 60rpx;
   text-align: center;
 }
 
@@ -101,17 +82,6 @@ input {
   width: 140rpx;
   height: 140rpx;
   margin-right: 20rpx;
-}
-
-/*保存按钮*/
-
-.btn button {
-  width: 260rpx;
-  align-self: center;
-  background-color: #ff963d;
-  color: #fff;
-  border-radius: 20rpx;
-  margin-bottom: 30rpx;
 }
 
 /*列表样式*/

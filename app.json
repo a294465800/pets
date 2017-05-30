@@ -1,8 +1,12 @@
 {
   "pages": [
+    "pages/index/index",
+    "pages/new_pet/new_pet",
+    "pages/mine/mine",
+    "pages/health/health",
+    "pages/manager_switch/manager_switch",
     "pages/article/article",
     "pages/news/news",
-    "pages/index/index",
     "pages/paybook/paybook",
     "pages/add_paybook/add_paybook",
     "pages/eat/eat",
@@ -10,13 +14,12 @@
     "pages/first_step/first_step",
     "pages/shop/shop",
     "pages/add_pets/add_pets",
-    "pages/mine/mine",
     "pages/mine_edit/mine_edit",
     "pages/first_meal/first_meal",
     "pages/clean/clean",
     "pages/grow/grow",
-    "pages/health/health",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/collect/collect"
   ],
   "window": {
     "backgroundTextStyle": "light",

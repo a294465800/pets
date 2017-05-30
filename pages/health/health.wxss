@@ -1,1 +1,54 @@
 /* health.wxss */
+
+/*类别*/
+
+.each_part, .sick_part {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 20rpx 0;
+}
+
+.sick_part {
+  justify-content: space-between;
+}
+
+.sick_part .each_part {
+  margin: 0;
+}
+
+.sick_part input {
+  width: 200rpx;
+}
+
+.category_list {
+  width: 200rpx;
+  text-align: center;
+  border: 2rpx solid #ccc;
+  border-radius: 10rpx;
+  padding: 16rpx 10rpx 10rpx;
+  font: normal 28rpx "Microsoft YaHei";
+  color: #333;
+}
+
+.function_part {
+  padding: 0 30rpx;
+}
+
+.symptom input, .remark textarea {
+  flex: 1;
+}
+
+.remark textarea {
+  height: 150rpx;
+}
+
+.remark {
+  margin-bottom: 50rpx;
+}
+
+.remark .word_4bit {
+  align-self: flex-start;
+  padding-top: 20rpx;
+}

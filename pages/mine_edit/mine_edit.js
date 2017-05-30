@@ -48,7 +48,7 @@ Page({
   },
   sexHidden: function (e) {
     this.setData({
-      sexHide: true
+      sexHide: true,
     })
   },
   sexConfirm: function (e) {

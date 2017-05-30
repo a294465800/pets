@@ -1,4 +1,4 @@
-/* mine_edit.wxss */
+/* new_pet.wxss */
 
 .container {
   display: flex;
@@ -9,7 +9,6 @@
 
 .part {
   background-color: #fff;
-  margin-top: 40rpx;
 }
 
 .w_part {
@@ -35,21 +34,24 @@
 
 .user {
   width: 100%;
-  height: 200rpx;
+  height: 240rpx;
   box-sizing: border-box;
   padding: 0 30rpx;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+  background-color: #eee;
+  border-top: 2rpx solid #ccc;
 }
 
 .user .user_img {
-  width: 140rpx;
-  height: 140rpx;
+  width: 200rpx;
+  height: 200rpx;
   border: 2rpx solid #ccc;
   border-radius: 100%;
   background-size: cover;
+  background-color: #fff;
 }
 
 .userinfo {
@@ -70,8 +72,8 @@
   color: #999;
 }
 
-.sex, .birthday {
-  border-top: 2rpx solid #eee;
+.name, .species, .sex, .birthday {
+  border-top: 2rpx solid #ccc;
 }
 
 /*性别选择框*/
@@ -82,7 +84,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  background-color: rgba(0, 0, 0, .6);
+  background-color: rgba(0, 0, 0, 0.6);
 }
 
 .sex_title {
@@ -119,6 +121,7 @@
 }
 
 /*生日*/
+
 .birthday picker {
   width: 80%;
   text-align: right;
@@ -138,6 +141,7 @@
   right: 0;
   background-color: #fff;
 }
+
 .tel_input {
   border: none;
   border-bottom: 2rpx solid #ccc;
@@ -162,4 +166,17 @@
   text-align: center;
   line-height: 70rpx;
   border-radius: 10rpx;
+}
+
+/*删除宠物*/
+
+.delete_pet {
+  background-color: #fff;
+  width: 400rpx;
+  height: 80rpx;
+  margin: 150rpx auto 0;
+  text-align: center;
+  line-height: 80rpx;
+  border: 2rpx solid #ccc;
+  border-radius: 20rpx;
 }

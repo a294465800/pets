@@ -15,7 +15,7 @@
 
   <!--宠物信息开始-->
   <view class="part pets">
-    <view class="pets_head">
+    <view class="pets_head" bindtap="goTONew_pet" hover-class="push_class">
       <view class="pets_title">
         <image class="pet_img" src="/images/user/pets.png"></image>
         <view class="pets_title_message">我的宠物</view>
@@ -37,13 +37,13 @@
 
   <!--收藏通知开始-->
   <view class="part inform">
-    <view class="collect title" hover-class="push_class">
-      <image class="pet_img" src="/images/user/collect.png"></image>
+    <view class="collect title" hover-class="push_class" bindtap="goToCollect">
+      <image class="pet_img" mode="aspectFit" src="/images/user/collect.png"></image>
       <view class="title_message">我的收藏</view>
     </view>
     <view class="inform_news title" hover-class="push_class">
       <view class="inform_news_left">
-        <image class="pet_img" src="/images/user/inform.png"></image>
+        <image class="pet_img" mode="aspectFit" src="/images/user/inform.png"></image>
         <view class="title_message">消息通知</view>
       </view>
       <image src="/images/grow_record/more.png" class="userinfo_more"></image>
@@ -52,28 +52,28 @@
   <!--收藏通知结束-->
 
   <!--订单开始-->
-  <view class="part order">
+  <!--<view class="part order">
     <view class="collect title inform_news" hover-class="push_class" bindtap="goToShop">
       <view class="inform_news_left">
-        <image class="pet_img" src="/images/user/shop.png"></image>
+        <image class="pet_img" mode="aspectFit" src="/images/user/shop.png"></image>
         <view class="title_message">管家小铺</view>
       </view>
       <image src="/images/grow_record/more.png" class="userinfo_more"></image>
     </view>
     <view class="title inform_news" hover-class="push_class">
       <view class="inform_news_left">
-        <image class="pet_img" src="/images/user/order.png"></image>
+        <image class="pet_img" mode="aspectFit" src="/images/user/order.png"></image>
         <view class="title_message">我的订单</view>
       </view>
       <image src="/images/grow_record/more.png" class="userinfo_more"></image>
     </view>
-  </view>
+  </view>-->
   <!--订单结束-->
 
   <!--建议反馈开始-->
   <view class="part suggest">
     <view class="title" hover-class="push_class">
-      <image class="pet_img" src="/images/user/suggest.png"></image>
+      <image class="pet_img" mode="aspectFit" src="/images/user/suggest.png"></image>
       <view class="title_message">建议反馈</view>
     </view>
   </view>

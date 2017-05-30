@@ -45,24 +45,21 @@
 
 .remark .word_2bit {
   align-self: flex-start;
+  padding-top: 20rpx;
 }
 
-input, textarea, .time_wrap {
+.time_wrap {
   border: 2rpx solid #ccc;
   border-radius: 10rpx;
   color: #999;
-  padding: 10rpx;
+  padding: 16rpx 10rpx 10rpx;
+  font-size: 28rpx;
 }
 
 textarea {
   width: 580rpx;
   height: 160rpx;
   padding: 10rpx 10rpx;
-}
-
-.input_p {
-  font: normal 32rpx "Microsoft YaHei";
-  color: #999;
 }
 
 .photo {
@@ -88,15 +85,4 @@ textarea {
   width: 140rpx;
   height: 140rpx;
   margin-right: 20rpx;
-}
-
-/*保存按钮*/
-
-.btn button {
-  width: 260rpx;
-  align-self: center;
-  background-color: #ff963d;
-  color: #fff;
-  border-radius: 20rpx;
-  margin-bottom: 30rpx;
 }

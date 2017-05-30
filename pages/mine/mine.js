@@ -29,7 +29,14 @@ Page({
     })
   },
 
-  //宠物添加跳转
+  //添加宠物跳转
+  goTONew_pet: function (e) {
+    wx.navigateTo({
+      url: '/pages/new_pet/new_pet',
+    })
+  },
+
+  //宠物修改跳转
   goToAdd_pets: function (e) {
     wx.navigateTo({
       url: '/pages/add_pets/add_pets',
@@ -37,9 +44,16 @@ Page({
   },
 
   //管家小铺跳转
-  goToShop: function(e){
+  goToShop: function (e) {
     wx.navigateTo({
       url: '/pages/shop/shop',
+    })
+  },
+
+  //收藏页面跳转
+  goToCollect: function (e) {
+    wx.navigateTo({
+      url: '/pages/collect/collect',
     })
   }
 })

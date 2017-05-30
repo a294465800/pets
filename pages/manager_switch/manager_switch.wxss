@@ -1,0 +1,22 @@
+/* manager_switch.wxss */
+
+.manager_switch, .manager_switch_word {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.manager_switch {
+  width: 100%;
+  height: 80rpx;
+  align-items: flex-start;
+  box-sizing: border-box;
+  padding: 0 40rpx;
+  margin: 0 0 20rpx;
+}
+
+.manager_switch_word {
+  font-size: 32rpx;
+  line-height: 80rpx;
+  align-items: center;
+}
