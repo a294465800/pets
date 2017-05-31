@@ -8,7 +8,7 @@ Page({
   data: {
     time: app.globalData.time,
     date: '今天',
-    images:[],
+    images: [],
     grow_records: [
       {
         date: '2017-03-20',
@@ -120,7 +120,8 @@ Page({
           ]
         }
       }
-    ]
+    ],
+    pet_eat: {}
 
   },
 
@@ -169,11 +170,20 @@ Page({
   },
 
   //图片预览
-  preImage: function(e){
+  preImage: function (e) {
     let that = this
     let src = e.currentTarget.dataset.src
     wx.previewImage({
       urls: [src],
+    })
+  },
+
+  //提交信息——吃
+  formSubmit: function (e) {
+    let that = this
+    that.setData({
+      pet_eat: e.detail.value,
+      'pet_eat.images': that.data.images
     })
   }
 })

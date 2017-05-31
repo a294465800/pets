@@ -12,6 +12,7 @@ Page({
     images: [],
     category: ['体内驱虫', '体外驱虫', '疫苗', '生病', '体检'],
     index: 0,
+    health: {}
   },
 
   /**
@@ -46,4 +47,14 @@ Page({
       index: e.detail.value
     })
   },
+
+  //提交信息——生病
+  formSubmit: function(e){
+    let that = this
+    that.setData({
+      health: e.detail.value,
+      'health.category': that.data.category[that.data.index]
+    })
+    console.log(that.data.health)
+  }
 })

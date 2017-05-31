@@ -9,13 +9,13 @@
     <view class="height part">
       <view class="height_left">
         <view class="word_2bit">类别：</view>
-        <input placeholder="洗澡" type="text" placeholder-class="p_input" />
+        <input placeholder="洗澡" type="text" placeholder-class="p_input" name="category" />
       </view>
       <image src="/images/icon/photo.png" class="photo" bindtap="imageChoose"></image>
     </view>
     <view class="remark part">
       <view class="word_2bit">备注：</view>
-      <textarea placeholder="这是备注信息" placeholder-class="p_input" maxlength="200" />
+      <textarea placeholder="这是备注信息" placeholder-class="p_input" maxlength="200" name="remark" />
     </view>
     <view class="pre_img">
       <image src="{{item}}" wx:for="{{images}}" class="img_item" bindtap="preImage" data-src="{{item}}" mode="aspectFit" wx:key="*this"></image>

@@ -3,6 +3,9 @@
 .container {
   background-color: #f0f0f0;
 }
+input {
+  font-family: "Microsoft YaHei";
+}
 
 /*表单样式*/
 

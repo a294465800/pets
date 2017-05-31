@@ -6,7 +6,7 @@
       <image src="{{userInfo.avatarUrl}}" class="user_img"></image>
       <view class="userinfo">
         <view class="userinfo_message">
-          <view class="">{{userInfo.nickName}}</view>
+          <view>{{userInfo.nickName}}</view>
           <view class="userinfo_id">ID:000000</view>
         </view>
       </view>
@@ -35,7 +35,7 @@
   <view class="sexChoose {{sexHide?'hide':''}}" bindtap="sexHidden"></view>
   <radio-group bindchange="sexConfirm" class="sexHide {{sexHide?'hide':''}}">
     <view class="sex_title">性别</view>
-    <label wx:for="{{sex_radio}}" class="sex_flex">
+    <label wx:for="{{sex_radio}}" class="sex_flex" wx:key="unique">
       <view>{{item.name}}</view>
       <radio value="{{item.name}}" color="green" />
     </label>

@@ -9,6 +9,9 @@ Page({
     time: app.globalData.time,
     date: '今天',
     images: [],
+
+    //需要提交的信息
+    clean: {}
   },
 
   /**
@@ -56,5 +59,15 @@ Page({
     wx.previewImage({
       urls: [src],
     })
+  },
+
+  //提交信息
+  formSubmit: function(e){
+    let that = this
+    that.setData({
+      clean: e.detail.value,
+      'clean.images': that.data.images
+    })
+    console.log(that.data.clean)
   }
 })

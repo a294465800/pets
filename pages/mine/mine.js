@@ -32,7 +32,7 @@ Page({
   //添加宠物跳转
   goTONew_pet: function (e) {
     wx.navigateTo({
-      url: '/pages/new_pet/new_pet',
+      url: '/pages/first_step/first_step',
     })
   },
 

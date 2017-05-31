@@ -1,26 +1,28 @@
 <!--add_paybook.wxml-->
 <view class="container">
   <view class="add_paybook">
-    <view class="add_paybook_item" wx:for="{{paybook_item}}" id="{{index}}" bindtap="paybook_input">
+    <view class="add_paybook_item" wx:for="{{paybook_item}}" id="{{index}}" bindtap="paybook_input" wx:key="unique">
       <image src="{{item.src}}" class="add_paybook_item_img {{item_select == index?'select':''}}" mode="aspectFit">
         <image src="/images/paybook/click.png" mode="aspectFit" class="click {{item_select == index?'show':''}}"></image>
       </image>
       <view class="add_paybook_item_word">{{item.zn}}</view>
     </view>
   </view>
-  <view hidden="{{input_show}}">
-    <form class="paybook_input_wrap" bindsubmit="sendPaybook">
+</view>
+<view class="shade" hidden="{{input_show}}" bindtap="hideInput">
+  <view class="paybook_input_wrap" catchtap="showInput">
+    <form bindsubmit="sendPaybook">
       <view class="add_paybook_input">
         <label class="input_label paybook_money">
           <view class="unit">￥</view>
-          <input type="digit" placeholder="花费" placeholder-class="input_p" name="price" value="{{reset}}" focus="{{!input_show}}" />
+          <input type="digit" placeholder="花费" placeholder-class="p_input" name="price" value="{{reset}}" focus="{{!input_show}}" />
         </label>
         <label class="input_label paybook_remark">
           <view class="">备注：</view>
           <input type="text" value="{{reset}}" name="remark" />
         </label>
       </view>
-      <button type="primary" class="paybook_submit" form-type="submit">保存</button>
+      <button class="paybook_submit" form-type="submit">保存</button>
     </form>
   </view>
 </view>

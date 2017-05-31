@@ -121,7 +121,8 @@ Page({
           ]
         }
       }
-    ]
+    ],
+    grow: {}
 
   },
 
@@ -172,6 +173,15 @@ Page({
     let src = e.currentTarget.dataset.src
     wx.previewImage({
       urls: [src],
+    })
+  },
+
+  //提交信息
+  formSubmit: function (e) {
+    let that = this
+    that.setData({
+      grow: e.detail.value,
+      'grow.images': that.data.images
     })
   }
 })

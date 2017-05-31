@@ -63,24 +63,26 @@
 
 /*内容输入*/
 
-.paybook_input_wrap {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
+.shade {
   width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.paybook_input_wrap {
+  width: 610rpx;
+  height: 370rpx;
+  margin: 80rpx auto 0;
+  background-color: #fff;
 }
 
 .add_paybook_input {
-  width: 750rpx;
-  height: 90rpx;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  border: 2rpx solid #ccc;
-  background-color: #eee;
-  font-size: 30rpx;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 30rpx 50rpx;
 }
 
 .input_label {
@@ -88,31 +90,38 @@
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
+  margin: 20rpx 0;
 }
 
-.paybook_remark {
-  width: 460rpx;
+.input_label view {
+  width: 100rpx;
+  text-align: right;
+}
+.add_paybook_input input {
+  border: none;
+  border-radius: 0;
+  border-bottom: 2rpx solid #ffdfc4;
 }
 
-.paybook_money {
-  margin-left: 30rpx;
-  width: 220rpx;
+.paybook_remark input {
+  flex: 1;
+}
+
+.paybook_money input {
+  width: 160rpx;
+  text-align: center;
 }
 
 input {
   box-sizing: border-box;
-  padding-top: 6rpx;
-}
-
-.unit {
-  margin: 0 4rpx;
-}
-
-.input_p {
-  font-family: "Microsoft YaHei" sans-serif;
+  padding: 6rpx 0 0;
 }
 
 .paybook_submit {
   margin-top: 30rpx;
-  width: 160rpx;
+  width: 140rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  background-color: #ff963d;
+  color: #fff;
 }

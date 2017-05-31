@@ -127,7 +127,10 @@ Page({
           ]
         }
       }
-    ]
+    ],
+
+    //提交信息
+    play: {}
 
   },
 
@@ -197,5 +200,17 @@ Page({
     this.setData({
       timeEnd: timeEnd,
     })
+  },
+
+  //提交信息
+  formSubmit: function(e) {
+    let that = this
+    that.setData({
+      play: e.detail.value,
+      'play.timeStart': that.data.timeStart,
+      'play.timeEnd': that.data.timeEnd,
+      'play.images': that.data.images
+    })
+    console.log(that.data.play)
   }
 })

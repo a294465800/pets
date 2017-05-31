@@ -183,8 +183,8 @@
 /*通用样式*/
 
 .wrap {
-  height: 78%;
-  margin-top: 4%;
+  height: 79%;
+  margin-top: 2%;
 }
 
 .scroll_wrap {

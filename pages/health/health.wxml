@@ -16,16 +16,16 @@
         </view>
         <view class="sick_name each_part" hidden="{{index == 3?false:true}}">
           <view class="word_2bit">疾病：</view>
-          <input type="text" placeholder="腹泻" placeholder-class="p_input" />
+          <input type="text" placeholder="腹泻" placeholder-class="p_input" name="sick" />
         </view>
       </view>
       <view class="symptom each_part" hidden="{{index == 3?false:true}}">
         <view class="word_2bit">症状：</view>
-        <input type="text" placeholder="浑身无力" placeholder-class="p_input" />
+        <input type="text" placeholder="浑身无力" placeholder-class="p_input" name="symptom" />
       </view>
       <view class="remark each_part">
         <view class="word_4bit">备注：</view>
-        <textarea placeholder="这里是备注信息" class="p_input" maxlength="200" />
+        <textarea placeholder="这里是备注信息" class="p_input" maxlength="200" name="remark" />
       </view>
       <view class="btn">
         <button form-type="submit">保存</button>

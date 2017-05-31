@@ -13,13 +13,16 @@ Page({
       birthday: '2017-01-05'
     },
     sex_radio: [{
-      name: '男'
+      name: '男',
+      unique: 0
     },
     {
-      name: '女'
+      name: '女',
+      unique: 1
     },
     {
-      name: '秘密'
+      name: '秘密',
+      unique: 2
     }],
     sexHide: true,
     nameHide: true,

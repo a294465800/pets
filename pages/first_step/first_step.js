@@ -30,116 +30,139 @@ Page({
     species: [{
       name: 'keji',
       src: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1495452683874&di=bfb6f78d040d057a9facb059e41eb9f9&imgtype=0&src=http%3A%2F%2Fimg4.duitang.com%2Fuploads%2Fitem%2F201505%2F21%2F20150521021137_N5kde.jpeg',
-      zn: '柯基'
+      zn: '柯基',
+      unique: 0
     },
     {
       name: 'keji',
       src: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1495452683874&di=bfb6f78d040d057a9facb059e41eb9f9&imgtype=0&src=http%3A%2F%2Fimg4.duitang.com%2Fuploads%2Fitem%2F201505%2F21%2F20150521021137_N5kde.jpeg',
-      zn: '柯基2'
+      zn: '柯基2',
+      unique: 1
     },
     {
       name: 'keji',
       src: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1495452683874&di=bfb6f78d040d057a9facb059e41eb9f9&imgtype=0&src=http%3A%2F%2Fimg4.duitang.com%2Fuploads%2Fitem%2F201505%2F21%2F20150521021137_N5kde.jpeg',
-      zn: '柯基3'
+      zn: '柯基3',
+      unique: 2
     },
     {
       name: 'keji',
       src: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1495452683874&di=bfb6f78d040d057a9facb059e41eb9f9&imgtype=0&src=http%3A%2F%2Fimg4.duitang.com%2Fuploads%2Fitem%2F201505%2F21%2F20150521021137_N5kde.jpeg',
-      zn: '柯基4'
+      zn: '柯基4',
+      unique: 3
     },
     {
       name: 'keji',
       src: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1495452683874&di=bfb6f78d040d057a9facb059e41eb9f9&imgtype=0&src=http%3A%2F%2Fimg4.duitang.com%2Fuploads%2Fitem%2F201505%2F21%2F20150521021137_N5kde.jpeg',
-      zn: '柯基5'
+      zn: '柯基5',
+      unique: 4
     },
     {
       name: 'keji',
       src: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1495452683874&di=bfb6f78d040d057a9facb059e41eb9f9&imgtype=0&src=http%3A%2F%2Fimg4.duitang.com%2Fuploads%2Fitem%2F201505%2F21%2F20150521021137_N5kde.jpeg',
-      zn: '柯基6'
+      zn: '柯基6',
+      unique: 5
     },
     {
       name: 'keji',
       src: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1495452683874&di=bfb6f78d040d057a9facb059e41eb9f9&imgtype=0&src=http%3A%2F%2Fimg4.duitang.com%2Fuploads%2Fitem%2F201505%2F21%2F20150521021137_N5kde.jpeg',
-      zn: '柯基7'
+      zn: '柯基7',
+      unique: 6
     },
     {
       name: 'keji',
       src: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1495452683874&di=bfb6f78d040d057a9facb059e41eb9f9&imgtype=0&src=http%3A%2F%2Fimg4.duitang.com%2Fuploads%2Fitem%2F201505%2F21%2F20150521021137_N5kde.jpeg',
-      zn: '柯基8'
+      zn: '柯基8',
+      unique: 7
     },
     {
       name: 'keji',
       src: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1495452683874&di=bfb6f78d040d057a9facb059e41eb9f9&imgtype=0&src=http%3A%2F%2Fimg4.duitang.com%2Fuploads%2Fitem%2F201505%2F21%2F20150521021137_N5kde.jpeg',
-      zn: '柯基9'
+      zn: '柯基9',
+      unique: 8
     },
     {
       name: 'keji',
       src: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1495452683874&di=bfb6f78d040d057a9facb059e41eb9f9&imgtype=0&src=http%3A%2F%2Fimg4.duitang.com%2Fuploads%2Fitem%2F201505%2F21%2F20150521021137_N5kde.jpeg',
-      zn: '柯基10'
+      zn: '柯基10',
+      unique: 9
     }, {
       name: 'keji',
       src: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1495452683874&di=bfb6f78d040d057a9facb059e41eb9f9&imgtype=0&src=http%3A%2F%2Fimg4.duitang.com%2Fuploads%2Fitem%2F201505%2F21%2F20150521021137_N5kde.jpeg',
-      zn: '柯基11'
+      zn: '柯基11',
+      unique: 10
     },
     {
       name: 'keji',
       src: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1495452683874&di=bfb6f78d040d057a9facb059e41eb9f9&imgtype=0&src=http%3A%2F%2Fimg4.duitang.com%2Fuploads%2Fitem%2F201505%2F21%2F20150521021137_N5kde.jpeg',
-      zn: '柯基12'
+      zn: '柯基12',
+      unique: 11
     },
     {
       name: 'keji',
       src: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1495452683874&di=bfb6f78d040d057a9facb059e41eb9f9&imgtype=0&src=http%3A%2F%2Fimg4.duitang.com%2Fuploads%2Fitem%2F201505%2F21%2F20150521021137_N5kde.jpeg',
-      zn: '柯基'
+      zn: '柯基',
+      unique: 12
     },
     {
       name: 'keji',
       src: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1495452683874&di=bfb6f78d040d057a9facb059e41eb9f9&imgtype=0&src=http%3A%2F%2Fimg4.duitang.com%2Fuploads%2Fitem%2F201505%2F21%2F20150521021137_N5kde.jpeg',
-      zn: '柯基2'
+      zn: '柯基2',
+      unique: 13
     },
     {
       name: 'keji',
       src: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1495452683874&di=bfb6f78d040d057a9facb059e41eb9f9&imgtype=0&src=http%3A%2F%2Fimg4.duitang.com%2Fuploads%2Fitem%2F201505%2F21%2F20150521021137_N5kde.jpeg',
-      zn: '柯基3'
+      zn: '柯基3',
+      unique: 14
     },
     {
       name: 'keji',
       src: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1495452683874&di=bfb6f78d040d057a9facb059e41eb9f9&imgtype=0&src=http%3A%2F%2Fimg4.duitang.com%2Fuploads%2Fitem%2F201505%2F21%2F20150521021137_N5kde.jpeg',
-      zn: '柯基4'
+      zn: '柯基4',
+      unique: 15
     },
     {
       name: 'keji',
       src: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1495452683874&di=bfb6f78d040d057a9facb059e41eb9f9&imgtype=0&src=http%3A%2F%2Fimg4.duitang.com%2Fuploads%2Fitem%2F201505%2F21%2F20150521021137_N5kde.jpeg',
-      zn: '柯基5'
+      zn: '柯基5',
+      unique: 16
     },
     {
       name: 'keji',
       src: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1495452683874&di=bfb6f78d040d057a9facb059e41eb9f9&imgtype=0&src=http%3A%2F%2Fimg4.duitang.com%2Fuploads%2Fitem%2F201505%2F21%2F20150521021137_N5kde.jpeg',
-      zn: '柯基6'
+      zn: '柯基6',
+      unique: 17
     },
     {
       name: 'keji',
       src: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1495452683874&di=bfb6f78d040d057a9facb059e41eb9f9&imgtype=0&src=http%3A%2F%2Fimg4.duitang.com%2Fuploads%2Fitem%2F201505%2F21%2F20150521021137_N5kde.jpeg',
-      zn: '柯基7'
+      zn: '柯基7',
+      unique: 18
     },
     {
       name: 'keji',
       src: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1495452683874&di=bfb6f78d040d057a9facb059e41eb9f9&imgtype=0&src=http%3A%2F%2Fimg4.duitang.com%2Fuploads%2Fitem%2F201505%2F21%2F20150521021137_N5kde.jpeg',
-      zn: '柯基8'
+      zn: '柯基8',
+      unique: 19
     },
     {
       name: 'keji',
       src: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1495452683874&di=bfb6f78d040d057a9facb059e41eb9f9&imgtype=0&src=http%3A%2F%2Fimg4.duitang.com%2Fuploads%2Fitem%2F201505%2F21%2F20150521021137_N5kde.jpeg',
-      zn: '柯基9'
+      zn: '柯基9',
+      unique: 20
     },
     {
       name: 'keji',
       src: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1495452683874&di=bfb6f78d040d057a9facb059e41eb9f9&imgtype=0&src=http%3A%2F%2Fimg4.duitang.com%2Fuploads%2Fitem%2F201505%2F21%2F20150521021137_N5kde.jpeg',
-      zn: '柯基10'
+      zn: '柯基10',
+      unique: 21
     },
     {
       name: 'others',
       src: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1495459044542&di=71efa09c9056339e1e498750198bec19&imgtype=0&src=http%3A%2F%2Fcdn4.freepik.com%2Fimage%2Fth%2F426288.jpg',
-      zn: '其他'
+      zn: '其他',
+      unique: 22
     }],
     sex: [{
       name: 'boy',
@@ -170,9 +193,6 @@ Page({
     today: app.globalData.today,
     birthday: '请输入爱宠的生日',
 
-    // //进度条
-    // species_scroll: '',
-
     //存放用户宠物信息，用于上传
     pet_info: {
       category: '',
@@ -197,10 +217,7 @@ Page({
       species_img: ''
     },
     input: {
-      head_input: '',
       species_input: '请选择爱宠品种',
-      species_other: '',
-      species_name: null,
       weight_input: null
     }
   },
@@ -227,9 +244,9 @@ Page({
   },
   //第二页函数
   //预览种类函数
-  getOtherSpecies: function(e){
+  getOtherSpecies: function (e) {
     this.setData({
-      'input.species_other': e.detail.value
+      'pet_info.species_other': e.detail.value
     })
   },
   chooseSpecies: function (e) {
@@ -238,36 +255,25 @@ Page({
       that.setData({
         'flag.species_hide': true,
         'img.species_img': e.currentTarget.dataset.species_img,
-        'input.species_name': e.currentTarget.dataset.species_name
+        'pet_info.species': e.currentTarget.dataset.species_name
       })
     } else {
       that.setData({
         'flag.species_hide': false,
         'img.species_img': e.currentTarget.dataset.species_img,
         'input.species_input': e.currentTarget.dataset.species_zn,
-        'input.species_name': e.currentTarget.dataset.species_name
+        'pet_info.species_other': '',
+        'pet_info.species': e.currentTarget.dataset.species_name
       })
     }
 
   },
 
-  // //滚动检测
-  // species_scroll: function(e){
-  //   let left = e.detail.scrollLeft
-  //   this.setData({
-  //     species_scroll: left + 'px'
-  //   })
-  //   console.log(left)
-  // },
   //确认品种
   addSpecies: function (e) {
-    let that = this
-    that.setData({
-      'pet_info.species': that.data.input.species_name,
-      'pet_info.species_other': that.data.input.species_other,
+    this.setData({
       current_index: 2
     })
-    console.log(that.data.pet_info)
   },
 
   //第三页面函数
@@ -287,13 +293,13 @@ Page({
   },
   getHeadInput: function (e) {
     this.setData({
-      'input.head_input': e.detail.value
+      'pet_info.name': e.detail.value
     })
   },
   //昵称检测
   addPetName: function (e) {
     let that = this
-    if (!that.data.input.head_input) {
+    if (!that.data.pet_info.name) {
       wx.showModal({
         title: '提示',
         content: '亲，请输入爱宠昵称先哦~',
@@ -301,10 +307,8 @@ Page({
       })
     } else {
       that.setData({
-        'pet_info.name': that.data.input.head_input,
         current_index: 3
       })
-      console.log(that.data.pet_info.name)
     }
   },
 
@@ -326,7 +330,6 @@ Page({
   //第五页函数
   //性别获取
   chooseSex: function (e) {
-    console.log(e)
     let that = this
     let pet_sex = 'sex[' + e.target.id + '].check'
     if (that.data.sex[e.target.id].check) {
@@ -380,19 +383,21 @@ Page({
     //   filePath: that.data.pet_info.img,
     //   name: 'test',
     // })
-    wx.request({
-      url: '',
-      method: 'POST',
-      data: that.data.pet_info,
-      header: {
-        'content-type': 'application/json'
-      },
-      success: function (res) {
-        console.log('ok');
-      },
-      fail: function () {
-        console.log('fail');
-      }
-    })
+
+    console.log(that.data.pet_info)
+    // wx.request({
+    //   url: '',
+    //   method: 'POST',
+    //   data: that.data.pet_info,
+    //   header: {
+    //     'content-type': 'application/json'
+    //   },
+    //   success: function (res) {
+    //     console.log('ok');
+    //   },
+    //   fail: function () {
+    //     console.log('fail');
+    //   }
+    // })
   }
 })

@@ -5,10 +5,6 @@ swiper {
   height: 100%;
 }
 
-.input_p {
-  font: normal 32rpx "Microsoft YaHei";
-  color: #ccc;
-}
 .input_s {
   font: normal 40rpx "Microsoft YaHei";
   color: #ccc;
@@ -16,6 +12,10 @@ swiper {
 
 .hide {
   display: none;
+}
+
+.photo_padding {
+  padding: 72rpx;
 }
 
 /*第一页面——猫狗*/
@@ -28,12 +28,11 @@ swiper {
 }
 
 .first_page image, .second_page .second_preImg .species_choose_img,
-.fifth_page image, .sixth_page image, .fifth_page image {
+.third_page .photo, .fourth_page .photo, .fifth_page image, .sixth_page image,
+.fifth_page image, .seventh_page .weight {
   width: 200rpx;
   height: 200rpx;
-  border: 2rpx solid #ccc;
   border-radius: 100%;
-  background-size: cover;
   box-sizing: border-box;
   position: relative;
 }
@@ -46,6 +45,10 @@ swiper {
   margin-top: 10rpx;
 }
 
+.species_choose_img {
+  border: 2rpx solid #ff963d;
+}
+
 /*第二页面——种类*/
 
 .second_page .second_preImg {
@@ -53,7 +56,6 @@ swiper {
 }
 
 .second_page .second-scroll {
-  height: 550rpx;
   width: 200%;
 }
 
@@ -70,7 +72,7 @@ swiper {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  margin: 0 38rpx;
+  margin: 14rpx 38rpx;
 }
 
 .species_item .species_img {
@@ -82,6 +84,7 @@ swiper {
 .species_item .species_word {
   font-size: 28rpx;
 }
+
 .species_choose_word {
   height: 60rpx;
   box-sizing: border-box;
@@ -90,34 +93,20 @@ swiper {
 /*其他种类，显示输入按钮*/
 
 .species_input {
-  border: 2rpx solid #eee;
-  margin-top: 10rpx;
+  border: 2rpx solid #ff963d;
   text-align: center;
-  height: 60rpx;
+  height: 70rpx;
   box-sizing: border-box;
   width: 400rpx;
   border-radius: 10rpx;
   font: normal 40rpx "Microsoft YaHei";
   color: #333;
+  padding: 6rpx 0 0;
 }
 
 .word_hide {
   display: none;
 }
-
-/*进度条
-
-.species_scroll {
-  width: 100%;
-  height: 6rpx;
-  background-color: #eee;
-}
-
-.species_scroll .species_percent {
-  width: 0;
-  height: 6rpx;
-  background-color: #666;
-}*/
 
 /*第三页面——昵称*/
 
@@ -126,9 +115,8 @@ swiper {
 }
 
 .third_page input, .fourth_page .picker, .seventh_page .weight_input {
-  border: 2rpx solid #ccc;
+  border: 2rpx solid #ff963d;
   text-align: center;
-  height: 100rpx;
   width: 400rpx;
   border-radius: 10rpx;
   font: normal 32rpx "Microsoft YaHei";
@@ -136,11 +124,7 @@ swiper {
 }
 
 .third_page .photo, .fourth_page .photo {
-  width: 280rpx;
-  height: 280rpx;
-  box-sizing: border-box;
-  border: 2rpx solid #ccc;
-  border-radius: 100%;
+  border: 2rpx solid #ff963d;
 }
 
 .second_page .btn, .third_page .btn, .fourth_page .btn, .seventh_page .btn {
@@ -156,10 +140,8 @@ swiper {
 /*第四页面——生日*/
 
 .fourth_page .photo {
-  width: 200rpx;
-  height: 200rpx;
-  border-radius: 0;
   border: none;
+  border-radius: 0;
 }
 
 .fourth_page .picker {
@@ -195,12 +177,6 @@ swiper {
 
 /*第七页——体重*/
 
-.seventh_page .weight {
-  width: 180rpx;
-  height: 180rpx;
-  border-radius: 100%;
-}
-
 .weight_input {
   display: flex;
   flex-direction: row;
@@ -210,15 +186,17 @@ swiper {
 
 .weight_input input {
   width: 320rpx;
+  border: none;
 }
 
 /*选中样式*/
 
 .container .choose {
-  background-color: rgba(75, 214, 99, 0.5);
+  background-color: rgba(0, 0, 0, 0.3);
   position: absolute;
   top: 0;
   left: 0;
   box-sizing: border-box;
   padding: 50rpx;
+  border-radius: 0;
 }

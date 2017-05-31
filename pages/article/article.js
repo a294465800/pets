@@ -2,6 +2,7 @@
 //引入WxParse模块
 var WxParse = require('../../wxParse/wxParse.js')
 var app = getApp()
+var timer
 Page({
 
   /**
@@ -13,13 +14,15 @@ Page({
       src: '/images/icon/good_g.png',
       src_e: '/images/icon/good_r.png',
       count: 156,
-      flag: false
+      flag: false,
+      flag_plus: true
     },
     bad: {
       src: '/images/icon/bad_g.png',
-      src_e: '/images/icon/bad_g.png',
+      src_e: '/images/icon/bad_r.png',
       count: 156,
-      flag: false
+      flag: false,
+      flag_plus: true
     },
 
     //控制点赞
@@ -44,7 +47,13 @@ Page({
         time: '04-12 12:20',
         comment: '如果你无法简洁表达你的想法，那只说明你还不够了解他啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊哇啊啊啊啊啊啊啊啊大多数哇啊阿达啊啊'
       }
-    ]
+    ],
+
+    //收藏提示
+    collect_tip: false,
+
+    //分享提示
+    share_tip: true
   },
 
   /**
@@ -71,13 +80,20 @@ Page({
         showCancel: false
       })
     } else {
+      clearTimeout(timer)
       that.setData({
         'good.count': (that.data.good.count + 1),
         'good.flag': true,
+        'good.flag_plus': false,
         'bad.flag': false,
         'bad.count': that.data.article_first ? (that.data.bad.count - 1) : that.data.bad.count,
         article_first: true
       })
+      timer = setTimeout(function () {
+        that.setData({
+          'good.flag_plus': true,
+        })
+      }, 500)
     }
   },
 
@@ -91,13 +107,20 @@ Page({
         showCancel: false
       })
     } else {
+      clearTimeout(timer)
       that.setData({
         'bad.count': (that.data.bad.count + 1),
         'bad.flag': true,
+        'bad.flag_plus': false,
         'good.flag': false,
         'good.count': that.data.article_first ? (that.data.good.count - 1) : that.data.good.count,
         article_first: true
       })
+      timer = setTimeout(function () {
+        that.setData({
+          'bad.flag_plus': true,
+        })
+      }, 500)
     }
   },
 
@@ -109,7 +132,7 @@ Page({
   },
 
   //获取当前输入
-  getInput: function(e){
+  getInput: function (e) {
     this.setData({
       value: e.detail.value
     })
@@ -135,6 +158,10 @@ Page({
       article_list: that.data.article_list
     })
     wx.hideKeyboard()
+    wx.showToast({
+      title: '评论成功',
+      icon: 'success'
+    })
   },
 
   //评论区域隐藏
@@ -144,14 +171,42 @@ Page({
     })
   },
 
+  //收藏文章
+  collectNews: function(e){
+    let that = this
+    that.setData({
+      collect_tip: !that.data.collect_tip
+    })
+    if (that.data.collect_tip){
+      wx.showToast({
+        title: '已加入收藏',
+        icon: 'success'
+      })
+    }
+  },
+
   //分享
-  onShareAppMessage: function(){
+  onShareAppMessage: function () {
     return {
       title: '宠物养成记',
       path: '/pages/article/article',
-      success: function (){
-        
+      success: function () {
+
       }
     }
+  },
+
+  //分享按鈕吐司提示
+  share: function (e) {
+    clearTimeout(timer)
+    let that = this
+    that.setData({
+      share_tip: false
+    })
+    timer = setTimeout(function () {
+      that.setData({
+        share_tip: true
+      })
+    }, 1500)
   }
 })

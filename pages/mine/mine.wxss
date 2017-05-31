@@ -138,6 +138,14 @@
   padding: 0;
 }
 
+.suggest {
+  border-radius: 0;
+}
+
+.suggest::after {
+  border: none;
+}
+
 .title {
   height: 80rpx;
   padding: 0 30rpx;
@@ -166,4 +174,3 @@
   justify-content: flex-start;
   align-items: center;
 }
-

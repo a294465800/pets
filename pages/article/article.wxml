@@ -29,10 +29,12 @@
     <view class="article_good" bindtap="articleGood">
       <image src="{{good.flag?good.src_e:good.src}}"></image>
       <view class="article_count {{good.flag?'article_love_push':''}}">{{good.count}}</view>
+      <view class="plus_one" hidden="{{good.flag_plus}}">+1</view>
     </view>
     <view class="article_bad" bindtap="articleBad">
       <image src="{{bad.flag?bad.src_e:bad.src}}"></image>
       <view class="article_count {{bad.flag?'article_love_push':''}}">{{bad.count}}</view>
+      <view class="plus_one" hidden="{{bad.flag_plus}}">+1</view>
     </view>
   </view>
   <!--点赞功能结束-->
@@ -57,8 +59,10 @@
   <!--添加评论开始-->
   <view class="add_article_comment {{article_input?'hide':''}}">
     <view class="article_comment_input" bindtap="pullArticleInput">我也说几句...</view>
-    <image src="/images/icon/collect.png" mode="aspectFit"></image>
-    <image src="/images/icon/resend.png" mode="aspectFit"></image>
+    <image src="{{collect_tip?'/images/icon/collect_c.png':'/images/icon/collect.png'}}" mode="aspectFit" bindtap="collectNews"></image>
+    <image src="/images/icon/resend.png" mode="aspectFit" bindtap="share" class="share">
+      <text class="share_fix" hidden="{{share_tip}}">点击右上角[ ··· ]\n分享给好友</text>
+    </image>
   </view>
   <!--添加评论结束-->
 </view>
@@ -68,7 +72,7 @@
   <view class="form_class">
     <view class="write_comment_title">
       <view>评论</view>
-      <view class="write_comment_back" bindtap="hideArticleComment">》</view>
+      <view class="write_comment_back" bindtap="hideArticleComment">返回</view>
     </view>
     <form bindsubmit="{{value?'articleCommentPost':''}}">
       <textarea focus="{{article_input}}" placeholder="说点什么" class="write_position" name="article_comment" placeholder-class="input_p" value="{{value}}" cursor-spacing="150" bindinput="getInput" />

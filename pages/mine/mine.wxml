@@ -71,12 +71,12 @@
   <!--订单结束-->
 
   <!--建议反馈开始-->
-  <view class="part suggest">
+  <button class="part suggest" open-type="contact">
     <view class="title" hover-class="push_class">
       <image class="pet_img" mode="aspectFit" src="/images/user/suggest.png"></image>
-      <view class="title_message">建议反馈</view>
+      <view class="title_message">在线客服</view>
     </view>
-  </view>
+  </button>
   <!--建议反馈结束-->
 
   <!--设置开始-->
@@ -87,4 +87,6 @@
     </view>
   </view>
   <!--设置结束-->
+
+  <!--<contact-button class="part contact" hover-class="push_class">建议反馈</contact-button>-->
 </view>

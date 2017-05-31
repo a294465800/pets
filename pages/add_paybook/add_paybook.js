@@ -8,47 +8,56 @@ Page({
     paybook_item: [{
       src: '/images/paybook/others.png',
       name: 'others',
-      zn: '其他'
+      zn: '其他',
+      unique: 0
     },
     {
       src: '/images/paybook/food.png',
       name: 'food',
-      zn: '食物'
+      zn: '食物',
+      unique: 1
     },
     {
       src: '/images/paybook/facial.png',
       name: 'facial',
-      zn: '美容'
+      zn: '美容',
+      unique: 2
     },
     {
       src: '/images/paybook/medical.png',
       name: 'medical',
-      zn: '医疗'
+      zn: '医疗',
+      unique: 3
     },
     {
       src: '/images/paybook/clean.png',
       name: 'clean',
-      zn: '洗护用品'
+      zn: '洗护用品',
+      unique: 4
     },
     {
       src: '/images/paybook/play.png',
       name: 'play',
-      zn: '玩具'
+      zn: '玩具',
+      unique: 5
     },
     {
       src: '/images/paybook/tool.png',
       name: 'tool',
-      zn: '器具'
+      zn: '器具',
+      unique: 6
     },
     {
       src: '/images/paybook/cloth.png',
       name: 'cloth',
-      zn: '服饰'
+      zn: '服饰',
+      unique: 7
     },
     {
       src: '/images/paybook/live.png',
       name: 'live',
-      zn: '寄养'
+      zn: '寄养',
+      unique: 8
     },
     {
       src: '/images/paybook/train.png',
@@ -74,6 +83,7 @@ Page({
   onLoad: function (options) {
 
   },
+  //打开账单输入
   paybook_input: function (e) {
     let index = e.currentTarget.id
     let that = this
@@ -87,22 +97,47 @@ Page({
 
   //表单提交动作
   sendPaybook: function (e) {
+    let that = this
+    if (!e.detail.value.price) {
+      wx.showModal({
+        title: '提示',
+        content: '亲，还没输入花费金额呢~',
+        showCancel: false
+      })
+    } else {
+      that.setData({
+        'paybook.content': e.detail.value.remark,
+        'paybook.price': e.detail.value.price,
+        reset: '',
+        input_show: true
+      })
+      console.log(that.data.paybook)
+      wx.showToast({
+        title: '保存成功！',
+        icon: 'sucess',
+        // complete: function () {
+        //   setTimeout(function () {
+        //     wx.navigateBack({
+        //     })
+        //   }, 100)
+        // }
+      })
+    }
+  },
+
+  //遮罩层隐藏
+  hideInput: function (e) {
     this.setData({
-      'paybook.content': e.detail.value.remark,
-      'paybook.price': e.detail.value.price,
-      reset: ''
+      input_show: true
     })
-    console.log(this.data.paybook)
-    wx.showToast({
-      title: '保存成功！',
-      icon: 'sucess',
-      complete: function () {
-        setTimeout(function () {
-          wx.navigateBack({
-          })
-        }, 500)
-      }
-    })
+  },
+  showInput: function (e) {
+    let that = this
+    if (that.data.input_show) {
+      that.setData({
+        input_show: false
+      })
+    }
   }
 
 })

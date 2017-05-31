@@ -5,7 +5,7 @@
     <view class="container first_page">
       <view bindtap="chooseCategory" data-category="{{item.category}}" wx:for="{{pets}}" wx:key="*this">
         <image src="{{item.src}}" mode="aspectFit" id="{{index}}">
-          <image src="/images/first_page/yes.png" class=" {{item.check?'choose':''}}"></image>
+          <image src="/images/first_page/yes_g.png" class=" {{item.check?'choose':''}}" mode="aspectFit"></image>
         </image>
         <view class="word">{{item.zn}}</view>
       </view>
@@ -17,13 +17,13 @@
   <swiper-item>
     <view class="container second_page">
       <view class="second_preImg">
-        <image src="{{img.species_img?img.species_img:'/images/first_page/paw.png'}}" mode="{{img.species_img?'aspectFill':'center'}}" class="species_choose_img"></image>
+        <image src="{{img.species_img?img.species_img:'/images/first_page/paw.png'}}" mode="{{img.species_img?'aspectFill':'aspectFit'}}" class="species_choose_img {{img.species_img?'':'photo_padding'}}"></image>
         <view class="word species_choose_word {{flag.species_hide?'word_hide':''}}">{{input.species_input}}</view>
         <input class="species_input {{flag.species_hide?'':'word_hide'}}" type="text" placeholder-class="input_s" placeholder="请输入宠物品种" value="{{input.species_other}}" bindinput="getOtherSpecies" />
       </view>
-      <scroll-view scroll-x="true" bindscroll="species_scroll">
+      <scroll-view scroll-x="true">
         <view class="second-scroll">
-          <view class="species_item" wx:for="{{species}}" wx:key="*this" bindtap="chooseSpecies" data-species_img="{{item.src}}" data-species_zn="{{item.zn}}" data-species_name="{{item.name}}">
+          <view class="species_item" wx:for="{{species}}" wx:key="unique" bindtap="chooseSpecies" data-species_img="{{item.src}}" data-species_zn="{{item.zn}}" data-species_name="{{item.name}}">
             <image src="{{item.src}}" mode="aspectFill" class="species_img" data-species="{{item.name}}"></image>
             <view class="species_word">{{item.zn}}</view>
           </view>
@@ -35,10 +35,10 @@
   <!--第二页种类选择结束-->
 
   <!--第三页姓名填写开始-->
-  <swiper-item bindchange="addPetName">
+  <swiper-item>
     <view class="container third_page">
-      <image src="{{img.head_img?img.head_img:'/images/icon/photo.png'}}" mode="{{flag.head_flag?'center':'aspectFill'}}" class="photo" bindtap="chooseHead"></image>
-      <input placeholder="请输入爱宠名称" placeholder-class="input_p" type="text" bindinput="getHeadInput" data-input="{{input.head_input}}" />
+      <image src="{{img.head_img?img.head_img:'/images/icon/photo.png'}}" mode="{{flag.head_flag?'aspectFit':'aspectFill'}}" class="photo {{flag.head_flag?'photo_padding':''}}" bindtap="chooseHead"></image>
+      <input placeholder="请输入爱宠名称" placeholder-class="p_input" type="text" bindinput="getHeadInput" data-input="{{input.head_input}}" />
       <view class="btn" bindtap="addPetName">下一步</view>
     </view>
   </swiper-item>
@@ -47,7 +47,7 @@
   <!--第四页生日开始-->
   <swiper-item>
     <view class="container fourth_page">
-      <image src="/images/first_page/cake.png" mode="aspectFill" class="photo" bindtap="chooseHead"></image>
+      <image src="/images/first_page/cake.png" mode="aspectFill" class="photo"></image>
       <picker mode="date" start="1980-01-01" end="{{today}}" value="{{birthday}}" bindchange="chooseBirthday" class="picker">{{birthday}}</picker>
       <view class="btn" bindtap="addPetBirthday">下一步</view>
     </view>
@@ -59,7 +59,7 @@
     <view class="container fifth_page">
       <view bindtap="chooseSex" data-sex="{{item.name}}" wx:for="{{sex}}" wx:key="*this">
         <image src="{{item.src}}" mode="aspectFit" class="{{item.name}}" id="{{index}}">
-          <image src="/images/first_page/yes.png" class=" {{item.check?'choose':''}}"></image>
+          <image src="/images/first_page/yes_g.png" class=" {{item.check?'choose':''}}" mode="aspectFit"></image>
         </image>
         <view class="word">{{item.zn}}</view>
       </view>
@@ -83,7 +83,7 @@
     <view class="container seventh_page">
       <image src="{{img.weight_img}}" class="weight" bindtap="chooseWeight" mode="aspectFit"></image>
       <view class="weight_input">
-        <input placeholder="请输入爱宠体重" placeholder-class="input_p" type="number" bindinput="getWeightInput" data-input="{{input.weight_input}}" />
+        <input placeholder="请输入爱宠体重" placeholder-class="p_input" type="number" bindinput="getWeightInput" data-input="{{input.weight_input}}" />
         <view class="weight_word">KG</view>
       </view>
       <view class="btn" bindtap="submit">录入完成</view>
