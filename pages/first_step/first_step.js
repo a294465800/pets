@@ -18,13 +18,15 @@ Page({
         category: "dog",
         src: '/images/first_page/dogs.png',
         check: false,
-        zn: "狗狗"
+        zn: "狗狗",
+        unique: 0
       },
       {
         category: "cat",
         src: '/images/first_page/cats.png',
         check: false,
-        zn: "猫咪"
+        zn: "猫咪",
+        unique: 1
       }
     ],
     species: [{
@@ -168,27 +170,31 @@ Page({
       name: 'boy',
       src: '/images/first_page/boy.png',
       zn: '大汉子',
-      check: false
+      check: false,
+      unique: 0
     },
     {
       name: 'girl',
       src: '/images/first_page/girl.png',
       zn: '软妹子',
-      check: false
+      check: false,
+      unique: 1
     }],
     bear: [{
       name: 'cut',
       src: '/images/first_page/no.png',
       src_yes: '/images/first_page/yes.png',
       zn: '已绝育',
-      check: false
+      check: false,
+      unique: 0
     },
     {
       name: 'nocut',
       src: '/images/first_page/no.png',
       src_yes: '/images/first_page/yes.png',
       zn: '未绝育',
-      check: false
+      check: false,
+      unique: 1
     }],
     today: app.globalData.today,
     birthday: '请输入爱宠的生日',
@@ -399,5 +405,34 @@ Page({
     //     console.log('fail');
     //   }
     // })
+
+
+
+
+    //跳转
+    let url = ''
+    if (app.globalData.pets.length > 0) {
+      url = '/pages/mine/mine'
+    }else {
+      url = '/pages/index/index'
+    }
+    //宠物信息保存
+    let temp = []
+    let pet = that.data.pet_info
+    const length = app.globalData.pets.length
+    pet.unique = length
+    temp = [pet].concat(app.globalData.pets)
+    app.globalData.pets = temp
+    console.log(app.globalData.pets)
+
+    wx.switchTab({
+      url: url,
+      success: function(){
+        console.log('ok')
+      },
+      fail: function(e){
+        console.log(e)
+      }
+    })
   }
 })

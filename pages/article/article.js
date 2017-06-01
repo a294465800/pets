@@ -80,7 +80,6 @@ Page({
         showCancel: false
       })
     } else {
-      clearTimeout(timer)
       that.setData({
         'good.count': (that.data.good.count + 1),
         'good.flag': true,
@@ -89,7 +88,7 @@ Page({
         'bad.count': that.data.article_first ? (that.data.bad.count - 1) : that.data.bad.count,
         article_first: true
       })
-      timer = setTimeout(function () {
+      setTimeout(function () {
         that.setData({
           'good.flag_plus': true,
         })
@@ -107,7 +106,6 @@ Page({
         showCancel: false
       })
     } else {
-      clearTimeout(timer)
       that.setData({
         'bad.count': (that.data.bad.count + 1),
         'bad.flag': true,
@@ -116,7 +114,7 @@ Page({
         'good.count': that.data.article_first ? (that.data.good.count - 1) : that.data.good.count,
         article_first: true
       })
-      timer = setTimeout(function () {
+      setTimeout(function () {
         that.setData({
           'bad.flag_plus': true,
         })

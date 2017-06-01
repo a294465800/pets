@@ -22,15 +22,10 @@
       </view>
       <image class="pet_add" src="/images/user/plus.png"></image>
     </view>
-    <view class="pets_list" hover-class="push_class" bindtap="goToAdd_pets">
-      <view class="pets_name">狗蛋</view>
-      <view class="pets_species">英国短毛猫</view>
-      <view class="pets_age">3个月</view>
-    </view>
-    <view class="pets_list" hover-class="push_class" bindtap="goToAdd_pets">
-      <view class="pets_name">狗蛋寿司</view>
-      <view class="pets_species">英国短毛猫</view>
-      <view class="pets_age">3个月</view>
+    <view class="pets_list" hover-class="push_class" bindtap="goToAdd_pets" wx:for="{{pets}}" wx:key="unique">
+      <view class="pets_name">{{item.name}}</view>
+      <view class="pets_species">{{item.species || '未知'}}</view>
+      <view class="pets_age">{{item.birthday}}</view>
     </view>
   </view>
   <!--宠物信息结束-->

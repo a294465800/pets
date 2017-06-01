@@ -90,6 +90,7 @@
 
 .pet_name {
   max-width: 220rpx;
+  margin-right: 20rpx;
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
@@ -529,7 +530,8 @@
   box-sizing: border-box;
   background-color: #fff;
   color: #333;
-  border: 2rpx solid #eee;
+  border-right: 2rpx solid #eee;
+  border-bottom: 2rpx solid #eee;
 }
 
 .img {

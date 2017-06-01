@@ -6,8 +6,13 @@ function timeRecord() {
   let time = new Date()
   app.globalData.time = (10 - time.getHours() <= 0 ? time.getHours() : '0' + time.getHours()) + ':' + ((10 - time.getMinutes()) <= 0 ? time.getMinutes() : '0' + time.getMinutes())
 }
+
 Page({
   data: {
+    first_time: true,
+    pets: app.globalData.pets,
+    pet_index: 0,
+    pet: {},
     progress: 0,
     scroll_id: 0,
     nav_id: 0,
@@ -229,11 +234,46 @@ Page({
       }
     ]
   },
-  onLoad: function () {
+  onLoad: function (options){
+
+  },
+  onShow: function (e) {
+    let that = this
+    //更新数据
+    let index = that.data.pet_index
+    that.setData({
+      first_time: app.globalData.pets.length == 0 ? true : false,
+      pets: app.globalData.pets,
+      pet: app.globalData.pets[index],
+    })
+    console.log(app.globalData.pets.length)
   },
   goToFirst: function () {
     wx.navigateTo({
       url: '/pages/first_step/first_step',
+    })
+  },
+
+  //切换宠物信息
+  shiftPet: function(e) {
+    let that = this
+    let index = that.data.pet_index + 1
+    if(index > app.globalData.pets.length - 1){
+      index = 0
+    }
+    wx.showToast({
+      title: '切换中',
+      icon: 'loading',
+      duration: 200,
+      mask: true,
+      success: function(){
+        setTimeout(function(){
+          that.setData({
+            pet_index: index,
+            pet: app.globalData.pets[index]
+          })
+        },200)
+      }
     })
   },
 
@@ -247,10 +287,10 @@ Page({
 
   //打卡
   daily_plan_punch: function (e) {
-    let id = Number(e.target.id)
-    let a = e.currentTarget.dataset.length
-    let progress = Number(e.currentTarget.dataset.progress) + 20
-    let temp = 'daily_plan[' + id + '].daily_plan_punch'
+    let length = this.data.daily_plan.length
+    let percent = 100 / length
+    let progress = Math.ceil(Number(e.currentTarget.dataset.progress) + percent)
+    let temp = 'daily_plan[' + e.target.id + '].daily_plan_punch'
     if (progress > 100) {
       progress = 100
     }
@@ -258,6 +298,7 @@ Page({
       [temp]: 'true',
       progress: progress
     })
+    console.log(this.data.progress)
   },
 
   //展示管家提醒列表

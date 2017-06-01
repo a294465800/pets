@@ -72,7 +72,7 @@ Page({
     //存放账单内容
     paybook: {
       name: '',
-      content: '',
+      remark: '',
       price: ''
     }
   },
@@ -102,11 +102,16 @@ Page({
       wx.showModal({
         title: '提示',
         content: '亲，还没输入花费金额呢~',
-        showCancel: false
+        showCancel: false,
+        success: function(){
+          that.setData({
+            input_show: false,
+          })
+        }
       })
     } else {
       that.setData({
-        'paybook.content': e.detail.value.remark,
+        'paybook.remark': e.detail.value.remark,
         'paybook.price': e.detail.value.price,
         reset: '',
         input_show: true
@@ -115,12 +120,11 @@ Page({
       wx.showToast({
         title: '保存成功！',
         icon: 'sucess',
-        // complete: function () {
-        //   setTimeout(function () {
-        //     wx.navigateBack({
-        //     })
-        //   }, 100)
-        // }
+        complete: function () {
+          that.setData({
+            input_show: true
+          })
+        }
       })
     }
   },

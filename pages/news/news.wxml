@@ -1,9 +1,9 @@
 <!--news.wxml-->
 <view class="container">
-  <scroll-view class="news" enable-back-to-top="true" scroll-y="true" scroll-top="{{position}}" bindscroll="fixNav">
+  <scroll-view class="news" enable-back-to-top="true" scroll-y="true" scroll-top="{{position}}" bindscroll="{{system_flag?'fixNav':''}}">
 
     <!--滚动图开始-->
-    <swiper style="{{fix_nav?'display:none':''}}" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" data-fixnav="{{fix_nav}}">
+    <swiper style="" hidden="{{!system_flag || fix_nav}}" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" data-fixnav="{{fix_nav}}">
       <block wx:for="{{imgUrls}}" wx:key="*this">
         <swiper-item>
           <image src="{{item}}" class="slide-image" mode="aspectFill" />
@@ -13,45 +13,51 @@
     <!--滚动图结束-->
 
     <!--导航条开始-->
-    <view class="nav_bar {{fix_nav?'fix_nav':''}}">
-      <block wx:for="{{nav_head}}" wx:key="unique">
-        <view class="nav_title {{nav_id == item.id?'nav_select':''}}" bindtap="changeNav" id="{{item.id}}">{{item.name}}</view>
+    <view class="nav_bar {{!system_flag || fix_nav?'fix_nav':''}}">
+      <block wx:for="{{nav_head}}" wx:key="id">
+        <view class="nav_title" bindtap="changeNav" id="{{item.id}}">{{item.name}}</view>
       </block>
+      <view animation="{{animationData}}" class="nav_bottom" style="width:{{750/nav_head.length}}rpx;"></view>
     </view>
     <!--导航条结束-->
 
     <!--文章列表开始-->
-      <view class="news_list {{fix_nav?'news_list_hover':''}}">
-        <view class="news_list_article" wx:for="{{news}}" wx:key="*this" bindtap="goToArticle" hover-class="push_class">
-          <view class="news_article_message">
-            <view class="news_article_title">{{item.title}}</view>
-            <view class="news_article_tags">
-              <view class="tags_item" wx:for="{{item.tags}}" wx:key="*this">
-                <image class="tag_img" src="/images/grow_record/tag.png"></image>
-                <view>{{item}}</view>
+    <swiper circular bindchange="switchPage" class="news_list {{system_flag&&fix_nav?'news_list_hover':''}}" current="{{current}}" style="{{system_flag?'':'margin-top:78rpx'}}">
+      <block wx:for="{{nav_head}}" wx:key="id">
+        <swiper-item>
+          <scroll-view scroll-y style="width=100%;" class="{{!system_flag || fix_nav?'percent_height':''}}">
+            <view class="news_list_article" wx:for="{{news}}" wx:key="*this" bindtap="goToArticle" hover-class="push_class">
+              <view class="news_article_message">
+                <view class="news_article_title">{{item.title}}</view>
+                <view class="news_article_tags">
+                  <view class="tags_item" wx:for="{{item.tags}}" wx:key="*this">
+                    <image class="tag_img" src="/images/grow_record/tag.png"></image>
+                    <view>{{item}}</view>
+                  </view>
+                </view>
+                <view class="news_article_info">
+                  <view class="info_item">
+                    <image src="/images/icon/time.png" mode="aspectFit"></image>
+                    <view>{{item.add_time}}</view>
+                  </view>
+                  <view class="info_item">
+                    <image src="/images/icon/comment.png" mode="aspectFit"></image>
+                    <view>{{item.comment}}</view>
+                  </view>
+                  <view class="info_item">
+                    <image src="/images/icon/read.png" mode="aspectFit" class="read"></image>
+                    <view>{{item.read}}+</view>
+                  </view>
+                </view>
+              </view>
+              <view class="news_article_img">
+                <image src="{{item.src}}" mode="aspectFit"></image>
               </view>
             </view>
-            <view class="news_article_info">
-              <view class="info_item">
-                <image src="/images/icon/time.png" mode="aspectFit"></image>
-                <view>{{item.add_time}}</view>
-              </view>
-              <view class="info_item">
-                <image src="/images/icon/comment.png" mode="aspectFit"></image>
-                <view>{{item.comment}}</view>
-              </view>
-              <view class="info_item">
-                <image src="/images/icon/read.png" mode="aspectFit" class="read"></image>
-                <view>{{item.read}}+</view>
-              </view>
-            </view>
-          </view>
-          <view class="news_article_img">
-            <image src="{{item.src}}" mode="aspectFit"></image>
-          </view>
-        </view>
-      </view>
-
+          </scroll-view>
+        </swiper-item>
+      </block>
+    </swiper>
     <!--文章列表结束-->
 
   </scroll-view>

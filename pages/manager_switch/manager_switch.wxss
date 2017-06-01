@@ -4,19 +4,19 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
 }
 
 .manager_switch {
   width: 100%;
-  height: 80rpx;
-  align-items: flex-start;
+  height: 100rpx;
   box-sizing: border-box;
   padding: 0 40rpx;
-  margin: 0 0 20rpx;
+  border-bottom: 2rpx solid #eee;
 }
 
 .manager_switch_word {
   font-size: 32rpx;
-  line-height: 80rpx;
+  line-height: 100rpx;
   align-items: center;
 }

@@ -3,7 +3,7 @@
   <!--第一页猫狗选择开始-->
   <swiper-item>
     <view class="container first_page">
-      <view bindtap="chooseCategory" data-category="{{item.category}}" wx:for="{{pets}}" wx:key="*this">
+      <view bindtap="chooseCategory" data-category="{{item.category}}" wx:for="{{pets}}" wx:key="unique">
         <image src="{{item.src}}" mode="aspectFit" id="{{index}}">
           <image src="/images/first_page/yes_g.png" class=" {{item.check?'choose':''}}" mode="aspectFit"></image>
         </image>
@@ -57,7 +57,7 @@
   <!--第五页性别开始-->
   <swiper-item>
     <view class="container fifth_page">
-      <view bindtap="chooseSex" data-sex="{{item.name}}" wx:for="{{sex}}" wx:key="*this">
+      <view bindtap="chooseSex" data-sex="{{item.name}}" wx:for="{{sex}}" wx:key="unique">
         <image src="{{item.src}}" mode="aspectFit" class="{{item.name}}" id="{{index}}">
           <image src="/images/first_page/yes_g.png" class=" {{item.check?'choose':''}}" mode="aspectFit"></image>
         </image>
@@ -70,7 +70,7 @@
   <!--第六页绝育开始-->
   <swiper-item>
     <view class="container sixth_page">
-      <view bindtap="chooseBear" data-bear="{{item.name}}" wx:for="{{bear}}" wx:key="*this">
+      <view bindtap="chooseBear" data-bear="{{item.name}}" wx:for="{{bear}}" wx:key="unique">
         <image src="{{item.check?item.src_yes:item.src}}" mode="aspectFit" id="{{index}}" class="{{item.check?'check':''}}"></image>
         <view class="word">{{item.zn}}</view>
       </view>
@@ -83,7 +83,7 @@
     <view class="container seventh_page">
       <image src="{{img.weight_img}}" class="weight" bindtap="chooseWeight" mode="aspectFit"></image>
       <view class="weight_input">
-        <input placeholder="请输入爱宠体重" placeholder-class="p_input" type="number" bindinput="getWeightInput" data-input="{{input.weight_input}}" />
+        <input placeholder="请输入爱宠体重" placeholder-class="p_input" type="digit" bindinput="getWeightInput" data-input="{{input.weight_input}}" />
         <view class="weight_word">KG</view>
       </view>
       <view class="btn" bindtap="submit">录入完成</view>

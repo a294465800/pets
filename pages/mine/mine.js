@@ -7,7 +7,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    userInfo: {}
+    userInfo: {},
+    pets: []
   },
 
   /**
@@ -19,6 +20,15 @@ Page({
       that.setData({
         userInfo: userInfo
       })
+    })
+    that.setData({
+      pets: app.globalData.pets
+    })
+  },
+  onShow: function (e) {
+    var that = this
+    that.setData({
+      pets: app.globalData.pets
     })
   },
 

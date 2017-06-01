@@ -130,6 +130,9 @@
 .pets_list view {
   width: 33.3%;
   text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 /*消息通知*/

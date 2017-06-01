@@ -1,7 +1,7 @@
 <!--index.wxml-->
 <view class="container">
   <!--初次进入显示的界面开始-->
-  <view class="first_time" style="display: none">
+  <view class="first_time" hidden="{{!first_time}}">
     <image src="/images/first_page/first.png" class="bg" mode="widthFix"></image>
     <view class="start" bindtap="goToFirst">添加宠物定制专属</view>
   </view>
@@ -9,17 +9,17 @@
 
   <!--正式首页开始-->
   <!--导航部分开始-->
-  <view class="home" disable-scroll="true">
+  <view class="home" disable-scroll="true" hidden="{{first_time}}">
     <view class="nav">
-      <view class="head_shift">
+      <view class="head_shift" bindtap="shiftPet">
         <image src="/images/grow_record/shift.png"></image>
       </view>
       <view class="nav_top">
-        <image src="/images/head_img.jpg" mode="scaleToFill"></image>
+        <image src="{{pet.img?pet.img:'/images/head_img.jpg'}}" mode="scaleToFill"></image>
         <view class="nav_top_right">
           <view class="head_word">
-            <view class="pet_name">狗蛋狗蛋狗蛋狗蛋狗蛋</view>
-            <view class="pet_age">2岁</view>
+            <view class="pet_name">{{pet.name}}</view>
+            <view class="pet_age">{{pet.birthday}}</view>
           </view>
           <view class="progress">
             <view class="progress_body" style="width:{{progress}}%"></view>
@@ -33,7 +33,7 @@
     <view class="wrap">
       <!--导航标题循环-->
       <view class="nav_bottom">
-        <block wx:for="{{nav_head}}" wx:key="unique">
+        <block wx:for="{{nav_head}}" wx:key="id">
           <view class="record {{nav_id == item.id?'nav_select':''}}" bindtap="changePart" id="{{item.id}}">{{item.name}}</view>
         </block>
       </view>
@@ -53,7 +53,7 @@
                   <text class="daily_plan_news_head">[{{item.daily_plan_head}}]</text>
                   <text>{{item.daily_plan_content}}</text>
                 </view>
-                <image class="daily_plan_punch" src="{{item.daily_plan_punch?'/images/grow_record/punch_ok.png':'/images/grow_record/punch_no.png'}}" bindtap="daily_plan_punch" id="{{index}}" data-progress="{{progress}}" data-length="{{daily_plan.length}}"></image>
+                <image class="daily_plan_punch" src="{{item.daily_plan_punch?'/images/grow_record/punch_ok.png':'/images/grow_record/punch_no.png'}}" bindtap="{{item.daily_plan_punch?'':'daily_plan_punch'}}" id="{{index}}" data-progress="{{progress}}"></image>
               </view>
             </block>
           </view>
