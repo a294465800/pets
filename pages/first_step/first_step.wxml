@@ -19,7 +19,7 @@
       <view class="second_preImg">
         <image src="{{img.species_img?img.species_img:'/images/first_page/paw.png'}}" mode="{{img.species_img?'aspectFill':'aspectFit'}}" class="species_choose_img {{img.species_img?'':'photo_padding'}}"></image>
         <view class="word species_choose_word {{flag.species_hide?'word_hide':''}}">{{input.species_input}}</view>
-        <input class="species_input {{flag.species_hide?'':'word_hide'}}" type="text" placeholder-class="input_s" placeholder="请输入宠物品种" value="{{input.species_other}}" bindinput="getOtherSpecies" />
+        <input class="species_input {{flag.species_hide?'':'word_hide'}}" type="text" placeholder-class="input_s" placeholder="请输入宠物品种" bindinput="getOtherSpecies" />
       </view>
       <scroll-view scroll-x="true">
         <view class="second-scroll">

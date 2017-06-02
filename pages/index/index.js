@@ -25,31 +25,37 @@ Page({
     }],
     daily_plan: [
       {
+        unique: 0,
         daily_plan_head: '喂食',
         daily_plan_content: '2餐，400g干粮即可',
         daily_plan_punch: false
       },
       {
+        unique: 1,
         daily_plan_head: '遛狗',
         daily_plan_content: '陪狗狗出外面耍耍',
         daily_plan_punch: false
       },
       {
+        unique: 2,
         daily_plan_head: '洗澡',
         daily_plan_content: '狗狗要洗澡了哟',
         daily_plan_punch: false
       },
       {
+        unique: 3,
         daily_plan_head: '驱虫',
         daily_plan_content: '今天狗狗要驱虫了哟',
         daily_plan_punch: false
       },
       {
+        unique: 4,
         daily_plan_head: '喂药',
         daily_plan_content: '有没有准时给狗狗敷药呀',
         daily_plan_punch: false
       },
       {
+        unique: 5,
         daily_plan_head: '疫苗',
         daily_plan_content: '需要打疫苗第三针咯',
         daily_plan_punch: false
@@ -57,15 +63,22 @@ Page({
     ],
     manager_remaid: [
       {
+        unique: 0,
         title: '注射疫苗',
         R_time: 1
-      }, {
+      },
+      {
+        unique: 1,
         title: '剪指甲',
         R_time: 2
-      }, {
+      },
+      {
+        unique: 2,
         title: '吃药',
         R_time: 2
-      }, {
+      },
+      {
+        unique: 3,
         title: '玩',
         R_time: 2
       }
@@ -73,18 +86,22 @@ Page({
     managerShow: false,
     experience: [
       {
+        unique: 0,
         title: '春季感冒高发期',
         R_time: 2
       },
       {
+        unique: 1,
         title: '换毛期',
         R_time: 1
       },
       {
+        unique: 2,
         title: '游泳',
         R_time: 1
       },
       {
+        unique: 3,
         title: '飞',
         R_time: 1
       }
@@ -98,38 +115,38 @@ Page({
       read: 999,
       src: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1494497805444&di=d53add15ca64b8d47258ffe17b39b48c&imgtype=0&src=http%3A%2F%2Fimg2.3lian.com%2F2014%2Ff4%2F77%2Fd%2F68.jpg'
     },
-    daily_shop: {
-      title: '小鲜粮肉卷10KG 5条装',
-      price: '36.00',
-      intro: '满足主粮需求 每日提供2000大卡能量 搭配每天1500ml水',
-      src: 'https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3352940552,2713165205&fm=23&gp=0.jpg'
-    },
     grow_nav: [{
+      unique: 0,
       name: '喂食',
       src: '/images/grow_record/eat.png',
       en: 'eat'
     },
     {
+      unique: 1,
       name: '健康',
       src: '/images/grow_record/health.png',
       en: 'health'
     },
     {
+      unique: 2,
       name: '玩耍',
       src: '/images/grow_record/play.png',
       en: 'play'
     },
     {
+      unique: 3,
       name: '身高体重',
       src: '/images/grow_record/grow.png',
       en: 'grow'
     },
     {
+      unique: 4,
       name: '清洁',
       src: '/images/grow_record/clean.png',
       en: 'clean'
     },
     {
+      unique: 5,
       name: '记账本',
       src: '/images/grow_record/paybook.png',
       en: 'paybook'
@@ -234,10 +251,13 @@ Page({
       }
     ]
   },
-  onLoad: function (options){
-
+  onLoad: function (options) {
   },
   onShow: function (e) {
+
+    //调用宠物年龄计算
+    app.calPetsAge(app.globalData.pets)
+
     let that = this
     //更新数据
     let index = that.data.pet_index
@@ -246,7 +266,6 @@ Page({
       pets: app.globalData.pets,
       pet: app.globalData.pets[index],
     })
-    console.log(app.globalData.pets.length)
   },
   goToFirst: function () {
     wx.navigateTo({
@@ -255,10 +274,10 @@ Page({
   },
 
   //切换宠物信息
-  shiftPet: function(e) {
+  shiftPet: function (e) {
     let that = this
     let index = that.data.pet_index + 1
-    if(index > app.globalData.pets.length - 1){
+    if (index > app.globalData.pets.length - 1) {
       index = 0
     }
     wx.showToast({
@@ -266,13 +285,13 @@ Page({
       icon: 'loading',
       duration: 200,
       mask: true,
-      success: function(){
-        setTimeout(function(){
+      success: function () {
+        setTimeout(function () {
           that.setData({
             pet_index: index,
             pet: app.globalData.pets[index]
           })
-        },200)
+        }, 200)
       }
     })
   },
@@ -298,7 +317,6 @@ Page({
       [temp]: 'true',
       progress: progress
     })
-    console.log(this.data.progress)
   },
 
   //展示管家提醒列表

@@ -89,7 +89,7 @@ Page({
     let telP = e.currentTarget.dataset.tel
     let that = this
     //正则判断手机号码
-    if (!(/^1[3|4|5|8][0-9]\d{4,8}$/.test(telP))) {
+    if (!(/^1[3|4|5|7|8][0-9]\d{8}$/.test(telP))) {
       wx.showModal({
         title: '提示',
         content: '亲，请输入正确的手机号码',

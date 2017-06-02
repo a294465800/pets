@@ -10,7 +10,6 @@ App({
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
-
     //获取系统版本
     wx.getSystemInfo({
       success: function (res) {
@@ -40,6 +39,36 @@ App({
     }
   },
 
+  //计算宠物年龄
+  calPetsAge: function (pets) {
+    let that = this
+    let today = that.globalData.today.replace(/-/g, '/')
+    today = new Date(today)
+    for (let i in pets) {
+      let birthday = pets[i].birthday.replace(/-/g, '/')
+      birthday = new Date(birthday)
+      let days = today.getTime() - birthday.getTime()
+      let time = parseInt(days / (1000 * 60 * 60 * 24))
+
+      //小于1个月
+      if (time <= 30) {
+        pets[i].age = time + '天'
+      }
+      //小于3个月
+      else if (time <= 90) {
+        pets[i].age = parseInt(time / 30) + '个月' + (time % 30) + '天'
+      }
+      //小于一年 
+      else if (time <= 365) {
+        pets[i].age = parseInt(time / 30) + '个月'
+      }
+      //大于一年
+      else {
+        pets[i].age = parseInt(time / 365) + '岁' + (parseInt((time % 365) / 30) == 0 ? 1 : parseInt((time % 365) / 30)) + '个月'
+      }
+    }
+  },
+
   //全局数据
   globalData: {
     userInfo: null,
@@ -49,13 +78,19 @@ App({
     pet: [{
       unique: 0,
       name: '狗蛋',
-      age: '1岁半',
+      birthday: '2016-09-01',
       img: '/images/head_img.jpg'
     }, {
       unique: 1,
       name: '狗蛋蛋蛋蛋蛋蛋蛋蛋',
-      age: '2岁半',
+      birthday: '2017-03-05',
       img: '/images/head_img.jpg'
+    }, {
+      birthday: '2017-05-08'
+    }, {
+      birthday: '2014-05-03'
+    }, {
+      birthday: '2011-05-03'
     }],
     system: '',
   }

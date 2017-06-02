@@ -204,7 +204,7 @@ Page({
       category: '',
       img: '',
       species: '',
-      species_other: '',
+      species_zn: '',
       name: '',
       birthday: '',
       sex: '',
@@ -252,7 +252,7 @@ Page({
   //预览种类函数
   getOtherSpecies: function (e) {
     this.setData({
-      'pet_info.species_other': e.detail.value
+      'pet_info.species_zn': e.detail.value
     })
   },
   chooseSpecies: function (e) {
@@ -268,8 +268,8 @@ Page({
         'flag.species_hide': false,
         'img.species_img': e.currentTarget.dataset.species_img,
         'input.species_input': e.currentTarget.dataset.species_zn,
-        'pet_info.species_other': '',
-        'pet_info.species': e.currentTarget.dataset.species_name
+        'pet_info.species': e.currentTarget.dataset.species_name,
+        'pet_info.species_zn': e.currentTarget.dataset.species_zn
       })
     }
 
@@ -390,7 +390,6 @@ Page({
     //   name: 'test',
     // })
 
-    console.log(that.data.pet_info)
     // wx.request({
     //   url: '',
     //   method: 'POST',
@@ -426,13 +425,7 @@ Page({
     console.log(app.globalData.pets)
 
     wx.switchTab({
-      url: url,
-      success: function(){
-        console.log('ok')
-      },
-      fail: function(e){
-        console.log(e)
-      }
+      url: url
     })
   }
 })

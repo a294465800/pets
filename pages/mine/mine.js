@@ -16,6 +16,7 @@ Page({
    */
   onLoad: function (options) {
     var that = this
+
     app.getUserInfo(function (userInfo) {
       that.setData({
         userInfo: userInfo
@@ -27,6 +28,10 @@ Page({
   },
   onShow: function (e) {
     var that = this
+
+    //调用宠物年龄计算
+    app.calPetsAge(app.globalData.pets)
+
     that.setData({
       pets: app.globalData.pets
     })

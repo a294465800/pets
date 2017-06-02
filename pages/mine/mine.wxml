@@ -24,8 +24,8 @@
     </view>
     <view class="pets_list" hover-class="push_class" bindtap="goToAdd_pets" wx:for="{{pets}}" wx:key="unique">
       <view class="pets_name">{{item.name}}</view>
-      <view class="pets_species">{{item.species || '未知'}}</view>
-      <view class="pets_age">{{item.birthday}}</view>
+      <view class="pets_species">{{item.species_zn || '未知'}}</view>
+      <view class="pets_age">{{item.age}}</view>
     </view>
   </view>
   <!--宠物信息结束-->
@@ -74,14 +74,14 @@
   </button>
   <!--建议反馈结束-->
 
-  <!--设置开始-->
-  <view class="part setting">
-    <view class=" title" hover-class="push_class">
-      <image class="pet_img" src="/images/user/setting.png"></image>
-      <view class="title_message">设置</view>
+  <!--电话开始-->
+  <!--<view class="part setting">
+    <view class="title" hover-class="push_class">
+      <image class="pet_img" src="/images/user/tele.png"></image>
+      <view class="title_message">联系我们</view>
     </view>
-  </view>
-  <!--设置结束-->
+  </view>-->
+  <!--电话结束-->
 
   <!--<contact-button class="part contact" hover-class="push_class">建议反馈</contact-button>-->
 </view>

@@ -1,9 +1,9 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/mine/mine",
     "pages/news/news",
     "pages/first_step/first_step",
-    "pages/mine/mine",
     "pages/add_paybook/add_paybook",
     "pages/manager_switch/manager_switch",
     "pages/grow/grow",

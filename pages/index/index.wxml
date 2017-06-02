@@ -15,11 +15,11 @@
         <image src="/images/grow_record/shift.png"></image>
       </view>
       <view class="nav_top">
-        <image src="{{pet.img?pet.img:'/images/head_img.jpg'}}" mode="scaleToFill"></image>
+        <image src="{{pet.img?pet.img:'/images/head_img.jpg'}}" mode="aspectFill"></image>
         <view class="nav_top_right">
           <view class="head_word">
             <view class="pet_name">{{pet.name}}</view>
-            <view class="pet_age">{{pet.birthday}}</view>
+            <view class="pet_age">{{pet.age}}</view>
           </view>
           <view class="progress">
             <view class="progress_body" style="width:{{progress}}%"></view>
@@ -47,7 +47,7 @@
               <image class="title_img" src="/images/grow_record/plan.png" mode="scaleToFill"></image>
               <view class="title_word">日常计划</view>
             </view>
-            <block wx:for="{{daily_plan}}" wx:key="*this">
+            <block wx:for="{{daily_plan}}" wx:key="unique">
               <view class="daily_plan_message">
                 <view class="daily_plan_news">
                   <text class="daily_plan_news_head">[{{item.daily_plan_head}}]</text>
@@ -71,7 +71,7 @@
                 <image src="/images/grow_record/more.png" mode="scaleToFill"></image>
               </view>
             </view>
-            <block wx:for="{{manager_remaid}}" wx:key="*this">
+            <block wx:for="{{manager_remaid}}" wx:key="unique">
               <view class="manager_message" wx:if="{{index < 2}}">
                 <view class="manager_message_new">
                   <view>
@@ -106,7 +106,7 @@
               <view class="title_word">经历时期</view>
             </view>
 
-            <block wx:for="{{experience}}" wx:key="*this">
+            <block wx:for="{{experience}}" wx:key="unique">
               <view class="manager_message" wx:if="{{index < 2}}">
                 <view class="manager_message_new">
                   <text class="manager_message_item">{{item.title}}</text>
@@ -207,7 +207,7 @@
 
           <!--成长记录导航开始-->
           <view class="scroll-flex glow_part">
-            <view class="glow_tn" wx:for="{{grow_nav}}" wx:key="*this">
+            <view class="glow_tn" wx:for="{{grow_nav}}" wx:key="unique">
               <view class="glow_img">
                 <image class="img" src="{{item.src}}" bindtap="{{item.en}}"></image>
                 <view>{{item.name}}</view>

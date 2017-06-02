@@ -76,7 +76,7 @@
 
 .pet_img {
   width: 38rpx;
-  height: 36rpx;
+  height: 38rpx;
   padding: 10rpx;
   border-radius: 100%;
   margin-right: 20rpx;
@@ -107,7 +107,9 @@
 }
 
 .setting .pet_img {
-  background-color: #73869a;
+  padding: 0;
+  width: 58rpx;
+  height: 58rpx;
 }
 
 .pet_add {
