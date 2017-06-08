@@ -19,7 +19,33 @@ App({
         that.globalData.system = temp_system
       },
     })
+    that.getSetting()
   },
+
+  //获取用户设置
+  getSetting: function () {
+    let that = this
+    wx.getSetting({
+      success: function(res){
+        if (res.authSetting["scope.userInfo"] == true){
+          //调用登录接口
+          wx.login({
+            withCredentials: true,
+            success: function () {
+              wx.getUserInfo({
+                success: function (res) {
+                  that.globalData.userInfo = res.userInfo
+                  that.globalData.encryptedData = res.encryptedData
+                }
+              })
+            }
+          })
+        } else if (res.authSetting["scope.userInfo"] == false){
+        }
+      }
+    })
+  },
+
   getUserInfo: function (cb) {
     var that = this
     if (this.globalData.userInfo) {
@@ -27,10 +53,12 @@ App({
     } else {
       //调用登录接口
       wx.login({
+        withCredentials: true,
         success: function () {
           wx.getUserInfo({
             success: function (res) {
               that.globalData.userInfo = res.userInfo
+              that.globalData.encryptedData = res.encryptedData
               typeof cb == "function" && cb(that.globalData.userInfo)
             }
           })
@@ -93,5 +121,6 @@ App({
       birthday: '2011-05-03'
     }],
     system: '',
+    encryptedData: null
   }
 })

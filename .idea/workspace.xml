@@ -2,17 +2,30 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0003dbec-efe5-4fab-a0ac-c95e9e1671c1" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/index/index.wxml" afterPath="$PROJECT_DIR$/pages/index/index.wxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.json" afterPath="$PROJECT_DIR$/app.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/first_step/first_step.js" afterPath="$PROJECT_DIR$/pages/first_step/first_step.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/first_step/first_step.wxml" afterPath="$PROJECT_DIR$/pages/first_step/first_step.wxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/add_paybook/add_paybook.json" afterPath="$PROJECT_DIR$/pages/add_paybook/add_paybook.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/add_paybook/add_paybook.wxss" afterPath="$PROJECT_DIR$/pages/add_paybook/add_paybook.wxss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/add_pets/add_pets.json" afterPath="$PROJECT_DIR$/pages/add_pets/add_pets.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/article/article.json" afterPath="$PROJECT_DIR$/pages/article/article.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/clean/clean.json" afterPath="$PROJECT_DIR$/pages/clean/clean.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/collect/collect.json" afterPath="$PROJECT_DIR$/pages/collect/collect.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/eat/eat.json" afterPath="$PROJECT_DIR$/pages/eat/eat.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/first_step/first_step.json" afterPath="$PROJECT_DIR$/pages/first_step/first_step.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/grow/grow.json" afterPath="$PROJECT_DIR$/pages/grow/grow.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/health/health.json" afterPath="$PROJECT_DIR$/pages/health/health.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/index/index.js" afterPath="$PROJECT_DIR$/pages/index/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/manager_switch/manager_switch.json" afterPath="$PROJECT_DIR$/pages/manager_switch/manager_switch.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/mine/mine.js" afterPath="$PROJECT_DIR$/pages/mine/mine.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/mine/mine.wxml" afterPath="$PROJECT_DIR$/pages/mine/mine.wxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/mine/mine.wxss" afterPath="$PROJECT_DIR$/pages/mine/mine.wxss" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/mine_edit/mine_edit.js" afterPath="$PROJECT_DIR$/pages/mine_edit/mine_edit.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/mine_edit/mine_edit.json" afterPath="$PROJECT_DIR$/pages/mine_edit/mine_edit.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/mine_edit/mine_edit.wxml" afterPath="$PROJECT_DIR$/pages/mine_edit/mine_edit.wxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/news/news.js" afterPath="$PROJECT_DIR$/pages/news/news.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/news/news.wxml" afterPath="$PROJECT_DIR$/pages/news/news.wxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/paybook/paybook.json" afterPath="$PROJECT_DIR$/pages/paybook/paybook.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/play/play.json" afterPath="$PROJECT_DIR$/pages/play/play.json" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -25,6 +38,9 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FileEditorManager">
+    <leaf />
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -35,10 +51,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="382" />
-    <option name="y" value="58" />
-    <option name="width" value="1431" />
-    <option name="height" value="894" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1096" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -56,6 +72,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -69,9 +86,22 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pages" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -107,7 +137,10 @@
       <workItem from="1496194352117" duration="365000" />
       <workItem from="1496227814312" duration="127000" />
       <workItem from="1496313568605" duration="78000" />
-      <workItem from="1496383923521" duration="260000" />
+      <workItem from="1496383923521" duration="411000" />
+      <workItem from="1496397699474" duration="480000" />
+      <workItem from="1496479514817" duration="82000" />
+      <workItem from="1496913951885" duration="14000" />
     </task>
     <task id="LOCAL-00001" summary="new">
       <created>1496227866682</created>
@@ -123,16 +156,23 @@
       <option name="project" value="LOCAL" />
       <updated>1496313631475</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="new">
+      <created>1496384236337</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1496384236337</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1626000" />
+    <option name="totallyTimeSpent" value="2353000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="382" y="58" width="1431" height="894" extended-state="0" />
+    <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24910265" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24868283" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -190,6 +230,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
           <caret line="175" column="2" lean-forward="true" selection-start-line="175" selection-start-column="2" selection-end-line="175" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/add_pets/add_pets.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>

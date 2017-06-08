@@ -252,6 +252,7 @@ Page({
     ]
   },
   onLoad: function (options) {
+    
   },
   onShow: function (e) {
 

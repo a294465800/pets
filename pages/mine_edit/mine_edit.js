@@ -43,6 +43,30 @@ Page({
     })
   },
 
+  //登录信息请求
+  login: function(){
+    let that = this
+    wx.openSetting({
+      success: function(res){
+        if (res.authSetting["scope.userInfo"] == true) {
+          app.getUserInfo(function (userInfo) {
+            that.setData({
+              userInfo: userInfo
+            })
+          })
+        } else if (res.authSetting["scope.userInfo"] == false){
+          that.setData({
+            userInfo: null
+          })
+          app.globalData.userInfo = null
+        }
+      },
+      fail: function(res){
+        console.log(res)
+      }
+    })
+  },
+
   //性别选择
   sexChoose: function (e) {
     this.setData({

@@ -75,6 +75,7 @@
 .paybook_input_wrap {
   width: 610rpx;
   height: 370rpx;
+  box-sizing: border-box;
   margin: 80rpx auto 0;
   background-color: #fff;
 }
@@ -119,6 +120,7 @@ input {
 
 .paybook_submit {
   margin-top: 30rpx;
+  box-sizing: border-box;
   width: 140rpx;
   height: 80rpx;
   line-height: 80rpx;

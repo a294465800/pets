@@ -2,7 +2,7 @@
 <view class="container">
   <!--用户信息开始-->
   <view class="part user" bindtap="goToMine_edit" hover-class="push_class">
-    <image src="{{userInfo.avatarUrl}}" class="user_img"></image>
+    <image src="{{userInfo.avatarUrl ? userInfo.avatarUrl : '/images/login.png'}}" class="user_img"></image>
     <view class="userinfo">
       <view class="userinfo_message">
         <view class="">{{userInfo.nickName}}</view>

@@ -17,11 +17,6 @@ Page({
   onLoad: function (options) {
     var that = this
 
-    app.getUserInfo(function (userInfo) {
-      that.setData({
-        userInfo: userInfo
-      })
-    })
     that.setData({
       pets: app.globalData.pets
     })
@@ -33,7 +28,9 @@ Page({
     app.calPetsAge(app.globalData.pets)
 
     that.setData({
-      pets: app.globalData.pets
+      pets: app.globalData.pets,
+      //获取用户信息
+      userInfo: app.globalData.userInfo
     })
   },
 
