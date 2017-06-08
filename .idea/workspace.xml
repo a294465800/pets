@@ -3,29 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="0003dbec-efe5-4fab-a0ac-c95e9e1671c1" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.json" afterPath="$PROJECT_DIR$/app.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/add_paybook/add_paybook.json" afterPath="$PROJECT_DIR$/pages/add_paybook/add_paybook.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/add_paybook/add_paybook.wxss" afterPath="$PROJECT_DIR$/pages/add_paybook/add_paybook.wxss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/add_pets/add_pets.json" afterPath="$PROJECT_DIR$/pages/add_pets/add_pets.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/article/article.json" afterPath="$PROJECT_DIR$/pages/article/article.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/clean/clean.json" afterPath="$PROJECT_DIR$/pages/clean/clean.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/collect/collect.json" afterPath="$PROJECT_DIR$/pages/collect/collect.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/eat/eat.json" afterPath="$PROJECT_DIR$/pages/eat/eat.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/first_step/first_step.json" afterPath="$PROJECT_DIR$/pages/first_step/first_step.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/grow/grow.json" afterPath="$PROJECT_DIR$/pages/grow/grow.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/health/health.json" afterPath="$PROJECT_DIR$/pages/health/health.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/index/index.js" afterPath="$PROJECT_DIR$/pages/index/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/manager_switch/manager_switch.json" afterPath="$PROJECT_DIR$/pages/manager_switch/manager_switch.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/mine/mine.js" afterPath="$PROJECT_DIR$/pages/mine/mine.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/mine/mine.wxml" afterPath="$PROJECT_DIR$/pages/mine/mine.wxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/mine_edit/mine_edit.js" afterPath="$PROJECT_DIR$/pages/mine_edit/mine_edit.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/mine_edit/mine_edit.json" afterPath="$PROJECT_DIR$/pages/mine_edit/mine_edit.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/mine_edit/mine_edit.wxml" afterPath="$PROJECT_DIR$/pages/mine_edit/mine_edit.wxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/news/news.js" afterPath="$PROJECT_DIR$/pages/news/news.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/news/news.wxml" afterPath="$PROJECT_DIR$/pages/news/news.wxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/paybook/paybook.json" afterPath="$PROJECT_DIR$/pages/paybook/paybook.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/play/play.json" afterPath="$PROJECT_DIR$/pages/play/play.json" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -140,7 +118,8 @@
       <workItem from="1496383923521" duration="411000" />
       <workItem from="1496397699474" duration="480000" />
       <workItem from="1496479514817" duration="82000" />
-      <workItem from="1496913951885" duration="14000" />
+      <workItem from="1496913951885" duration="131000" />
+      <workItem from="1496917263705" duration="10000" />
     </task>
     <task id="LOCAL-00001" summary="new">
       <created>1496227866682</created>
@@ -163,11 +142,18 @@
       <option name="project" value="LOCAL" />
       <updated>1496384236337</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="1.0">
+      <created>1496913992062</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1496913992062</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2353000" />
+    <option name="totallyTimeSpent" value="2480000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
@@ -175,12 +161,12 @@
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24868283" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -198,7 +184,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="new" />
-    <option name="LAST_COMMIT_MESSAGE" value="new" />
+    <MESSAGE value="1.0" />
+    <option name="LAST_COMMIT_MESSAGE" value="1.0" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />

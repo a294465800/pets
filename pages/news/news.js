@@ -178,7 +178,6 @@ Page({
         timingFunction: 'ease',
       })
       animation.left(left).step()
-      // let object = 'news_flag[' + e.target.id + '].flag'
       that.setData({
         current: e.target.id,
         nav_id: e.target.id,
@@ -190,8 +189,6 @@ Page({
 
   //switch切换
   switchPage: function (e) {
-    console.log('data.current:' + this.data.current)
-    console.log('real.current:' + e.detail.current)
     clearTimeout(timer)
     let that = this
     if (that.data.current == e.detail.current) {
