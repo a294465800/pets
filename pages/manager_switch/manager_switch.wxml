@@ -5,6 +5,6 @@
       <image src="" class="manager_switch_img" mode="aspectFill" style="display:none"></image>
       <view class="">{{item.zn}}</view>
     </view>
-    <switch type="switch" color="#333" />
+    <switch type="switch" color="#ff963d" />
   </view>
 </view>

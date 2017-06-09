@@ -2,8 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0003dbec-efe5-4fab-a0ac-c95e9e1671c1" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/images/user/tel.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/images/user/tele.png" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/news/news.js" afterPath="$PROJECT_DIR$/pages/news/news.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/add_paybook/add_paybook.wxml" afterPath="$PROJECT_DIR$/pages/add_paybook/add_paybook.wxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/add_paybook/add_paybook.wxss" afterPath="$PROJECT_DIR$/pages/add_paybook/add_paybook.wxss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/first_step/first_step.js" afterPath="$PROJECT_DIR$/pages/first_step/first_step.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/first_step/first_step.wxml" afterPath="$PROJECT_DIR$/pages/first_step/first_step.wxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/first_step/first_step.wxss" afterPath="$PROJECT_DIR$/pages/first_step/first_step.wxss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/manager_switch/manager_switch.wxml" afterPath="$PROJECT_DIR$/pages/manager_switch/manager_switch.wxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/mine/mine.wxml" afterPath="$PROJECT_DIR$/pages/mine/mine.wxml" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -119,7 +128,8 @@
       <workItem from="1496397699474" duration="480000" />
       <workItem from="1496479514817" duration="82000" />
       <workItem from="1496913951885" duration="131000" />
-      <workItem from="1496917263705" duration="10000" />
+      <workItem from="1496917263705" duration="49000" />
+      <workItem from="1496995659149" duration="115000" />
     </task>
     <task id="LOCAL-00001" summary="new">
       <created>1496227866682</created>
@@ -149,11 +159,18 @@
       <option name="project" value="LOCAL" />
       <updated>1496913992062</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="1.0">
+      <created>1496917298754</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1496917298754</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2480000" />
+    <option name="totallyTimeSpent" value="2634000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />

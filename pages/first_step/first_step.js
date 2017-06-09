@@ -337,8 +337,9 @@ Page({
   //性别获取
   chooseSex: function (e) {
     let that = this
-    let pet_sex = 'sex[' + e.target.id + '].check'
-    if (that.data.sex[e.target.id].check) {
+    console.log(e)
+    let pet_sex = 'sex[' + e.currentTarget.id + '].check'
+    if (that.data.sex[e.currentTarget.id].check) {
     } else {
       that.setData({
         'sex[0].check': false,

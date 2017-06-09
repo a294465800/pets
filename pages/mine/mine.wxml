@@ -23,9 +23,9 @@
       <image class="pet_add" src="/images/user/plus.png"></image>
     </view>
     <view class="pets_list" hover-class="push_class" bindtap="goToAdd_pets" wx:for="{{pets}}" wx:key="unique">
-      <view class="pets_name">{{item.name}}</view>
+      <view class="pets_name">{{item.name || '无'}}</view>
       <view class="pets_species">{{item.species_zn || '未知'}}</view>
-      <view class="pets_age">{{item.age}}</view>
+      <view class="pets_age">{{item.age || '未知'}}</view>
     </view>
   </view>
   <!--宠物信息结束-->
@@ -46,25 +46,6 @@
   </view>
   <!--收藏通知结束-->
 
-  <!--订单开始-->
-  <!--<view class="part order">
-    <view class="collect title inform_news" hover-class="push_class" bindtap="goToShop">
-      <view class="inform_news_left">
-        <image class="pet_img" mode="aspectFit" src="/images/user/shop.png"></image>
-        <view class="title_message">管家小铺</view>
-      </view>
-      <image src="/images/grow_record/more.png" class="userinfo_more"></image>
-    </view>
-    <view class="title inform_news" hover-class="push_class">
-      <view class="inform_news_left">
-        <image class="pet_img" mode="aspectFit" src="/images/user/order.png"></image>
-        <view class="title_message">我的订单</view>
-      </view>
-      <image src="/images/grow_record/more.png" class="userinfo_more"></image>
-    </view>
-  </view>-->
-  <!--订单结束-->
-
   <!--建议反馈开始-->
   <button class="part suggest" open-type="contact">
     <view class="title" hover-class="push_class">
@@ -74,14 +55,4 @@
   </button>
   <!--建议反馈结束-->
 
-  <!--电话开始-->
-  <!--<view class="part setting">
-    <view class="title" hover-class="push_class">
-      <image class="pet_img" src="/images/user/tele.png"></image>
-      <view class="title_message">联系我们</view>
-    </view>
-  </view>-->
-  <!--电话结束-->
-
-  <!--<contact-button class="part contact" hover-class="push_class">建议反馈</contact-button>-->
 </view>

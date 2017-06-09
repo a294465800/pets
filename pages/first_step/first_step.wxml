@@ -5,7 +5,7 @@
     <view class="container first_page">
       <view bindtap="chooseCategory" data-category="{{item.category}}" wx:for="{{pets}}" wx:key="unique">
         <image src="{{item.src}}" mode="aspectFit" id="{{index}}">
-          <image src="/images/first_page/yes_g.png" class=" {{item.check?'choose':''}}" mode="aspectFit"></image>
+          <image src="/images/paybook/click.png" class=" {{item.check?'choose':'hide'}}" mode="aspectFit"></image>
         </image>
         <view class="word">{{item.zn}}</view>
       </view>
@@ -57,9 +57,9 @@
   <!--第五页性别开始-->
   <swiper-item>
     <view class="container fifth_page">
-      <view bindtap="chooseSex" data-sex="{{item.name}}" wx:for="{{sex}}" wx:key="unique">
-        <image src="{{item.src}}" mode="aspectFit" class="{{item.name}}" id="{{index}}">
-          <image src="/images/first_page/yes_g.png" class=" {{item.check?'choose':''}}" mode="aspectFit"></image>
+      <view bindtap="chooseSex" data-sex="{{item.name}}" wx:for="{{sex}}" wx:key="unique" id="{{index}}">
+        <image src="{{item.src}}" mode="aspectFit" class="{{item.name}}">
+          <image src="/images/paybook/click.png" class=" {{item.check?'choose':''}}" mode="aspectFit"></image>
         </image>
         <view class="word">{{item.zn}}</view>
       </view>

@@ -26,8 +26,8 @@ App({
   getSetting: function () {
     let that = this
     wx.getSetting({
-      success: function(res){
-        if (res.authSetting["scope.userInfo"] == true){
+      success: function (res) {
+        if (res.authSetting["scope.userInfo"] == true) {
           //调用登录接口
           wx.login({
             withCredentials: true,
@@ -40,7 +40,7 @@ App({
               })
             }
           })
-        } else if (res.authSetting["scope.userInfo"] == false){
+        } else if (res.authSetting["scope.userInfo"] == false) {
         }
       }
     })
@@ -73,26 +73,30 @@ App({
     let today = that.globalData.today.replace(/-/g, '/')
     today = new Date(today)
     for (let i in pets) {
-      let birthday = pets[i].birthday.replace(/-/g, '/')
-      birthday = new Date(birthday)
-      let days = today.getTime() - birthday.getTime()
-      let time = parseInt(days / (1000 * 60 * 60 * 24))
+      if (!pets[i].birthday) {
+        pets[i].age = ''
+      } else {
+        let birthday = pets[i].birthday.replace(/-/g, '/')
+        birthday = new Date(birthday)
+        let days = today.getTime() - birthday.getTime()
+        let time = parseInt(days / (1000 * 60 * 60 * 24))
 
-      //小于1个月
-      if (time <= 30) {
-        pets[i].age = time + '天'
-      }
-      //小于3个月
-      else if (time <= 90) {
-        pets[i].age = parseInt(time / 30) + '个月' + (time % 30) + '天'
-      }
-      //小于一年 
-      else if (time <= 365) {
-        pets[i].age = parseInt(time / 30) + '个月'
-      }
-      //大于一年
-      else {
-        pets[i].age = parseInt(time / 365) + '岁' + (parseInt((time % 365) / 30) == 0 ? 1 : parseInt((time % 365) / 30)) + '个月'
+        //小于1个月
+        if (time <= 30) {
+          pets[i].age = time + '天'
+        }
+        //小于3个月
+        else if (time <= 90) {
+          pets[i].age = parseInt(time / 30) + '个月' + (time % 30) + '天'
+        }
+        //小于一年 
+        else if (time <= 365) {
+          pets[i].age = parseInt(time / 30) + '个月'
+        }
+        //大于一年
+        else {
+          pets[i].age = parseInt(time / 365) + '岁' + (parseInt((time % 365) / 30) == 0 ? 1 : parseInt((time % 365) / 30)) + '个月'
+        }
       }
     }
   },

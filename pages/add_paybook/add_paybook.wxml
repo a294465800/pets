@@ -3,7 +3,6 @@
   <view class="add_paybook">
     <view class="add_paybook_item" wx:for="{{paybook_item}}" id="{{index}}" bindtap="paybook_input" wx:key="unique">
       <image src="{{item.src}}" class="add_paybook_item_img {{item_select == index?'select':''}}" mode="aspectFit">
-        <image src="/images/paybook/click.png" mode="aspectFit" class="click {{item_select == index?'show':''}}"></image>
       </image>
       <view class="add_paybook_item_word">{{item.zn}}</view>
     </view>

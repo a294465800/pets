@@ -27,6 +27,10 @@ swiper {
   align-items: center;
 }
 
+.container view {
+  position: relative;
+}
+
 .first_page image, .second_page .second_preImg .species_choose_img,
 .third_page .photo, .fourth_page .photo, .fifth_page image, .sixth_page image,
 .fifth_page image, .seventh_page .weight {
@@ -34,7 +38,6 @@ swiper {
   height: 200rpx;
   border-radius: 100%;
   box-sizing: border-box;
-  position: relative;
 }
 
 .first_page .word, .second_page .second_preImg .word, .fifth_page .word,
@@ -172,7 +175,7 @@ swiper {
 }
 
 .sixth_page .check {
-  background-color: #4bd663;
+  background-color: #ff963d;
 }
 
 /*第七页——体重*/
@@ -192,11 +195,13 @@ swiper {
 /*选中样式*/
 
 .container .choose {
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: #ff963d;
   position: absolute;
   top: 0;
-  left: 0;
+  right: 0;
   box-sizing: border-box;
-  padding: 50rpx;
-  border-radius: 0;
+  padding: 6rpx;
+  border-radius: 50%;
+  width: 50rpx;
+  height: 50rpx;
 }
