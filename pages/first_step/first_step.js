@@ -413,7 +413,7 @@ Page({
     let url = ''
     if (app.globalData.pets.length > 0) {
       url = '/pages/mine/mine'
-    }else {
+    } else {
       url = '/pages/index/index'
     }
     //宠物信息保存
@@ -424,9 +424,19 @@ Page({
     temp = [pet].concat(app.globalData.pets)
     app.globalData.pets = temp
     console.log(app.globalData.pets)
-
-    wx.switchTab({
-      url: url
+    wx.request({
+      url: '',
+      method: 'post',
+      data: that.data.pet_info,
+      header: {
+        'content-type': 'json'
+      },
+      success: function (res) {
+        console.log(res)
+        wx.switchTab({
+          url: url
+        })
+      }
     })
   }
 })
