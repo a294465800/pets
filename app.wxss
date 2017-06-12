@@ -205,3 +205,13 @@ input, textarea {
   top: 6rpx;
   right: -11rpx;
 }
+
+/*隐藏、出现*/
+
+.show {
+  display: block;
+}
+
+.hide {
+  display: none!important;
+}

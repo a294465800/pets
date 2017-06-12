@@ -10,10 +10,6 @@ swiper {
   color: #ccc;
 }
 
-.hide {
-  display: none;
-}
-
 .photo_padding {
   padding: 72rpx;
 }

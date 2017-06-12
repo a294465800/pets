@@ -225,7 +225,29 @@ Page({
     input: {
       species_input: '请选择爱宠品种',
       weight_input: null
-    }
+    },
+
+    //数据校验
+    data_check: [{
+      flag: false
+    },
+    {
+      flag: false
+    },
+    {
+      flag: false
+    },
+    {
+      flag: false
+    },
+    {
+      flag: false
+    },
+    {
+      flag: false
+    }, {
+      flag: false
+    }]
   },
   onLoad: function (options) {
 
@@ -244,6 +266,7 @@ Page({
       that.setData({
         [pet_pets]: true,
         'pet_info.category': e.currentTarget.dataset.category,
+        'data_check[0].flag': true,
         current_index: 1
       })
     }
@@ -251,9 +274,16 @@ Page({
   //第二页函数
   //预览种类函数
   getOtherSpecies: function (e) {
-    this.setData({
-      'pet_info.species_zn': e.detail.value
-    })
+    if (e.detail.value){
+      this.setData({
+        'pet_info.species_zn': e.detail.value,
+        'data_check[1].flag': true,
+      })
+    }else {
+      this.setData({
+        'data_check[1].flag': false,
+      })
+    }
   },
   chooseSpecies: function (e) {
     let that = this
@@ -269,7 +299,8 @@ Page({
         'img.species_img': e.currentTarget.dataset.species_img,
         'input.species_input': e.currentTarget.dataset.species_zn,
         'pet_info.species': e.currentTarget.dataset.species_name,
-        'pet_info.species_zn': e.currentTarget.dataset.species_zn
+        'pet_info.species_zn': e.currentTarget.dataset.species_zn,
+        'data_check[1].flag': true,
       })
     }
 
@@ -298,9 +329,16 @@ Page({
     })
   },
   getHeadInput: function (e) {
-    this.setData({
-      'pet_info.name': e.detail.value
-    })
+    if (e.detail.value){
+      this.setData({
+        'pet_info.name': e.detail.value,
+        'data_check[2].flag': true,
+      })
+    } else {
+      this.setData({
+        'data_check[2].flag': false
+      })
+    }
   },
   //昵称检测
   addPetName: function (e) {
@@ -322,10 +360,13 @@ Page({
   //动态获取选择的日期
   chooseBirthday: function (e) {
     let that = this
-    this.setData({
-      birthday: e.detail.value,
-      'pet_info.birthday': e.detail.value
-    })
+    if (e.detail.value){
+      this.setData({
+        birthday: e.detail.value,
+        'pet_info.birthday': e.detail.value,
+        'data_check[3].flag': true,
+      })
+    }
   },
   addPetBirthday: function (e) {
     this.setData({
@@ -348,6 +389,7 @@ Page({
       that.setData({
         [pet_sex]: true,
         'pet_info.sex': e.currentTarget.dataset.sex,
+        'data_check[4].flag': true,
         current_index: 5
       })
     }
@@ -367,6 +409,7 @@ Page({
       that.setData({
         [pet_bear]: true,
         'pet_info.bear': e.currentTarget.dataset.bear,
+        'data_check[5].flag': true,
         current_index: 6
       })
     }
@@ -376,39 +419,24 @@ Page({
   //体重
   getWeightInput: function (e) {
     let that = this
-    that.setData({
-      'input.weight_input': e.detail.value,
-      'pet_info.weight': e.detail.value,
-    })
+    if (e.detail.value) {
+      that.setData({
+        'input.weight_input': e.detail.value,
+        'pet_info.weight': e.detail.value,
+        'data_check[6].flag': true,
+      })
+    }else {
+      that.setData({
+        'data_check[6].flag': false,
+      })
+    }
   },
 
   // 提交
   submit: function (e) {
+    let flag = false
     let that = this
-    // wx.uploadFile({
-    //   url: '',
-    //   filePath: that.data.pet_info.img,
-    //   name: 'test',
-    // })
-
-    // wx.request({
-    //   url: '',
-    //   method: 'POST',
-    //   data: that.data.pet_info,
-    //   header: {
-    //     'content-type': 'application/json'
-    //   },
-    //   success: function (res) {
-    //     console.log('ok');
-    //   },
-    //   fail: function () {
-    //     console.log('fail');
-    //   }
-    // })
-
-
-
-
+    let data_check = that.data.data_check
     //跳转
     let url = ''
     if (app.globalData.pets.length > 0) {
@@ -416,27 +444,47 @@ Page({
     } else {
       url = '/pages/index/index'
     }
-    //宠物信息保存
-    let temp = []
-    let pet = that.data.pet_info
-    const length = app.globalData.pets.length
-    pet.unique = length
-    temp = [pet].concat(app.globalData.pets)
-    app.globalData.pets = temp
-    console.log(app.globalData.pets)
-    wx.request({
-      url: '',
-      method: 'post',
-      data: that.data.pet_info,
-      header: {
-        'content-type': 'json'
-      },
-      success: function (res) {
-        console.log(res)
-        wx.switchTab({
-          url: url
+
+    console.log(data_check)
+    //数据校验
+    for (let i in data_check) {
+      if (!data_check[i].flag) {
+        wx.showModal({
+          title: '提示',
+          content: '您还有信息没有填写哦~',
+          showCancel: false,
+          success: function (res) {
+            if (res.confirm) {
+              that.setData({
+                current_index: i
+              })
+              flag = true
+            }
+          }
         })
+        break
       }
-    })
+    }
+
+    //宠物信息保存
+    if (flag) {
+      let temp = []
+      let pet = that.data.pet_info
+      const length = app.globalData.pets.length
+      pet.unique = length
+      temp = [pet].concat(app.globalData.pets)
+      app.globalData.pets = temp
+      console.log(app.globalData.pets)
+      wx.request({
+        url: 'https://www.sennki.com/api/test',
+        method: 'post',
+        data: that.data.pet_info,
+        success: function (res) {
+          wx.switchTab({
+            url: url
+          })
+        }
+      })
+    }
   }
 })

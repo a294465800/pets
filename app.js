@@ -25,23 +25,41 @@ App({
   //获取用户设置
   getSetting: function () {
     let that = this
-    wx.getSetting({
-      success: function (res) {
-        if (res.authSetting["scope.userInfo"] == true) {
-          //调用登录接口
-          wx.login({
-            withCredentials: true,
-            success: function () {
-              wx.getUserInfo({
-                success: function (res) {
-                  that.globalData.userInfo = res.userInfo
-                  that.globalData.encryptedData = res.encryptedData
+    wx.checkSession({
+      success: function(){
+      },
+      fail: function(){
+        wx.getSetting({
+          success: function (res) {
+            if (res.authSetting["scope.userInfo"] == true) {
+              //调用登录接口
+              wx.login({
+                withCredentials: true,
+                success: function (rs) {
+                  wx.getUserInfo({
+                    success: function (res) {
+                      that.globalData.userInfo = res.userInfo
+                      that.globalData.encryptedData = res.encryptedData
+                      wx.request({
+                        url: 'https://www.sennki.com/api/wxtest',
+                        method: 'post',
+                        data: {
+                          code: rs.code,
+                          encryptedData: res.encryptedData,
+                          iv: res.iv
+                        },
+                        success: function (e) {
+                          console.log(e)
+                        }
+                      })
+                    }
+                  })
                 }
               })
+            } else if (res.authSetting["scope.userInfo"] == false) {
             }
-          })
-        } else if (res.authSetting["scope.userInfo"] == false) {
-        }
+          }
+        })
       }
     })
   },
@@ -54,11 +72,23 @@ App({
       //调用登录接口
       wx.login({
         withCredentials: true,
-        success: function () {
+        success: function (rs) {
           wx.getUserInfo({
             success: function (res) {
               that.globalData.userInfo = res.userInfo
               that.globalData.encryptedData = res.encryptedData
+              wx.request({
+                url: 'https://www.sennki.com/api/wxtest',
+                method: 'post',
+                data: {
+                  code: rs.code,
+                  encryptedData: res.encryptedData,
+                  iv: res.iv
+                },
+                success: function (e) {
+                  console.log(e)
+                }
+              })
               typeof cb == "function" && cb(that.globalData.userInfo)
             }
           })

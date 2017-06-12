@@ -2,15 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0003dbec-efe5-4fab-a0ac-c95e9e1671c1" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pages/first_meal/first_meal.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pages/first_meal/first_meal.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pages/first_meal/first_meal.wxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pages/first_meal/first_meal.wxss" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.json" afterPath="$PROJECT_DIR$/app.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.wxss" afterPath="$PROJECT_DIR$/app.wxss" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/first_step/first_step.js" afterPath="$PROJECT_DIR$/pages/first_step/first_step.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/first_step/first_step.wxml" afterPath="$PROJECT_DIR$/pages/first_step/first_step.wxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/first_step/first_step.wxss" afterPath="$PROJECT_DIR$/pages/first_step/first_step.wxss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/mine/mine.wxml" afterPath="$PROJECT_DIR$/pages/mine/mine.wxml" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -57,6 +54,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -103,7 +101,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="Scratches" />
     </panes>
   </component>
@@ -146,7 +143,8 @@
       <workItem from="1496913951885" duration="131000" />
       <workItem from="1496917263705" duration="49000" />
       <workItem from="1496995659149" duration="411000" />
-      <workItem from="1497238903471" duration="257000" />
+      <workItem from="1497238903471" duration="580000" />
+      <workItem from="1497248065884" duration="599000" />
     </task>
     <task id="LOCAL-00001" summary="new">
       <created>1496227866682</created>
@@ -190,11 +188,18 @@
       <option name="project" value="LOCAL" />
       <updated>1496995883209</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="change the click style in first_page. And delete the first_meal.">
+      <created>1497239264773</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1497239264773</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3187000" />
+    <option name="totallyTimeSpent" value="4109000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1096" extended-state="0" />
@@ -227,7 +232,8 @@
     <MESSAGE value="new" />
     <MESSAGE value="1.0" />
     <MESSAGE value="change the select css in first_step page. And fix bug in add_paybook page." />
-    <option name="LAST_COMMIT_MESSAGE" value="change the select css in first_step page. And fix bug in add_paybook page." />
+    <MESSAGE value="change the click style in first_page. And delete the first_meal." />
+    <option name="LAST_COMMIT_MESSAGE" value="change the click style in first_page. And delete the first_meal." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
