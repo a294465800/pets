@@ -26,9 +26,9 @@ App({
   getSetting: function () {
     let that = this
     wx.checkSession({
-      success: function(){
+      success: function () {
       },
-      fail: function(){
+      fail: function () {
         wx.getSetting({
           success: function (res) {
             if (res.authSetting["scope.userInfo"] == true) {
@@ -113,7 +113,7 @@ App({
 
         //小于1个月
         if (time <= 30) {
-          pets[i].age = time + '天'
+          pets[i].age = (time == 0 ? 1 : time) + '天'
         }
         //小于3个月
         else if (time <= 90) {

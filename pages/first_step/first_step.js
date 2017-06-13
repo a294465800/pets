@@ -228,36 +228,30 @@ Page({
     },
 
     //数据校验
-    data_check: [{
-      flag: false
-    },
-    {
-      flag: false
-    },
-    {
-      flag: false
-    },
-    {
-      flag: false
-    },
-    {
-      flag: false
-    },
-    {
-      flag: false
-    }, {
-      flag: false
-    }]
+    data_check: []
   },
   onLoad: function (options) {
 
+  },
+  onShow: function () {
+    let that = this
+    for (let i = 0; i < 7; i++) {
+      let data_check = 'data_check[' + i + '].flag'
+      that.setData({
+        [data_check]: false
+      })
+    }
   },
 
   //第一页函数
   chooseCategory: function (e) {
     let that = this
-    let pet_pets = 'pets[' + e.target.id + '].check'
-    if (that.data.pets[e.target.id].check) {
+    console.log(e)
+    let pet_pets = 'pets[' + e.currentTarget.id + '].check'
+    if (that.data.pets[e.currentTarget.id].check) {
+      that.setData({
+        current_index: 1
+      })
     } else {
       that.setData({
         'pets[0].check': false,
@@ -274,12 +268,12 @@ Page({
   //第二页函数
   //预览种类函数
   getOtherSpecies: function (e) {
-    if (e.detail.value){
+    if (e.detail.value) {
       this.setData({
         'pet_info.species_zn': e.detail.value,
         'data_check[1].flag': true,
       })
-    }else {
+    } else {
       this.setData({
         'data_check[1].flag': false,
       })
@@ -329,7 +323,7 @@ Page({
     })
   },
   getHeadInput: function (e) {
-    if (e.detail.value){
+    if (e.detail.value) {
       this.setData({
         'pet_info.name': e.detail.value,
         'data_check[2].flag': true,
@@ -360,7 +354,7 @@ Page({
   //动态获取选择的日期
   chooseBirthday: function (e) {
     let that = this
-    if (e.detail.value){
+    if (e.detail.value) {
       this.setData({
         birthday: e.detail.value,
         'pet_info.birthday': e.detail.value,
@@ -378,9 +372,11 @@ Page({
   //性别获取
   chooseSex: function (e) {
     let that = this
-    console.log(e)
     let pet_sex = 'sex[' + e.currentTarget.id + '].check'
     if (that.data.sex[e.currentTarget.id].check) {
+      that.setData({
+        current_index: 5
+      })
     } else {
       that.setData({
         'sex[0].check': false,
@@ -401,6 +397,9 @@ Page({
     let that = this
     let pet_bear = 'bear[' + e.target.id + '].check'
     if (that.data.bear[e.target.id].check) {
+      that.setData({
+        current_index: 6
+      })
     } else {
       that.setData({
         'bear[0].check': false,
@@ -425,7 +424,7 @@ Page({
         'pet_info.weight': e.detail.value,
         'data_check[6].flag': true,
       })
-    }else {
+    } else {
       that.setData({
         'data_check[6].flag': false,
       })
