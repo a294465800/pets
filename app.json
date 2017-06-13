@@ -1,11 +1,11 @@
 {
   "pages": [
-    "pages/index/index",
-    "pages/add_paybook/add_paybook",
     "pages/mine/mine",
-    "pages/news/news",
     "pages/first_step/first_step",
     "pages/manager_switch/manager_switch",
+    "pages/index/index",
+    "pages/add_paybook/add_paybook",
+    "pages/news/news",
     "pages/grow/grow",
     "pages/play/play",
     "pages/eat/eat",

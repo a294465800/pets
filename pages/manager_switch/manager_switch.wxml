@@ -2,7 +2,7 @@
 <view class="container">
   <view class="manager_switch" wx:for="{{remain}}" wx:key="unique">
     <view class="manager_switch_word">
-      <image src="" class="manager_switch_img" mode="aspectFill" style="display:none"></image>
+      <image src="{{item.img}}" class="manager_switch_img" mode="aspectFit"></image>
       <view class="">{{item.zn}}</view>
     </view>
     <switch type="switch" color="#ff963d" />

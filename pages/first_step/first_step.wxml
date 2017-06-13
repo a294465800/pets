@@ -17,7 +17,7 @@
   <swiper-item>
     <view class="container second_page">
       <view class="second_preImg">
-        <image src="{{img.species_img?img.species_img:'/images/first_page/paw.png'}}" mode="{{img.species_img?'aspectFill':'aspectFit'}}" class="species_choose_img {{img.species_img?'':'photo_padding'}}"></image>
+        <image src="{{img.species_img?img.species_img:'/images/first_page/paw.png'}}" mode="{{img.species_img?'aspectFill':'center'}}" class="species_choose_img"></image>
         <view class="word species_choose_word {{flag.species_hide?'word_hide':''}}">{{input.species_input}}</view>
         <input class="species_input {{flag.species_hide?'':'word_hide'}}" type="text" placeholder-class="input_s" placeholder="请输入宠物品种" bindinput="getOtherSpecies" />
       </view>
@@ -37,7 +37,7 @@
   <!--第三页姓名填写开始-->
   <swiper-item>
     <view class="container third_page">
-      <image src="{{img.head_img?img.head_img:'/images/icon/photo.png'}}" mode="{{flag.head_flag?'aspectFit':'aspectFill'}}" class="photo {{flag.head_flag?'photo_padding':''}}" bindtap="chooseHead"></image>
+      <image src="{{img.head_img?img.head_img:'/images/icon/photo_o.png'}}" mode="{{flag.head_flag?'center':'aspectFill'}}" class="photo" bindtap="chooseHead"></image>
       <input placeholder="请输入爱宠名称" placeholder-class="p_input" type="text" bindinput="getHeadInput" data-input="{{input.head_input}}" />
       <view class="btn" bindtap="addPetName">下一步</view>
     </view>

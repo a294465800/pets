@@ -162,7 +162,7 @@ Page({
     },
     {
       name: 'others',
-      src: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1495459044542&di=71efa09c9056339e1e498750198bec19&imgtype=0&src=http%3A%2F%2Fcdn4.freepik.com%2Fimage%2Fth%2F426288.jpg',
+      src: '/images/others.png',
       zn: '其他',
       unique: 22
     }],
