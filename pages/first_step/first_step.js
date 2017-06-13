@@ -434,7 +434,7 @@ Page({
 
   // 提交
   submit: function (e) {
-    let flag = false
+    let flag = true
     let that = this
     let data_check = that.data.data_check
     //跳转
@@ -445,10 +445,10 @@ Page({
       url = '/pages/index/index'
     }
 
-    console.log(data_check)
     //数据校验
     for (let i in data_check) {
       if (!data_check[i].flag) {
+        flag = false
         wx.showModal({
           title: '提示',
           content: '您还有信息没有填写哦~',
@@ -458,7 +458,6 @@ Page({
               that.setData({
                 current_index: i
               })
-              flag = true
             }
           }
         })

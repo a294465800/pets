@@ -38,7 +38,7 @@
   <swiper-item>
     <view class="container third_page">
       <image src="{{img.head_img?img.head_img:'/images/icon/photo_o.png'}}" mode="{{flag.head_flag?'center':'aspectFill'}}" class="photo" bindtap="chooseHead"></image>
-      <input placeholder="请输入爱宠名称" placeholder-class="p_input" type="text" bindinput="getHeadInput" data-input="{{input.head_input}}" />
+      <input placeholder="请输入爱宠名称" placeholder-class="p_input" type="text" bindinput="getHeadInput" data-input="{{input.head_input}}" maxlength="10"/>
       <view class="btn" bindtap="addPetName">下一步</view>
     </view>
   </swiper-item>
