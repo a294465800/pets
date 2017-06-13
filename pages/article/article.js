@@ -69,7 +69,6 @@ Page({
       })
     })
   },
-
   //点赞
   articleGood: function (e) {
     let that = this
@@ -138,28 +137,42 @@ Page({
 
   //评论提交
   articleCommentPost: function (e) {
-    let time = new Date()
-    const length = this.data.article_list.length
-    let that = this
-    let article_item = {
-      unique: length,
-      head_img: that.data.userInfo.avatarUrl,
-      nick_name: that.data.userInfo.nickName,
-      time: (9 - time.getMonth() <= 0 ? (time.getMonth() + 1) : '0' + (time.getMonth() + 1)) + '-' + ((10 - time.getDate()) <= 0 ? time.getDate() : '0' + time.getDate()) + ' ' + (10 - time.getHours() <= 0 ? time.getHours() : '0' + time.getHours()) + ':' + ((10 - time.getMinutes()) <= 0 ? time.getMinutes() : '0' + time.getMinutes()),
-      comment: e.detail.value.article_comment
+    if (app.globalData.userInfo.nickName){
+      let time = new Date()
+      const length = this.data.article_list.length
+      let that = this
+      let article_item = {
+        unique: length,
+        head_img: that.data.userInfo.avatarUrl,
+        nick_name: that.data.userInfo.nickName,
+        time: (9 - time.getMonth() <= 0 ? (time.getMonth() + 1) : '0' + (time.getMonth() + 1)) + '-' + ((10 - time.getDate()) <= 0 ? time.getDate() : '0' + time.getDate()) + ' ' + (10 - time.getHours() <= 0 ? time.getHours() : '0' + time.getHours()) + ':' + ((10 - time.getMinutes()) <= 0 ? time.getMinutes() : '0' + time.getMinutes()),
+        comment: e.detail.value.article_comment
+      }
+      that.data.article_list = [article_item].concat(that.data.article_list)
+      let path = 'article_list[' + length + ']'
+      that.setData({
+        article_input: false,
+        value: '',
+        article_list: that.data.article_list
+      })
+      wx.hideKeyboard()
+      wx.showToast({
+        title: '评论成功',
+        icon: 'success'
+      })
+    }else {
+      wx.showModal({
+        title: '提示',
+        content: '您好，请先登录~',
+        success: function(res){
+          if(res.confirm){
+            wx.navigateTo({
+              url: '/pages/mine_edit/mine_edit',
+            })
+          }
+        }
+      })
     }
-    that.data.article_list = [article_item].concat(that.data.article_list)
-    let path = 'article_list[' + length + ']'
-    that.setData({
-      article_input: false,
-      value: '',
-      article_list: that.data.article_list
-    })
-    wx.hideKeyboard()
-    wx.showToast({
-      title: '评论成功',
-      icon: 'success'
-    })
   },
 
   //评论区域隐藏

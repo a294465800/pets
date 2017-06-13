@@ -9,7 +9,7 @@
     <view class="height part">
       <view class="height_left">
         <view class="word_2bit">身高：</view>
-        <input placeholder="50" type="number" placeholder-class="p_input" name="height" />
+        <input placeholder="50" type="number" placeholder-class="p_input" name="height" maxlength="6"/>
         <view class="unit">cm</view>
       </view>
       <image src="/images/icon/photo.png" class="photo" bindtap="imageChoose"></image>
@@ -17,12 +17,12 @@
     <view class="body part">
       <view class="body_left">
         <view class="word_2bit">体长：</view>
-        <input placeholder="50" type="number" placeholder-class="p_input" name="long" />
+        <input placeholder="50" type="number" placeholder-class="p_input" name="long" maxlength="6"/>
         <view class="unit">cm</view>
       </view>
       <view class="body_right">
         <view class="word_2bit">体重：</view>
-        <input placeholder="20" type="number" placeholder-class="p_input" name="weight" />
+        <input placeholder="20" type="number" placeholder-class="p_input" name="weight" maxlength="6"/>
         <view class="unit">kg</view>
       </view>
     </view>

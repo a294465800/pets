@@ -75,7 +75,7 @@
       <view class="write_comment_back" bindtap="hideArticleComment">返回</view>
     </view>
     <form bindsubmit="{{value?'articleCommentPost':''}}">
-      <textarea focus="{{article_input}}" placeholder="说点什么" class="write_position" name="article_comment" placeholder-class="input_p" value="{{value}}" cursor-spacing="150" bindinput="getInput" />
+      <textarea focus="{{article_input}}" placeholder="说点什么" class="write_position" name="article_comment" placeholder-class="input_p" value="{{value}}" cursor-spacing="150" bindinput="getInput" maxlength="100"/>
       <button form-type="submit" class="submit_class {{value?'submint_active':''}}">发送</button>
     </form>
   </view>

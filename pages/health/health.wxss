@@ -36,11 +36,11 @@
   padding: 0 30rpx;
 }
 
-.symptom input, .remark textarea {
+.symptom textarea, .remark textarea {
   flex: 1;
 }
 
-.remark textarea {
+.remark textarea, .symptom textarea {
   height: 150rpx;
 }
 
@@ -48,7 +48,7 @@
   margin-bottom: 50rpx;
 }
 
-.remark .word_4bit {
+.remark .word_4bit, .symptom .word_4bit {
   align-self: flex-start;
   padding-top: 20rpx;
 }
