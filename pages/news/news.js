@@ -78,7 +78,7 @@ Page({
       flag: false
     }],
     fix_nav: false,
-    news: [
+    new: [
       {
         title: '1这只狗狗因为表情',
         tags: ['可爱', '认真', '呆萌'],
@@ -151,7 +151,8 @@ Page({
         read: 999,
         src: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1494497805444&di=d53add15ca64b8d47258ffe17b39b48c&imgtype=0&src=http%3A%2F%2Fimg2.3lian.com%2F2014%2Ff4%2F77%2Fd%2F68.jpg'
       }
-    ]
+    ],
+    news:[]
   },
 
   /**
@@ -165,11 +166,36 @@ Page({
         system_flag: false
       })
     }
+
+    //初次请求文章列表
+    wx.request({
+      url: 'https://www.sennki.com/api/articles/list',
+      data: {
+        page: 1
+      },
+      success: function(res){
+        that.setData({
+          news: res.data.data
+        })
+      }
+    })
   },
 
   //导航选择
   changeNav: function (e) {
     if(!this.data.bug){
+      wx.request({
+        url: 'https://www.sennki.com/api/articles/list',
+        data: {
+          page: 1,
+          type: e.target.id
+        },
+        success: function (res) {
+          that.setData({
+            news: res.data.data
+          })
+        }
+      })
       let that = this
       let length = that.data.nav_head.length
       let left = (750 / length) * e.target.id + 'rpx'
@@ -194,6 +220,18 @@ Page({
     if (that.data.current == e.detail.current) {
 
     } else {
+      wx.request({
+        url: 'https://www.sennki.com/api/articles/list',
+        data: {
+          page: 1,
+          type: e.detail.current
+        },
+        success: function (res) {
+          that.setData({
+            news: res.data.data
+          })
+        }
+      })
       let length = that.data.nav_head.length
       let left = (750 / length) * e.detail.current + 'rpx'
       let animation = wx.createAnimation({
@@ -248,8 +286,9 @@ Page({
 
   //具体文章跳转
   goToArticle: function (e) {
+    let url = '/pages/article/article?id=' + e.currentTarget.id
     wx.navigateTo({
-      url: '/pages/article/article',
+      url: '/pages/article/article?id=' + e.currentTarget.id,
     })
   }
 })

@@ -25,15 +25,14 @@
     <swiper circular bindchange="switchPage" class="news_list {{system_flag&&fix_nav?'news_list_hover':''}}" current="{{current}}" style="{{system_flag?'':'margin-top:78rpx'}}">
       <block wx:for="{{nav_head}}" wx:key="id">
         <!--条件判断，指定刷新对应分类文章-->
-        <!--<block wx:if="{{news_flag[index].flag || index == current}}">-->
-        <swiper-item data-test="{{news_flag[index].flag}}">
+        <swiper-item>
           <block wx:if="{{news_flag[index].flag}}">
             <scroll-view scroll-y style="width=100%;" class="{{!system_flag || fix_nav?'percent_height':''}}">
-              <view class="news_list_article" wx:for="{{news}}" wx:key="*this" bindtap="goToArticle" hover-class="push_class" data-test="{{news_flag[index].flag}}">
+              <view class="news_list_article" wx:for="{{news}}" wx:key="id" bindtap="goToArticle" id="{{item.id}}" hover-class="push_class">
                 <view class="news_article_message">
                   <view class="news_article_title">{{item.title}}</view>
                   <view class="news_article_tags">
-                    <view class="tags_item" wx:for="{{item.tags}}" wx:key="*this">
+                    <view class="tags_item" wx:for="{{item.tag}}" wx:key="*this">
                       <image class="tag_img" src="/images/grow_record/tag.png"></image>
                       <view>{{item}}</view>
                     </view>
@@ -41,20 +40,20 @@
                   <view class="news_article_info">
                     <view class="info_item">
                       <image src="/images/icon/time.png" mode="aspectFit"></image>
-                      <view>{{item.add_time}}</view>
+                      <view>{{item.createtime}}</view>
                     </view>
                     <view class="info_item">
                       <image src="/images/icon/comment.png" mode="aspectFit"></image>
-                      <view>{{item.comment}}</view>
+                      <view>{{item.comments}}</view>
                     </view>
                     <view class="info_item">
                       <image src="/images/icon/read.png" mode="aspectFit" class="read"></image>
-                      <view>{{item.read}}+</view>
+                      <view>{{item.read}}</view>
                     </view>
                   </view>
                 </view>
                 <view class="news_article_img">
-                  <image src="{{item.src}}" mode="aspectFit"></image>
+                  <image src="{{item.imgurl}}" mode="aspectFit"></image>
                 </view>
               </view>
             </scroll-view>
@@ -63,10 +62,6 @@
             <view style="text-align:center">加载中···</view>
           </block>
         </swiper-item>
-        <!--</block>-->
-        <!--<block wx:else="{{!news_flag[index].flag || index != current}}">
-          <swiper-item style="text-align:center">加载中···</swiper-item>
-        </block>-->
       </block>
     </swiper>
     <!--文章列表结束-->

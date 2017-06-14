@@ -86,7 +86,6 @@ App({
                   iv: res.iv
                 },
                 success: function (e) {
-                  console.log(e)
                 }
               })
               typeof cb == "function" && cb(that.globalData.userInfo)

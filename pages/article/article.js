@@ -32,6 +32,9 @@ Page({
     article_input: false,
     //清空value
     value: '',
+
+    //文章
+    articles: null,
     article_list: [
       {
         unique: 0,
@@ -60,9 +63,18 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var that = this
-    var article = '<div style="color:red">我是<br>HTML代码</div>'
-    WxParse.wxParse('article', 'html', article, that, 5)
+    let that = this
+    let article
+    wx.request({
+      url: 'https://www.sennki.com/api/article/' + options.id,
+      success: function (res) {
+        that.setData({
+          articles: res.data.data
+        })
+        article = res.data.data.content
+        WxParse.wxParse('article', 'html', article, that, 5)        
+      }
+    })
     app.getUserInfo(function (userInfo) {
       that.setData({
         userInfo: userInfo
@@ -101,7 +113,7 @@ Page({
     if (that.data.bad.flag) {
       wx.showModal({
         title: '提示',
-        content: '亲，踩这么多次会遭天谴的喔~',
+        content: '亲，踩这么多次可不好喔~',
         showCancel: false
       })
     } else {
@@ -137,7 +149,7 @@ Page({
 
   //评论提交
   articleCommentPost: function (e) {
-    if (app.globalData.userInfo.nickName){
+    if (app.globalData.userInfo.nickName) {
       let time = new Date()
       const length = this.data.article_list.length
       let that = this
@@ -160,12 +172,12 @@ Page({
         title: '评论成功',
         icon: 'success'
       })
-    }else {
+    } else {
       wx.showModal({
         title: '提示',
         content: '您好，请先登录~',
-        success: function(res){
-          if(res.confirm){
+        success: function (res) {
+          if (res.confirm) {
             wx.navigateTo({
               url: '/pages/mine_edit/mine_edit',
             })
@@ -183,12 +195,12 @@ Page({
   },
 
   //收藏文章
-  collectNews: function(e){
+  collectNews: function (e) {
     let that = this
     that.setData({
       collect_tip: !that.data.collect_tip
     })
-    if (that.data.collect_tip){
+    if (that.data.collect_tip) {
       wx.showToast({
         title: '已加入收藏',
         icon: 'success'

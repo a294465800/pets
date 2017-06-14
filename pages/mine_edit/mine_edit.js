@@ -68,11 +68,11 @@ Page({
   },
 
   //性别选择
-  sexChoose: function (e) {
-    this.setData({
-      sexHide: false
-    })
-  },
+  // sexChoose: function (e) {
+  //   this.setData({
+  //     sexHide: false
+  //   })
+  // },
   sexHidden: function (e) {
     this.setData({
       sexHide: true,

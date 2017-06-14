@@ -1,5 +1,8 @@
 {
   "pages": [
+    "pages/news/news",
+    "pages/article/article",
+    "pages/mine/mine",
     "pages/first_step/first_step",
     "pages/index/index",
     "pages/clean/clean",
@@ -7,9 +10,6 @@
     "pages/play/play",
     "pages/health/health",
     "pages/eat/eat",
-    "pages/article/article",
-    "pages/news/news",
-    "pages/mine/mine",
     "pages/manager_switch/manager_switch",
     "pages/add_paybook/add_paybook",
     "pages/new_pet/new_pet",

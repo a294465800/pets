@@ -2,17 +2,17 @@
 <import src="../../wxParse/wxParse.wxml" />
 <view class="container">
   <!--文章标题开始-->
-  <view class="article_title">这只狗狗因为表情太拽而被人嫌弃哦~~~~~~~~</view>
+  <view class="article_title">{{articles.title}}</view>
   <!--文章标题结束-->
 
   <!--文章副标题开始-->
   <view class="article_subhead">
-    <view class="article_author">作者：狗蛋</view>
-    <view class="article_time">1小时前</view>
+    <view class="article_author">作者：{{articles.author}}</view>
+    <view class="article_time">时间：{{articles.createtime}}</view>
     <view class="article_tags">
-      <view class="tags_item">
+      <view class="tags_item" wx:for="{{articles.tag}}" wx:key="*this">
         <image class="tag_img" src="/images/grow_record/tag.png" mode="aspectFit"></image>
-        <view>可爱</view>
+        <view>{{item}}</view>
       </view>
     </view>
   </view>
@@ -40,7 +40,7 @@
   <!--点赞功能结束-->
 
   <!--评论总数开始-->
-  <view class="article_comment_count">— {{article_list.length}}条评论 —</view>
+  <view class="article_comment_count">— {{articles.comments.length}}条评论 —</view>
   <!--评论总数结束-->
 
   <!--评论列表展示开始-->

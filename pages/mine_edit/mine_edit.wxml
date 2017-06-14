@@ -11,7 +11,7 @@
         </view>
       </view>
     </view>
-    <view class="sex w_part" hover-class="push_class" bindtap="sexChoose" hover-stay-time="150">
+    <view class="sex w_part" hover-class="push_class" hover-stay-time="150">
       <view class="word">性别</view>
       <view class="message">{{sex || '无'}}</view>
     </view>
