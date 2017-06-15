@@ -81,11 +81,11 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad(options) {
 
   },
   //打开账单输入
-  paybook_input: function (e) {
+  paybook_input(e) {
     let index = e.currentTarget.id
     const that = this
     that.setData({
@@ -97,14 +97,14 @@ Page({
   },
 
   //表单提交动作
-  sendPaybook: function (e) {
+  sendPaybook(e) {
     const that = this
     if (!e.detail.value.price) {
       wx.showModal({
         title: '提示',
         content: '亲，还没输入花费金额呢~',
         showCancel: false,
-        success: function () {
+        success:() => {
           that.setData({
             input_show: false,
           })
@@ -119,8 +119,7 @@ Page({
       })
       wx.showToast({
         title: '保存成功！',
-        icon: 'sucess',
-        complete: function () {
+        complete:() => {
           that.setData({
             input_show: true
           })
@@ -130,12 +129,12 @@ Page({
   },
 
   //遮罩层隐藏
-  hideInput: function (e) {
+  hideInput(e) {
     this.setData({
       input_show: true
     })
   },
-  showInput: function (e) {
+  showInput(e) {
     const that = this
     if (that.data.input_show) {
       that.setData({
@@ -143,5 +142,4 @@ Page({
       })
     }
   }
-
 })

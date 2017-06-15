@@ -70,7 +70,7 @@
   <!--第六页绝育开始-->
   <swiper-item>
     <view class="container sixth_page">
-      <view bindtap="chooseBear" data-bear="{{item.name}}" wx:for="{{bear}}" wx:key="unique">
+      <view bindtap="chooseBear" data-bear="{{item.name}}" wx:for="{{bear}}" wx:key="unique" id="{{index}}">
         <image src="{{item.check?item.src_yes:item.src}}" mode="aspectFit" id="{{index}}" class="{{item.check?'check':''}}"></image>
         <view class="word">{{item.zn}}</view>
       </view>

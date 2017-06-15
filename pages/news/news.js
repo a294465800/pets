@@ -131,13 +131,13 @@ Page({
         src: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1494497805444&di=d53add15ca64b8d47258ffe17b39b48c&imgtype=0&src=http%3A%2F%2Fimg2.3lian.com%2F2014%2Ff4%2F77%2Fd%2F68.jpg'
       }
     ],
-    news:[],
+    news: [],
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad(options) {
     const that = this
     //手机版本控制
     if (app.globalData.system != 'ios') {
@@ -149,7 +149,7 @@ Page({
     //请求文章类标题
     wx.request({
       url: 'https://www.sennki.com/api/articletypes',
-      success: function(res){
+      success: res => {
         that.setData({
           nav_head: [...that.data.nav_head, ...res.data.data]
         })
@@ -162,7 +162,7 @@ Page({
       data: {
         page: 1
       },
-      success: function(res){
+      success: res => {
         that.setData({
           news: res.data.data
         })
@@ -171,15 +171,15 @@ Page({
   },
 
   //导航选择
-  changeNav: function (e) {
-    if(!this.data.bug){
+  changeNav(e) {
+    if (!this.data.bug) {
       // wx.request({
       //   url: 'https://www.sennki.com/api/articles/list',
       //   data: {
       //     page: 1,
       //     type: e.currentTarget.dataset.type
       //   },
-      //   success: function (res) {
+      //   success(res) {
       //     that.setData({
       //       news: res.data.data
       //     })
@@ -193,7 +193,7 @@ Page({
         timingFunction: 'ease',
       })
       animation.left(left).step()
-      
+
       that.setData({
         current: e.target.id,
         bug: true,
@@ -203,7 +203,7 @@ Page({
   },
 
   //switch切换
-  switchPage: function (e) {
+  switchPage(e) {
     clearTimeout(timer)
     const that = this
     wx.request({
@@ -212,7 +212,7 @@ Page({
         page: 1,
         type: that.data.nav_head[e.detail.current].id || 0
       },
-      success: function (res) {
+      success(res) {
         that.setData({
           news: res.data.data
         })
@@ -233,7 +233,7 @@ Page({
       })
     }
     let object = 'news_flag[' + e.detail.current + '].flag'
-    timer = setTimeout(function () {
+    timer = setTimeout(() => {
       that.setData({
         [object]: true,
         bug: false
@@ -242,7 +242,7 @@ Page({
   },
 
   //导航固定
-  fixNav: function (e) {
+  fixNav(e) {
     const that = this
     if (e.detail.scrollTop >= 200) {
       flag2 = 0
@@ -271,7 +271,7 @@ Page({
   },
 
   //具体文章跳转
-  goToArticle: function (e) {
+  goToArticle(e) {
     let url = '/pages/article/article?id=' + e.currentTarget.id
     wx.navigateTo({
       url: '/pages/article/article?id=' + e.currentTarget.id,

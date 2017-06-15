@@ -18,18 +18,18 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad(options) {
     this.setData({
       time: app.globalData.time
     })
   },
   //时间日期监听函数
-  timeChange: function (e) {
+  timeChange(e) {
     this.setData({
       time: e.detail.value
     })
   },
-  dateChange: function (e) {
+  dateChange(e) {
     if (e.detail.value == app.globalData.today) {
       this.setData({
         date: '今天'
@@ -42,14 +42,14 @@ Page({
   },
 
   //目录选择函数
-  categoryChange: function (e) {
+  categoryChange(e) {
     this.setData({
       index: e.detail.value
     })
   },
 
   //提交信息——生病
-  formSubmit: function(e){
+  formSubmit(e){
     const that = this
     that.setData({
       health: e.detail.value,

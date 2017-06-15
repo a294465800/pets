@@ -1,7 +1,5 @@
 // play.js
 let app = getApp()
-let timeStart
-let timeEnd
 
 Page({
 
@@ -10,9 +8,7 @@ Page({
    */
   data: {
     time: app.globalData.time,
-    timeStart: '00:00',
     timeEnd: app.globalData.time,
-    timeEndStart: app.globalData.time,
     calTime: '',
     date: '今天',
     images: [],
@@ -137,7 +133,7 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad(options) {
     //记录最新时间
     this.setData({
       time: app.globalData.time,
@@ -146,12 +142,12 @@ Page({
   },
 
   //时间日期监听函数
-  timeChange: function (e) {
+  timeChange(e) {
     this.setData({
       time: e.detail.value
     })
   },
-  dateChange: function (e) {
+  dateChange(e) {
     if (e.detail.value == app.globalData.today) {
       this.setData({
         date: '今天'
@@ -164,11 +160,11 @@ Page({
   },
 
   //选择图片函数
-  imageChoose: function (e) {
+  imageChoose(e) {
     const that = this
     wx.chooseImage({
       count: 4,
-      success: function (res) {
+      success:res => {
         var tempFilePaths = res.tempFilePaths
         that.setData({
           images: tempFilePaths
@@ -178,36 +174,32 @@ Page({
   },
 
   //图片预览
-  preImage: function (e) {
+  preImage(e) {
     const that = this
-    let src = e.currentTarget.dataset.src
     wx.previewImage({
-      urls: [src],
+        urls: [e.currentTarget.dataset.src],
     })
   },
 
   //娱乐时间函数
-  timeStart: function (e) {
-    timeStart = e.detail.value
+  timeStart(e) {
     this.setData({
-      timeStart: timeStart,
-      timeEnd: timeStart,
-      timeEndStart: timeStart
+      time: e.detail.value,
+      timeEnd: e.detail.value
     })
   },
-  timeEnd: function (e) {
-    timeEnd = e.detail.value
+  timeEnd(e) {
     this.setData({
-      timeEnd: timeEnd,
+      timeEnd: e.detail.value,
     })
   },
 
   //提交信息
-  formSubmit: function(e) {
+  formSubmit(e) {
     const that = this
     that.setData({
       play: e.detail.value,
-      'play.timeStart': that.data.timeStart,
+      'play.timeStart': that.data.time,
       'play.timeEnd': that.data.timeEnd,
       'play.images': that.data.images
     })

@@ -1,8 +1,8 @@
 // article.js
 //引入WxParse模块
-var WxParse = require('../../wxParse/wxParse.js')
-var app = getApp()
-var timer
+let WxParse = require('../../wxParse/wxParse.js')
+let app = getApp()
+let timer
 Page({
 
   /**
@@ -62,27 +62,28 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad(options) {
     const that = this
     let article
     wx.request({
       url: 'https://www.sennki.com/api/article/' + options.id,
-      success: function (res) {
+      success: res => {
         that.setData({
           articles: res.data.data
         })
         article = res.data.data.content
-        WxParse.wxParse('article', 'html', article, that, 5)        
+        WxParse.wxParse('article', 'html', article, that, 5)
       }
     })
-    app.getUserInfo(function (userInfo) {
-      that.setData({
-        userInfo: userInfo
-      })
+  },
+  onShow(){
+    const that = this
+    that.setData({
+      userInfo: app.globalData.userInfo
     })
   },
   //点赞
-  articleGood: function (e) {
+  articleGood(e) {
     const that = this
     if (that.data.good.flag) {
       wx.showModal({
@@ -99,7 +100,7 @@ Page({
         'bad.count': that.data.article_first ? (that.data.bad.count - 1) : that.data.bad.count,
         article_first: true
       })
-      setTimeout(function () {
+      setTimeout(() => {
         that.setData({
           'good.flag_plus': true,
         })
@@ -108,7 +109,7 @@ Page({
   },
 
   //踩文章
-  articleBad: function (e) {
+  articleBad(e) {
     const that = this
     if (that.data.bad.flag) {
       wx.showModal({
@@ -125,7 +126,7 @@ Page({
         'good.count': that.data.article_first ? (that.data.good.count - 1) : that.data.good.count,
         article_first: true
       })
-      setTimeout(function () {
+      setTimeout(() => {
         that.setData({
           'bad.flag_plus': true,
         })
@@ -134,22 +135,22 @@ Page({
   },
 
   //拉起键盘
-  pullArticleInput: function (e) {
+  pullArticleInput(e) {
     this.setData({
       article_input: true
     })
   },
 
   //获取当前输入
-  getInput: function (e) {
+  getInput(e) {
     this.setData({
       value: e.detail.value
     })
   },
 
   //评论提交
-  articleCommentPost: function (e) {
-    if (app.globalData.userInfo.nickName) {
+  articleCommentPost(e) {
+    if (app.globalData.userInfo) {
       let time = new Date()
       const length = this.data.article_list.length
       let that = this
@@ -160,7 +161,7 @@ Page({
         time: (9 - time.getMonth() <= 0 ? (time.getMonth() + 1) : '0' + (time.getMonth() + 1)) + '-' + ((10 - time.getDate()) <= 0 ? time.getDate() : '0' + time.getDate()) + ' ' + (10 - time.getHours() <= 0 ? time.getHours() : '0' + time.getHours()) + ':' + ((10 - time.getMinutes()) <= 0 ? time.getMinutes() : '0' + time.getMinutes()),
         comment: e.detail.value.article_comment
       }
-      that.data.article_list = [article_item].concat(that.data.article_list)
+      that.data.article_list = [...[article_item], ...that.data.article_list]
       let path = 'article_list[' + length + ']'
       that.setData({
         article_input: false,
@@ -176,7 +177,7 @@ Page({
       wx.showModal({
         title: '提示',
         content: '您好，请先登录~',
-        success: function (res) {
+        success: res => {
           if (res.confirm) {
             wx.navigateTo({
               url: '/pages/mine_edit/mine_edit',
@@ -188,14 +189,14 @@ Page({
   },
 
   //评论区域隐藏
-  hideArticleComment: function (e) {
+  hideArticleComment(e) {
     this.setData({
       article_input: false
     })
   },
 
   //收藏文章
-  collectNews: function (e) {
+  collectNews(e) {
     let that = this
     that.setData({
       collect_tip: !that.data.collect_tip
@@ -209,24 +210,22 @@ Page({
   },
 
   //分享
-  onShareAppMessage: function () {
+  onShareAppMessage() {
     return {
       title: '宠物养成记',
       path: '/pages/article/article',
-      success: function () {
-
-      }
+      success: () => {}
     }
   },
 
   //分享按鈕吐司提示
-  share: function (e) {
+  share(e) {
     clearTimeout(timer)
     let that = this
     that.setData({
       share_tip: false
     })
-    timer = setTimeout(function () {
+    timer = setTimeout(() => {
       that.setData({
         share_tip: true
       })

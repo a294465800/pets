@@ -1,5 +1,5 @@
 <view class="scroll-flex glow_list">
-  <view class="record_part" wx:for="{{grow_records}}" wx:key="*this">
+  <view class="record_part" wx:for="{{grow_records}}" wx:key="id">
     <view class="record_item">
       <view class="record_time">{{item.date}}</view>
       <view class="record_title">{{item.category.name}}</view>

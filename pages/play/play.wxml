@@ -16,9 +16,10 @@
     <view class="time part">
       <view class="word_2bit">时间：</view>
       <view class="time_wrap">
-        <picker mode="time" value="{{timeStart}}" start="00:00" end="24:00" bindchange="timeStart">{{timeStart}}</picker>
+        <!--<picker mode="time" value="{{timeStart}}" start="00:00" end="24:00" bindchange="timeStart">{{timeStart}}</picker>-->
+        <picker mode="time" value="{{time}}" start="00:00" end="24:00" bindchange="timeStart">{{time}}</picker>
         <view>至</view>
-        <picker mode="time" value="{{timeEnd}}" start="{{timeEndStart}}" end="24:00" bindchange="timeEnd">{{timeEnd}}</picker>
+        <picker mode="time" value="{{timeEnd}}" start="{{time}}" end="24:00" bindchange="timeEnd">{{timeEnd}}</picker>
       </view>
       <view class="calTime">{{calTime}}</view>
     </view>

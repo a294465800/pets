@@ -6,7 +6,7 @@ Page({
    */
   data: {
     pet: {
-      src:'/images/head_img.jpg',
+      src: '/images/head_img.jpg',
       name: '撕家',
       species: '阿拉斯加',
       sex: '男',
@@ -31,21 +31,21 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-  
+  onLoad(options) {
+
   },
   //性别选择
-  sexChoose: function (e) {
+  sexChoose(e) {
     this.setData({
       sexHide: false
     })
   },
-  sexHidden: function (e) {
+  sexHidden(e) {
     this.setData({
       sexHide: true
     })
   },
-  sexConfirm: function (e) {
+  sexConfirm(e) {
     this.setData({
       sex: e.detail.value,
       sexHide: true
@@ -53,29 +53,29 @@ Page({
   },
 
   //生日修改
-  birthSet: function (e) {
+  birthSet(e) {
     this.setData({
       birthday: e.detail.value
     })
   },
 
   //昵称
-  nameChange: function (e) {
+  nameChange(e) {
     this.setData({
       nameHide: false
     })
   },
-  nameInput: function (e) {
+  nameInput(e) {
     this.setData({
       telNum: e.detail.value
     })
   },
-  nameHidden: function (e) {
+  nameHidden(e) {
     this.setData({
       nameHide: true
     })
   },
-  nameSave: function (e) {
+  nameSave(e) {
     let nameT = e.currentTarget.dataset.name
     const that = this
     //正则判断手机号码

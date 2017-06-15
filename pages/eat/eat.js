@@ -128,7 +128,7 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad(options) {
 
     //记录最新时间
     this.setData({
@@ -137,12 +137,12 @@ Page({
   },
 
   //时间日期监听函数
-  timeChange: function (e) {
+  timeChange(e) {
     this.setData({
       time: e.detail.value
     })
   },
-  dateChange: function (e) {
+  dateChange(e) {
     if (e.detail.value == app.globalData.today) {
       this.setData({
         date: '今天'
@@ -155,11 +155,11 @@ Page({
   },
 
   //选择图片函数
-  imageChoose: function (e) {
+  imageChoose(e) {
     const that = this
     wx.chooseImage({
       count: 4,
-      success: function (res) {
+      success: res => {
         that.setData({
           images: res.tempFilePaths
         })
@@ -168,16 +168,15 @@ Page({
   },
 
   //图片预览
-  preImage: function (e) {
+  preImage(e) {
     const that = this
-    let src = e.currentTarget.dataset.src
     wx.previewImage({
-      urls: [src],
+        urls: [e.currentTarget.dataset.src],
     })
   },
 
   //提交信息——吃
-  formSubmit: function (e) {
+  formSubmit(e) {
     const that = this
     that.setData({
       pet_eat: e.detail.value,

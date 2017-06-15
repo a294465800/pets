@@ -14,14 +14,14 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad(options) {
     const that = this
 
     that.setData({
       pets: app.globalData.pets
     })
   },
-  onShow: function (e) {
+  onShow(e) {
     const that = this
 
     //调用宠物年龄计算
@@ -35,46 +35,37 @@ Page({
   },
 
   //个人中心修改跳转
-  goToMine_edit: function (e) {
+  goToMine_edit(e) {
     wx.navigateTo({
       url: '/pages/mine_edit/mine_edit',
     })
   },
 
   //添加宠物跳转
-  goTONew_pet: function (e) {
+  goTONew_pet(e) {
     wx.navigateTo({
       url: '/pages/first_step/first_step',
     })
   },
 
   //宠物修改跳转
-  goToAdd_pets: function (e) {
+  goToAdd_pets(e) {
     wx.navigateTo({
       url: '/pages/add_pets/add_pets',
     })
   },
 
   //管家小铺跳转
-  goToShop: function (e) {
+  goToShop(e) {
     wx.navigateTo({
       url: '/pages/shop/shop',
     })
   },
 
   //收藏页面跳转
-  goToCollect: function (e) {
+  goToCollect(e) {
     wx.navigateTo({
       url: '/pages/collect/collect',
-    })
-  },
-  test: function () {
-    wx.request({
-      url: 'https://www.sennki.com/api/test',
-      method: 'get',
-      success: function (res) {
-        console.log(res)
-      }
     })
   }
 })

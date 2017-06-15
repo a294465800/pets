@@ -129,10 +129,10 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad(options) {
 
   },
-  paybookChoose: function (e) {
+  paybookChoose(e) {
     let arr = e.detail.value.split('-')
     this.setData({
       year: arr[0],
@@ -141,16 +141,15 @@ Page({
   },
 
   //图片预览
-  preImage: function (e) {
+  preImage(e) {
     const that = this
-    let src = e.currentTarget.dataset.src
     wx.previewImage({
-      urls: [src],
+      urls: [e.currentTarget.dataset.src],
     })
   },
 
   //选择上个月
-  lastMonth: function (e) {
+  lastMonth(e) {
     let last_month = Number(e.currentTarget.dataset.month) - 1
     if (last_month < 1) {
       last_month = 1
@@ -161,7 +160,7 @@ Page({
   },
 
   //选择下个月
-  nextMonth: function (e) {
+  nextMonth(e) {
     let next_month = Number(e.currentTarget.dataset.month) + 1
     if (next_month > 12) {
       next_month = 12
@@ -172,7 +171,7 @@ Page({
   },
 
   //跳转添加账单
-  addPaybook: function(e){
+  addPaybook(e){
     wx.navigateTo({
       url: '/pages/add_paybook/add_paybook',
     })

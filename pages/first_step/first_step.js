@@ -233,10 +233,10 @@ Page({
     //数据校验
     data_check: []
   },
-  onLoad: function (options) {
+  onLoad(options) {
 
   },
-  onShow: function () {
+  onShow() {
     const that = this
     for (let i = 0; i < 7; i++) {
       let data_check = 'data_check[' + i + '].flag'
@@ -247,9 +247,8 @@ Page({
   },
 
   //第一页函数
-  chooseCategory: function (e) {
+  chooseCategory(e) {
     const that = this
-    console.log(e)
     let pet_pets = 'pets[' + e.currentTarget.id + '].check'
     if (that.data.pets[e.currentTarget.id].check) {
       that.setData({
@@ -270,7 +269,7 @@ Page({
   },
   //第二页函数
   //预览种类函数
-  getOtherSpecies: function (e) {
+  getOtherSpecies(e) {
     if (e.detail.value) {
       this.setData({
         'pet_info.species_zn': e.detail.value,
@@ -282,7 +281,7 @@ Page({
       })
     }
   },
-  chooseSpecies: function (e) {
+  chooseSpecies(e) {
     const that = this
     if (e.currentTarget.dataset.species_name == 'others') {
       that.setData({
@@ -304,7 +303,7 @@ Page({
   },
 
   //确认品种
-  addSpecies: function (e) {
+  addSpecies(e) {
     this.setData({
       current_index: 2
     })
@@ -312,11 +311,11 @@ Page({
 
   //第三页面函数
   //预览、上传图片
-  chooseHead: function (e) {
+  chooseHead(e) {
     const that = this
     wx.chooseImage({
       count: 1,
-      success: function (res) {
+      success: res => {
         that.setData({
           'pet_info.img': res.tempFilePaths,
           'img.head_img': res.tempFilePaths,
@@ -325,7 +324,7 @@ Page({
       },
     })
   },
-  getHeadInput: function (e) {
+  getHeadInput(e) {
     if (e.detail.value) {
       this.setData({
         'pet_info.name': e.detail.value,
@@ -338,7 +337,7 @@ Page({
     }
   },
   //昵称检测
-  addPetName: function (e) {
+  addPetName(e) {
     const that = this
     if (!that.data.pet_info.name) {
       wx.showModal({
@@ -355,7 +354,7 @@ Page({
 
   //第四页函数
   //动态获取选择的日期
-  chooseBirthday: function (e) {
+  chooseBirthday(e) {
     const that = this
     if (e.detail.value) {
       this.setData({
@@ -365,7 +364,7 @@ Page({
       })
     }
   },
-  addPetBirthday: function (e) {
+  addPetBirthday(e) {
     this.setData({
       current_index: 4
     })
@@ -373,7 +372,7 @@ Page({
 
   //第五页函数
   //性别获取
-  chooseSex: function (e) {
+  chooseSex(e) {
     const that = this
     let pet_sex = 'sex[' + e.currentTarget.id + '].check'
     if (that.data.sex[e.currentTarget.id].check) {
@@ -396,10 +395,10 @@ Page({
 
   //第六页函数
   //绝育
-  chooseBear: function (e) {
+  chooseBear(e) {
     const that = this
-    let pet_bear = 'bear[' + e.target.id + '].check'
-    if (that.data.bear[e.target.id].check) {
+    let pet_bear = 'bear[' + e.currentTarget.id + '].check'
+    if (that.data.bear[e.currentTarget.id].check) {
       that.setData({
         current_index: 6
       })
@@ -419,7 +418,7 @@ Page({
 
   //第七页函数
   //体重
-  getWeightInput: function (e) {
+  getWeightInput(e) {
     const that = this
     if (e.detail.value) {
       that.setData({
@@ -435,7 +434,7 @@ Page({
   },
 
   // 提交
-  submit: function (e) {
+  submit(e) {
     let flag = true
     const that = this
     let data_check = that.data.data_check
@@ -455,7 +454,7 @@ Page({
           title: '提示',
           content: '您还有信息没有填写哦~',
           showCancel: false,
-          success: function (res) {
+          success: res => {
             if (res.confirm) {
               that.setData({
                 current_index: i
@@ -473,14 +472,12 @@ Page({
       let pet = that.data.pet_info
       const length = app.globalData.pets.length
       pet.unique = length
-      temp = [pet].concat(app.globalData.pets)
-      app.globalData.pets = temp
-      console.log(app.globalData.pets)
+      app.globalData.pets = [...[pet], ...app.globalData.pets]
       wx.request({
         url: 'https://www.sennki.com/api/test',
         method: 'post',
         data: that.data.pet_info,
-        success: function (res) {
+        success: res => {
           wx.switchTab({
             url: url
           })

@@ -34,22 +34,17 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad(options) {
     const that = this
-    // app.getUserInfo(function (userInfo) {
-    //   that.setData({
-    //     userInfo: userInfo
-    //   })
-    // })
   },
 
   //登录信息请求
-  login: function () {
+  login() {
     const that = this
     wx.openSetting({
-      success: function (res) {
+      success:res => {
         if (res.authSetting["scope.userInfo"] == true) {
-          app.getUserInfo(function (userInfo) {
+          app.getUserInfo((userInfo) => {
             that.setData({
               userInfo: userInfo
             })
@@ -61,17 +56,17 @@ Page({
           app.globalData.userInfo = null
         }
       },
-      fail: function (res) {
+      fail: res => {
       }
     })
   },
 
-  sexHidden: function (e) {
+  sexHidden(e) {
     this.setData({
       sexHide: true,
     })
   },
-  sexConfirm: function (e) {
+  sexConfirm(e) {
     this.setData({
       sex: e.detail.value,
       sexHide: true
@@ -79,29 +74,29 @@ Page({
   },
 
   //生日修改
-  birthSet: function (e) {
+  birthSet(e) {
     this.setData({
       birthday: e.detail.value
     })
   },
 
   //手机号码
-  telChange: function (e) {
+  telChange(e) {
     this.setData({
       telHide: false
     })
   },
-  telInput: function (e) {
+  telInput(e) {
     this.setData({
       telNum: e.detail.value
     })
   },
-  telHidden: function (e) {
+  telHidden(e) {
     this.setData({
       telHide: true
     })
   },
-  telSave: function (e) {
+  telSave(e) {
     let telP = e.currentTarget.dataset.tel
     const that = this
     //正则判断手机号码

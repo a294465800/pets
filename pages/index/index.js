@@ -1,11 +1,6 @@
 //index.js
 //获取应用实例
 let app = getApp()
-//记录当前时间
-function timeRecord() {
-  let time = new Date()
-  app.globalData.time = (10 - time.getHours() <= 0 ? time.getHours() : '0' + time.getHours()) + ':' + ((10 - time.getMinutes()) <= 0 ? time.getMinutes() : '0' + time.getMinutes())
-}
 
 Page({
   data: {
@@ -252,10 +247,10 @@ Page({
       }
     ]
   },
-  onLoad: function (options) {
+  onLoad(options) {
 
   },
-  onShow: function (e) {
+  onShow(e) {
 
     //调用宠物年龄计算
     app.calPetsAge(app.globalData.pets)
@@ -269,14 +264,19 @@ Page({
       pet: app.globalData.pets[index],
     })
   },
-  goToFirst: function () {
+  //记录当前时间
+  timeRecord() {
+    let time = new Date()
+    app.globalData.time = (10 - time.getHours() <= 0 ? time.getHours() : '0' + time.getHours()) + ':' + ((10 - time.getMinutes()) <= 0 ? time.getMinutes() : '0' + time.getMinutes())
+  },
+  goToFirst() {
     wx.navigateTo({
       url: '/pages/first_step/first_step',
     })
   },
 
   //切换宠物信息
-  shiftPet: function (e) {
+  shiftPet(e) {
     const that = this
     let index = that.data.pet_index + 1
     if (index > app.globalData.pets.length - 1) {
@@ -287,8 +287,8 @@ Page({
       icon: 'loading',
       duration: 200,
       mask: true,
-      success: function () {
-        setTimeout(function () {
+      success: () => {
+        setTimeout(() => {
           that.setData({
             pet_index: index,
             pet: app.globalData.pets[index]
@@ -299,7 +299,7 @@ Page({
   },
 
   //改变导航样式
-  changePart: function (e) {
+  changePart(e) {
     this.setData({
       nav_id: e.target.id,
       scroll_id: e.target.id
@@ -307,7 +307,7 @@ Page({
   },
 
   //打卡
-  daily_plan_punch: function (e) {
+  daily_plan_punch(e) {
     let length = this.data.daily_plan.length
     let percent = 100 / length
     let progress = Math.ceil(Number(e.currentTarget.dataset.progress) + percent)
@@ -322,7 +322,7 @@ Page({
   },
 
   //展示管家提醒列表
-  managerShow: function (e) {
+  managerShow(e) {
     const that = this
     if (e.currentTarget.dataset.show) {
       that.setData({
@@ -332,7 +332,7 @@ Page({
       wx.showLoading({
         title: '加载中',
       })
-      setTimeout(function () {
+      setTimeout(() => {
         wx.hideLoading()
         that.setData({
           managerShow: true
@@ -342,7 +342,7 @@ Page({
   },
 
   //展示经历列表
-  experienceShow: function (e) {
+  experienceShow(e) {
     const that = this
     if (e.currentTarget.dataset.show) {
       that.setData({
@@ -352,7 +352,7 @@ Page({
       wx.showLoading({
         title: '加载中',
       })
-      setTimeout(function () {
+      setTimeout(() => {
         wx.hideLoading()
         that.setData({
           experienceShow: true
@@ -362,45 +362,45 @@ Page({
   },
 
   //成长记录各页面跳转
-  eat: function (e) {
-    timeRecord()
+  eat(e) {
+    this.timeRecord()
     wx.navigateTo({
       url: '/pages/eat/eat',
     })
   },
-  health: function (e) {
-    timeRecord()
+  health(e) {
+    this.timeRecord()
     wx.navigateTo({
       url: '/pages/health/health',
     })
   },
-  play: function (e) {
-    timeRecord()
+  play(e) {
+    this.timeRecord()
     wx.navigateTo({
       url: '/pages/play/play',
     })
   },
-  grow: function (e) {
-    timeRecord()
+  grow(e) {
+    this.timeRecord()
     wx.navigateTo({
       url: '/pages/grow/grow',
     })
   },
-  clean: function (e) {
-    timeRecord()
+  clean(e) {
+    this.timeRecord()
     wx.navigateTo({
       url: '/pages/clean/clean',
     })
   },
-  paybook: function (e) {
-    timeRecord()
+  paybook(e) {
+    this.timeRecord()
     wx.navigateTo({
       url: '/pages/paybook/paybook',
     })
   },
 
   //图片预览
-  preImage: function (e) {
+  preImage(e) {
     const that = this
     let src = e.currentTarget.dataset.src
     wx.previewImage({
@@ -409,14 +409,14 @@ Page({
   },
 
   //提醒管理
-  goToMangaer: function (e) {
+  goToMangaer(e) {
     wx.navigateTo({
       url: '/pages/manager_switch/manager_switch',
     })
   },
 
   //文章跳转
-  goTONews: function (e) {
+  goTONews(e) {
     wx.switchTab({
       url: '/pages/news/news',
     })
