@@ -1,5 +1,5 @@
 // grow.js
-var app = getApp()
+let app = getApp()
 
 Page({
 
@@ -155,7 +155,7 @@ Page({
 
   //选择图片函数
   imageChoose: function (e) {
-    let that = this
+    const that = this
     wx.chooseImage({
       count: 4,
       success: function (res) {
@@ -169,7 +169,7 @@ Page({
 
   //图片预览
   preImage: function (e) {
-    let that = this
+    const that = this
     let src = e.currentTarget.dataset.src
     wx.previewImage({
       urls: [src],
@@ -178,7 +178,7 @@ Page({
 
   //提交信息
   formSubmit: function (e) {
-    let that = this
+    const that = this
     that.setData({
       grow: e.detail.value,
       'grow.images': that.data.images

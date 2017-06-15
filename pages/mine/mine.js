@@ -1,5 +1,5 @@
 // mine.js
-var app = getApp()
+let app = getApp()
 
 Page({
 
@@ -15,14 +15,14 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var that = this
+    const that = this
 
     that.setData({
       pets: app.globalData.pets
     })
   },
   onShow: function (e) {
-    var that = this
+    const that = this
 
     //调用宠物年龄计算
     app.calPetsAge(app.globalData.pets)

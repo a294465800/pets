@@ -1,5 +1,5 @@
 // paybook.js
-var app = getApp()
+let app = getApp()
 let time_arr = app.globalData.today.split('-')
 
 Page({
@@ -142,7 +142,7 @@ Page({
 
   //图片预览
   preImage: function (e) {
-    let that = this
+    const that = this
     let src = e.currentTarget.dataset.src
     wx.previewImage({
       urls: [src],

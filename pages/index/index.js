@@ -1,6 +1,6 @@
 //index.js
 //获取应用实例
-var app = getApp()
+let app = getApp()
 //记录当前时间
 function timeRecord() {
   let time = new Date()
@@ -115,42 +115,43 @@ Page({
       read: 999,
       src: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1494497805444&di=d53add15ca64b8d47258ffe17b39b48c&imgtype=0&src=http%3A%2F%2Fimg2.3lian.com%2F2014%2Ff4%2F77%2Fd%2F68.jpg'
     },
-    grow_nav: [{
-      unique: 0,
-      name: '喂食',
-      src: '/images/grow_record/eat.png',
-      en: 'eat'
-    },
-    {
-      unique: 1,
-      name: '健康',
-      src: '/images/grow_record/health.png',
-      en: 'health'
-    },
-    {
-      unique: 2,
-      name: '玩耍',
-      src: '/images/grow_record/play.png',
-      en: 'play'
-    },
-    {
-      unique: 3,
-      name: '身高体重',
-      src: '/images/grow_record/grow.png',
-      en: 'grow'
-    },
-    {
-      unique: 4,
-      name: '清洁',
-      src: '/images/grow_record/clean.png',
-      en: 'clean'
-    },
-    {
-      unique: 5,
-      name: '记账本',
-      src: '/images/grow_record/paybook.png',
-      en: 'paybook'
-    }],
+    grow_nav: [
+      {
+        unique: 0,
+        name: '喂食',
+        src: '/images/grow_record/eat.png',
+        en: 'eat'
+      },
+      {
+        unique: 1,
+        name: '健康',
+        src: '/images/grow_record/health.png',
+        en: 'health'
+      },
+      {
+        unique: 2,
+        name: '玩耍',
+        src: '/images/grow_record/play.png',
+        en: 'play'
+      },
+      {
+        unique: 3,
+        name: '身高体重',
+        src: '/images/grow_record/grow.png',
+        en: 'grow'
+      },
+      {
+        unique: 4,
+        name: '清洁',
+        src: '/images/grow_record/clean.png',
+        en: 'clean'
+      },
+      {
+        unique: 5,
+        name: '记账本',
+        src: '/images/grow_record/paybook.png',
+        en: 'paybook'
+      }],
     grow_records: [
       {
         date: '2017-03-20',
@@ -252,14 +253,14 @@ Page({
     ]
   },
   onLoad: function (options) {
-    
+
   },
   onShow: function (e) {
 
     //调用宠物年龄计算
     app.calPetsAge(app.globalData.pets)
 
-    let that = this
+    const that = this
     //更新数据
     let index = that.data.pet_index
     that.setData({
@@ -276,7 +277,7 @@ Page({
 
   //切换宠物信息
   shiftPet: function (e) {
-    let that = this
+    const that = this
     let index = that.data.pet_index + 1
     if (index > app.globalData.pets.length - 1) {
       index = 0
@@ -322,7 +323,7 @@ Page({
 
   //展示管家提醒列表
   managerShow: function (e) {
-    let that = this
+    const that = this
     if (e.currentTarget.dataset.show) {
       that.setData({
         managerShow: false
@@ -342,7 +343,7 @@ Page({
 
   //展示经历列表
   experienceShow: function (e) {
-    let that = this
+    const that = this
     if (e.currentTarget.dataset.show) {
       that.setData({
         experienceShow: false
@@ -400,7 +401,7 @@ Page({
 
   //图片预览
   preImage: function (e) {
-    let that = this
+    const that = this
     let src = e.currentTarget.dataset.src
     wx.previewImage({
       urls: [src],

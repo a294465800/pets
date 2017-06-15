@@ -77,7 +77,7 @@ Page({
   },
   nameSave: function (e) {
     let nameT = e.currentTarget.dataset.name
-    let that = this
+    const that = this
     //正则判断手机号码
     if (!nameT) {
       wx.showModal({

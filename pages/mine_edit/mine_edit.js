@@ -1,5 +1,5 @@
 // mine_edit.js
-var app = getApp()
+let app = getApp()
 
 Page({
 
@@ -35,7 +35,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var that = this
+    const that = this
     app.getUserInfo(function (userInfo) {
       that.setData({
         userInfo: userInfo
@@ -44,35 +44,28 @@ Page({
   },
 
   //登录信息请求
-  login: function(){
-    let that = this
+  login: function () {
+    const that = this
     wx.openSetting({
-      success: function(res){
+      success: function (res) {
         if (res.authSetting["scope.userInfo"] == true) {
           app.getUserInfo(function (userInfo) {
             that.setData({
               userInfo: userInfo
             })
           })
-        } else if (res.authSetting["scope.userInfo"] == false){
+        } else if (res.authSetting["scope.userInfo"] == false) {
           that.setData({
             userInfo: null
           })
           app.globalData.userInfo = null
         }
       },
-      fail: function(res){
-        console.log(res)
+      fail: function (res) {
       }
     })
   },
 
-  //性别选择
-  // sexChoose: function (e) {
-  //   this.setData({
-  //     sexHide: false
-  //   })
-  // },
   sexHidden: function (e) {
     this.setData({
       sexHide: true,
@@ -99,7 +92,6 @@ Page({
     })
   },
   telInput: function (e) {
-    console.log(e.detail.value)
     this.setData({
       telNum: e.detail.value
     })
@@ -111,7 +103,7 @@ Page({
   },
   telSave: function (e) {
     let telP = e.currentTarget.dataset.tel
-    let that = this
+    const that = this
     //正则判断手机号码
     if (!(/^1[3|4|5|7|8][0-9]\d{8}$/.test(telP))) {
       wx.showModal({
@@ -126,5 +118,4 @@ Page({
       })
     }
   }
-
 })

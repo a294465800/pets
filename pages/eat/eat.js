@@ -1,5 +1,5 @@
 // eat.js
-var app = getApp()
+let app = getApp()
 Page({
 
   /**
@@ -130,7 +130,6 @@ Page({
    */
   onLoad: function (options) {
 
-    console.log(this.data.grow_records)
     //记录最新时间
     this.setData({
       time: app.globalData.time
@@ -157,13 +156,12 @@ Page({
 
   //选择图片函数
   imageChoose: function (e) {
-    let that = this
+    const that = this
     wx.chooseImage({
       count: 4,
       success: function (res) {
-        var tempFilePaths = res.tempFilePaths
         that.setData({
-          images: tempFilePaths
+          images: res.tempFilePaths
         })
       },
     })
@@ -171,7 +169,7 @@ Page({
 
   //图片预览
   preImage: function (e) {
-    let that = this
+    const that = this
     let src = e.currentTarget.dataset.src
     wx.previewImage({
       urls: [src],
@@ -180,7 +178,7 @@ Page({
 
   //提交信息——吃
   formSubmit: function (e) {
-    let that = this
+    const that = this
     that.setData({
       pet_eat: e.detail.value,
       'pet_eat.images': that.data.images

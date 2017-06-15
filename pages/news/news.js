@@ -159,7 +159,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let that = this
+    const that = this
     //手机版本控制
     if (app.globalData.system != 'ios') {
       that.setData({
@@ -196,19 +196,21 @@ Page({
           })
         }
       })
-      let that = this
-      let length = that.data.nav_head.length
+      const that = this
+      const length = that.data.nav_head.length
       let left = (750 / length) * e.target.id + 'rpx'
       let animation = wx.createAnimation({
         duration: 500,
         timingFunction: 'ease',
       })
       animation.left(left).step()
+      
       that.setData({
         current: e.target.id,
         nav_id: e.target.id,
         bug: true,
         animationData: animation.export()
+
       })
     }
   },
@@ -216,7 +218,7 @@ Page({
   //switch切换
   switchPage: function (e) {
     clearTimeout(timer)
-    let that = this
+    const that = this
     if (that.data.current == e.detail.current) {
 
     } else {
@@ -232,7 +234,7 @@ Page({
           })
         }
       })
-      let length = that.data.nav_head.length
+      const length = that.data.nav_head.length
       let left = (750 / length) * e.detail.current + 'rpx'
       let animation = wx.createAnimation({
         duration: 500,
@@ -257,7 +259,7 @@ Page({
 
   //导航固定
   fixNav: function (e) {
-    let that = this
+    const that = this
     if (e.detail.scrollTop >= 200) {
       flag2 = 0
       if (flag1 == 1) {

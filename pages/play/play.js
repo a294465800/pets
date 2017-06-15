@@ -1,7 +1,7 @@
 // play.js
-var app = getApp()
-var timeStart
-var timeEnd
+let app = getApp()
+let timeStart
+let timeEnd
 
 Page({
 
@@ -165,7 +165,7 @@ Page({
 
   //选择图片函数
   imageChoose: function (e) {
-    let that = this
+    const that = this
     wx.chooseImage({
       count: 4,
       success: function (res) {
@@ -179,7 +179,7 @@ Page({
 
   //图片预览
   preImage: function (e) {
-    let that = this
+    const that = this
     let src = e.currentTarget.dataset.src
     wx.previewImage({
       urls: [src],
@@ -204,13 +204,12 @@ Page({
 
   //提交信息
   formSubmit: function(e) {
-    let that = this
+    const that = this
     that.setData({
       play: e.detail.value,
       'play.timeStart': that.data.timeStart,
       'play.timeEnd': that.data.timeEnd,
       'play.images': that.data.images
     })
-    console.log(that.data.play)
   }
 })

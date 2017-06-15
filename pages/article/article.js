@@ -63,7 +63,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let that = this
+    const that = this
     let article
     wx.request({
       url: 'https://www.sennki.com/api/article/' + options.id,
@@ -83,7 +83,7 @@ Page({
   },
   //点赞
   articleGood: function (e) {
-    let that = this
+    const that = this
     if (that.data.good.flag) {
       wx.showModal({
         title: '提示',
@@ -109,7 +109,7 @@ Page({
 
   //踩文章
   articleBad: function (e) {
-    let that = this
+    const that = this
     if (that.data.bad.flag) {
       wx.showModal({
         title: '提示',
