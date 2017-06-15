@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/news/news",
     "pages/collect/collect",
     "pages/mine_edit/mine_edit",
     "pages/add_pets/add_pets",
@@ -13,7 +14,6 @@
     "pages/grow/grow",
     "pages/clean/clean",
     "pages/first_step/first_step",
-    "pages/news/news",
     "pages/article/article",
     "pages/mine/mine",
     "pages/logs/logs"

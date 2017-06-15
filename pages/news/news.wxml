@@ -15,7 +15,7 @@
     <!--导航条开始-->
     <view class="nav_bar {{!system_flag || fix_nav?'fix_nav':''}}">
       <block wx:for="{{nav_head}}" wx:key="id">
-        <view class="nav_title" bindtap="changeNav" id="{{item.id}}">{{item.name}}</view>
+        <view class="nav_title" bindtap="changeNav" id="{{index}}">{{item.title}}</view>
       </block>
       <view animation="{{animationData}}" class="nav_bottom" style="width:{{750/nav_head.length}}rpx;"></view>
     </view>

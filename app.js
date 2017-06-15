@@ -12,12 +12,13 @@ App({
     wx.setStorageSync('logs', logs)
     //获取系统版本
     wx.getSystemInfo({
-      success: function (res) {
+      success: res => {
         let system = res.system.toLowerCase()
         let temp_system = ''
         system.indexOf('ios') == -1 ? temp_system = 'others' : temp_system = 'ios'
         that.globalData.system = temp_system
-      },
+        console.log(res)
+      }
     })
     that.getSetting()
   },
@@ -41,7 +42,7 @@ App({
                       that.globalData.userInfo = res.userInfo
                       that.globalData.encryptedData = res.encryptedData
                       wx.request({
-                        url: 'https://www.sennki.com/api/wxtest',
+                        url: 'https://www.sennki.com/api/login',
                         method: 'post',
                         data: {
                           code: rs.code,
@@ -49,7 +50,28 @@ App({
                           iv: res.iv
                         },
                         success: function (e) {
-                          console.log(e)
+                          wx.request({
+                            url: 'https://www.sennki.com/api/checkLogin',
+                            method: 'post',
+                            header: {
+                              'content-type': 'application/x-www-form-urlencoded',
+                              'Cookie': e.header['Set-Cookie'].split(";")[0]
+                            },
+                            success: function (res) {
+                              wx.setStorage({
+                                key: 'LaravelID',
+                                data: e.header['Set-Cookie'].split(";")[0],
+                              })
+                              wx.showToast({
+                                title: '登录成功',
+                              })
+                            },
+                            fail: function () {
+                              wx.showToast({
+                                title: '登录失败',
+                              })
+                            }
+                          })
                         }
                       })
                     }
@@ -76,9 +98,8 @@ App({
           wx.getUserInfo({
             success: function (res) {
               that.globalData.userInfo = res.userInfo
-              that.globalData.encryptedData = res.encryptedData
               wx.request({
-                url: 'https://www.sennki.com/api/wxtest',
+                url: 'https://www.sennki.com/api/login',
                 method: 'post',
                 data: {
                   code: rs.code,
@@ -86,9 +107,32 @@ App({
                   iv: res.iv
                 },
                 success: function (e) {
+                  wx.request({
+                    url: 'https://www.sennki.com/api/checkLogin',
+                    method: 'post',
+                    header: {
+                      'content-type': 'application/x-www-form-urlencoded',
+                      'Cookie': e.header['Set-Cookie'].split(";")[0]
+                    },
+                    success: function (res) {
+                      if (200 == res.data.code) {
+                        wx.setStorage({
+                          key: 'LaravelID',
+                          data: e.header['Set-Cookie'].split(";")[0],
+                        })
+                        wx.showToast({
+                          title: '登录成功',
+                        })
+                        typeof cb == "function" && cb(that.globalData.userInfo)
+                      } else {
+                        wx.showToast({
+                          title: '登录失败',
+                        })
+                      }
+                    },
+                  })
                 }
               })
-              typeof cb == "function" && cb(that.globalData.userInfo)
             }
           })
         }

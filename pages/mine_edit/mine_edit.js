@@ -36,11 +36,11 @@ Page({
    */
   onLoad: function (options) {
     const that = this
-    app.getUserInfo(function (userInfo) {
-      that.setData({
-        userInfo: userInfo
-      })
-    })
+    // app.getUserInfo(function (userInfo) {
+    //   that.setData({
+    //     userInfo: userInfo
+    //   })
+    // })
   },
 
   //登录信息请求

@@ -67,5 +67,14 @@ Page({
     wx.navigateTo({
       url: '/pages/collect/collect',
     })
+  },
+  test: function () {
+    wx.request({
+      url: 'https://www.sennki.com/api/test',
+      method: 'get',
+      success: function (res) {
+        console.log(res)
+      }
+    })
   }
 })

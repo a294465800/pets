@@ -23,7 +23,6 @@ Page({
     interval: 3000,
     duration: 1000,
     circular: true,
-    nav_id: 0,
 
     //动画
     animationData: {},
@@ -31,28 +30,8 @@ Page({
     //swiper
     current: 0,
     nav_head: [{
-      name: '推荐',
+      title: '推荐',
       id: 0
-    },
-    {
-      name: '有趣',
-      id: 1
-    },
-    {
-      name: '食谱',
-      id: 2
-    },
-    {
-      name: '疾病',
-      id: 3
-    },
-    {
-      name: '训练',
-      id: 4
-    },
-    {
-      name: '养护',
-      id: 5
     }],
 
     //切换bug
@@ -152,7 +131,7 @@ Page({
         src: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1494497805444&di=d53add15ca64b8d47258ffe17b39b48c&imgtype=0&src=http%3A%2F%2Fimg2.3lian.com%2F2014%2Ff4%2F77%2Fd%2F68.jpg'
       }
     ],
-    news:[]
+    news:[],
   },
 
   /**
@@ -166,6 +145,16 @@ Page({
         system_flag: false
       })
     }
+
+    //请求文章类标题
+    wx.request({
+      url: 'https://www.sennki.com/api/articletypes',
+      success: function(res){
+        that.setData({
+          nav_head: [...that.data.nav_head, ...res.data.data]
+        })
+      }
+    })
 
     //初次请求文章列表
     wx.request({
@@ -184,18 +173,18 @@ Page({
   //导航选择
   changeNav: function (e) {
     if(!this.data.bug){
-      wx.request({
-        url: 'https://www.sennki.com/api/articles/list',
-        data: {
-          page: 1,
-          type: e.target.id
-        },
-        success: function (res) {
-          that.setData({
-            news: res.data.data
-          })
-        }
-      })
+      // wx.request({
+      //   url: 'https://www.sennki.com/api/articles/list',
+      //   data: {
+      //     page: 1,
+      //     type: e.currentTarget.dataset.type
+      //   },
+      //   success: function (res) {
+      //     that.setData({
+      //       news: res.data.data
+      //     })
+      //   }
+      // })
       const that = this
       const length = that.data.nav_head.length
       let left = (750 / length) * e.target.id + 'rpx'
@@ -207,10 +196,8 @@ Page({
       
       that.setData({
         current: e.target.id,
-        nav_id: e.target.id,
         bug: true,
         animationData: animation.export()
-
       })
     }
   },
@@ -219,21 +206,20 @@ Page({
   switchPage: function (e) {
     clearTimeout(timer)
     const that = this
+    wx.request({
+      url: 'https://www.sennki.com/api/articles/list',
+      data: {
+        page: 1,
+        type: that.data.nav_head[e.detail.current].id || 0
+      },
+      success: function (res) {
+        that.setData({
+          news: res.data.data
+        })
+      }
+    })
     if (that.data.current == e.detail.current) {
-
     } else {
-      wx.request({
-        url: 'https://www.sennki.com/api/articles/list',
-        data: {
-          page: 1,
-          type: e.detail.current
-        },
-        success: function (res) {
-          that.setData({
-            news: res.data.data
-          })
-        }
-      })
       const length = that.data.nav_head.length
       let left = (750 / length) * e.detail.current + 'rpx'
       let animation = wx.createAnimation({
@@ -243,7 +229,6 @@ Page({
       animation.left(left).step()
       that.setData({
         animationData: animation.export(),
-        nav_id: e.detail.current,
         current: e.detail.current,
       })
     }
@@ -254,7 +239,6 @@ Page({
         bug: false
       })
     }, 1000)
-
   },
 
   //导航固定
