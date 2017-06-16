@@ -32,7 +32,7 @@
 }
 
 .word {
-  width: 180rpx;
+  min-width: 180rpx;
 }
 
 #food, #weight {

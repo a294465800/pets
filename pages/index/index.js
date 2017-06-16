@@ -270,9 +270,23 @@ Page({
     app.globalData.time = (10 - time.getHours() <= 0 ? time.getHours() : '0' + time.getHours()) + ':' + ((10 - time.getMinutes()) <= 0 ? time.getMinutes() : '0' + time.getMinutes())
   },
   goToFirst() {
-    wx.navigateTo({
-      url: '/pages/first_step/first_step',
-    })
+    if (!app.globalData.userInfo) {
+      wx.showModal({
+        title: '提示',
+        content: '请先登录~',
+        success: res => {
+          if (res.confirm) {
+            wx.navigateTo({
+              url: '/pages/mine_edit/mine_edit',
+            })
+          }
+        }
+      })
+    } else {
+      wx.navigateTo({
+        url: '/pages/first_step/first_step',
+      })
+    }
   },
 
   //切换宠物信息

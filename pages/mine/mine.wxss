@@ -130,7 +130,7 @@
 }
 
 .pets_list view {
-  width: 33.3%;
+  flex: 1;
   text-align: center;
   overflow: hidden;
   text-overflow: ellipsis;

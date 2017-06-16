@@ -27,9 +27,14 @@ input {
 
 .time_wrap {
   box-sizing: border-box;
-  width: 280rpx;
-  height: 78rpx;
+  min-width: 324rpx;
+  height: 80rpx;
   justify-content: space-around;
+  border: 2rpx solid #ccc;
+  border-radius: 10rpx;
+  color: #999;
+  padding: 16rpx 10rpx 10rpx;
+  font-size: 28rpx;
 }
 
 .calTime {
@@ -42,21 +47,13 @@ input {
 }
 
 .word_2bit {
-  width: 100rpx;
+  min-width: 120rpx;
   text-align: left;
 }
 
 .remark .word_2bit {
   align-self: flex-start;
   padding-top: 20rpx;
-}
-
-.time_wrap {
-  border: 2rpx solid #ccc;
-  border-radius: 10rpx;
-  color: #999;
-  padding: 16rpx 10rpx 10rpx;
-  font-size: 28rpx;
 }
 
 textarea {
@@ -88,4 +85,9 @@ textarea {
   width: 140rpx;
   height: 140rpx;
   margin-right: 20rpx;
+}
+
+.min_width {
+  min-width: 300rpx;
+  text-align: center;
 }

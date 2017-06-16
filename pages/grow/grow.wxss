@@ -6,7 +6,7 @@
 
 /*表单样式*/
 input {
-  width: 140rpx;
+  width: 120rpx;
   text-align: center;
 }
 
@@ -15,7 +15,7 @@ input {
 }
 
 .word_2bit {
-  width: 110rpx;
+  min-width: 120rpx;
 }
 
 .remark .word_2bit {

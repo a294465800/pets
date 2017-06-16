@@ -12,12 +12,11 @@
 .add_paybook_item {
   margin: 10rpx 18rpx;
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  width: 150rpx;
-  height: 160rpx;
+  min-width: 150rpx;
+  min-height: 160rpx;
 }
 
 .add_paybook_item_img {
@@ -77,7 +76,7 @@
 }
 
 .input_label view {
-  width: 120rpx;
+  min-width: 120rpx;
   text-align: right;
 }
 .add_paybook_input input {
@@ -103,10 +102,14 @@ input {
 .paybook_submit {
   margin-top: 30rpx;
   box-sizing: border-box;
-  width: 140rpx;
-  height: 80rpx;
-  line-height: 80rpx;
+  width: 160rpx;
+  min-height: 80rpx;
+  line-height: 0;
   background-color: #ff963d;
   color: #fff;
   font-size: 32rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }

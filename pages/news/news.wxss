@@ -31,7 +31,7 @@ swiper image {
 }
 
 .nav_title {
-  width: 80rpx;
+  flex: 1;
   box-sizing: border-box;
   font: normal 28rpx/74rpx "Microsoft YaHei UI";
   text-align: center;

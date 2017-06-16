@@ -37,12 +37,15 @@ Page({
   onLoad(options) {
     const that = this
   },
+  onUnload(){
+    console.log('unload')
+  },
 
   //登录信息请求
   login() {
     const that = this
     wx.openSetting({
-      success:res => {
+      success: res => {
         if (res.authSetting["scope.userInfo"] == true) {
           app.getUserInfo((userInfo) => {
             that.setData({
@@ -54,6 +57,12 @@ Page({
             userInfo: null
           })
           app.globalData.userInfo = null
+        } else if (!res.authSetting["scope.userInfo"]) {
+          app.getUserInfo((userInfo) => {
+            that.setData({
+              userInfo: userInfo
+            })
+          })
         }
       },
       fail: res => {

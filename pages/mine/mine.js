@@ -43,9 +43,23 @@ Page({
 
   //添加宠物跳转
   goTONew_pet(e) {
-    wx.navigateTo({
-      url: '/pages/first_step/first_step',
-    })
+    if (!app.globalData.userInfo) {
+      wx.showModal({
+        title: '提示',
+        content: '请先登录~',
+        success: res => {
+          if (res.confirm) {
+            wx.navigateTo({
+              url: '/pages/mine_edit/mine_edit',
+            })
+          }
+        }
+      })
+    } else {
+      wx.navigateTo({
+        url: '/pages/first_step/first_step',
+      })
+    }
   },
 
   //宠物修改跳转

@@ -30,7 +30,7 @@
 }
 
 .paybook_time_year {
-  width: 120rpx;
+  min-width: 120rpx;
 }
 
 .paybook_time image {

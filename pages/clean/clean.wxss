@@ -11,7 +11,7 @@ input {
 }
 
 .word_2bit {
-  width: 110rpx;
+  min-width: 120rpx;
 }
 
 .remark .word_2bit {

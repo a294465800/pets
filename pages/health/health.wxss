@@ -23,7 +23,7 @@
 }
 
 .category_list {
-  width: 200rpx;
+  min-width: 200rpx;
   text-align: center;
   border: 2rpx solid #ccc;
   border-radius: 10rpx;
@@ -51,4 +51,8 @@
 .remark .word_4bit, .symptom .word_4bit {
   align-self: flex-start;
   padding-top: 20rpx;
+}
+
+.word_4bit, .word_2bit {
+  min-width: 120rpx;
 }

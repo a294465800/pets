@@ -9,7 +9,7 @@
     <view class="way part">
       <view class="way_left">
         <view class="word_2bit">方式：</view>
-        <input placeholder="散步" type="text" placeholder-class="p_input" name="way" maxlength="8"/>
+        <input placeholder="散步" type="text" placeholder-class="p_input" class="min_width" name="way" maxlength="8"/>
       </view>
       <image src="/images/icon/photo.png" class="photo" mode="aspectFit" bindtap="imageChoose"></image>
     </view>

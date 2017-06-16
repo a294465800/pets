@@ -25,12 +25,16 @@
   position: fixed;
   box-sizing: border-box;
   border-top: 2rpx solid #9d9d9d;
-  font: normal 40rpx/106rpx "Microsoft YaHei UI";
+  font: normal 40rpx "Microsoft YaHei UI";
   text-align: center;
   color: #00bcd4;
   bottom: 0;
   left: 0;
   background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .home {
@@ -114,8 +118,8 @@
 }
 
 .head_shift image {
-  width: 24rpx;
-  height: 24rpx;
+  width: 32rpx;
+  height: 30rpx;
 }
 
 .progress {
@@ -298,7 +302,7 @@
 }
 
 .manager_entry {
-  width: 90rpx;
+  min-width: 90rpx;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -351,13 +355,13 @@
 /*知识专题*/
 
 .knowledge {
-  height: 340rpx;
+  min-height: 340rpx;
 }
 
 .knowledge_article {
   display: flex;
   box-sizing: border-box;
-  height: 220rpx;
+  min-height: 220rpx;
   width: 100%;
   padding: 0 20rpx;
   flex-direction: row;
@@ -368,7 +372,7 @@
 
 .knowledge_article_message {
   width: 440rpx;
-  height: 200rpx;
+  min-height: 200rpx;
 }
 
 .knowledge_article_title {

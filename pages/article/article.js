@@ -52,6 +52,9 @@ Page({
       }
     ],
 
+    //文章加载
+    article_control: true,
+
     //收藏提示
     collect_tip: false,
 
@@ -65,21 +68,27 @@ Page({
   onLoad(options) {
     const that = this
     let article
+    wx.showLoading({
+      title: '加载中···',
+    })
     wx.request({
       url: 'https://www.sennki.com/api/article/' + options.id,
       success: res => {
-        that.setData({
-          articles: res.data.data
-        })
-        article = res.data.data.content
+        article = res.data.data.content.replace(/&amp;nbsp;/g, ' ')
         WxParse.wxParse('article', 'html', article, that, 5)
+        that.setData({
+          articles: res.data.data,
+          article_control: false
+        })
+        wx.hideLoading()
       }
     })
   },
-  onShow(){
+  onShow() {
     const that = this
     that.setData({
-      userInfo: app.globalData.userInfo
+      userInfo: app.globalData.userInfo,
+      article_control: true
     })
   },
   //点赞
@@ -214,7 +223,7 @@ Page({
     return {
       title: '宠物养成记',
       path: '/pages/article/article',
-      success: () => {}
+      success: () => { }
     }
   },
 
