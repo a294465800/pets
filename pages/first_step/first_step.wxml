@@ -3,11 +3,11 @@
   <!--第一页猫狗选择开始-->
   <swiper-item>
     <view class="container first_page">
-      <view bindtap="chooseCategory" data-category="{{item.category}}" wx:for="{{pets}}" wx:key="unique" id="{{index}}">
-        <image src="{{item.src}}" mode="aspectFit">
-          <image src="/images/first_page/yes_o.png" class=" {{item.check?'choose':'hide'}}" mode="aspectFit"></image>
+      <view bindtap="chooseCategory" data-category="{{item.id}}" wx:for="{{pets}}" wx:key="id" id="{{index}}">
+        <image src="{{item.img}}" mode="aspectFit">
+          <image src="/images/first_page/yes_o.png" class="{{category == index?'choose':'hide'}}" mode="aspectFit"></image>
         </image>
-        <view class="word">{{item.zn}}</view>
+        <view class="word">{{item.title}}</view>
       </view>
     </view>
   </swiper-item>
@@ -23,9 +23,9 @@
       </view>
       <scroll-view scroll-x="true">
         <view class="second-scroll">
-          <view class="species_item" wx:for="{{species}}" wx:key="unique" bindtap="chooseSpecies" data-species_img="{{item.src}}" data-species_zn="{{item.zn}}" data-species_name="{{item.name}}">
-            <image src="{{item.src}}" mode="aspectFill" class="species_img" data-species="{{item.name}}"></image>
-            <view class="species_word">{{item.zn}}</view>
+          <view class="species_item" wx:for="{{kinds}}" wx:key="id" bindtap="chooseSpecies" data-species_img="{{item.img}}" data-species_zn="{{item.Name}}" data-species_name="{{item.id}}">
+            <image src="{{item.img}}" mode="aspectFill" class="species_img" data-species="{{item.name}}"></image>
+            <view class="species_word">{{item.Name}}</view>
           </view>
         </view>
       </scroll-view>
@@ -59,7 +59,7 @@
     <view class="container fifth_page">
       <view bindtap="chooseSex" data-sex="{{item.name}}" wx:for="{{sex}}" wx:key="unique" id="{{index}}">
         <image src="{{item.src}}" mode="aspectFit" class="{{item.name}}">
-          <image src="/images/first_page/yes_o.png" class=" {{item.check?'choose':''}}" mode="aspectFit"></image>
+          <image src="/images/first_page/yes_o.png" class=" {{sex_control == index?'choose':''}}" mode="aspectFit"></image>
         </image>
         <view class="word">{{item.zn}}</view>
       </view>
@@ -71,7 +71,7 @@
   <swiper-item>
     <view class="container sixth_page">
       <view bindtap="chooseBear" data-bear="{{item.name}}" wx:for="{{bear}}" wx:key="unique" id="{{index}}">
-        <image src="{{item.check?item.src_yes:item.src}}" mode="aspectFit" id="{{index}}" class="{{item.check?'check':''}}"></image>
+        <image src="{{bear_control == index?item.src_yes:item.src}}" mode="aspectFit" id="{{index}}" class="{{bear_control == index?'check':''}}"></image>
         <view class="word">{{item.zn}}</view>
       </view>
     </view>

@@ -27,7 +27,6 @@ App({
     wx.getStorage({
       key: 'LaravelID',
       success: function (res) {
-        console.log(res)
         wx.request({
           url: that.globalData.host + 'logout',
           header: {
@@ -40,9 +39,6 @@ App({
     wx.removeStorage({
       key: 'LaravelID'
     })
-  },
-  onUnLoad() {
-    console.log('unload')
   },
 
   //获取用户设置
@@ -84,9 +80,9 @@ App({
                               wx.showToast({
                                 title: '登录成功',
                               })
-                              that.globalData.userInfo = res.data.data
+                              that.globalData.userInfo = res.data.data,
+                              that.globalData.LaravelID = e.header['Set-Cookie'].split(";")[0]
                             }
-                            // typeof cb == "function" && cb(that.globalData.userInfo)
                           } else {
                             wx.showToast({
                               title: '登录失败',
@@ -102,10 +98,7 @@ App({
           })
         } else if (res.authSetting["scope.userInfo"] == false) {
           wx.request({
-            url: that.globalData.host + 'logout',
-            success: res => {
-              console.log(res)
-            }
+            url: that.globalData.host + 'logout'
           })
         }
       }
@@ -205,6 +198,9 @@ App({
   globalData: {
     //全局服务器
     host: 'https://www.sennki.com/api/',
+
+    //key
+    LaravelID: null,
 
     userInfo: null,
     time: (10 - time.getHours() <= 0 ? time.getHours() : '0' + time.getHours()) + ':' + ((10 - time.getMinutes()) <= 0 ? time.getMinutes() : '0' + time.getMinutes()),
