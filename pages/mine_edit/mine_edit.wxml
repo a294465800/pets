@@ -7,39 +7,28 @@
       <view class="userinfo">
         <view class="userinfo_message">
           <view>{{userInfo.nickName}}</view>
-          <view class="userinfo_id">{{userInfo.avatarUrl?'ID:000000':'请登录'}}</view>
+          <view class="userinfo_id">{{userInfo.avatarUrl?'ID: ' + userInfo.userID:'请登录'}}</view>
         </view>
       </view>
     </view>
     <view class="sex w_part" hover-class="push_class" hover-stay-time="150">
       <view class="word">性别</view>
-      <view class="message">{{sex || '无'}}</view>
+      <view class="message">{{sex[userInfo.gender] || '未知'}}</view>
     </view>
     <view class="birthday w_part" hover-class="push_class" hover-stay-time="150">
       <view class="word">生日</view>
-      <picker mode="date" start="1900-01-01" end="{{today || '2017-05-05'}}" bindchange="birthSet" value="{{birthday}}" class="message">{{birthday || '请输入你的生日'}}</picker>
+      <picker mode="date" start="1900-01-01" end="{{today || '2017-05-05'}}" bindchange="birthSet" value="{{userInfo.birthday}}" class="message">{{userInfo.birthday || '请输入你的生日'}}</picker>
     </view>
   </view>
   <!--用户信息结束-->
 
   <view class="w_part out_part" hover-class="push_class" bindtap="telChange" hover-stay-time="150">
     <view class="word">手机号码</view>
-    <view class="message">{{telPhone || '无'}}</view>
+    <view class="message">{{userInfo.number || '无'}}</view>
   </view>
 
-  <!--性别选择框开始-->
-  <view class="sexChoose {{sexHide?'hide':''}}" bindtap="sexHidden"></view>
-  <radio-group bindchange="sexConfirm" class="sexHide {{sexHide?'hide':''}}">
-    <view class="sex_title">性别</view>
-    <label wx:for="{{sex_radio}}" class="sex_flex" wx:key="unique">
-      <view>{{item.name}}</view>
-      <radio value="{{item.name}}" color="green" />
-    </label>
-  </radio-group>
-  <!--性别选择框结束-->
-
   <!--手机号码输入开始-->
-  <view class="sexChoose {{telHide?'hide':''}}" bindtap="telHidden"></view>
+  <view class="telChoose {{telHide?'hide':''}}" bindtap="telHidden"></view>
   <view class="tel_part {{telHide?'hide':''}}">
     <input class="tel_input" value="{{telNum}}" type="number" focus="{{!telHide}}" bindinput="telInput" />
     <view class="tel_tips">请输入你的手机号码。</view>

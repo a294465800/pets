@@ -13,44 +13,29 @@ Page({
     good: {
       src: '/images/icon/good_g.png',
       src_e: '/images/icon/good_r.png',
-      count: 156,
       flag: false,
       flag_plus: true
     },
+    // good_count: 0,
     bad: {
       src: '/images/icon/bad_g.png',
       src_e: '/images/icon/bad_r.png',
-      count: 156,
       flag: false,
       flag_plus: true
     },
+    // bad_count: 0,
 
     //控制点赞
-    article_first: false,
+    // article_first: false,
 
     // 隐藏底部，拉起输入框
     article_input: false,
+
     //清空value
     value: '',
 
     //文章
     articles: null,
-    article_list: [
-      {
-        unique: 0,
-        head_img: '/images/head_img.jpg',
-        nick_name: '小糯米',
-        time: '04-12 12:20',
-        comment: '如果你无法简洁表达你的想法，那只说明你还不够了解他'
-      },
-      {
-        unique: 1,
-        head_img: '/images/head_img.jpg',
-        nick_name: '小糯米',
-        time: '04-12 12:20',
-        comment: '如果你无法简洁表达你的想法，那只说明你还不够了解他啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊哇啊啊啊啊啊啊啊啊大多数哇啊阿达啊啊'
-      }
-    ],
 
     //文章加载
     article_control: true,
@@ -59,7 +44,16 @@ Page({
     collect_tip: false,
 
     //分享提示
-    share_tip: true
+    share_tip: true,
+
+    //key
+    LaravelID: null,
+
+    //评论页数
+    page: 0,
+
+    //评论加载完毕提示
+    comment_end: false
   },
 
   /**
@@ -72,16 +66,27 @@ Page({
       title: '加载中···',
     })
     wx.request({
-      url: 'https://www.sennki.com/api/article/' + options.id,
+      url: app.globalData.host + 'article/' + options.id,
       success: res => {
         article = res.data.data.content.replace(/&amp;nbsp;/g, ' ')
         WxParse.wxParse('article', 'html', article, that, 5)
         that.setData({
           articles: res.data.data,
+          good_count: res.data.data.like,
+          bad_count: res.data.data.dislike,
           article_control: false
         })
+        console.log(that.data.articles.comments)
         wx.hideLoading()
       }
+    })
+    wx.getStorage({
+      key: 'LaravelID',
+      success: res => {
+        that.setData({
+          LaravelID: res.data
+        })
+      },
     })
   },
   onShow() {
@@ -90,6 +95,37 @@ Page({
       userInfo: app.globalData.userInfo,
       article_control: true
     })
+  },
+
+  //下拉请求新评论
+  onReachBottom() {
+    let that = this
+    if (that.data.comment_end) { }
+    else {
+      wx.showLoading({
+        title: '评论加载中···',
+      })
+      wx.request({
+        url: app.globalData.host + 'comments',
+        data: {
+          id: that.data.articles.id,
+          page: that.data.page + 1
+        },
+        success: res => {
+          if (res.data.data[0]) {
+            that.setData({
+              'articles.comments': [...that.data.articles.comments, ...res.data.data],
+              page: that.data.page + 1
+            })
+          } else {
+            that.setData({
+              comment_end: true
+            })
+          }
+          wx.hideLoading()
+        }
+      })
+    }
   },
   //点赞
   articleGood(e) {
@@ -102,12 +138,19 @@ Page({
       })
     } else {
       that.setData({
-        'good.count': (that.data.good.count + 1),
+        'articles.like': (that.data.articles.like + 1),
         'good.flag': true,
         'good.flag_plus': false,
-        'bad.flag': false,
-        'bad.count': that.data.article_first ? (that.data.bad.count - 1) : that.data.bad.count,
-        article_first: true
+        // 'bad.flag': false,
+        // 'artilces.dislike': that.data.article_first ? (that.data.articles.dislike - 1) : that.data.bad_count,
+        // article_first: true
+      })
+      wx.request({
+        url: app.globalData.host + 'article/like/' + that.data.articles.id,
+        header: {
+          'content-type': 'application/x-www-form-urlencoded',
+          'Cookie': that.data.LaravelID
+        },
       })
       setTimeout(() => {
         that.setData({
@@ -128,12 +171,19 @@ Page({
       })
     } else {
       that.setData({
-        'bad.count': (that.data.bad.count + 1),
+        'articles.dislike': (that.data.articles.dislike + 1),
         'bad.flag': true,
         'bad.flag_plus': false,
-        'good.flag': false,
-        'good.count': that.data.article_first ? (that.data.good.count - 1) : that.data.good.count,
-        article_first: true
+        // 'good.flag': false,
+        // good_count: that.data.article_first ? (that.data.good_count - 1) : that.data.good_count,
+        // article_first: true
+      })
+      wx.request({
+        url: app.globalData.host + 'article/dislike/' + that.data.articles.id,
+        header: {
+          'content-type': 'application/x-www-form-urlencoded',
+          'Cookie': that.data.LaravelID
+        },
       })
       setTimeout(() => {
         that.setData({
@@ -159,28 +209,45 @@ Page({
 
   //评论提交
   articleCommentPost(e) {
+    let that = this
     if (app.globalData.userInfo) {
       let time = new Date()
-      const length = this.data.article_list.length
-      let that = this
+      // const length = this.data.article_list.length
       let article_item = {
-        unique: length,
-        head_img: that.data.userInfo.avatarUrl,
-        nick_name: that.data.userInfo.nickName,
-        time: (9 - time.getMonth() <= 0 ? (time.getMonth() + 1) : '0' + (time.getMonth() + 1)) + '-' + ((10 - time.getDate()) <= 0 ? time.getDate() : '0' + time.getDate()) + ' ' + (10 - time.getHours() <= 0 ? time.getHours() : '0' + time.getHours()) + ':' + ((10 - time.getMinutes()) <= 0 ? time.getMinutes() : '0' + time.getMinutes()),
-        comment: e.detail.value.article_comment
+        id: 0,
+        avatar: that.data.userInfo.avatarUrl,
+        userName: that.data.userInfo.nickName,
+        createtime: (9 - time.getMonth() <= 0 ? (time.getMonth() + 1) : '0' + (time.getMonth() + 1)) + '-' + ((10 - time.getDate()) <= 0 ? time.getDate() : '0' + time.getDate()) + ' ' + (10 - time.getHours() <= 0 ? time.getHours() : '0' + time.getHours()) + ':' + ((10 - time.getMinutes()) <= 0 ? time.getMinutes() : '0' + time.getMinutes()),
+        content: e.detail.value.article_comment
       }
-      that.data.article_list = [...[article_item], ...that.data.article_list]
-      let path = 'article_list[' + length + ']'
+      // that.data.article_list = [...[article_item], ...that.data.articles.comments]
+      // let path = 'article_list[' + length + ']'
       that.setData({
         article_input: false,
         value: '',
-        article_list: that.data.article_list
+        'articles.comments': [...[article_item], ...that.data.articles.comments]
       })
       wx.hideKeyboard()
-      wx.showToast({
-        title: '评论成功',
-        icon: 'success'
+      wx.request({
+        url: app.globalData.host + 'api/comment',
+        method: 'POST',
+        header: {
+          'content-type': 'application/x-www-form-urlencoded',
+          'Cookie': that.data.LaravelID
+        },
+        data: {
+          aid: that.data.articles.id,
+          content: e.detail.value.article_comment
+        },
+        success: res => {
+          wx.showToast({
+            title: '评论成功',
+            icon: 'success'
+          })
+          // that.setData({
+          //   article_input: false,
+          // })
+        }
       })
     } else {
       wx.showModal({
@@ -207,15 +274,28 @@ Page({
   //收藏文章
   collectNews(e) {
     let that = this
-    that.setData({
-      collect_tip: !that.data.collect_tip
+    wx.request({
+      url: app.globalData.host + 'api/collect/' + that.data.articles.id,
+      header: {
+        'content-type': 'application/x-www-form-urlencoded',
+        'Cookie': that.data.LaravelID
+      },
+      data: {
+        state: that.data.articles.collect == 0 ? 1 : 0
+      },
+      success: res => {
+        console.log(res)
+      }
     })
-    if (that.data.collect_tip) {
-      wx.showToast({
-        title: '已加入收藏',
-        icon: 'success'
-      })
-    }
+    // that.setData({
+    //   collect_tip: !that.data.collect_tip
+    // })
+    // if (that.data.collect_tip) {
+    //   wx.showToast({
+    //     title: '已加入收藏',
+    //     icon: 'success'
+    //   })
+    // }
   },
 
   //分享

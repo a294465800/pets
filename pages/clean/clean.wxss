@@ -6,7 +6,7 @@
 
 /*表单样式*/
 
-input {
+picker {
   width: 240rpx;
 }
 

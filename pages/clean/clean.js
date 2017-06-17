@@ -9,6 +9,8 @@ Page({
     time: app.globalData.time,
     date: '今天',
     images: [],
+    index: 0,
+    clean_type: ['洗澡','刷牙','剪指甲','清洁眼睛','清洁耳朵'],
 
     //需要提交的信息
     clean: {}
@@ -18,6 +20,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
+
+  },
+
+  //清洁类型选择
+  cleanChoose(){
 
   },
   //时间日期监听函数

@@ -11,24 +11,14 @@ Page({
     sex: '',
     telnum: '',
     people_name: '',
-    sex_radio: [{
-      name: '男',
-      unique: 0
+    sex: {
+      0: "保密",
+      1: "男",
+      2: "女"
     },
-    {
-      name: '女',
-      unique: 1
-    },
-    {
-      name: '秘密',
-      unique: 2
-    }],
-    sexHide: true,
     telHide: true,
     today: app.globalData.today,
-    birthday: '',
-    telNum: '',
-    telPhone: ''
+    telNum: ''
   },
 
   /**
@@ -37,8 +27,20 @@ Page({
   onLoad(options) {
     const that = this
   },
-  onUnload(){
+  onUnload() {
     console.log('unload')
+  },
+  onShow() {
+    let that = this
+    wx.getStorage({
+      key: 'LaravelID',
+      success: res => {
+        this.setData({
+          userInfo: app.globalData.userInfo,
+          LaravelID: res.data
+        })
+      },
+    })
   },
 
   //登录信息请求
@@ -57,6 +59,12 @@ Page({
             userInfo: null
           })
           app.globalData.userInfo = null
+          wx.request({
+            url: app.globalData.host + 'logout',
+            success: res => {
+              console.log(res)
+            }
+          })
         } else if (!res.authSetting["scope.userInfo"]) {
           app.getUserInfo((userInfo) => {
             that.setData({
@@ -70,22 +78,24 @@ Page({
     })
   },
 
-  sexHidden(e) {
-    this.setData({
-      sexHide: true,
-    })
-  },
-  sexConfirm(e) {
-    this.setData({
-      sex: e.detail.value,
-      sexHide: true
-    })
-  },
-
   //生日修改
   birthSet(e) {
-    this.setData({
-      birthday: e.detail.value
+    let that = this
+    wx.request({
+      url: app.globalData.host + 'setUser',
+      method: 'POST',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded',
+        'Cookie': that.data.LaravelID
+      },
+      data: {
+        birthday: e.detail.value
+      },
+      success: res => {
+        that.setData({
+          'userInfo.birthday': e.detail.value
+        })
+      }
     })
   },
 
@@ -116,9 +126,22 @@ Page({
         showCancel: false
       })
     } else {
-      that.setData({
-        telPhone: telP,
-        telHide: true
+      wx.request({
+        url: app.globalData.host + 'setUser',
+        method: 'POST',
+        header: {
+          'content-type': 'application/x-www-form-urlencoded',
+          'Cookie': that.data.LaravelID
+        },
+        data: {
+          number: telP
+        },
+        success: res => {
+          that.setData({
+            'userInfo.number': telP,
+            telHide: true
+          })
+        }
       })
     }
   }

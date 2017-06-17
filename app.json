@@ -1,10 +1,12 @@
 {
   "pages": [
-    "pages/mine/mine",
+    "pages/news/news",
     "pages/index/index",
+    "pages/clean/clean",
+    "pages/mine/mine",
+    "pages/mine_edit/mine_edit",
     "pages/add_paybook/add_paybook",
     "pages/paybook/paybook",
-    "pages/clean/clean",
     "pages/grow/grow",
     "pages/play/play",
     "pages/health/health",
@@ -12,9 +14,7 @@
     "pages/first_step/first_step",
     "pages/article/article",
     "pages/manager_switch/manager_switch",
-    "pages/mine_edit/mine_edit",
     "pages/add_pets/add_pets",
-    "pages/news/news",
     "pages/collect/collect",
     "pages/logs/logs"
   ],

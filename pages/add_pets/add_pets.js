@@ -19,10 +19,6 @@ Page({
     {
       name: '女',
       unique: 1
-    },
-    {
-      name: '秘密',
-      unique: 2
     }],
     sexHide: true,
     nameHide: true,
@@ -55,7 +51,7 @@ Page({
   //生日修改
   birthSet(e) {
     this.setData({
-      birthday: e.detail.value
+      'pet.birthday': e.detail.value
     })
   },
 

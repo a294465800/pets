@@ -97,7 +97,10 @@ swiper {
   border-radius: 10rpx;
   font: normal 40rpx "Microsoft YaHei";
   color: #333;
-  padding: 6rpx 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .word_hide {
@@ -114,7 +117,7 @@ swiper {
   border: 2rpx solid #ff963d;
   text-align: center;
   width: 400rpx;
-  height: 60rpx;
+  height: 80rpx;
   line-height: 0;
   border-radius: 10rpx;
   font: normal 32rpx "Microsoft YaHei";
@@ -123,11 +126,7 @@ swiper {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /*padding: 14rpx;*/
-}
-
-.third_page input, .fourth_page .picker {
-  /*padding: 18rpx;*/
+  padding: 0;
 }
 
 .third_page .photo, .fourth_page .photo {

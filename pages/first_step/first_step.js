@@ -244,6 +244,22 @@ Page({
         [data_check]: false
       })
     }
+    wx.getStorage({
+      key: 'LaravelID',
+      success: res => {
+        console.log(res.data)
+        wx.request({
+          url: 'https://www.sennki.com/api/categorys',
+          header: {
+            'content-type': 'application/x-www-form-urlencoded',
+            'Cookie': res.data
+          },
+          success: rs => {
+            console.log(rs)
+          }
+        })
+      },
+    })
   },
 
   //第一页函数
@@ -316,6 +332,14 @@ Page({
     wx.chooseImage({
       count: 1,
       success: res => {
+        wx.uploadFile({
+          url: app.globalData.host + 'upload',
+          filePath: res.tempFilePaths[0],
+          name: 'img',
+          success: res => {
+            console.log(res)
+          }
+        })
         that.setData({
           'pet_info.img': res.tempFilePaths,
           'img.head_img': res.tempFilePaths,

@@ -6,7 +6,7 @@
     <view class="userinfo">
       <view class="userinfo_message">
         <view class="">{{userInfo.nickName}}</view>
-        <view class="userinfo_id">{{userInfo.avatarUrl?'ID:1234560':'请登录'}}</view>
+        <view class="userinfo_id">{{userInfo.avatarUrl?'ID: ' + userInfo.userID:'请登录'}}</view>
       </view>
       <image src="/images/grow_record/more.png" class="userinfo_more"></image>
     </view>

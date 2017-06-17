@@ -19,67 +19,95 @@ App({
         that.globalData.system = temp_system
       }
     })
-    that.getSetting()
+  },
+  onShow() {
+    this.getSetting()
+  },
+  onHide() {
+    wx.getStorage({
+      key: 'LaravelID',
+      success: function (res) {
+        console.log(res)
+        wx.request({
+          url: that.globalData.host + 'logout',
+          header: {
+            'content-type': 'application/x-www-form-urlencoded',
+            'Cookie': res.data
+          }
+        })
+      },
+    })
+    wx.removeStorage({
+      key: 'LaravelID'
+    })
+  },
+  onUnLoad() {
+    console.log('unload')
   },
 
   //获取用户设置
   getSetting() {
     let that = this
-    wx.checkSession({
-      success: () => { },
-      fail: () => {
-        wx.getSetting({
-          success: res => {
-            if (res.authSetting["scope.userInfo"] == true) {
-              //调用登录接口
-              wx.login({
-                withCredentials: true,
-                success: rs => {
-                  wx.getUserInfo({
-                    success: res => {
+    wx.getSetting({
+      success: res => {
+        if (res.authSetting["scope.userInfo"] == true) {
+          //调用登录接口
+          wx.login({
+            withCredentials: true,
+            success: rs => {
+              wx.getUserInfo({
+                success: res => {
+                  wx.request({
+                    url: that.globalData.host + 'login',
+                    method: 'post',
+                    data: {
+                      code: rs.code,
+                      encryptedData: res.encryptedData,
+                      iv: res.iv
+                    },
+                    success: e => {
                       wx.request({
-                        url: 'https://www.sennki.com/api/login',
+                        url: that.globalData.host + 'checkLogin',
                         method: 'post',
-                        data: {
-                          code: rs.code,
-                          encryptedData: res.encryptedData,
-                          iv: res.iv
+                        header: {
+                          'content-type': 'application/x-www-form-urlencoded',
+                          'Cookie': e.header['Set-Cookie'].split(";")[0]
                         },
-                        success: e => {
-                          wx.request({
-                            url: 'https://www.sennki.com/api/checkLogin',
-                            method: 'post',
-                            header: {
-                              'content-type': 'application/x-www-form-urlencoded',
-                              'Cookie': e.header['Set-Cookie'].split(";")[0]
-                            },
-                            success: res => {
-                              if (200 == res.data.code) {
-                                wx.setStorage({
-                                  key: 'LaravelID',
-                                  data: e.header['Set-Cookie'].split(";")[0],
-                                })
-                                wx.showToast({
-                                  title: '登录成功',
-                                })
-                                that.globalData.userInfo = res.data.data
-                                typeof cb == "function" && cb(that.globalData.userInfo)
-                              } else {
-                                wx.showToast({
-                                  title: '登录失败',
-                                })
-                              }
+                        success: res => {
+                          if (200 == res.data.code) {
+                            wx.setStorage({
+                              key: 'LaravelID',
+                              data: e.header['Set-Cookie'].split(";")[0],
+                            })
+                            if (that.globalData.userInfo) { }
+                            else {
+                              wx.showToast({
+                                title: '登录成功',
+                              })
+                              that.globalData.userInfo = res.data.data
                             }
-                          })
+                            // typeof cb == "function" && cb(that.globalData.userInfo)
+                          } else {
+                            wx.showToast({
+                              title: '登录失败',
+                            })
+                          }
                         }
                       })
                     }
                   })
                 }
               })
-            } else if (res.authSetting["scope.userInfo"] == false) { }
-          }
-        })
+            }
+          })
+        } else if (res.authSetting["scope.userInfo"] == false) {
+          wx.request({
+            url: that.globalData.host + 'logout',
+            success: res => {
+              console.log(res)
+            }
+          })
+        }
       }
     })
   },
@@ -96,7 +124,7 @@ App({
           wx.getUserInfo({
             success: res => {
               wx.request({
-                url: 'https://www.sennki.com/api/login',
+                url: that.globalData.host + 'login',
                 method: 'post',
                 data: {
                   code: rs.code,
@@ -105,7 +133,7 @@ App({
                 },
                 success: e => {
                   wx.request({
-                    url: 'https://www.sennki.com/api/checkLogin',
+                    url: that.globalData.host +'checkLogin',
                     method: 'post',
                     header: {
                       'content-type': 'application/x-www-form-urlencoded',
@@ -121,6 +149,7 @@ App({
                           title: '登录成功',
                         })
                         that.globalData.userInfo = res.data.data
+                        console.log(that.globalData.userInfo)
                         typeof cb == "function" && cb(that.globalData.userInfo)
                       } else {
                         wx.showToast({
@@ -174,6 +203,9 @@ App({
 
   //全局数据
   globalData: {
+    //全局服务器
+    host: 'https://www.sennki.com/api/',
+
     userInfo: null,
     time: (10 - time.getHours() <= 0 ? time.getHours() : '0' + time.getHours()) + ':' + ((10 - time.getMinutes()) <= 0 ? time.getMinutes() : '0' + time.getMinutes()),
     today: time.getFullYear() + '-' + (9 - time.getMonth() <= 0 ? (time.getMonth() + 1) : '0' + (time.getMonth() + 1)) + '-' + ((10 - time.getDate()) <= 0 ? time.getDate() : '0' + time.getDate()),

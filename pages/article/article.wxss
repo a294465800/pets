@@ -125,12 +125,12 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-start;
-  padding: 20rpx;
+  padding: 20rpx 20rpx 0;
   background-color: #fff;
 }
 
-.article_comment_item:nth-last-child(1) {
-  margin-bottom: 120rpx;
+.bottom {
+  margin: 30rpx 0 120rpx;
 }
 
 .article_comment_img {
@@ -145,12 +145,18 @@
 
 .article_comment_name {
   font-size: 28rpx;
+  color: #999;
 }
 
 .article_comment_time {
   color: #999;
   font-size: 24rpx;
   margin: 4rpx 0 10rpx;
+}
+
+.article_comment_content {
+  padding-bottom: 20rpx;
+  border-bottom: 2rpx solid #eee;
 }
 
 /*添加评论*/

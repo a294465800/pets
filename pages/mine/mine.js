@@ -78,8 +78,22 @@ Page({
 
   //收藏页面跳转
   goToCollect(e) {
-    wx.navigateTo({
-      url: '/pages/collect/collect',
-    })
+    if (!app.globalData.userInfo) {
+      wx.showModal({
+        title: '提示',
+        content: '请先登录~',
+        success: res => {
+          if (res.confirm) {
+            wx.navigateTo({
+              url: '/pages/mine_edit/mine_edit',
+            })
+          }
+        }
+      })
+    } else {
+      wx.navigateTo({
+        url: '/pages/collect/collect',
+      })
+    }
   }
 })

@@ -96,3 +96,9 @@
   flex-direction: row;
   justify-content: flex-start;
 }
+
+/*没有文章的样式*/
+.no_articles {
+  padding-top: 30rpx;
+  text-align: center;
+}

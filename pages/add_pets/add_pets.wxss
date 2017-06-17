@@ -96,7 +96,7 @@
 
 .sexHide {
   width: 580rpx;
-  height: 400rpx;
+  height: 350rpx;
   box-sizing: border-box;
   padding: 40rpx 60rpx;
   position: fixed;
@@ -161,13 +161,15 @@
 
 .tel_button {
   margin: 0 auto;
-  width: 100rpx;
-  height: 70rpx;
+  width: 120rpx;
+  height: 80rpx;
   background-color: green;
   color: #fff;
-  text-align: center;
-  line-height: 70rpx;
   border-radius: 10rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 /*删除宠物*/

@@ -48,7 +48,7 @@
                     </view>
                     <view class="info_item">
                       <image src="/images/icon/read.png" mode="aspectFit" class="read"></image>
-                      <view>{{item.read}}</view>
+                      <view>{{item.read > 999?'999+':item.read}}</view>
                     </view>
                   </view>
                 </view>
