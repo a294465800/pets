@@ -104,6 +104,7 @@ Page({
     else {
       wx.showLoading({
         title: '评论加载中···',
+        mask: true
       })
       wx.request({
         url: app.globalData.host + 'comments',
@@ -216,7 +217,7 @@ Page({
       let article_item = {
         id: 0,
         avatar: that.data.userInfo.avatarUrl,
-        userName: that.data.userInfo.nickName,
+        username: that.data.userInfo.nickName,
         createtime: (9 - time.getMonth() <= 0 ? (time.getMonth() + 1) : '0' + (time.getMonth() + 1)) + '-' + ((10 - time.getDate()) <= 0 ? time.getDate() : '0' + time.getDate()) + ' ' + (10 - time.getHours() <= 0 ? time.getHours() : '0' + time.getHours()) + ':' + ((10 - time.getMinutes()) <= 0 ? time.getMinutes() : '0' + time.getMinutes()),
         content: e.detail.value.article_comment
       }

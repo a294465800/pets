@@ -6,7 +6,7 @@
       <image src="{{userInfo.avatarUrl?userInfo.avatarUrl: '/images/login.png'}}" class="user_img"></image>
       <view class="userinfo">
         <view class="userinfo_message">
-          <view>{{userInfo.nickName}}</view>
+          <view>{{userInfo.nickname}}</view>
           <view class="userinfo_id">{{userInfo.avatarUrl?'ID: ' + userInfo.userID:'请登录'}}</view>
         </view>
       </view>
