@@ -334,6 +334,7 @@ Page({
       // let pet = that.data.pet_info
       // const length = app.globalData.pets.length
       // app.globalData.pets = [...[pet], ...app.globalData.pets]
+
       wx.request({
         url: app.globalData.host + 'pet/add',
         method: 'post',
@@ -346,8 +347,19 @@ Page({
           wx.showToast({
             title: '录入完成',
             complete: () => {
-              wx.switchTab({
-                url: url
+              wx.request({
+                url: app.globalData.host + 'pets',
+                header: {
+                  'content-type': 'application/x-www-form-urlencoded',
+                  'Cookie': app.globalData.LaravelID
+                },
+                success: res => {
+                  console.log(res)
+                  app.globalData.pets = res.data.data
+                  wx.switchTab({
+                    url: url
+                  })
+                }
               })
             }
           })

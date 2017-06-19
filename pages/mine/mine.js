@@ -24,13 +24,23 @@ Page({
   onShow(e) {
     const that = this
 
-    //调用宠物年龄计算
-    app.calPetsAge(app.globalData.pets)
+    wx.request({
+      url: app.globalData.host + 'pets',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded',
+        'Cookie': app.globalData.LaravelID
+      },
+      success: res => {
+        app.globalData.pets = res.data.data
+        //调用宠物年龄计算
+        app.calPetsAge(app.globalData.pets)
 
-    that.setData({
-      pets: app.globalData.pets,
-      //获取用户信息
-      userInfo: app.globalData.userInfo
+        that.setData({
+          pets: app.globalData.pets,
+          //获取用户信息
+          userInfo: app.globalData.userInfo
+        })
+      }
     })
   },
 
@@ -64,8 +74,9 @@ Page({
 
   //宠物修改跳转
   goToAdd_pets(e) {
+    console.log(e)
     wx.navigateTo({
-      url: '/pages/add_pets/add_pets',
+      url: '/pages/add_pets/add_pets?id=' + e.currentTarget.id,
     })
   },
 

@@ -1,23 +1,27 @@
 // add_pets.js
+let app = getApp()
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    pet: {
-      src: '/images/head_img.jpg',
-      name: '撕家',
-      species: '阿拉斯加',
-      sex: '男',
-      birthday: '2017-01-05'
+    today: app.globalData.today,
+    pet_id: 0,
+    pet: {},
+    sex: {
+      0: "汉子",
+      1: "妹子"
     },
     sex_radio: [{
-      name: '男',
+      name: '汉子',
+      sex: 0,
       unique: 0
     },
     {
-      name: '女',
+      name: '妹子',
+      sex: 1,
       unique: 1
     }],
     sexHide: true,
@@ -28,7 +32,42 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
+    const that = this
+    wx.request({
+      url: app.globalData.host + 'pet/' + options.id,
+      header: {
+        'content-type': 'application/x-www-form-urlencoded',
+        'Cookie': app.globalData.LaravelID
+      },
+      success: res => {
+        that.setData({
+          pet: res.data.data,
+          pet_id: options.id
+        })
+      }
+    })
+  },
 
+  //头像修改
+  chooseImg(){
+    const that = this
+    wx.chooseImage({
+      count: 1,
+      success: res => {
+        wx.uploadFile({
+          url: app.globalData.host + 'upload',
+          filePath: res.tempFilePaths[0],
+          name: 'image',
+          success: rs => {
+            let json = JSON.parse(rs.data)
+            console.log(rs)
+            that.setData({
+              'pet.img': res.tempFilePaths[0]
+            })
+          }
+        })
+      },
+    })
   },
   //性别选择
   sexChoose(e) {
@@ -42,16 +81,44 @@ Page({
     })
   },
   sexConfirm(e) {
-    this.setData({
-      sex: e.detail.value,
-      sexHide: true
+    let that = this
+    wx.request({
+      url: app.globalData.host + 'pet/modify/' + that.data.pet_id,
+      method: 'POST',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded',
+        'Cookie': app.globalData.LaravelID
+      },
+      data: {
+        sex: e.detail.value
+      },
+      success: res => {
+        that.setData({
+          'pet.sex': e.detail.value,
+          sexHide: true
+        })
+      }
     })
   },
 
   //生日修改
   birthSet(e) {
-    this.setData({
-      'pet.birthday': e.detail.value
+    const that = this
+    wx.request({
+      url: app.globalData.host + 'pet/modify/' + that.data.pet_id,
+      method: 'POST',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded',
+        'Cookie': app.globalData.LaravelID
+      },
+      data: {
+        birthday: e.detail.value
+      },
+      success: res => {
+        that.setData({
+          'pet.birthday': e.detail.value
+        })
+      }
     })
   },
 
@@ -63,7 +130,7 @@ Page({
   },
   nameInput(e) {
     this.setData({
-      telNum: e.detail.value
+      nameTemp: e.detail.value
     })
   },
   nameHidden(e) {
@@ -74,7 +141,6 @@ Page({
   nameSave(e) {
     let nameT = e.currentTarget.dataset.name
     const that = this
-    //正则判断手机号码
     if (!nameT) {
       wx.showModal({
         title: '提示',
@@ -82,10 +148,50 @@ Page({
         showCancel: false
       })
     } else {
-      that.setData({
-        'pet.name': nameT,
-        nameHide: true
+      wx.request({
+        url: app.globalData.host + 'pet/modify/' + that.data.pet_id,
+        method: 'POST',
+        header: {
+          'content-type': 'application/x-www-form-urlencoded',
+          'Cookie': app.globalData.LaravelID
+        },
+        data: {
+          name: nameT
+        },
+        success: res => {
+          that.setData({
+            'pet.name': nameT,
+            nameHide: true
+          })
+        }
       })
     }
+  },
+
+  //删除宠物
+  deletePet(){
+    const that = this
+    wx.showModal({
+      title: '提示',
+      content: '是否删除该宠物信息？（删除后无法恢复！）',
+      success: res => {
+        if(res.confirm){
+          wx.request({
+            url:  app.globalData.host + 'pet/del/' + that.data.pet_id,
+            header: {
+              'content-type': 'application/x-www-form-urlencoded',
+              'Cookie': app.globalData.LaravelID
+            },
+            success: res => {
+              console.log(res)
+              wx.showToast({
+                title: '删除成功！',
+              })
+              wx.navigateBack({})
+            }
+          })
+        }
+      }
+    })
   }
 })

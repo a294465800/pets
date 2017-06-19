@@ -42,7 +42,7 @@
   <!--点赞功能结束-->
 
   <!--评论总数开始-->
-  <view class="article_comment_count" wx:if="{{articles.comments}}">— {{articles.comments.length}}条评论 —</view>
+  <view class="article_comment_count" wx:if="{{articles.comments}}">— {{articles.commentNumber}}条评论 —</view>
   <view class="article_comment_count" wx:else>暂时还没有评论~</view>
   <!--评论总数结束-->
 

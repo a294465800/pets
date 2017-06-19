@@ -178,8 +178,10 @@
   width: 400rpx;
   height: 80rpx;
   margin: 150rpx auto 0;
-  text-align: center;
-  line-height: 80rpx;
   border: 2rpx solid #ccc;
   border-radius: 20rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }

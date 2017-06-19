@@ -21,9 +21,22 @@ App({
     })
   },
   onShow() {
-    this.getSetting()
+    let that = this
+    that.getSetting()
+    // wx.request({
+    //   url: that.globalData.host + 'pets',
+    //   header: {
+    //     'content-type': 'application/x-www-form-urlencoded',
+    //     'Cookie': that.globalData.LaravelID
+    //   },
+    //   success: res => {
+    //     console.log(res)
+    //     that.globalData.pets = res.data.data
+    //   }
+    // })
   },
   onHide() {
+    let that = this
     wx.getStorage({
       key: 'LaravelID',
       success: function (res) {
@@ -77,11 +90,22 @@ App({
                             })
                             if (that.globalData.userInfo) { }
                             else {
-                              wx.showToast({
-                                title: '登录成功',
-                              })
-                              that.globalData.userInfo = res.data.data,
+                              that.globalData.userInfo = res.data.data
                               that.globalData.LaravelID = e.header['Set-Cookie'].split(";")[0]
+                              wx.request({
+                                url: that.globalData.host + 'pets',
+                                header: {
+                                  'content-type': 'application/x-www-form-urlencoded',
+                                  'Cookie': that.globalData.LaravelID
+                                },
+                                success: res => {
+                                  wx.showToast({
+                                    title: '登录成功',
+                                  })
+                                  console.log('app.js')
+                                  that.globalData.pets = res.data.data
+                                }
+                              })
                             }
                           } else {
                             wx.showToast({
@@ -126,7 +150,7 @@ App({
                 },
                 success: e => {
                   wx.request({
-                    url: that.globalData.host +'checkLogin',
+                    url: that.globalData.host + 'checkLogin',
                     method: 'post',
                     header: {
                       'content-type': 'application/x-www-form-urlencoded',
@@ -162,6 +186,7 @@ App({
 
   //计算宠物年龄
   calPetsAge(pets) {
+    console.log(1)
     let that = this
     let today = that.globalData.today.replace(/-/g, '/')
     today = new Date(today)
@@ -197,7 +222,7 @@ App({
   //全局数据
   globalData: {
     //全局服务器
-    host: 'https://www.sennki.com/api/',
+    host: 'http://119.23.202.220/api/',
 
     //key
     LaravelID: null,

@@ -6,6 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    pet_id: 0,
     time: app.globalData.time,
     date: '今天',
     images: [],
@@ -132,7 +133,8 @@ Page({
 
     //记录最新时间
     this.setData({
-      time: app.globalData.time
+      time: app.globalData.time,
+      pet_id: options.id
     })
   },
 
@@ -171,7 +173,7 @@ Page({
   preImage(e) {
     const that = this
     wx.previewImage({
-        urls: [e.currentTarget.dataset.src],
+      urls: [e.currentTarget.dataset.src],
     })
   },
 
@@ -180,7 +182,25 @@ Page({
     const that = this
     that.setData({
       pet_eat: e.detail.value,
-      'pet_eat.images': that.data.images
+      // 'pet_eat.images': that.data.images,
+      'pet_eat.time': (that.data.date == '今天' ? app.globalData.today : that.data.date) + ' ' + that.data.time
     })
+    wx.request({
+      url: app.globalData.host + 'record/feed/' + that.data.pet_id,
+      method: 'POST',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded',
+        'Cookie': app.globalData.LaravelID
+      },
+      data: that.data.pet_eat,
+      success: res => {
+        console.log(res)
+        wx.showToast({
+          title: '保存成功！',
+        })
+        wx.navigateBack({})
+      }
+    })
+    console.log(that.data.pet_eat)
   }
 })

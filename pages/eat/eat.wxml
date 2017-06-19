@@ -9,13 +9,13 @@
     <view class="food each_line">
       <view class="food_category">
         <view class="word">喂食类别：</view>
-        <input placeholder="干粮" type="text" placeholder-class="p_input" name="food" id="food" maxlength="8"/>
+        <input placeholder="干粮" type="text" placeholder-class="p_input" name="category" id="food" maxlength="8"/>
       </view>
       <image src="/images/icon/photo.png" class="eat_photo" mode="aspectFit" bindtap="imageChoose"></image>
     </view>
     <view class="each_line">
       <view class="word">本次份量：</view>
-      <input placeholder="20" type="number" placeholder-class="p_input" name="weight" id="weight" maxlength="5"/>
+      <input placeholder="20" type="number" placeholder-class="p_input" name="number" id="weight" maxlength="5"/>
       <view class="g">g</view>
     </view>
     <view class="each_line">

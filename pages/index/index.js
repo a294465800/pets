@@ -248,18 +248,17 @@ Page({
     ]
   },
   onLoad(options) {
-
   },
   onShow(e) {
-
+    const that = this
+    app.getSetting()
     //调用宠物年龄计算
     app.calPetsAge(app.globalData.pets)
 
-    const that = this
     //更新数据
     let index = that.data.pet_index
     that.setData({
-      first_time: app.globalData.pets.length == 0 ? true : false,
+      first_time: app.globalData.pets[0] ? false : true,
       pets: app.globalData.pets,
       pet: app.globalData.pets[index],
     })
@@ -377,33 +376,38 @@ Page({
 
   //成长记录各页面跳转
   eat(e) {
-    this.timeRecord()
+    const that = this
+    that.timeRecord()
     wx.navigateTo({
-      url: '/pages/eat/eat',
+      url: '/pages/eat/eat?id=' + that.data.pet.id,
     })
   },
   health(e) {
-    this.timeRecord()
+    const that = this
+    that.timeRecord()
     wx.navigateTo({
-      url: '/pages/health/health',
+      url: '/pages/health/health?id=' + that.data.pet.id,
     })
   },
   play(e) {
-    this.timeRecord()
+    const that = this
+    that.timeRecord()
     wx.navigateTo({
-      url: '/pages/play/play',
+      url: '/pages/play/play?id=' + that.data.pet.id,
     })
   },
   grow(e) {
-    this.timeRecord()
+    const that = this
+    that.timeRecord()
     wx.navigateTo({
-      url: '/pages/grow/grow',
+      url: '/pages/grow/grow?id=' + that.data.pet.id,
     })
   },
   clean(e) {
-    this.timeRecord()
+    const that = this
+    that.timeRecord()
     wx.navigateTo({
-      url: '/pages/clean/clean',
+      url: '/pages/clean/clean?id=' + that.data.pet.id,
     })
   },
   paybook(e) {

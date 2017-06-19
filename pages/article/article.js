@@ -50,7 +50,7 @@ Page({
     LaravelID: null,
 
     //评论页数
-    page: 0,
+    page: 1,
 
     //评论加载完毕提示
     comment_end: false
@@ -76,7 +76,6 @@ Page({
           bad_count: res.data.data.dislike,
           article_control: false
         })
-        console.log(that.data.articles.comments)
         wx.hideLoading()
       }
     })
@@ -217,7 +216,7 @@ Page({
       let article_item = {
         id: 0,
         avatar: that.data.userInfo.avatarUrl,
-        username: that.data.userInfo.nickName,
+        userName: that.data.userInfo.nickName,
         createtime: (9 - time.getMonth() <= 0 ? (time.getMonth() + 1) : '0' + (time.getMonth() + 1)) + '-' + ((10 - time.getDate()) <= 0 ? time.getDate() : '0' + time.getDate()) + ' ' + (10 - time.getHours() <= 0 ? time.getHours() : '0' + time.getHours()) + ':' + ((10 - time.getMinutes()) <= 0 ? time.getMinutes() : '0' + time.getMinutes()),
         content: e.detail.value.article_comment
       }
@@ -226,11 +225,12 @@ Page({
       that.setData({
         article_input: false,
         value: '',
-        'articles.comments': [...[article_item], ...that.data.articles.comments]
+        'articles.comments': [...[article_item], ...that.data.articles.comments],
+        'article.commentNumber': that.data.article.commentNumber + 1
       })
       wx.hideKeyboard()
       wx.request({
-        url: app.globalData.host + 'api/comment',
+        url: app.globalData.host + 'comment',
         method: 'POST',
         header: {
           'content-type': 'application/x-www-form-urlencoded',
@@ -276,7 +276,7 @@ Page({
   collectNews(e) {
     let that = this
     wx.request({
-      url: app.globalData.host + 'api/collect/' + that.data.articles.id,
+      url: app.globalData.host + 'collect/' + that.data.articles.id,
       header: {
         'content-type': 'application/x-www-form-urlencoded',
         'Cookie': that.data.LaravelID

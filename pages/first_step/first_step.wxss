@@ -51,24 +51,25 @@ swiper {
   text-align: center;
 }
 
-.second_page .second-scroll {
-  width: 200%;
-}
-
 .second-scroll {
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: space-around;
   align-items: flex-start;
   flex-wrap: wrap;
+  min-height: 100rpx;
+  max-height: 570rpx;
+  width: 90%;
+  margin: 0 auto;
+  background-color: #eee;
 }
 
 .species_item {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
-  margin: 14rpx 38rpx;
+  margin: 10rpx 0 0 16rpx;
 }
 
 .species_item .species_img {
@@ -193,8 +194,8 @@ swiper {
 }
 
 .weight_input input {
-  width: 320rpx!important;
-  border: none!important;
+  width: 320rpx !important;
+  border: none !important;
   border-radius: 0;
 }
 

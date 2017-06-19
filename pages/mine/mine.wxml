@@ -27,9 +27,9 @@
       <view class="pets_species">种类</view>
       <view class="pets_age">年龄</view>
     </view>
-    <view class="pets_list" hover-class="push_class" bindtap="goToAdd_pets" wx:for="{{pets}}" wx:key="unique">
+    <view class="pets_list" hover-class="push_class" bindtap="goToAdd_pets" wx:for="{{pets}}" wx:key="id" id="{{item.id}}">
       <view class="pets_name">{{item.name || '无'}}</view>
-      <view class="pets_species">{{item.species_zn || '未知'}}</view>
+      <view class="pets_species">{{item.kindName || '未知'}}</view>
       <view class="pets_age">{{item.age || '未知'}}</view>
     </view>
   </view>
