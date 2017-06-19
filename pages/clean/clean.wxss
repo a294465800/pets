@@ -6,7 +6,7 @@
 
 /*表单样式*/
 
-picker {
+.clean_type {
   width: 240rpx;
 }
 

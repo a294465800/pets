@@ -7,6 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    pet_id: 0,
     time: app.globalData.time,
     timeEnd: app.globalData.time,
     calTime: '',
@@ -134,10 +135,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
+    const that = this
     //记录最新时间
-    this.setData({
+    that.setData({
       time: app.globalData.time,
       timeEnd: app.globalData.time,
+      pet_id: options.id
     })
   },
 
@@ -164,7 +167,7 @@ Page({
     const that = this
     wx.chooseImage({
       count: 4,
-      success:res => {
+      success: res => {
         var tempFilePaths = res.tempFilePaths
         that.setData({
           images: tempFilePaths
@@ -177,7 +180,7 @@ Page({
   preImage(e) {
     const that = this
     wx.previewImage({
-        urls: [e.currentTarget.dataset.src],
+      urls: [e.currentTarget.dataset.src],
     })
   },
 
@@ -199,9 +202,27 @@ Page({
     const that = this
     that.setData({
       play: e.detail.value,
-      'play.timeStart': that.data.time,
-      'play.timeEnd': that.data.timeEnd,
-      'play.images': that.data.images
+      'play.start': (that.data.date == '今天' ? app.globalData.today : that.data.date) + ' ' + that.data.time,
+      'play.end': (that.data.date == '今天' ? app.globalData.today : that.data.date) + ' ' + that.data.timeEnd,
+      // 'play.images': that.data.images
+    })
+    wx.request({
+      url: app.globalData.host + 'record/play/' + that.data.pet_id,
+      method: 'POST',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded',
+        'Cookie': app.globalData.LaravelID
+      },
+      data: that.data.play,
+      success: res => {
+        console.log(res)
+        wx.showToast({
+          title: '保存成功！',
+          success: rs => {
+            wx.navigateBack({})
+          }
+        })
+      }
     })
   }
 })

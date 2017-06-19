@@ -7,6 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    pet_id: 0,
     time: app.globalData.time,
     date: '今天',
     images: [],
@@ -123,7 +124,6 @@ Page({
       }
     ],
     grow: {}
-
   },
 
   /**
@@ -132,7 +132,8 @@ Page({
   onLoad(options) {
     //记录最新时间
     this.setData({
-      time: app.globalData.time
+      time: app.globalData.time,
+      pet_id: options.id
     })
   },
   //时间日期监听函数
@@ -180,7 +181,26 @@ Page({
     const that = this
     that.setData({
       grow: e.detail.value,
+      'grow.time': (that.data.date == '今天' ? app.globalData.today : that.data.date) + ' ' + that.data.time,
       'grow.images': that.data.images
+    })
+    wx.request({
+      url: app.globalData.host + 'record/feature/' + that.data.pet_id,
+      method: 'POST',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded',
+        'Cookie': app.globalData.LaravelID
+      },
+      data: that.data.grow,
+      success: res => {
+        console.log(res)
+        wx.showToast({
+          title: '保存成功！',
+          success: rs => {
+            wx.navigateBack({})
+          }
+        })
+      }
     })
   }
 })

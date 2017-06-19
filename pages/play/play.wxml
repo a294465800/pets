@@ -9,14 +9,13 @@
     <view class="way part">
       <view class="way_left">
         <view class="word_2bit">方式：</view>
-        <input placeholder="散步" type="text" placeholder-class="p_input" class="min_width" name="way" maxlength="8"/>
+        <input placeholder="散步" type="text" placeholder-class="p_input" class="min_width" name="type" maxlength="8"/>
       </view>
       <image src="/images/icon/photo.png" class="photo" mode="aspectFit" bindtap="imageChoose"></image>
     </view>
     <view class="time part">
       <view class="word_2bit">时间：</view>
       <view class="time_wrap">
-        <!--<picker mode="time" value="{{timeStart}}" start="00:00" end="24:00" bindchange="timeStart">{{timeStart}}</picker>-->
         <picker mode="time" value="{{time}}" start="00:00" end="24:00" bindchange="timeStart">{{time}}</picker>
         <view>至</view>
         <picker mode="time" value="{{timeEnd}}" start="{{time}}" end="24:00" bindchange="timeEnd">{{timeEnd}}</picker>

@@ -14,12 +14,12 @@
             <view>{{category[index]}}</view>
           </picker>
         </view>
-        <view class="sick_name each_part" hidden="{{index == 3?false:true}}">
+        <view class="sick_name each_part" hidden="{{category[index] == '生病'?false:true}}">
           <view class="word_2bit">疾病：</view>
-          <input type="text" placeholder="腹泻" placeholder-class="p_input" name="sick" maxlength="8"/>
+          <input type="text" placeholder="腹泻" placeholder-class="p_input" name="illness" maxlength="8"/>
         </view>
       </view>
-      <view class="symptom each_part" hidden="{{index == 3?false:true}}">
+      <view class="symptom each_part" hidden="{{category[index] == '生病'?false:true}}">
         <view class="word_4bit">症状：</view>
         <textarea type="text" placeholder="浑身无力" class="p_input" name="symptom" maxlength="1000"/>
       </view>
