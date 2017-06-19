@@ -3,12 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="0003dbec-efe5-4fab-a0ac-c95e9e1671c1" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/article/article.js" afterPath="$PROJECT_DIR$/pages/article/article.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/eat/eat.js" afterPath="$PROJECT_DIR$/pages/eat/eat.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/add_paybook/add_paybook.js" afterPath="$PROJECT_DIR$/pages/add_paybook/add_paybook.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/add_paybook/add_paybook.wxml" afterPath="$PROJECT_DIR$/pages/add_paybook/add_paybook.wxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/index/index.js" afterPath="$PROJECT_DIR$/pages/index/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/mine/mine.js" afterPath="$PROJECT_DIR$/pages/mine/mine.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/mine_edit/mine_edit.js" afterPath="$PROJECT_DIR$/pages/mine_edit/mine_edit.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/paybook/paybook.js" afterPath="$PROJECT_DIR$/pages/paybook/paybook.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -137,7 +135,7 @@
       <workItem from="1497613189037" duration="173000" />
       <workItem from="1497668326168" duration="594000" />
       <workItem from="1497688402546" duration="1733000" />
-      <workItem from="1497854201302" duration="1361000" />
+      <workItem from="1497854201302" duration="2015000" />
     </task>
     <task id="LOCAL-00001" summary="new">
       <created>1496227866682</created>
@@ -293,11 +291,18 @@
       <option name="project" value="LOCAL" />
       <updated>1497859634271</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="fixed the bug in fist_step page between login and pets.">
+      <created>1497867935914</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1497867935914</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12277000" />
+    <option name="totallyTimeSpent" value="12931000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="233" y="100" width="1414" height="843" extended-state="0" />
@@ -346,7 +351,8 @@
     <MESSAGE value="little change." />
     <MESSAGE value="now we can edit and save the pet info." />
     <MESSAGE value="now we can add grow records in each page." />
-    <option name="LAST_COMMIT_MESSAGE" value="now we can add grow records in each page." />
+    <MESSAGE value="fixed the bug in fist_step page between login and pets." />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed the bug in fist_step page between login and pets." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />

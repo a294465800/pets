@@ -1,10 +1,10 @@
 <!--add_paybook.wxml-->
 <view class="container">
   <view class="add_paybook">
-    <view class="add_paybook_item" wx:for="{{paybook_item}}" id="{{index}}" bindtap="paybook_input" wx:key="unique">
-      <image src="{{item.src}}" class="add_paybook_item_img {{item_select == index?'select':''}}" mode="aspectFit">
+    <view class="add_paybook_item" wx:for="{{paybook_item}}" id="{{index}}" data-id="{{item.id}}" bindtap="paybook_input" wx:key="id">
+      <image src="{{item.img}}" class="add_paybook_item_img {{item_select == index?'select':''}}" mode="aspectFit">
       </image>
-      <view class="add_paybook_item_word">{{item.zn}}</view>
+      <view class="add_paybook_item_word">{{item.title}}</view>
     </view>
   </view>
 </view>

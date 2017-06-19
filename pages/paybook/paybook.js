@@ -8,6 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    pet_id: 0,
     today: app.globalData.today,
     year: time_arr[0],
     month: Number(time_arr[1]),
@@ -130,7 +131,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+    this.setData({
+      pet_id: options.id
+    })
   },
   paybookChoose(e) {
     let arr = e.detail.value.split('-')
@@ -172,8 +175,9 @@ Page({
 
   //跳转添加账单
   addPaybook(e){
+    const that = this
     wx.navigateTo({
-      url: '/pages/add_paybook/add_paybook',
+      url: '/pages/add_paybook/add_paybook?id=' + that.data.pet_id,
     })
   }
 })

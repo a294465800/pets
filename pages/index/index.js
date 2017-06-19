@@ -426,9 +426,10 @@ Page({
     })
   },
   paybook(e) {
-    this.timeRecord()
+    const that = this
+    that.timeRecord()
     wx.navigateTo({
-      url: '/pages/paybook/paybook',
+      url: '/pages/paybook/paybook?id=' + that.data.pet.id,
     })
   },
 
