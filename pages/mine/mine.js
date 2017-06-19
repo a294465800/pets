@@ -17,9 +17,9 @@ Page({
   onLoad(options) {
     const that = this
 
-    that.setData({
-      pets: app.globalData.pets
-    })
+    // that.setData({
+    //   pets: app.globalData.pets
+    // })
   },
   onShow(e) {
     const that = this
@@ -31,15 +31,20 @@ Page({
         'Cookie': app.globalData.LaravelID
       },
       success: res => {
-        app.globalData.pets = res.data.data
-        //调用宠物年龄计算
-        app.calPetsAge(app.globalData.pets)
+        if (res.data.code == 200) {
+          app.globalData.pets = res.data.data
+          //调用宠物年龄计算
+          app.calPetsAge(app.globalData.pets)
 
-        that.setData({
-          pets: app.globalData.pets,
-          //获取用户信息
-          userInfo: app.globalData.userInfo
-        })
+          that.setData({
+            pets: app.globalData.pets,
+            //获取用户信息
+            userInfo: app.globalData.userInfo
+          })
+        } else {
+          that.data.pets = null
+          app.globalData.pets = null
+        }
       }
     })
   },

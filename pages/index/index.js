@@ -251,16 +251,28 @@ Page({
   },
   onShow(e) {
     const that = this
-    app.getSetting()
-    //调用宠物年龄计算
-    app.calPetsAge(app.globalData.pets)
-
     //更新数据
-    let index = that.data.pet_index
-    that.setData({
-      first_time: app.globalData.pets[0] ? false : true,
-      pets: app.globalData.pets,
-      pet: app.globalData.pets[index],
+    app.getSetting((userInfo) => {
+      if (userInfo.petNumber > 0) {
+        wx.request({
+          url: app.globalData.host + 'pets',
+          header: {
+            'content-type': 'application/x-www-form-urlencoded',
+            'Cookie': app.globalData.LaravelID
+          },
+          success: res => {
+            //调用宠物年龄计算
+            app.globalData.pets = res.data.data
+            app.calPetsAge(app.globalData.pets)
+            console.log(res.data.data)
+            that.setData({
+              first_time: false,
+              pets: res.data.data,
+              pet: res.data.data[that.data.pet_index],
+            })
+          }
+        })
+      }
     })
   },
   //记录当前时间
@@ -295,18 +307,21 @@ Page({
     if (index > app.globalData.pets.length - 1) {
       index = 0
     }
-    wx.showToast({
+    wx.showLoading({
       title: '切换中',
-      icon: 'loading',
-      duration: 200,
-      mask: true,
-      success: () => {
-        setTimeout(() => {
-          that.setData({
-            pet_index: index,
-            pet: app.globalData.pets[index]
-          })
-        }, 200)
+    })
+    wx.request({
+      url: app.globalData.host + 'pet/' + that.data.pets[index].id,
+      header: {
+        'content-type': 'application/x-www-form-urlencoded',
+        'Cookie': app.globalData.LaravelID
+      },
+      success: res => {
+        that.setData({
+          pet_index: index,
+          pet: res.data.data
+        })
+        wx.hideLoading()
       }
     })
   },

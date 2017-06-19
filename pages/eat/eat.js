@@ -204,27 +204,6 @@ Page({
 
     //图片上传
     that.uploadImage(0)
-    // let i = 0
-    // wx.uploadFile({
-    //   url: app.globalData.host + 'test',
-    //   filePath: that.data.images[i],
-    //   name: 'images',
-    //   success: res => {
-    //     console.log(res)
-    //     // let json = JSON.parse(res.data)
-    //     // wx.request({
-    //     //   url: '',
-    //     // })
-    //   }
-    // })
-    wx.uploadFile({
-      url: app.globalData.host + 'test',
-      filePath: that.data.images[0],
-      name: 'image',
-      success: res => {
-        console.log(res)
-      }
-    })
 
     wx.request({
       url: app.globalData.host + 'record/feed/' + that.data.pet_id,

@@ -26,20 +26,15 @@ Page({
    */
   onLoad(options) {
     const that = this
-  },
-  onUnload() {
-    console.log('unload')
+    app.Login((userInfo) => {
+      that.setData({
+        userInfo: userInfo,
+      })
+    })
   },
   onShow() {
-    let that = this
-    wx.getStorage({
-      key: 'LaravelID',
-      success: res => {
-        this.setData({
-          userInfo: app.globalData.userInfo,
-          LaravelID: res.data
-        })
-      },
+    this.setData({
+      userInfo: app.globalData.userInfo,
     })
   },
 
@@ -55,14 +50,17 @@ Page({
             })
           })
         } else if (res.authSetting["scope.userInfo"] == false) {
-          that.setData({
-            userInfo: null
-          })
-          app.globalData.userInfo = null
           wx.request({
             url: app.globalData.host + 'logout',
             success: res => {
-              console.log(res)
+              that.setData({
+                userInfo: null,
+                pet: null,
+                pets: null
+              })
+              app.globalData.userInfo = null
+              app.globalData.pet = null
+              app.globalData.pets = null
             }
           })
         } else if (!res.authSetting["scope.userInfo"]) {
@@ -86,7 +84,7 @@ Page({
       method: 'POST',
       header: {
         'content-type': 'application/x-www-form-urlencoded',
-        'Cookie': that.data.LaravelID
+        'Cookie': app.globalData.LaravelID
       },
       data: {
         birthday: e.detail.value
@@ -131,7 +129,7 @@ Page({
         method: 'POST',
         header: {
           'content-type': 'application/x-www-form-urlencoded',
-          'Cookie': that.data.LaravelID
+          'Cookie': app.globalData.LaravelID
         },
         data: {
           number: telP

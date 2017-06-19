@@ -34,6 +34,9 @@ Page({
     //清空value
     value: '',
 
+    //文章id
+    article_id: 0,
+
     //文章
     articles: null,
 
@@ -45,9 +48,6 @@ Page({
 
     //分享提示
     share_tip: true,
-
-    //key
-    LaravelID: null,
 
     //评论页数
     page: 1,
@@ -62,6 +62,9 @@ Page({
   onLoad(options) {
     const that = this
     let article
+    that.setData({
+      article_control: true
+    })
     wx.showLoading({
       title: '加载中···',
     })
@@ -79,20 +82,11 @@ Page({
         wx.hideLoading()
       }
     })
-    wx.getStorage({
-      key: 'LaravelID',
-      success: res => {
-        that.setData({
-          LaravelID: res.data
-        })
-      },
-    })
   },
   onShow() {
     const that = this
     that.setData({
-      userInfo: app.globalData.userInfo,
-      article_control: true
+      userInfo: app.globalData.userInfo
     })
   },
 
@@ -149,7 +143,7 @@ Page({
         url: app.globalData.host + 'article/like/' + that.data.articles.id,
         header: {
           'content-type': 'application/x-www-form-urlencoded',
-          'Cookie': that.data.LaravelID
+          'Cookie': app.globalData.LaravelID
         },
       })
       setTimeout(() => {
@@ -182,7 +176,7 @@ Page({
         url: app.globalData.host + 'article/dislike/' + that.data.articles.id,
         header: {
           'content-type': 'application/x-www-form-urlencoded',
-          'Cookie': that.data.LaravelID
+          'Cookie': app.globalData.LaravelID
         },
       })
       setTimeout(() => {
@@ -234,7 +228,7 @@ Page({
         method: 'POST',
         header: {
           'content-type': 'application/x-www-form-urlencoded',
-          'Cookie': that.data.LaravelID
+          'Cookie': app.globalData.LaravelID
         },
         data: {
           aid: that.data.articles.id,
@@ -279,7 +273,7 @@ Page({
       url: app.globalData.host + 'collect/' + that.data.articles.id,
       header: {
         'content-type': 'application/x-www-form-urlencoded',
-        'Cookie': that.data.LaravelID
+        'Cookie': app.globalData.LaravelID
       },
       data: {
         state: that.data.articles.collect == 0 ? 1 : 0

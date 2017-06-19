@@ -21,33 +21,17 @@ App({
     })
   },
   onShow() {
-    let that = this
+    const that = this
     that.getSetting()
-    // wx.request({
-    //   url: that.globalData.host + 'pets',
-    //   header: {
-    //     'content-type': 'application/x-www-form-urlencoded',
-    //     'Cookie': that.globalData.LaravelID
-    //   },
-    //   success: res => {
-    //     console.log(res)
-    //     that.globalData.pets = res.data.data
-    //   }
-    // })
   },
   onHide() {
-    let that = this
-    wx.getStorage({
-      key: 'LaravelID',
-      success: function (res) {
-        wx.request({
-          url: that.globalData.host + 'logout',
-          header: {
-            'content-type': 'application/x-www-form-urlencoded',
-            'Cookie': res.data
-          }
-        })
-      },
+    const that = this
+    wx.request({
+      url: that.globalData.host + 'logout',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded',
+        'Cookie': that.globalData.LaravelID
+      }
     })
     wx.removeStorage({
       key: 'LaravelID'
@@ -55,12 +39,93 @@ App({
   },
 
   //获取用户设置
-  getSetting() {
+  getSetting(cb) {
     let that = this
+    //调用登录接口
+    wx.login({
+      withCredentials: true,
+      success: rs => {
+        wx.getUserInfo({
+          success: res => {
+            wx.request({
+              url: that.globalData.host + 'login',
+              method: 'post',
+              data: {
+                code: rs.code,
+                encryptedData: res.encryptedData,
+                iv: res.iv
+              },
+              success: e => {
+                wx.request({
+                  url: that.globalData.host + 'checkLogin',
+                  method: 'post',
+                  header: {
+                    'content-type': 'application/x-www-form-urlencoded',
+                    'Cookie': e.header['Set-Cookie'].split(";")[0]
+                  },
+                  success: res => {
+                    if (200 == res.data.code) {
+                      wx.setStorage({
+                        key: 'LaravelID',
+                        data: e.header['Set-Cookie'].split(";")[0],
+                      })
+                      if (that.globalData.userInfo) {
+                        typeof cb == "function" && cb(that.globalData.userInfo)
+                      }
+                      else {
+                        that.globalData.userInfo = res.data.data
+                        that.globalData.LaravelID = e.header['Set-Cookie'].split(";")[0]
+                        wx.showToast({
+                          title: '登录成功',
+                        })
+                        typeof cb == "function" && cb(that.globalData.userInfo)
+                      }
+                    } else {
+                      wx.showToast({
+                        title: '登录失败',
+                      })
+                    }
+                  }
+                })
+              }
+            })
+          }
+        })
+      }
+    })
+  },
+
+  //直接登录
+  Login() {
+    const that = this
     wx.getSetting({
       success: res => {
         if (res.authSetting["scope.userInfo"] == true) {
-          //调用登录接口
+          wx.request({
+            url: that.globalData.host + 'checkLogin',
+            method: 'post',
+            header: {
+              'content-type': 'application/x-www-form-urlencoded',
+              'Cookie': that.globalData.LaravelID
+            },
+            success: rs => {
+              if (200 == rs.data.code) {
+                that.globalData.userInfo = rs.data.data
+                typeof cb == "function" && cb(that.globalData.userInfo)
+              }
+            }
+          })
+        }
+      }
+    })
+  },
+
+  getUserInfo(cb) {
+    let that = this
+    //调用登录接口
+    wx.getSetting({
+      success: res => {
+        if (res.authSetting["scope.userInfo"] == true) {
           wx.login({
             withCredentials: true,
             success: rs => {
@@ -88,25 +153,12 @@ App({
                               key: 'LaravelID',
                               data: e.header['Set-Cookie'].split(";")[0],
                             })
-                            if (that.globalData.userInfo) { }
-                            else {
-                              that.globalData.userInfo = res.data.data
-                              that.globalData.LaravelID = e.header['Set-Cookie'].split(";")[0]
-                              wx.request({
-                                url: that.globalData.host + 'pets',
-                                header: {
-                                  'content-type': 'application/x-www-form-urlencoded',
-                                  'Cookie': that.globalData.LaravelID
-                                },
-                                success: res => {
-                                  wx.showToast({
-                                    title: '登录成功',
-                                  })
-                                  console.log('app.js')
-                                  that.globalData.pets = res.data.data
-                                }
-                              })
-                            }
+                            wx.showToast({
+                              title: '登录成功',
+                            })
+                            that.globalData.LaravelID = e.header['Set-Cookie'].split(";")[0]
+                            that.globalData.userInfo = res.data.data
+                            typeof cb == "function" && cb(that.globalData.userInfo)
                           } else {
                             wx.showToast({
                               title: '登录失败',
@@ -120,73 +172,13 @@ App({
               })
             }
           })
-        } else if (res.authSetting["scope.userInfo"] == false) {
-          wx.request({
-            url: that.globalData.host + 'logout'
-          })
         }
       }
     })
   },
 
-  getUserInfo(cb) {
-    let that = this
-    if (this.globalData.userInfo) {
-      typeof cb == "function" && cb(this.globalData.userInfo)
-    } else {
-      //调用登录接口
-      wx.login({
-        withCredentials: true,
-        success: rs => {
-          wx.getUserInfo({
-            success: res => {
-              wx.request({
-                url: that.globalData.host + 'login',
-                method: 'post',
-                data: {
-                  code: rs.code,
-                  encryptedData: res.encryptedData,
-                  iv: res.iv
-                },
-                success: e => {
-                  wx.request({
-                    url: that.globalData.host + 'checkLogin',
-                    method: 'post',
-                    header: {
-                      'content-type': 'application/x-www-form-urlencoded',
-                      'Cookie': e.header['Set-Cookie'].split(";")[0]
-                    },
-                    success: res => {
-                      if (200 == res.data.code) {
-                        wx.setStorage({
-                          key: 'LaravelID',
-                          data: e.header['Set-Cookie'].split(";")[0],
-                        })
-                        wx.showToast({
-                          title: '登录成功',
-                        })
-                        that.globalData.userInfo = res.data.data
-                        console.log(that.globalData.userInfo)
-                        typeof cb == "function" && cb(that.globalData.userInfo)
-                      } else {
-                        wx.showToast({
-                          title: '登录失败',
-                        })
-                      }
-                    }
-                  })
-                }
-              })
-            }
-          })
-        }
-      })
-    }
-  },
-
   //计算宠物年龄
   calPetsAge(pets) {
-    console.log(1)
     let that = this
     let today = that.globalData.today.replace(/-/g, '/')
     today = new Date(today)

@@ -3,16 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="0003dbec-efe5-4fab-a0ac-c95e9e1671c1" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/clean/clean.js" afterPath="$PROJECT_DIR$/pages/clean/clean.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/clean/clean.wxml" afterPath="$PROJECT_DIR$/pages/clean/clean.wxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/clean/clean.wxss" afterPath="$PROJECT_DIR$/pages/clean/clean.wxss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/article/article.js" afterPath="$PROJECT_DIR$/pages/article/article.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/eat/eat.js" afterPath="$PROJECT_DIR$/pages/eat/eat.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/grow/grow.js" afterPath="$PROJECT_DIR$/pages/grow/grow.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/grow/grow.wxml" afterPath="$PROJECT_DIR$/pages/grow/grow.wxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/health/health.js" afterPath="$PROJECT_DIR$/pages/health/health.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/health/health.wxml" afterPath="$PROJECT_DIR$/pages/health/health.wxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/play/play.js" afterPath="$PROJECT_DIR$/pages/play/play.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/play/play.wxml" afterPath="$PROJECT_DIR$/pages/play/play.wxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/index/index.js" afterPath="$PROJECT_DIR$/pages/index/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/mine/mine.js" afterPath="$PROJECT_DIR$/pages/mine/mine.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/mine_edit/mine_edit.js" afterPath="$PROJECT_DIR$/pages/mine_edit/mine_edit.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -38,8 +34,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="521" />
-    <option name="y" value="90" />
+    <option name="x" value="233" />
+    <option name="y" value="100" />
     <option name="width" value="1414" />
     <option name="height" value="843" />
   </component>
@@ -141,7 +137,7 @@
       <workItem from="1497613189037" duration="173000" />
       <workItem from="1497668326168" duration="594000" />
       <workItem from="1497688402546" duration="1733000" />
-      <workItem from="1497854201302" duration="670000" />
+      <workItem from="1497854201302" duration="1361000" />
     </task>
     <task id="LOCAL-00001" summary="new">
       <created>1496227866682</created>
@@ -290,14 +286,21 @@
       <option name="project" value="LOCAL" />
       <updated>1497854271965</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="now we can add grow records in each page.">
+      <created>1497859634271</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1497859634271</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="11586000" />
+    <option name="totallyTimeSpent" value="12277000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="521" y="90" width="1414" height="843" extended-state="0" />
+    <frame x="233" y="100" width="1414" height="843" extended-state="0" />
     <layout>
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24854651" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -342,7 +345,8 @@
     <MESSAGE value="finish the interface: pets add." />
     <MESSAGE value="little change." />
     <MESSAGE value="now we can edit and save the pet info." />
-    <option name="LAST_COMMIT_MESSAGE" value="now we can edit and save the pet info." />
+    <MESSAGE value="now we can add grow records in each page." />
+    <option name="LAST_COMMIT_MESSAGE" value="now we can add grow records in each page." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
