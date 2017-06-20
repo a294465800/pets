@@ -43,9 +43,6 @@ Page({
     //文章加载
     article_control: true,
 
-    //收藏提示
-    collect_tip: false,
-
     //分享提示
     share_tip: true,
 
@@ -71,6 +68,7 @@ Page({
     wx.request({
       url: app.globalData.host + 'article/' + options.id,
       success: res => {
+        //预留
         article = res.data.data.content.replace(/&amp;nbsp;/g, ' ')
         WxParse.wxParse('article', 'html', article, that, 5)
         that.setData({
@@ -135,9 +133,6 @@ Page({
         'articles.like': (that.data.articles.like + 1),
         'good.flag': true,
         'good.flag_plus': false,
-        // 'bad.flag': false,
-        // 'artilces.dislike': that.data.article_first ? (that.data.articles.dislike - 1) : that.data.bad_count,
-        // article_first: true
       })
       wx.request({
         url: app.globalData.host + 'article/like/' + that.data.articles.id,
@@ -168,9 +163,6 @@ Page({
         'articles.dislike': (that.data.articles.dislike + 1),
         'bad.flag': true,
         'bad.flag_plus': false,
-        // 'good.flag': false,
-        // good_count: that.data.article_first ? (that.data.good_count - 1) : that.data.good_count,
-        // article_first: true
       })
       wx.request({
         url: app.globalData.host + 'article/dislike/' + that.data.articles.id,
@@ -206,7 +198,6 @@ Page({
     let that = this
     if (app.globalData.userInfo) {
       let time = new Date()
-      // const length = this.data.article_list.length
       let article_item = {
         id: 0,
         avatar: that.data.userInfo.avatarUrl,
@@ -214,8 +205,6 @@ Page({
         createtime: (9 - time.getMonth() <= 0 ? (time.getMonth() + 1) : '0' + (time.getMonth() + 1)) + '-' + ((10 - time.getDate()) <= 0 ? time.getDate() : '0' + time.getDate()) + ' ' + (10 - time.getHours() <= 0 ? time.getHours() : '0' + time.getHours()) + ':' + ((10 - time.getMinutes()) <= 0 ? time.getMinutes() : '0' + time.getMinutes()),
         content: e.detail.value.article_comment
       }
-      // that.data.article_list = [...[article_item], ...that.data.articles.comments]
-      // let path = 'article_list[' + length + ']'
       that.setData({
         article_input: false,
         value: '',
@@ -239,9 +228,6 @@ Page({
             title: '评论成功',
             icon: 'success'
           })
-          // that.setData({
-          //   article_input: false,
-          // })
         }
       })
     } else {
@@ -268,7 +254,7 @@ Page({
 
   //收藏文章
   collectNews(e) {
-    let that = this
+    const that = this
     wx.request({
       url: app.globalData.host + 'collect/' + that.data.articles.id,
       header: {
@@ -279,18 +265,16 @@ Page({
         state: that.data.articles.collect == 0 ? 1 : 0
       },
       success: res => {
-        console.log(res)
+        that.setData({
+          'articles.collect': res.data.data,
+        })
+        if (that.data.articles.collect == 1) {
+          wx.showToast({
+            title: '收藏成功'
+          })
+        }
       }
     })
-    // that.setData({
-    //   collect_tip: !that.data.collect_tip
-    // })
-    // if (that.data.collect_tip) {
-    //   wx.showToast({
-    //     title: '已加入收藏',
-    //     icon: 'success'
-    //   })
-    // }
   },
 
   //分享

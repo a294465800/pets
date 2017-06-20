@@ -248,8 +248,6 @@ Page({
     ]
   },
   onLoad(options) {
-  },
-  onShow(e) {
     const that = this
     //更新数据
     app.getSetting((userInfo) => {
@@ -261,19 +259,34 @@ Page({
             'Cookie': app.globalData.LaravelID
           },
           success: res => {
-            //调用宠物年龄计算
-            app.globalData.pets = res.data.data
-            app.calPetsAge(app.globalData.pets)
-            console.log(res.data.data)
-            that.setData({
-              first_time: false,
-              pets: res.data.data,
-              pet: res.data.data[that.data.pet_index],
-            })
+            if (200 == res.data.code) {
+              //调用宠物年龄计算
+              app.globalData.pets = res.data.data
+              app.calPetsAge(app.globalData.pets)
+              that.setData({
+                first_time: false,
+                pets: res.data.data,
+                pet: res.data.data[that.data.pet_index],
+              })
+            }
           }
         })
       }
     })
+  },
+  onShow(e) {
+    const that = this
+    if (!app.globalData.pets) {
+      that.setData({
+        first_time: true
+      })
+    } else {
+      app.calPetsAge(app.globalData.pets)
+      that.setData({
+        pets: app.globalData.pets,
+        pet: app.globalData.pets[that.data.pet_index]
+      })
+    }
   },
   //记录当前时间
   timeRecord() {

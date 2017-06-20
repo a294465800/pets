@@ -171,32 +171,7 @@
             </view>
           </view>
           <!--知识专题结束-->
-
-          <!--推荐用品开始-->
-          <!--<view class="scroll-flex shop">
-            <view class="manager_head">
-              <view class="daily_plan_head">
-                <image class="title_img product" src="/images/grow_record/product.png" mode="scaleToFill"></image>
-                <view class="title_word">推荐用品</view>
-              </view>
-              <view class="manager_entry" bindtap="goToMangaer">
-                <view>更多</view>
-                <image src="/images/grow_record/more.png" mode="scaleToFill"></image>
-              </view>
-            </view>
-            <view class="shop_part">
-              <view class="shop_img">
-                <image src="{{daily_shop.src}}" mode="aspectFit"></image>
-              </view>
-              <view class="shop_list">
-                <view class="shop_item">{{daily_shop.title}}</view>
-                <view class="shop_intro">{{daily_shop.intro}}</view>
-                <view class="shop_price">￥{{daily_shop.price}}</view>
-              </view>
-              <view class="shop_btn">采购</view>
-            </view>
-          </view>-->
-          <!--推荐用品结束-->
+          
         </scroll-view>
       </view>
       <!--今日安排结束-->

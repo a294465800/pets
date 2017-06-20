@@ -14,7 +14,7 @@
       <view class="add_paybook_input">
         <label class="input_label paybook_money">
           <view class="unit">￥</view>
-          <input type="digit" placeholder="花费" placeholder-class="p_input" name="price" value="{{reset}}" focus="{{!input_show}}" />
+          <input type="digit" placeholder="花费" placeholder-class="p_input" name="cost" value="{{reset}}" focus="{{!input_show}}" />
         </label>
         <label class="input_label paybook_remark">
           <view class="">备注：</view>

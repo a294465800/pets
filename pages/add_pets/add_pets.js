@@ -60,7 +60,6 @@ Page({
           name: 'image',
           success: rs => {
             let json = JSON.parse(rs.data)
-            console.log(rs)
             that.setData({
               'pet.img': res.tempFilePaths[0]
             })
@@ -183,7 +182,6 @@ Page({
               'Cookie': app.globalData.LaravelID
             },
             success: res => {
-              console.log(res)
               wx.showToast({
                 title: '删除成功！',
               })

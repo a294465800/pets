@@ -1,11 +1,12 @@
 // collect.js
+let app = getApp()
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    LaravelID: null,
     collects: null
   },
 
@@ -17,22 +18,17 @@ Page({
   },
   onShow() {
     let that = this
-    wx.getStorage({
-      key: 'LaravelID',
-      success: res => {
-        wx.request({
-          url: 'https://www.sennki.com/api/collects',
-          header: {
-            'content-type': 'application/x-www-form-urlencoded',
-            'Cookie': res.data
-          },
-          success: res => {
-            that.setData({
-              collects: res.data.data
-            })
-          }
-        })
+    wx.request({
+      url: app.globalData.host + 'collects',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded',
+        'Cookie': app.globalData.LaravelID
       },
+      success: res => {
+        that.setData({
+          collects: res.data.data
+        })
+      }
     })
   },
 

@@ -8,6 +8,8 @@ Page({
    */
   data: {
     pet_id: 0,
+
+    //提交的项目id
     paybook_id: 0,
     paybook_item: [
       // {
@@ -69,18 +71,14 @@ Page({
       //   name: 'train',
       //   zn: '训练'
       // }
-      ],
+    ],
     //判断选中的项目
     item_select: -1,
     input_show: true,
     reset: '',
 
     //存放账单内容
-    paybook: {
-      name: '',
-      remark: '',
-      price: ''
-    }
+    paybook: {}
   },
 
   /**
@@ -118,12 +116,13 @@ Page({
   //表单提交动作
   sendPaybook(e) {
     const that = this
-    if (!e.detail.value.price) {
+    console.log(e)
+    if (!e.detail.value.cost) {
       wx.showModal({
         title: '提示',
         content: '亲，还没输入花费金额呢~',
         showCancel: false,
-        success:() => {
+        success: () => {
           that.setData({
             input_show: false,
           })
@@ -131,16 +130,28 @@ Page({
       })
     } else {
       that.setData({
-        'paybook.remark': e.detail.value.remark,
-        'paybook.price': e.detail.value.price,
-        reset: '',
-        input_show: true
+        paybook: e.detail.value,
+        'paybook.type': that.data.paybook_id,
+        'paybook.time': app.globalData.today + app.globalData.time
       })
-      wx.showToast({
-        title: '保存成功！',
-        complete:() => {
-          that.setData({
-            input_show: true
+      wx.request({
+        url: app.globalData.host + 'record/account/' + that.data.pet_id,
+        method: 'POST',
+        header: {
+          'content-type': 'application/x-www-form-urlencoded',
+          'Cookie': app.globalData.LaravelID
+        },
+        data: that.data.paybook,
+        success: res => {
+          console.log(res)
+          wx.showToast({
+            title: '保存成功！',
+            complete: () => {
+              that.setData({
+                reset: '',
+                input_show: true
+              })
+            }
           })
         }
       })

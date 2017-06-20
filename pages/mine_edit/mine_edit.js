@@ -52,6 +52,10 @@ Page({
         } else if (res.authSetting["scope.userInfo"] == false) {
           wx.request({
             url: app.globalData.host + 'logout',
+            header: {
+              'content-type': 'application/x-www-form-urlencoded',
+              'Cookie': app.globalData.LaravelID
+            },
             success: res => {
               that.setData({
                 userInfo: null,
