@@ -67,6 +67,10 @@ Page({
     })
     wx.request({
       url: app.globalData.host + 'article/' + options.id,
+      header: {
+        'content-type': 'application/x-www-form-urlencoded',
+        'Cookie': app.globalData.LaravelID
+      },
       success: res => {
         //预留
         article = res.data.data.content.replace(/&amp;nbsp;/g, ' ')
@@ -99,6 +103,10 @@ Page({
       })
       wx.request({
         url: app.globalData.host + 'comments',
+        header: {
+          'content-type': 'application/x-www-form-urlencoded',
+          'Cookie': app.globalData.LaravelID
+        },
         data: {
           id: that.data.articles.id,
           page: that.data.page + 1

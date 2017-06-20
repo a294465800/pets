@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/remain_index/remain_index",
     "pages/index/index",
+    "pages/remain_index/remain_index",
     "pages/add_paybook/add_paybook",
     "pages/first_step/first_step",
     "pages/news/news",

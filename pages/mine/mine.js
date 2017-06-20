@@ -30,7 +30,7 @@ Page({
         if (200 == res.data.code) {
           app.globalData.pets = res.data.data
           //调用宠物年龄计算
-          app.calPetsAge(app.globalData.pets)
+          // app.calPetsAge(app.globalData.pets)
 
           that.setData({
             pets: app.globalData.pets,
@@ -38,8 +38,12 @@ Page({
             userInfo: app.globalData.userInfo
           })
         } else {
-          that.data.pets = null
+          that.setData({
+            pets: null,
+            userInfo: null
+          })
           app.globalData.pets = null
+          app.globalData.userInfo = null
         }
       }
     })

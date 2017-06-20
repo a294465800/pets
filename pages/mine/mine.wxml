@@ -22,7 +22,7 @@
       </view>
       <image class="pet_add" src="/images/user/plus.png"></image>
     </view>
-    <view class="pets_list {{pets[0]?'':'hide'}}">
+    <view class="pets_list {{pets.length > 0?'':'hide'}}">
       <view class="pets_name">昵称</view>
       <view class="pets_species">种类</view>
       <view class="pets_age">年龄</view>

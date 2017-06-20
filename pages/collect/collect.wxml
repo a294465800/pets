@@ -2,7 +2,7 @@
 <view class="container">
   <!--文章列表开始-->
   <view class="news_list">
-    <block wx:if="{{collects[0]}}">
+    <block wx:if="{{collects.length > 0}}">
       <view class="news_list_article" wx:for="{{collects}}" wx:key="id" bindtap="goToArticle" hover-class="push_class" data-id="{{item.id}}">
         <view class="news_article_message">
           <view class="news_article_title">{{item.title}}</view>

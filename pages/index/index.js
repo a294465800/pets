@@ -260,9 +260,7 @@ Page({
           },
           success: res => {
             if (200 == res.data.code) {
-              //调用宠物年龄计算
               app.globalData.pets = res.data.data
-              app.calPetsAge(app.globalData.pets)
               that.setData({
                 first_time: false,
                 pets: res.data.data,
@@ -276,15 +274,15 @@ Page({
   },
   onShow(e) {
     const that = this
-    if (!app.globalData.pets) {
+    if (!app.globalData.pets || app.globalData.pets.length == 0 ) {
       that.setData({
         first_time: true
       })
     } else {
-      app.calPetsAge(app.globalData.pets)
       that.setData({
         pets: app.globalData.pets,
-        pet: app.globalData.pets[that.data.pet_index]
+        pet: app.globalData.pets[that.data.pet_index],
+        first_time: false
       })
     }
   },
