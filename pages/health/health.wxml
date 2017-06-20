@@ -8,12 +8,12 @@
   <view class="function_part">
     <form bindsubmit="formSubmit">
       <view class="sick_part">
-        <view class="category each_part">
+        <!--<view class="category each_part">
           <view class="word_2bit">类别：</view>
           <picker class="category_list" mode="selector" value="{{index}}" range="{{category}}" bindchange="categoryChange">
             <view>{{category[index]}}</view>
           </picker>
-        </view>
+        </view>-->
         <view class="sick_name each_part" hidden="{{category[index] == '生病'?false:true}}">
           <view class="word_2bit">疾病：</view>
           <input type="text" placeholder="腹泻" placeholder-class="p_input" name="illness" maxlength="8"/>

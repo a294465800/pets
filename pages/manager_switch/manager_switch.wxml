@@ -1,10 +1,14 @@
 <!--manager_switch.wxml-->
 <view class="container">
-  <view class="manager_switch" wx:for="{{remain}}" wx:key="unique">
+  <view class="manager_switch" wx:for="{{remain}}" wx:key="unique" bindtap="goToRemainIndex" hover-class="push_class" hover-stay-time="150">
     <view class="manager_switch_word">
       <image src="{{item.img}}" class="manager_switch_img" mode="aspectFit"></image>
       <view class="">{{item.zn}}</view>
     </view>
-    <switch type="switch" color="#ff963d" />
+    <!--<switch type="switch" color="#ff963d" />-->
+    <view class="remain_tip">已开启
+      <image src="/images/user/back-icon.png" mode="aspectFit" class="remain_img"></image>
+    </view>
+
   </view>
 </view>

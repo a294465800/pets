@@ -9,10 +9,10 @@
     <view class="height part">
       <view class="height_left">
         <view class="word_2bit">类别：</view>
-        <picker mode="selector" range="{{clean_type}}" value="{{index}}" bindchange="cleanChoose" class="clean_type">
+        <!--<picker mode="selector" range="{{clean_type}}" value="{{index}}" bindchange="cleanChoose" class="clean_type">
           <view>{{clean_type[index]}}</view>
-        </picker>
-        <!--<input placeholder="洗澡" type="text" placeholder-class="p_input" name="category" maxlength="10" />-->
+        </picker>-->
+        <input placeholder="洗澡" type="text" placeholder-class="p_input" name="type" maxlength="10" />
       </view>
       <image src="/images/icon/photo.png" class="photo" bindtap="imageChoose"></image>
     </view>

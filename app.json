@@ -1,10 +1,14 @@
 {
   "pages": [
-    "pages/index/index",
+    "pages/vaccine/vaccine",
+    "pages/manager_switch/manager_switch",
     "pages/remain_index/remain_index",
+    "pages/add_remain/add_remain",
+    "pages/remain_open/remain_open",
+    "pages/index/index",
+    "pages/news/news",
     "pages/add_paybook/add_paybook",
     "pages/first_step/first_step",
-    "pages/news/news",
     "pages/clean/clean",
     "pages/mine/mine",
     "pages/mine_edit/mine_edit",
@@ -14,7 +18,6 @@
     "pages/health/health",
     "pages/eat/eat",
     "pages/article/article",
-    "pages/manager_switch/manager_switch",
     "pages/add_pets/add_pets",
     "pages/collect/collect",
     "pages/logs/logs"

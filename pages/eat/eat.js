@@ -10,7 +10,7 @@ Page({
     time: app.globalData.time,
     date: '今天',
     images: [],
-    grow_records: [
+    grow_record: [
       {
         date: '2017-03-20',
         category: {
@@ -122,6 +122,7 @@ Page({
         }
       }
     ],
+    grow_records: null,
     pet_eat: {}
 
   },
@@ -130,11 +131,25 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
+    const that = this
 
     //记录最新时间
-    this.setData({
+    that.setData({
       time: app.globalData.time,
       pet_id: options.id
+    })
+
+    wx.request({
+      url: app.globalData.host + 'record/list/account/' + options.id + '/1',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded',
+        'Cookie': app.globalData.LaravelID
+      },
+      success: res => {
+        that.setData({
+          grow_records: res.data.data
+        })
+      }
     })
   },
 
@@ -196,30 +211,39 @@ Page({
   //提交信息——吃
   formSubmit(e) {
     const that = this
-    that.setData({
-      pet_eat: e.detail.value,
-      // 'pet_eat.images': that.data.images,
-      'pet_eat.time': (that.data.date == '今天' ? app.globalData.today : that.data.date) + ' ' + that.data.time
-    })
 
-    //图片上传
-    that.uploadImage(0)
+    if (e.detail.value.category && e.detail.value.category.number) {
+      that.setData({
+        pet_eat: e.detail.value,
+        // 'pet_eat.images': that.data.images,
+        'pet_eat.time': (that.data.date == '今天' ? app.globalData.today : that.data.date) + ' ' + that.data.time
+      })
+      //图片上传
+      that.uploadImage(0)
 
-    wx.request({
-      url: app.globalData.host + 'record/feed/' + that.data.pet_id,
-      method: 'POST',
-      header: {
-        'content-type': 'application/x-www-form-urlencoded',
-        'Cookie': app.globalData.LaravelID
-      },
-      data: that.data.pet_eat,
-      success: res => {
-        console.log(res)
-        wx.showToast({
-          title: '保存成功！',
-        })
-        wx.navigateBack({})
-      }
-    })
+      wx.request({
+        url: app.globalData.host + 'record/feed/' + that.data.pet_id,
+        method: 'POST',
+        header: {
+          'content-type': 'application/x-www-form-urlencoded',
+          'Cookie': app.globalData.LaravelID
+        },
+        data: that.data.pet_eat,
+        success: res => {
+          console.log(res)
+          wx.showToast({
+            title: '保存成功！',
+          })
+          wx.navigateBack({})
+        }
+      })
+    } else {
+      wx.showModal({
+        title: '提示',
+        content: '亲，还有信息没有填写哦~',
+        showCancel: false
+      })
+    }
+
   }
 })

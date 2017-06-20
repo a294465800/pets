@@ -1,0 +1,72 @@
+<!--vaccine.wxml-->
+<view class="container">
+
+  <!--上次免疫-->
+  <view class="vaccine_last">
+    <view class="part vaccine_last_item">
+      <view class="vaccine_last_time_title">上次免疫时间</view>
+      <view class="vaccine_last_picker">
+        <picker mode="date" end="{{today}}" class="vaccine_picker">11111</picker>
+        <image src="/images/user/back-icon.png" mode="aspectFit" class="vaccine_img"></image>
+      </view>
+    </view>
+    <view class="part vaccine_last_item">
+      <view class="vaccine_last_time_title">上次免疫品牌</view>
+      <view class="vaccine_last_picker">
+        <picker mode="selector" class="vaccine_picker">22222</picker>
+        <image src="/images/user/back-icon.png" mode="aspectFit" class="vaccine_img"></image>
+      </view>
+    </view>
+  </view>
+  <!--/上次免疫-->
+
+  <!--免疫针数-->
+  <view class="part vaccine_number">
+    <view class="vaccine_number_title">上次免疫阶段</view>
+    <view class="vaccine_number_item">
+      <view class="vaccine_icon"></view>
+      <view class="vaccine_number_content">
+        <view class="vaccine_number_content_title">第一针疫苗</view>
+        <view class="vaccine_number_content_intro">出生后56天，注射第一针</view>
+      </view>
+    </view>
+    <view class="vaccine_number_item">
+      <view class="vaccine_icon"></view>
+      <view class="vaccine_number_content">
+        <view class="vaccine_number_content_title">第一针疫苗</view>
+        <view class="vaccine_number_content_intro">出生后56天，注射第一针</view>
+      </view>
+    </view>
+    <view class="vaccine_number_item">
+      <view class="vaccine_icon"></view>
+      <view class="vaccine_number_content">
+        <view class="vaccine_number_content_title">第一针疫苗</view>
+        <view class="vaccine_number_content_intro">出生后56天，注射第一针</view>
+      </view>
+    </view>
+    <view class="vaccine_number_item">
+      <view class="vaccine_icon"></view>
+      <view class="vaccine_number_content">
+        <view class="vaccine_number_content_title">第一针疫苗</view>
+        <view class="vaccine_number_content_intro">出生后56天，注射第一针</view>
+      </view>
+    </view>
+  </view>
+  <!--/免疫针数-->
+
+  <!--提醒计划-->
+  <view class="part vaccine_plan">
+    <view class="part vaccine_last_item">
+      <view class="vaccine_last_time_title">提醒计划</view>
+      <view class="vaccine_last_picker">
+        <picker mode="selector" class="vaccine_picker vaccine_plan_time">当天提醒</picker>
+        <image src="/images/user/back-icon.png" mode="aspectFit" class="vaccine_img"></image>
+      </view>
+    </view>
+  </view>
+  <!--/提醒计划-->
+
+  <!--建议时间-->
+  <view class="vaccine_suggest">建议下次的免疫时间为</view>
+  <!--/建议时间-->
+</view>

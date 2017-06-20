@@ -200,29 +200,36 @@ Page({
   //提交信息
   formSubmit(e) {
     const that = this
-    that.setData({
-      play: e.detail.value,
-      'play.start': (that.data.date == '今天' ? app.globalData.today : that.data.date) + ' ' + that.data.time,
-      'play.end': (that.data.date == '今天' ? app.globalData.today : that.data.date) + ' ' + that.data.timeEnd,
-      // 'play.images': that.data.images
-    })
-    wx.request({
-      url: app.globalData.host + 'record/play/' + that.data.pet_id,
-      method: 'POST',
-      header: {
-        'content-type': 'application/x-www-form-urlencoded',
-        'Cookie': app.globalData.LaravelID
-      },
-      data: that.data.play,
-      success: res => {
-        console.log(res)
-        wx.showToast({
-          title: '保存成功！',
-          success: rs => {
-            wx.navigateBack({})
-          }
-        })
-      }
-    })
+    if (e.detail.value.type) {
+      that.setData({
+        play: e.detail.value,
+        'play.start': (that.data.date == '今天' ? app.globalData.today : that.data.date) + ' ' + that.data.time,
+        'play.end': (that.data.date == '今天' ? app.globalData.today : that.data.date) + ' ' + that.data.timeEnd,
+        // 'play.images': that.data.images
+      })
+      wx.request({
+        url: app.globalData.host + 'record/play/' + that.data.pet_id,
+        method: 'POST',
+        header: {
+          'content-type': 'application/x-www-form-urlencoded',
+          'Cookie': app.globalData.LaravelID
+        },
+        data: that.data.play,
+        success: res => {
+          wx.showToast({
+            title: '保存成功！',
+            success: rs => {
+              wx.navigateBack({})
+            }
+          })
+        }
+      })
+    } else {
+      wx.showModal({
+        title: '提示',
+        content: '亲，还有信息没有填写哦~',
+        showCancel: false
+      })
+    }
   }
 })

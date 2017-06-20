@@ -70,28 +70,35 @@ Page({
   //提交信息——生病
   formSubmit(e) {
     const that = this
-    that.setData({
-      health: e.detail.value,
-      'health.type': that.data.categorys[that.data.index].id,
-      'health.time': (that.data.date == '今天' ? app.globalData.today : that.data.date) + ' ' + that.data.time
-    })
-    wx.request({
-      url: app.globalData.host + 'record/health/' + that.data.pet_id,
-      method: 'POST',
-      header: {
-        'content-type': 'application/x-www-form-urlencoded',
-        'Cookie': app.globalData.LaravelID
-      },
-      data: that.data.health,
-      success: res => {
-        console.log(res)
-        wx.showToast({
-          title: '保存成功！',
-          success: rs => {
-            wx.navigateBack({})
-          }
-        })
-      }
-    })
+    if (e.detail.value.illness && e.detail.value.symptom) {
+      that.setData({
+        health: e.detail.value,
+        // 'health.type': that.data.categorys[that.data.index].id,
+        'health.time': (that.data.date == '今天' ? app.globalData.today : that.data.date) + ' ' + that.data.time
+      })
+      wx.request({
+        url: app.globalData.host + 'record/health/' + that.data.pet_id,
+        method: 'POST',
+        header: {
+          'content-type': 'application/x-www-form-urlencoded',
+          'Cookie': app.globalData.LaravelID
+        },
+        data: that.data.health,
+        success: res => {
+          wx.showToast({
+            title: '保存成功！',
+            success: rs => {
+              wx.navigateBack({})
+            }
+          })
+        }
+      })
+    } else {
+      wx.showModal({
+        title: '提示',
+        content: '亲，还有信息没有填写哦~',
+        showCancel: false
+      })
+    }
   }
 })

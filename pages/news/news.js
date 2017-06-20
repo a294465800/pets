@@ -12,12 +12,7 @@ Page({
     //版本
     system: app.globalData.system,
     system_flag: true,
-    imgUrls: [
-      'http://img1.3lian.com/2015/a1/119/d/197.jpg',
-      'http://img2.3lian.com/2014/f4/77/d/68.jpg',
-      'http://img1.3lian.com/img13/c3/52/d/1.jpg',
-      'http://img1.3lian.com/img013/v3/81/d/69.jpg'
-    ],
+    imgUrls: null,
     indicatorDots: true,
     autoplay: true,
     interval: 3000,
@@ -26,6 +21,9 @@ Page({
 
     //动画
     animationData: {},
+
+    //banners
+    banners: null,
 
     //swiper
     current: 0,
@@ -75,6 +73,10 @@ Page({
     //请求文章类标题
     wx.request({
       url: app.globalData.host + 'articletypes',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded',
+        'Cookie': app.globalData.LaravelID
+      },
       success: res => {
         that.setData({
           nav_head: [...that.data.nav_head, ...res.data.data]
@@ -85,6 +87,10 @@ Page({
     //初次请求文章列表
     wx.request({
       url: app.globalData.host + 'articles/list',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded',
+        'Cookie': app.globalData.LaravelID
+      },
       data: {
         page: 1
       },
@@ -94,23 +100,30 @@ Page({
         })
       }
     })
+
+    //banner请求
+    wx.request({
+      url: app.globalData.host + 'banners',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded',
+        'Cookie': app.globalData.LaravelID
+      },
+      success: res => {
+        let imgUrls = []
+        for( let i in res.data.data){
+          imgUrls.push(res.data.data[i].img)
+        }
+        that.setData({
+          imgUrls: imgUrls,
+          banners: res.data.data
+        })
+      }
+    })
   },
 
   //导航选择
   changeNav(e) {
     if (!this.data.bug) {
-      // wx.request({
-      //   url: 'https://www.sennki.com/api/articles/list',
-      //   data: {
-      //     page: 1,
-      //     type: e.currentTarget.dataset.type
-      //   },
-      //   success(res) {
-      //     that.setData({
-      //       news: res.data.data
-      //     })
-      //   }
-      // })
       const that = this
       const length = that.data.nav_head.length
       let left = (750 / length) * e.target.id + 'rpx'

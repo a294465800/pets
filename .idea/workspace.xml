@@ -1,15 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0003dbec-efe5-4fab-a0ac-c95e9e1671c1" name="Default" comment="">
+    <list default="true" id="0003dbec-efe5-4fab-a0ac-c95e9e1671c1" name="Default" comment="add input limit in grow page. And add some new pages about remain function.">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/pages/add_remain/add_remain.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/pages/add_remain/add_remain.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/pages/add_remain/add_remain.wxml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/pages/add_remain/add_remain.wxss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/pages/remain_index/remain_index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/pages/remain_index/remain_index.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/pages/remain_index/remain_index.wxml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/pages/remain_index/remain_index.wxss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/pages/remain_open/remain_open.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/pages/remain_open/remain_open.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/pages/remain_open/remain_open.wxml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/pages/remain_open/remain_open.wxss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/pages/vaccine/vaccine.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/pages/vaccine/vaccine.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/pages/vaccine/vaccine.wxml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/pages/vaccine/vaccine.wxss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/index/index.wxml" afterPath="$PROJECT_DIR$/pages/index/index.wxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.json" afterPath="$PROJECT_DIR$/app.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/article/article.js" afterPath="$PROJECT_DIR$/pages/article/article.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/collect/collect.wxml" afterPath="$PROJECT_DIR$/pages/collect/collect.wxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/index/index.js" afterPath="$PROJECT_DIR$/pages/index/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/mine/mine.js" afterPath="$PROJECT_DIR$/pages/mine/mine.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/mine/mine.wxml" afterPath="$PROJECT_DIR$/pages/mine/mine.wxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.wxss" afterPath="$PROJECT_DIR$/app.wxss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/clean/clean.js" afterPath="$PROJECT_DIR$/pages/clean/clean.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/clean/clean.wxml" afterPath="$PROJECT_DIR$/pages/clean/clean.wxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/eat/eat.js" afterPath="$PROJECT_DIR$/pages/eat/eat.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/grow/grow.js" afterPath="$PROJECT_DIR$/pages/grow/grow.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/health/health.js" afterPath="$PROJECT_DIR$/pages/health/health.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/health/health.wxml" afterPath="$PROJECT_DIR$/pages/health/health.wxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/manager_switch/manager_switch.js" afterPath="$PROJECT_DIR$/pages/manager_switch/manager_switch.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/manager_switch/manager_switch.wxml" afterPath="$PROJECT_DIR$/pages/manager_switch/manager_switch.wxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/manager_switch/manager_switch.wxss" afterPath="$PROJECT_DIR$/pages/manager_switch/manager_switch.wxss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/news/news.js" afterPath="$PROJECT_DIR$/pages/news/news.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/play/play.js" afterPath="$PROJECT_DIR$/pages/play/play.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -56,7 +80,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -85,7 +109,7 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -139,7 +163,8 @@
       <workItem from="1497668326168" duration="594000" />
       <workItem from="1497688402546" duration="1733000" />
       <workItem from="1497854201302" duration="2057000" />
-      <workItem from="1497927380742" duration="1262000" />
+      <workItem from="1497927380742" duration="1891000" />
+      <workItem from="1497956110678" duration="108000" />
     </task>
     <task id="LOCAL-00001" summary="new">
       <created>1496227866682</created>
@@ -316,11 +341,18 @@
       <option name="project" value="LOCAL" />
       <updated>1497928337660</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="fixed the 1.0 bug.">
+      <created>1497931781685</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1497931781685</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14235000" />
+    <option name="totallyTimeSpent" value="14972000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="233" y="100" width="1414" height="843" extended-state="0" />
@@ -372,7 +404,9 @@
     <MESSAGE value="fixed the bug in fist_step page between login and pets." />
     <MESSAGE value="doing the paybook." />
     <MESSAGE value="finish the 1.0." />
-    <option name="LAST_COMMIT_MESSAGE" value="finish the 1.0." />
+    <MESSAGE value="fixed the 1.0 bug." />
+    <MESSAGE value="add input limit in grow page. And add some new pages about remain function." />
+    <option name="LAST_COMMIT_MESSAGE" value="add input limit in grow page. And add some new pages about remain function." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />

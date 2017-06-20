@@ -1,0 +1,46 @@
+<!--remain_index.wxml-->
+<view class="container">
+  <!--首页图片-->
+  <image src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1497938494808&di=a18876fe715706b1091e65531dfa7545&imgtype=0&src=http%3A%2F%2Fpic10.nipic.com%2F20101019%2F5973146_084502011886_2.jpg" class="index_img" mode=""></image>
+  <!--/首页图片-->
+
+  <!--首页标题-->
+  <view class="index_part">
+    <view class="index_title">免疫</view>
+    <view class="index_title_content">
+      <text selectable>按时免疫，呵护宝贝健康</text>
+    </view>
+  </view>
+  <!--/首页标题-->
+
+  <!--首页介绍-->
+  <view class="index_part">
+    <view class="index_title_s">介绍</view>
+    <view class="index_title_content">
+      <text selectable>猫瘟、猫传染性鼻气管炎、猫杯状病毒等都是威胁猫猫的最大杀手，尤其是猫瘟。未及时注射疫苗，猫猫感染这些疾病的危险就大大增加。疫苗的作用是预防，而不是治疗。注射疫苗，即对猫猫有益，也有利于饲养猫的人的健康。</text>
+    </view>
+  </view>
+  <!--/首页介绍-->
+
+  <!--注意事项-->
+  <view class="index_part">
+    <view class="index_title_s">注意事项</view>
+    <view class="index_title_content">
+      <text selectable>1. 妊娠猫禁止接种疫苗。 
+      2.注射高免血清或就用免疫抑制性药物后，不可使用疫苗。 
+      3.第一次接种到第二次面以后7天，应避免与呼吸道病原接触。 
+      4.幼猫60日龄（约10周）
+      4.幼猫60日龄（约10周）
+      4.幼猫60日龄（约10周）
+      4.幼猫60日龄（约10周）
+      4.幼猫60日龄（约10周）
+      4.幼猫60日龄（约10周）
+      4.幼猫60日龄（约10周）
+      </text>
+    </view>
+  </view>
+  <!--/注意事项-->
+  <!--开启提醒-->
+  <view class="index_button" bindtap="goToAddRemain">开启提醒</view>
+  <!--/开启提醒-->
+</view>

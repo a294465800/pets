@@ -1,0 +1,20 @@
+<!--remain_open.wxml-->
+<view class="container">
+  <view class="remain_content">
+    <view class="content_head">
+      <image src="/images/head_img.jpg" mode="aspectFill" class="content_img"></image>
+      <view class="content_head_name">乐乐</view>
+    </view>
+    <view class="remain_type">今天要剪毛啦！</view>
+    <view class="remain_time">
+      <view class="remain_time_title">
+        <image src="" mode="aspectFit" style="display:none"></image>
+        <view class="">剪毛时间</view>
+      </view>
+        <view class="remain_time_content">2017/06/20</view>
+    </view>
+    <view class="remain_close">关闭提醒</view>
+    <view class="remain_close_tip">关闭提醒后，需到宠物主页重新添加</view>
+  </view>
+  <view class="remain_finish">完成本次剪毛</view>
+</view>

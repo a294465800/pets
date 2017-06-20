@@ -31,3 +31,18 @@
 .manager_switch:nth-child(1) .manager_switch_img {
   padding: 4rpx;
 }
+
+.remain_tip {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  min-width: 140rpx;
+  font-size: 28rpx;
+  color: #ccc;
+}
+
+.remain_img {
+  width: 30rpx;
+  height: 40rpx;
+}

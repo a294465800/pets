@@ -1,0 +1,34 @@
+<!--add_remain.wxml-->
+<view class="container">
+  <!--解决方案-->
+  <view class="remian_solution">
+    <view class="solution_title">解决方案</view>
+    <view class="solution_content">
+      <text selectable>1月龄以下的猫猫，需要咨询医生使用驱虫药；1月龄以上6月龄以下的猫猫，每隔一个月驱虫一次;6月龄以上的猫猫，每隔三个月驱虫一次。</text>
+    </view>
+  </view>
+  <!--/解决方案-->
+
+  <!--提醒栏目-->
+  <view class="remain_plan">
+    <view class="remain_plan_item">
+      <view class="remain_plan_title">提醒计划</view>
+      <view class="remain_picker">
+        <picker mode="selector">当天提醒</picker>
+        <image src="/images/user/back-icon.png" mode="aspectFit" class="remain_img"></image>
+      </view>
+    </view>
+    <view class="remain_plan_item border_item">
+      <view class="remain_plan_title">下次驱虫时间</view>
+      <view class="remain_picker">
+        <picker mode="date" start="{{today}}" end="2030-01-01" bindchange="nextTIme" value="{{nextTime}}">{{nextTime}}</picker>
+        <image src="/images/user/back-icon.png" mode="aspectFit" class="remain_img"></image>
+      </view>
+    </view>
+  </view>
+  <!--/提醒栏目-->
+
+  <!--保存提醒-->
+  <view class="remain_save">保存</view>
+  <!--/保存提醒-->
+</view>

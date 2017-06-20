@@ -12,7 +12,7 @@ Page({
     images: [],
     index: 0,
     // clean_type: ['洗澡','刷牙','剪指甲','清洁眼睛','清洁耳朵'],
-    clean_type: [],
+    // clean_type: [],
     clean_types: [],
 
     //需要提交的信息
@@ -24,24 +24,30 @@ Page({
    */
   onLoad(options) {
     const that = this
-    wx.request({
-      url: app.globalData.host + 'record/types/wash',
-      header: {
-        'content-type': 'application/x-www-form-urlencoded',
-        'Cookie': app.globalData.LaravelID
-      },
-      success: res => {
-        let clean_type = []
-        for (let i in res.data.data) {
-          clean_type.push(res.data.data[i].title)
-        }
-        that.setData({
-          pet_id: options.id,
-          clean_type: clean_type,
-          clean_types: res.data.data
-        })
-      }
+
+    that.setData({
+      pet_id: options.id,
+      // clean_type: clean_type,
+      // clean_types: res.data.data
     })
+    // wx.request({
+    //   url: app.globalData.host + 'record/types/wash',
+    //   header: {
+    //     'content-type': 'application/x-www-form-urlencoded',
+    //     'Cookie': app.globalData.LaravelID
+    //   },
+    //   success: res => {
+    //     let clean_type = []
+    //     for (let i in res.data.data) {
+    //       clean_type.push(res.data.data[i].title)
+    //     }
+    //     that.setData({
+    //       pet_id: options.id,
+    //       clean_type: clean_type,
+    //       clean_types: res.data.data
+    //     })
+    //   }
+    // })
   },
 
   //清洁类型选择
@@ -93,29 +99,36 @@ Page({
   //提交信息
   formSubmit: function (e) {
     const that = this
-    that.setData({
-      clean: e.detail.value,
-      // 'clean.images': that.data.images
-      'clean.time': (that.data.date == '今天' ? app.globalData.today : that.data.date) + ' ' + that.data.time,
-      'clean.type': that.data.clean_types[that.data.index].id
-    })
-    wx.request({
-      url: app.globalData.host + 'record/wash/' + that.data.pet_id,
-      method: 'POST',
-      header: {
-        'content-type': 'application/x-www-form-urlencoded',
-        'Cookie': app.globalData.LaravelID
-      },
-      data: that.data.clean,
-      success: res => {
-        console.log(res)
-        wx.showToast({
-          title: '保存成功！',
-          success: rs => {
-            wx.navigateBack({})
-          }
-        })
-      }
-    })
+    if (e.detail.value.type) {
+      that.setData({
+        clean: e.detail.value,
+        // 'clean.images': that.data.images
+        'clean.time': (that.data.date == '今天' ? app.globalData.today : that.data.date) + ' ' + that.data.time,
+        // 'clean.type': that.data.clean_types[that.data.index].id
+      })
+      wx.request({
+        url: app.globalData.host + 'record/wash/' + that.data.pet_id,
+        method: 'POST',
+        header: {
+          'content-type': 'application/x-www-form-urlencoded',
+          'Cookie': app.globalData.LaravelID
+        },
+        data: that.data.clean,
+        success: res => {
+          wx.showToast({
+            title: '保存成功！',
+            success: rs => {
+              wx.navigateBack({})
+            }
+          })
+        }
+      })
+    } else {
+      wx.showModal({
+        title: '提示',
+        content: '亲，还有信息没有填写哦~',
+        showCancel: false
+      })
+    }
   }
 })

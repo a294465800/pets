@@ -1,0 +1,69 @@
+/* add_remain.wxss */
+
+.container {
+  box-sizing: border-box;
+  background-color: #eee;
+  padding-top: 30rpx;
+}
+
+/*解决方案*/
+
+.remian_solution, .remain_plan_item {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 24rpx 40rpx;
+  background-color: #fff;
+}
+
+.remian_solution {
+  margin-bottom: 30rpx;
+}
+
+.solution_title {
+  margin-bottom: 16rpx;
+  font-weight: bold;
+}
+
+.remain_img {
+  width: 16rpx;
+  height: 30rpx;
+  margin-left: 10rpx;
+}
+
+/*提醒计划*/
+
+.remain_plan_item, .remain_picker {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.remain_plan_item {
+  height: 92rpx;
+  margin-bottom: 2rpx;
+}
+
+.remain_plan_title {
+  font-size: 34rpx;
+}
+
+.remain_picker {
+  min-width: 170rpx;
+  color: #677f9b;
+}
+
+/*保存*/
+.remain_save {
+  width: 97.3%;
+  height: 92rpx;
+  background-color: #ff963d;
+  color: #fff;
+  font-size: 36rpx;
+  border-radius: 10rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 30rpx auto 0;
+}

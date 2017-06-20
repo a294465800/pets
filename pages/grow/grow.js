@@ -172,35 +172,42 @@ Page({
   preImage(e) {
     const that = this
     wx.previewImage({
-        urls: [e.currentTarget.dataset.src],
+      urls: [e.currentTarget.dataset.src],
     })
   },
 
   //提交信息
   formSubmit(e) {
     const that = this
-    that.setData({
-      grow: e.detail.value,
-      'grow.time': (that.data.date == '今天' ? app.globalData.today : that.data.date) + ' ' + that.data.time,
-      'grow.images': that.data.images
-    })
-    wx.request({
-      url: app.globalData.host + 'record/feature/' + that.data.pet_id,
-      method: 'POST',
-      header: {
-        'content-type': 'application/x-www-form-urlencoded',
-        'Cookie': app.globalData.LaravelID
-      },
-      data: that.data.grow,
-      success: res => {
-        console.log(res)
-        wx.showToast({
-          title: '保存成功！',
-          success: rs => {
-            wx.navigateBack({})
-          }
-        })
-      }
-    })
+    if (e.detail.value.talk && e.detail.value.length && e.detail.value.weight) {
+      that.setData({
+        grow: e.detail.value,
+        'grow.time': (that.data.date == '今天' ? app.globalData.today : that.data.date) + ' ' + that.data.time,
+        'grow.images': that.data.images
+      })
+      wx.request({
+        url: app.globalData.host + 'record/feature/' + that.data.pet_id,
+        method: 'POST',
+        header: {
+          'content-type': 'application/x-www-form-urlencoded',
+          'Cookie': app.globalData.LaravelID
+        },
+        data: that.data.grow,
+        success: res => {
+          wx.showToast({
+            title: '保存成功！',
+            success: rs => {
+              wx.navigateBack({})
+            }
+          })
+        }
+      })
+    } else {
+      wx.showModal({
+        title: '提示',
+        content: '亲，还有信息没有填写哦~',
+        showCancel: false
+      })
+    }
   }
 })
