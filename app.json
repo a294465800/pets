@@ -1,11 +1,11 @@
 {
   "pages": [
+    "pages/index/index",
     "pages/vaccine/vaccine",
     "pages/manager_switch/manager_switch",
     "pages/remain_index/remain_index",
     "pages/add_remain/add_remain",
     "pages/remain_open/remain_open",
-    "pages/index/index",
     "pages/news/news",
     "pages/add_paybook/add_paybook",
     "pages/first_step/first_step",

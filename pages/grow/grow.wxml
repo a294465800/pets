@@ -9,7 +9,7 @@
     <view class="height part">
       <view class="height_left">
         <view class="word_2bit">身高：</view>
-        <input placeholder="50" type="number" placeholder-class="p_input" name="talk" maxlength="6"/>
+        <input placeholder="50" type="number" placeholder-class="p_input" name="talk" maxlength="6" />
         <view class="unit">cm</view>
       </view>
       <image src="/images/icon/photo.png" class="photo" bindtap="imageChoose"></image>
@@ -17,12 +17,12 @@
     <view class="body part">
       <view class="body_left">
         <view class="word_2bit">体长：</view>
-        <input placeholder="50" type="number" placeholder-class="p_input" name="length" maxlength="6"/>
+        <input placeholder="50" type="number" placeholder-class="p_input" name="length" maxlength="6" />
         <view class="unit">cm</view>
       </view>
       <view class="body_right">
         <view class="word_2bit">体重：</view>
-        <input placeholder="20" type="number" placeholder-class="p_input" name="weight" maxlength="6"/>
+        <input placeholder="20" type="number" placeholder-class="p_input" name="weight" maxlength="6" />
         <view class="unit">kg</view>
       </view>
     </view>
@@ -31,7 +31,9 @@
       <textarea placeholder="这是备注信息" placeholder-class="p_input" maxlength="200" name="remark" />
     </view>
     <view class="pre_img">
-      <image src="{{item}}" wx:for="{{images}}" class="img_item" bindtap="preImage" data-src="{{item}}" mode="aspectFit" wx:key="*this"></image>
+      <image src="{{item}}" wx:for="{{images}}" class="img_item" bindtap="preImage" data-src="{{item}}" mode="aspectFit" wx:key="*this">
+        <icon type="clear" size="20" class="del_img" id="{{item}}" catchtap="delImg" />
+      </image>
     </view>
     <view class="btn">
       <button form-type="submit">保存</button>

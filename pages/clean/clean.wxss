@@ -68,4 +68,13 @@ textarea {
   width: 140rpx;
   height: 140rpx;
   margin-right: 20rpx;
+  position: relative;
+  overflow: unset;
+  border: 2rpx solid #eee;
+}
+
+.del_img {
+  position: absolute;
+  top: -20rpx;
+  right: -20rpx;
 }

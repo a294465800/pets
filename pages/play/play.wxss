@@ -3,6 +3,7 @@
 .container {
   background-color: #f0f0f0;
 }
+
 input {
   font-family: "Microsoft YaHei";
 }
@@ -85,6 +86,15 @@ textarea {
   width: 140rpx;
   height: 140rpx;
   margin-right: 20rpx;
+  position: relative;
+  overflow: unset;
+  border: 2rpx solid #eee;
+}
+
+.del_img {
+  position: absolute;
+  top: -20rpx;
+  right: -20rpx;
 }
 
 .min_width {

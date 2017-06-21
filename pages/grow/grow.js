@@ -160,11 +160,17 @@ Page({
     wx.chooseImage({
       count: 4,
       success: res => {
-        var tempFilePaths = res.tempFilePaths
         that.setData({
-          images: tempFilePaths
+          images: [...that.data.images, ...res.tempFilePaths]
         })
-      },
+        if (that.data.images.length > 3) {
+          let images = that.data.images
+          images.length = 4
+          that.setData({
+            images: images
+          })
+        }
+      }
     })
   },
 
@@ -176,15 +182,47 @@ Page({
     })
   },
 
+  //图片删除
+  delImg(e) {
+    const that = this
+    let id = e.currentTarget.id
+    let index = that.data.images.indexOf(id)
+    let images = that.data.images
+    images.splice(index, 1)
+    if (index != -1) {
+      that.setData({
+        images: images
+      })
+    }
+  },
+
+  //图片上传递归
+  uploadImage(i) {
+    const that = this
+    wx.uploadFile({
+      url: app.globalData.host + 'test',
+      filePath: that.data.images[i],
+      name: 'image',
+      success: res => {
+        if (that.data.images[i + 1]) {
+          that.uploadImage(i + 1)
+        }
+      }
+    })
+  },
+
   //提交信息
   formSubmit(e) {
     const that = this
     if (e.detail.value.talk && e.detail.value.length && e.detail.value.weight) {
       that.setData({
         grow: e.detail.value,
-        'grow.time': (that.data.date == '今天' ? app.globalData.today : that.data.date) + ' ' + that.data.time,
-        'grow.images': that.data.images
+        'grow.time': (that.data.date == '今天' ? app.globalData.today : that.data.date) + ' ' + that.data.time
       })
+
+      //图片上传
+      that.uploadImage(0)
+
       wx.request({
         url: app.globalData.host + 'record/feature/' + that.data.pet_id,
         method: 'POST',

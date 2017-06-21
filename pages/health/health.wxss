@@ -1,5 +1,9 @@
 /* health.wxss */
 
+.container {
+  background-color: #f0f0f0;
+}
+
 /*类别*/
 
 .each_part, .sick_part {
@@ -33,7 +37,12 @@
 }
 
 .function_part {
-  padding: 0 30rpx;
+  box-sizing: border-box;
+  padding: 20rpx 30rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #fff;
 }
 
 .symptom textarea, .remark textarea {
@@ -55,4 +64,34 @@
 
 .word_4bit, .word_2bit {
   min-width: 120rpx;
+}
+
+.eat_photo {
+  width: 48rpx;
+  height: 40rpx;
+}
+
+/*上传图片预览样式*/
+
+.pre_img {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 30rpx 0;
+}
+
+.img_item {
+  width: 140rpx;
+  height: 140rpx;
+  margin-right: 20rpx;
+  position: relative;
+  overflow: unset;
+  border: 2rpx solid #eee;
+}
+
+.del_img {
+  position: absolute;
+  top: -20rpx;
+  right: -20rpx;
 }

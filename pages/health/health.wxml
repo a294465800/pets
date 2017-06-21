@@ -16,16 +16,22 @@
         </view>-->
         <view class="sick_name each_part" hidden="{{category[index] == '生病'?false:true}}">
           <view class="word_2bit">疾病：</view>
-          <input type="text" placeholder="腹泻" placeholder-class="p_input" name="illness" maxlength="8"/>
+          <input type="text" placeholder="腹泻" placeholder-class="p_input" name="illness" maxlength="8" />
         </view>
+        <image src="/images/icon/photo.png" class="eat_photo" mode="aspectFit" bindtap="imageChoose"></image>
       </view>
       <view class="symptom each_part" hidden="{{category[index] == '生病'?false:true}}">
         <view class="word_4bit">症状：</view>
-        <textarea type="text" placeholder="浑身无力" class="p_input" name="symptom" maxlength="1000"/>
+        <textarea type="text" placeholder="浑身无力" class="p_input" name="symptom" maxlength="1000" />
       </view>
       <view class="remark each_part">
         <view class="word_4bit">备注：</view>
         <textarea placeholder="这里是备注信息" class="p_input" maxlength="200" name="remark" />
+      </view>
+      <view class="pre_img">
+        <image src="{{item}}" wx:for="{{images}}" class="img_item" bindtap="preImage" data-src="{{item}}" mode="aspectFill" wx:key="*this">
+          <icon type="clear" size="20" class="del_img" id="{{item}}" catchtap="delImg" />
+        </image>
       </view>
       <view class="btn">
         <button form-type="submit">保存</button>
