@@ -134,7 +134,7 @@
   font: normal 24rpx "Microsoft YaHei UI";
   color: #999;
   position: absolute;
-  top: -34rpx;
+  top: -44rpx;
   right: 0;
 }
 

@@ -4,6 +4,9 @@ let app = getApp()
 
 Page({
   data: {
+    //进度条动画
+    animationData: {},
+
     first_time: true,
     pets: app.globalData.pets,
     pet_index: 0,
@@ -274,7 +277,7 @@ Page({
   },
   onShow(e) {
     const that = this
-    if (!app.globalData.pets || app.globalData.pets.length == 0 ) {
+    if (!app.globalData.pets || app.globalData.pets.length == 0) {
       that.setData({
         first_time: true
       })
@@ -314,27 +317,33 @@ Page({
   //切换宠物信息
   shiftPet(e) {
     const that = this
-    let index = that.data.pet_index + 1
-    if (index > app.globalData.pets.length - 1) {
-      index = 0
-    }
-    wx.showLoading({
-      title: '切换中',
-    })
-    wx.request({
-      url: app.globalData.host + 'pet/' + that.data.pets[index].id,
-      header: {
-        'content-type': 'application/x-www-form-urlencoded',
-        'Cookie': app.globalData.LaravelID
-      },
-      success: res => {
-        that.setData({
-          pet_index: index,
-          pet: res.data.data
-        })
-        wx.hideLoading()
+    if (app.globalData.userInfo.petNumber < 2) {
+      wx.showToast({
+        title: '没有了呀',
+      })
+    } else {
+      let index = that.data.pet_index + 1
+      if (index > app.globalData.pets.length - 1) {
+        index = 0
       }
-    })
+      wx.showLoading({
+        title: '切换中',
+      })
+      wx.request({
+        url: app.globalData.host + 'pet/' + that.data.pets[index].id,
+        header: {
+          'content-type': 'application/x-www-form-urlencoded',
+          'Cookie': app.globalData.LaravelID
+        },
+        success: res => {
+          that.setData({
+            pet_index: index,
+            pet: res.data.data
+          })
+          wx.hideLoading()
+        }
+      })
+    }
   },
 
   //改变导航样式
@@ -347,6 +356,10 @@ Page({
 
   //打卡
   daily_plan_punch(e) {
+    let animation = wx.createAnimation({
+      duration: 500,
+      timingFunction: 'ease-out'
+    })
     let length = this.data.daily_plan.length
     let percent = 100 / length
     let progress = Math.ceil(Number(e.currentTarget.dataset.progress) + percent)
@@ -354,9 +367,12 @@ Page({
     if (progress > 100) {
       progress = 100
     }
+    this.animation = animation
+    animation.width(progress + '%').step()
     this.setData({
       [temp]: 'true',
-      progress: progress
+      progress: progress,
+      animationData: animation.export()
     })
   },
 

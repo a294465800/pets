@@ -21,8 +21,9 @@
             <view class="pet_name">{{pet.name}}</view>
             <view class="pet_age">{{pet.age}}</view>
           </view>
+          <!--<progress percent="{{progress}}" show-info activeColor="#ff963d" backgroundColor="#ccc" stroke-width="7" active />-->
           <view class="progress">
-            <view class="progress_body" style="width:{{progress}}%"></view>
+            <view class="progress_body" animation="{{animationData}}"></view>
             <view class="percent">{{progress}}/100</view>
           </view>
         </view>

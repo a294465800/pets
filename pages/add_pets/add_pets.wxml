@@ -11,7 +11,7 @@
     </view>
     <view class="species w_part" hover-class="push_class" hover-stay-time="150">
       <view class="word">宠物品种</view>
-      <view class="message">{{pet.species || '无'}}</view>
+      <view class="message">{{pet.kindName || '未知'}}</view>
     </view>
     <view class="sex w_part" hover-class="push_class" bindtap="sexChoose" hover-stay-time="150">
       <view class="word">性别</view>

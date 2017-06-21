@@ -108,7 +108,6 @@ App({
             success: rs => {
               if (200 == rs.data.code) {
                 that.globalData.userInfo = rs.data.data
-                typeof cb == "function" && cb(that.globalData.userInfo)
               }
             }
           })

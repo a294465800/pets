@@ -19,7 +19,7 @@ Page({
   },
   onShow(e) {
     const that = this
-
+    app.Login()
     wx.request({
       url: app.globalData.host + 'pets',
       header: {
@@ -29,8 +29,6 @@ Page({
       success: res => {
         if (200 == res.data.code) {
           app.globalData.pets = res.data.data
-          //调用宠物年龄计算
-          // app.calPetsAge(app.globalData.pets)
 
           that.setData({
             pets: app.globalData.pets,
