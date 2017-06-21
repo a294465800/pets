@@ -2,17 +2,20 @@
 let flag1 = 0
 let flag2 = 0
 let timer = null
+let timer2 = null
 let app = getApp()
+var startY = 0
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    //版本
-    system: app.globalData.system,
-    system_flag: true,
-    imgUrls: null,
+    imgUrls: [
+      'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
+      'http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg',
+      'http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg'
+    ],
     indicatorDots: true,
     autoplay: true,
     interval: 3000,
@@ -21,6 +24,7 @@ Page({
 
     //动画
     animationData: {},
+    animationDataImg: {},
 
     //banners
     banners: null,
@@ -63,12 +67,6 @@ Page({
    */
   onLoad(options) {
     const that = this
-    //手机版本控制
-    if (app.globalData.system != 'ios') {
-      that.setData({
-        system_flag: false
-      })
-    }
 
     //请求文章类标题
     wx.request({
@@ -102,23 +100,23 @@ Page({
     })
 
     //banner请求
-    wx.request({
-      url: app.globalData.host + 'banners',
-      header: {
-        'content-type': 'application/x-www-form-urlencoded',
-        'Cookie': app.globalData.LaravelID
-      },
-      success: res => {
-        let imgUrls = []
-        for( let i in res.data.data){
-          imgUrls.push(res.data.data[i].img)
-        }
-        that.setData({
-          imgUrls: imgUrls,
-          banners: res.data.data
-        })
-      }
-    })
+    // wx.request({
+    //   url: app.globalData.host + 'banners',
+    //   header: {
+    //     'content-type': 'application/x-www-form-urlencoded',
+    //     'Cookie': app.globalData.LaravelID
+    //   },
+    //   success: res => {
+    //     let imgUrls = []
+    //     for (let i in res.data.data) {
+    //       imgUrls.push(res.data.data[i].img)
+    //     }
+    //     that.setData({
+    //       imgUrls: imgUrls,
+    //       banners: res.data.data
+    //     })
+    //   }
+    // })
   },
 
   //导航选择
@@ -180,33 +178,21 @@ Page({
     }, 1000)
   },
 
-  //导航固定
-  fixNav(e) {
+  //上拉加载
+  onPullDownRefresh(e) {
+    // clearTimeout(timer2)
     const that = this
-    if (e.detail.scrollTop >= 200) {
-      flag2 = 0
-      if (flag1 == 1) {
-        return
-      } else {
-        flag1 = 1
-        that.setData({
-          fix_nav: true
-        })
-      }
-    } else if (e.detail.scrollTop < 200) {
-      flag1 = 0
-      if (flag2 == 0) {
-        console.log(1)
-        flag2 = 1
-        that.setData({
-          fix_nav: false
-        })
-      } else {
-        return
-      }
-    } else {
-      return
-    }
+    let animation = wx.createAnimation({
+      duration: 500,
+      timingFunction: 'ease'
+    })
+    that.animation = animation
+    animation.scale(1).step()
+    that.setData({
+      fix_nav: false,
+      animationDataImg: animation.export()
+    })
+    wx.stopPullDownRefresh()
   },
 
   //具体文章跳转
@@ -214,5 +200,33 @@ Page({
     wx.navigateTo({
       url: '/pages/article/article?id=' + e.currentTarget.id,
     })
+  },
+
+  //获取用户初始触摸位置
+  startTouch(e) {
+    startY = e.touches[0].clientY
+  },
+
+  //根据用户结束触摸位置进行判断
+  endTouch(e) {
+    clearTimeout(timer2)
+    const that = this
+    let moveY = e.changedTouches[0].clientY
+    let animation = wx.createAnimation({
+      duration: 500,
+      timingFunction: 'ease'
+    })
+    that.animation = animation
+    if (startY > moveY) {
+      animation.scale(.5).step()
+      that.setData({
+        animationDataImg: animation.export(),
+      })
+      timer2 = setTimeout(() => {
+        that.setData({
+          fix_nav: true
+        })
+      }, 300)
+    }
   }
 })

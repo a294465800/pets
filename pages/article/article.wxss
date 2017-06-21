@@ -2,7 +2,7 @@
 @import "../../wxParse/wxParse.wxss";
 
 .container {
-  height: 100%;
+  height: auto;
 }
 
 /*文章标题*/
@@ -128,9 +128,12 @@
   padding: 20rpx 20rpx 0;
   background-color: #fff;
 }
+.article_comment_item:nth-last-child(1) {
+  margin-bottom: 100rpx;
+}
 
 .bottom {
-  margin: 30rpx 0 120rpx;
+  margin: 0 0 120rpx;
 }
 
 .article_comment_img {

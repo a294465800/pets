@@ -1,9 +1,9 @@
 <!--news.wxml-->
-<view class="container">
-  <scroll-view class="news" enable-back-to-top="true" scroll-y="true" scroll-top="{{position}}" bindscroll="{{system_flag?'fixNav':''}}">
+<view class="container {{fix_nav?'news_list_hover':''}}" bindtouchend="endTouch" bindtouchstart="startTouch">
+  <!--<scroll-view class="news" enable-back-to-top="true" scroll-y="true" scroll-top="{{position}}" bindscroll="{{system_flag?'fixNav':''}}" bindscrolltolower="requestMore">-->
 
     <!--滚动图开始-->
-    <swiper style="" hidden="{{!system_flag || fix_nav}}" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" data-fixnav="{{fix_nav}}">
+    <swiper class="auto_img" hidden="{{fix_nav}}" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" data-fixnav="{{fix_nav}}" animation="{{animationDataImg}}">
       <block wx:for="{{imgUrls}}" wx:key="*this">
         <swiper-item>
           <image src="{{item}}" class="slide-image" mode="aspectFill" />
@@ -13,7 +13,7 @@
     <!--滚动图结束-->
 
     <!--导航条开始-->
-    <view class="nav_bar {{!system_flag || fix_nav?'fix_nav':''}}">
+    <view class="nav_bar {{fix_nav?'fix_nav':''}}">
       <block wx:for="{{nav_head}}" wx:key="id">
         <view class="nav_title" bindtap="changeNav" id="{{index}}">{{item.title}}</view>
       </block>
@@ -22,12 +22,12 @@
     <!--导航条结束-->
 
     <!--文章列表开始-->
-    <swiper circular bindchange="switchPage" class="news_list {{system_flag&&fix_nav?'news_list_hover':''}}" current="{{current}}" style="{{system_flag?'':'margin-top:78rpx'}}">
+    <swiper circular bindchange="switchPage" class="news_list" current="{{current}}">
       <block wx:for="{{nav_head}}" wx:key="id">
         <!--条件判断，指定刷新对应分类文章-->
         <swiper-item>
           <block wx:if="{{news_flag[index].flag}}">
-            <scroll-view scroll-y style="width=100%;" class="{{!system_flag || fix_nav?'percent_height':''}}">
+            <scroll-view scroll-y style="width=100%;" class="{{fix_nav?'percent_height':''}}">
               <view class="news_list_article" wx:for="{{news}}" wx:key="id" bindtap="goToArticle" id="{{item.id}}" hover-class="push_class">
                 <view class="news_article_message">
                   <view class="news_article_title">{{item.title}}</view>
@@ -66,6 +66,6 @@
     </swiper>
     <!--文章列表结束-->
 
-  </scroll-view>
+  <!--</scroll-view>-->
 
 </view>

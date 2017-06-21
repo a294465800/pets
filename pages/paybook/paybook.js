@@ -181,9 +181,9 @@ Page({
   },
 
   //触摸过程，滑动效果
-  touchMove(e) {
+  touchEnd(e) {
     const that = this
-    let moveY = e.touches[0].clientY
+    let moveY = e.changedTouches[0].clientY
     let animation = wx.createAnimation({
       duration: 500,
       timingFunction: 'ease'

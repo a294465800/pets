@@ -10,15 +10,6 @@ App({
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
-    //获取系统版本
-    wx.getSystemInfo({
-      success: res => {
-        let system = res.system.toLowerCase()
-        let temp_system = ''
-        system.indexOf('ios') == -1 ? temp_system = 'others' : temp_system = 'ios'
-        that.globalData.system = temp_system
-      }
-    })
   },
   onShow() {
     const that = this
@@ -194,7 +185,6 @@ App({
     userInfo: null,
     time: (10 - time.getHours() <= 0 ? time.getHours() : '0' + time.getHours()) + ':' + ((10 - time.getMinutes()) <= 0 ? time.getMinutes() : '0' + time.getMinutes()),
     today: time.getFullYear() + '-' + (9 - time.getMonth() <= 0 ? (time.getMonth() + 1) : '0' + (time.getMonth() + 1)) + '-' + ((10 - time.getDate()) <= 0 ? time.getDate() : '0' + time.getDate()),
-    pets: null,
-    system: ''
+    pets: null
   }
 })

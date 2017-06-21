@@ -1,9 +1,17 @@
 /* news.wxss */
 
+.container {
+  background-color: #fff;
+}
+
 /*滚动图片*/
 
-swiper {
+.auto_img {
   height: 400rpx;
+}
+
+swiper-item {
+  height: auto !important;
 }
 
 swiper image {
@@ -57,16 +65,19 @@ swiper image {
 }
 
 .news_list {
-  height: 100%;
+  /*height: auto;*/
+  min-height: 90%;
 }
 
 .news_list_hover {
-  margin-top: 556rpx;
+  /*margin-top: 556rpx;*//*margin-top: 78rpx;*/
+  padding-top: 78rpx;
 }
 
 .percent_height {
   height: 100%;
 }
+
 /*文章样式*/
 
 .news_list_article {

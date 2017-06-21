@@ -23,6 +23,7 @@
     "pages/logs/logs"
   ],
   "window": {
+    "backgroundColor": "#eeeeee",
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fcfcfc",
     "navigationBarTitleText": "宠物养成记",

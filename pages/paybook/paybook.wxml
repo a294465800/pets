@@ -1,5 +1,5 @@
 <!--paybook.wxml-->
-<view class="paybook container" bindtouchstart="touchStart" bindtouchmove="touchMove">
+<view class="paybook container" bindtouchstart="touchStart" bindtouchend="touchEnd">
 
   <!--记账本总支出圆圈开始-->
   <view class="paybook_charge">
