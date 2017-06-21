@@ -1,5 +1,5 @@
 <!--paybook.wxml-->
-<view class="paybook container">
+<view class="paybook container" bindtouchstart="touchStart" bindtouchmove="touchMove">
 
   <!--记账本总支出圆圈开始-->
   <view class="paybook_charge">
@@ -28,7 +28,7 @@
   </view>
 
   <!--添加新信息开始-->
-  <image src="/images/icon/plus_w.png" class="addPaybook" bindtap="addPaybook"></image>
+  <image animation="{{animationData}}" src="/images/icon/plus_w.png" class="addPaybook" bindtap="addPaybook"></image>
   <!--添加新信息结束-->
 
   <!--记账本列表结束-->

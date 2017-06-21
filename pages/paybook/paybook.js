@@ -1,6 +1,7 @@
 // paybook.js
 let app = getApp()
 let time_arr = app.globalData.today.split('-')
+var startY = 0
 
 Page({
 
@@ -8,6 +9,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    animationData: {},
     pet_id: 0,
     today: app.globalData.today,
     year: time_arr[0],
@@ -173,8 +175,35 @@ Page({
     })
   },
 
+  //触摸开始,记录开始坐标
+  touchStart(e) {
+    startY = e.touches[0].clientY
+  },
+
+  //触摸过程，滑动效果
+  touchMove(e) {
+    const that = this
+    let moveY = e.touches[0].clientY
+    let animation = wx.createAnimation({
+      duration: 500,
+      timingFunction: 'ease'
+    })
+    that.animation = animation
+    if (startY > moveY) {
+      animation.bottom(-80, 'rpx').step()
+      that.setData({
+        animationData: animation.export()
+      })
+    } else {
+      animation.bottom(30, 'rpx').step()
+      that.setData({
+        animationData: animation.export()
+      })
+    }
+  },
+
   //跳转添加账单
-  addPaybook(e){
+  addPaybook(e) {
     const that = this
     wx.navigateTo({
       url: '/pages/add_paybook/add_paybook?id=' + that.data.pet_id,

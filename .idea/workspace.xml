@@ -3,22 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="0003dbec-efe5-4fab-a0ac-c95e9e1671c1" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.json" afterPath="$PROJECT_DIR$/app.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/clean/clean.js" afterPath="$PROJECT_DIR$/pages/clean/clean.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/clean/clean.wxml" afterPath="$PROJECT_DIR$/pages/clean/clean.wxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/clean/clean.wxss" afterPath="$PROJECT_DIR$/pages/clean/clean.wxss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/eat/eat.js" afterPath="$PROJECT_DIR$/pages/eat/eat.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/eat/eat.wxml" afterPath="$PROJECT_DIR$/pages/eat/eat.wxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/eat/eat.wxss" afterPath="$PROJECT_DIR$/pages/eat/eat.wxss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/grow/grow.js" afterPath="$PROJECT_DIR$/pages/grow/grow.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/grow/grow.wxml" afterPath="$PROJECT_DIR$/pages/grow/grow.wxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/grow/grow.wxss" afterPath="$PROJECT_DIR$/pages/grow/grow.wxss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/health/health.js" afterPath="$PROJECT_DIR$/pages/health/health.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/health/health.wxml" afterPath="$PROJECT_DIR$/pages/health/health.wxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/health/health.wxss" afterPath="$PROJECT_DIR$/pages/health/health.wxss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/play/play.js" afterPath="$PROJECT_DIR$/pages/play/play.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/play/play.wxml" afterPath="$PROJECT_DIR$/pages/play/play.wxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/play/play.wxss" afterPath="$PROJECT_DIR$/pages/play/play.wxss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/paybook/paybook.js" afterPath="$PROJECT_DIR$/pages/paybook/paybook.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/paybook/paybook.wxml" afterPath="$PROJECT_DIR$/pages/paybook/paybook.wxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/paybook/paybook.wxss" afterPath="$PROJECT_DIR$/pages/paybook/paybook.wxss" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -150,7 +137,7 @@
       <workItem from="1497854201302" duration="2057000" />
       <workItem from="1497927380742" duration="1891000" />
       <workItem from="1497956110678" duration="755000" />
-      <workItem from="1498011119788" duration="434000" />
+      <workItem from="1498011119788" duration="1129000" />
     </task>
     <task id="LOCAL-00001" summary="new">
       <created>1496227866682</created>
@@ -341,11 +328,18 @@
       <option name="project" value="LOCAL" />
       <updated>1497956268372</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="new function: now we can delete the chose img in grow record page.">
+      <created>1498011652364</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1498011652364</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16053000" />
+    <option name="totallyTimeSpent" value="16748000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="233" y="100" width="1414" height="843" extended-state="0" />
@@ -399,7 +393,8 @@
     <MESSAGE value="finish the 1.0." />
     <MESSAGE value="fixed the 1.0 bug." />
     <MESSAGE value="add input limit in grow page. And add some new pages about remain function." />
-    <option name="LAST_COMMIT_MESSAGE" value="add input limit in grow page. And add some new pages about remain function." />
+    <MESSAGE value="new function: now we can delete the chose img in grow record page." />
+    <option name="LAST_COMMIT_MESSAGE" value="new function: now we can delete the chose img in grow record page." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />

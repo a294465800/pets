@@ -87,8 +87,8 @@
 
 /*添加新信息*/
 .addPaybook {
-  width: 90rpx;
-  height: 90rpx;
+  width: 100rpx;
+  height: 100rpx;
   box-sizing: border-box;
   padding: 26rpx;
   background-color: #ff963d;
