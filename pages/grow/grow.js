@@ -130,10 +130,23 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
+    const that = this
     //记录最新时间
-    this.setData({
-      time: app.globalData.time,
-      pet_id: options.id
+    that.setData({
+      time: app.globalData.time
+    })
+    wx.request({
+      url: app.globalData.host + 'record/lists/feature/' + options.id + '/1',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded',
+        'Cookie': app.globalData.LaravelID
+      },
+      success: res => {
+        that.setData({
+          grow_records: res.data.data,
+          pet_id: options.id
+        })
+      }
     })
   },
   //时间日期监听函数

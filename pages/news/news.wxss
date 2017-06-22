@@ -2,6 +2,7 @@
 
 .container {
   background-color: #fff;
+  min-height: 100%;
 }
 
 /*滚动图片*/

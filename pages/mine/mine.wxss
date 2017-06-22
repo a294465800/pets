@@ -4,6 +4,7 @@
 
 .container {
   background-color: #eee;
+  min-height: 100%;
 }
 
 .part {

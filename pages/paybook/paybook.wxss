@@ -1,5 +1,9 @@
 /* paybook.wxss */
 
+.container {
+  min-height: 100%;
+}
+
 /*记账本总支出圆圈*/
 
 .paybook_charge {

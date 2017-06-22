@@ -11,8 +11,7 @@ Page({
     time: app.globalData.time,
     date: '今天',
     images: [],
-    category: [],
-    categorys: [],
+    grow_records: null,
     index: 0,
     health: {}
   },
@@ -23,19 +22,14 @@ Page({
   onLoad(options) {
     const that = this
     wx.request({
-      url: app.globalData.host + 'record/types/health',
+      url: app.globalData.host + 'record/lists/health/' + options.id + '/1',
       header: {
         'content-type': 'application/x-www-form-urlencoded',
         'Cookie': app.globalData.LaravelID
       },
       success: res => {
-        let category = []
-        for (let i in res.data.data) {
-          category.push(res.data.data[i].title)
-        }
         that.setData({
-          category: category,
-          categorys: res.data.data,
+          grow_records: res.data.data,
           time: app.globalData.time,
           pet_id: options.id
         })

@@ -140,7 +140,7 @@ Page({
     })
 
     wx.request({
-      url: app.globalData.host + 'record/list/account/' + options.id + '/1',
+      url: app.globalData.host + 'record/lists/feed/' + options.id + '/1',
       header: {
         'content-type': 'application/x-www-form-urlencoded',
         'Cookie': app.globalData.LaravelID

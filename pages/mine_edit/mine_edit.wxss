@@ -5,6 +5,7 @@
   flex-direction: column;
   justify-content: flex-start;
   background-color: #eee;
+  min-height: 100%;
 }
 
 .part {

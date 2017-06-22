@@ -1,5 +1,9 @@
 /* add_paybook.wxss */
 
+.container {
+  min-height: 100%;
+}
+
 .add_paybook {
   display: flex;
   flex-direction: row;

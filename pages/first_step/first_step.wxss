@@ -47,21 +47,28 @@ swiper {
 
 /*第二页面——种类*/
 
+.second_page{
+  min-height: 100%;
+}
+
 .second_page .second_preImg {
   text-align: center;
+}
+
+.second-scroll-view {
+  background-color: #eee;
 }
 
 .second-scroll {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: flex-start;
   flex-wrap: wrap;
   min-height: 100rpx;
   max-height: 570rpx;
   width: 90%;
   margin: 0 auto;
-  background-color: #eee;
 }
 
 .species_item {
@@ -69,7 +76,7 @@ swiper {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 10rpx 0 0 16rpx;
+  margin: 14rpx 0 0 16rpx;
 }
 
 .species_item .species_img {
@@ -111,7 +118,7 @@ swiper {
 /*第三页面——昵称*/
 
 .first_page, .third_page, .fourth_page, .fifth_page, .sixth_page, .seventh_page {
-  height: 750rpx;
+  height: 750rpx!important;
 }
 
 .third_page input, .fourth_page .picker, .seventh_page .weight_input input {

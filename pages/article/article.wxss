@@ -288,3 +288,10 @@
   color: #fff;
   z-index: 2;
 }
+
+.share_button {
+  padding: 0;
+  line-height: unset;
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+}

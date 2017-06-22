@@ -21,7 +21,7 @@
         <view class="word species_choose_word {{flag.species_hide?'word_hide':''}}">{{input.species_input}}</view>
         <input class="species_input {{flag.species_hide?'':'word_hide'}}" type="text" placeholder-class="input_s" placeholder="请输入宠物品种" bindinput="getOtherSpecies" />
       </view>
-      <scroll-view scroll-y>
+      <scroll-view scroll-y class="second-scroll-view">
         <view class="second-scroll">
           <view class="species_item" wx:for="{{kinds}}" wx:key="id" bindtap="chooseSpecies" data-species_img="{{item.img}}" data-species_zn="{{item.Name}}" data-species_name="{{item.id}}">
             <image src="{{item.img}}" mode="aspectFill" class="species_img" data-species="{{item.name}}"></image>

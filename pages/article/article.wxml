@@ -64,9 +64,11 @@
   <view class="add_article_comment {{article_input? 'hide': ''}}">
     <view class="article_comment_input" bindtap="pullArticleInput">我也说几句...</view>
     <image src="{{articles.collect == 1? '/images/icon/collect_c.png': '/images/icon/collect.png'}}" mode="aspectFit" bindtap="collectNews"></image>
-    <image src="/images/icon/resend.png" mode="aspectFit" bindtap="share" class="share">
-      <text class="share_fix" hidden="{{share_tip}}">点击右上角[ ··· ]\n分享给好友</text>
-    </image>
+    <button open-type="share" class="share_button">
+      <image src="/images/icon/resend.png" mode="aspectFit" class="share">
+        <!--<text class="share_fix" hidden="{{share_tip}}">点击右上角[ ··· ]\n分享给好友</text>-->
+      </image>
+    </button>
   </view>
   <!--添加评论结束-->
 </view>

@@ -139,8 +139,20 @@ Page({
     //记录最新时间
     that.setData({
       time: app.globalData.time,
-      timeEnd: app.globalData.time,
-      pet_id: options.id
+      timeEnd: app.globalData.time
+    })
+    wx.request({
+      url: app.globalData.host + 'record/lists/play/' + options.id + '/1',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded',
+        'Cookie': app.globalData.LaravelID
+      },
+      success: res => {
+        that.setData({
+          grow_records: res.data.data,
+          pet_id: options.id
+        })
+      }
     })
   },
 

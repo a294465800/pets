@@ -14,6 +14,7 @@ Page({
     // clean_type: ['洗澡','刷牙','剪指甲','清洁眼睛','清洁耳朵'],
     // clean_type: [],
     clean_types: [],
+    grow_records: null,
 
     //需要提交的信息
     clean: {}
@@ -24,12 +25,26 @@ Page({
    */
   onLoad(options) {
     const that = this
-
-    that.setData({
-      pet_id: options.id,
-      // clean_type: clean_type,
-      // clean_types: res.data.data
+    wx.request({
+      url: app.globalData.host + 'record/lists/wash/' + options.id + '/1',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded',
+        'Cookie': app.globalData.LaravelID
+      },
+      success: res => {
+        that.setData({
+          grow_records: res.data.data,
+          time: app.globalData.time,
+          pet_id: options.id
+        })
+      }
     })
+
+    // that.setData({
+    //   pet_id: options.id,
+    //   // clean_type: clean_type,
+    //   // clean_types: res.data.data
+    // })
     // wx.request({
     //   url: app.globalData.host + 'record/types/wash',
     //   header: {
