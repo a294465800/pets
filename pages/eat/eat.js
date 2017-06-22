@@ -232,7 +232,7 @@ Page({
   formSubmit(e) {
     const that = this
 
-    if (e.detail.value.category && e.detail.value.category.number) {
+    if (e.detail.value.category && e.detail.value.number) {
       that.setData({
         pet_eat: e.detail.value,
         'pet_eat.time': (that.data.date == '今天' ? app.globalData.today : that.data.date) + ' ' + that.data.time

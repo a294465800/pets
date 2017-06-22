@@ -59,7 +59,63 @@ Page({
       flag: false
     }],
     fix_nav: false,
-    news: [],
+    news: [{
+      title: '你好啊'
+    },
+    {
+      title: '你好啊'
+    },
+    {
+      title: '你好啊'
+    },
+    {
+      title: '你好啊'
+    },
+    {
+      title: '你好啊'
+    },
+    {
+      title: '你好啊'
+    },
+    {
+      title: '你好啊'
+    },
+    {
+      title: '你好啊'
+    },
+    {
+      title: '你好啊'
+    },
+    {
+      title: '你好啊'
+    },
+    {
+      title: '你好啊'
+    },
+    {
+      title: '你好啊'
+    },
+    {
+      title: '你好啊'
+    },
+    {
+      title: '你好啊'
+    },
+    {
+      title: '你好啊'
+    },
+    {
+      title: '你好啊'
+    },
+    {
+      title: '你好啊'
+    },
+    {
+      title: '你好啊'
+    }
+      , {
+      title: '你好啊'
+    }],
   },
 
   /**
@@ -94,7 +150,7 @@ Page({
       },
       success: res => {
         that.setData({
-          news: res.data.data
+          news: [...that.data.news, ...res.data.data]
         })
       }
     })
@@ -179,7 +235,7 @@ Page({
   },
 
   //上拉加载
-  onPullDownRefresh(e) {
+  toTop(e) {
     // clearTimeout(timer2)
     const that = this
     let animation = wx.createAnimation({

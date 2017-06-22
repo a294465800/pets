@@ -27,7 +27,7 @@
         <!--条件判断，指定刷新对应分类文章-->
         <swiper-item>
           <block wx:if="{{news_flag[index].flag}}">
-            <scroll-view scroll-y style="width=100%;" class="{{fix_nav?'percent_height':''}}">
+            <scroll-view scroll-y class="{{fix_nav?'percent_height':''}}" bindscrolltoupper="toTop">
               <view class="news_list_article" wx:for="{{news}}" wx:key="id" bindtap="goToArticle" id="{{item.id}}" hover-class="push_class">
                 <view class="news_article_message">
                   <view class="news_article_title">{{item.title}}</view>

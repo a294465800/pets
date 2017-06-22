@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/first_step/first_step",
     "pages/vaccine/vaccine",
     "pages/manager_switch/manager_switch",
     "pages/remain_index/remain_index",
@@ -8,7 +9,6 @@
     "pages/remain_open/remain_open",
     "pages/news/news",
     "pages/add_paybook/add_paybook",
-    "pages/first_step/first_step",
     "pages/clean/clean",
     "pages/mine/mine",
     "pages/mine_edit/mine_edit",
