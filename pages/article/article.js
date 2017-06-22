@@ -43,9 +43,6 @@ Page({
     //文章加载
     article_control: true,
 
-    //分享提示
-    share_tip: true,
-
     //评论页数
     page: 1,
 
@@ -209,7 +206,7 @@ Page({
       let article_item = {
         id: 0,
         avatar: that.data.userInfo.avatarUrl,
-        userName: that.data.userInfo.nickName,
+        userName: that.data.userInfo.nickname,
         createtime: (9 - time.getMonth() <= 0 ? (time.getMonth() + 1) : '0' + (time.getMonth() + 1)) + '-' + ((10 - time.getDate()) <= 0 ? time.getDate() : '0' + time.getDate()) + ' ' + (10 - time.getHours() <= 0 ? time.getHours() : '0' + time.getHours()) + ':' + ((10 - time.getMinutes()) <= 0 ? time.getMinutes() : '0' + time.getMinutes()),
         content: e.detail.value.article_comment
       }
@@ -217,7 +214,7 @@ Page({
         article_input: false,
         value: '',
         'articles.comments': [...[article_item], ...that.data.articles.comments],
-        'article.commentNumber': that.data.article.commentNumber + 1
+        'articles.commentNumber': that.data.articles.commentNumber + 1
       })
       wx.hideKeyboard()
       wx.request({
@@ -229,7 +226,8 @@ Page({
         },
         data: {
           aid: that.data.articles.id,
-          content: e.detail.value.article_comment
+          content: e.detail.value.article_comment,
+          'articles.commentNumber': that.data.articles.commentNumber + 1
         },
         success: res => {
           wx.showToast({
@@ -294,17 +292,14 @@ Page({
     }
   },
 
-  //分享按鈕吐司提示
-  share(e) {
-    clearTimeout(timer)
-    let that = this
-    that.setData({
-      share_tip: false
-    })
-    timer = setTimeout(() => {
-      that.setData({
-        share_tip: true
+  //分享兼容
+  checkShare(){
+    if(!wx.canIUse('button.open-type.share')){
+      wx.showModal({
+        title: '提示',
+        content: '当前微信版本过低，无法使用该功能，请升级到最新微信版本后重试。',
+        showCancel: false
       })
-    }, 1500)
+    }
   }
 })

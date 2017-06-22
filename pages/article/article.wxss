@@ -273,20 +273,7 @@
 .share {
   position: relative;
   overflow: unset;
-}
-
-.share_fix {
-  width: 350rpx;
-  box-sizing: border-box;
-  padding: 40rpx 30rpx;
-  text-align: center;
-  position: absolute;
-  top: -200rpx;
-  left: -350rpx;
-  background-color: #000;
-  border-radius: 10rpx;
-  color: #fff;
-  z-index: 2;
+  margin: 0!important;
 }
 
 .share_button {
@@ -294,4 +281,11 @@
   line-height: unset;
   background-color: rgba(0, 0, 0, 0);
   border: none;
+  position: unset;
+  width: 50rpx;
+  height: 50rpx;
+  margin: 0 10rpx;
+}
+.share_button::after {
+  content: none;
 }
