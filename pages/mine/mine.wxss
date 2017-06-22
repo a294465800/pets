@@ -130,6 +130,10 @@
   color: #999;
 }
 
+.pets_list:nth-child(2){
+  font-weight: bold;
+}
+
 .pets_list view {
   flex: 1;
   text-align: center;

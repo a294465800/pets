@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0003dbec-efe5-4fab-a0ac-c95e9e1671c1" name="Default" comment="new change: rebuilt the share interface.">
+    <list default="true" id="0003dbec-efe5-4fab-a0ac-c95e9e1671c1" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/index/index.wxml" afterPath="$PROJECT_DIR$/pages/index/index.wxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/article/article.js" afterPath="$PROJECT_DIR$/pages/article/article.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/article/article.wxml" afterPath="$PROJECT_DIR$/pages/article/article.wxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/article/article.wxss" afterPath="$PROJECT_DIR$/pages/article/article.wxss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/index/index.wxss" afterPath="$PROJECT_DIR$/pages/index/index.wxss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/mine/mine.wxss" afterPath="$PROJECT_DIR$/pages/mine/mine.wxss" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -140,7 +139,7 @@
       <workItem from="1497956110678" duration="755000" />
       <workItem from="1498011119788" duration="2551000" />
       <workItem from="1498034417580" duration="31000" />
-      <workItem from="1498097123701" duration="2137000" />
+      <workItem from="1498097123701" duration="2749000" />
     </task>
     <task id="LOCAL-00001" summary="new">
       <created>1496227866682</created>
@@ -373,11 +372,18 @@
       <option name="project" value="LOCAL" />
       <updated>1498097805674</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="new change: rebuilt the share interface.">
+      <created>1498100022015</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1498100022015</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20338000" />
+    <option name="totallyTimeSpent" value="20950000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
@@ -407,7 +413,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="change the images in manager_switch page, some images in first_steo page. And login image also changed." />
     <MESSAGE value="fixed the bug in first_step page submit. And the maxlength is 10 now in nickname input tag." />
     <MESSAGE value="adjust the maxlength in each input box." />
     <MESSAGE value="fixed the bug that Cann't jump the page correctly in first_step page. And update the function about age." />
@@ -432,7 +437,8 @@
     <MESSAGE value="new change: change the progress animation effect in index page." />
     <MESSAGE value="new change: adjust each pages height." />
     <MESSAGE value="bug: fixed the login bug that lower version wechat can not login." />
-    <option name="LAST_COMMIT_MESSAGE" value="bug: fixed the login bug that lower version wechat can not login." />
+    <MESSAGE value="new change: rebuilt the share interface." />
+    <option name="LAST_COMMIT_MESSAGE" value="new change: rebuilt the share interface." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />

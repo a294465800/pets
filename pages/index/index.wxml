@@ -21,7 +21,6 @@
             <view class="pet_name">{{pet.name}}</view>
             <view class="pet_age">{{pet.age}}</view>
           </view>
-          <!--<progress percent="{{progress}}" show-info activeColor="#ff963d" backgroundColor="#ccc" stroke-width="7" active />-->
           <view class="progress">
             <view class="progress_body" animation="{{animationData}}"></view>
             <view class="percent">{{progress}}/100</view>
@@ -46,7 +45,7 @@
           <view class="daily_plan scroll-flex">
             <view class="daily_plan_head">
               <image class="title_img" src="/images/grow_record/plan.png" mode="scaleToFill"></image>
-              <view class="title_word">日常计划</view>
+              <view>日常计划</view>
             </view>
             <block wx:for="{{daily_plan}}" wx:key="unique">
               <view class="daily_plan_message">
@@ -65,7 +64,7 @@
             <view class="manager_head">
               <view class="daily_plan_head">
                 <image class="title_img clock" src="/images/grow_record/clock.png" mode="scaleToFill"></image>
-                <view class="title_word">专属提醒</view>
+                <view>专属提醒</view>
               </view>
               <view class="manager_entry" bindtap="goToMangaer">
                 <view>管理</view>
@@ -104,7 +103,7 @@
           <view class="scroll-flex experience">
             <view class="daily_plan_head">
               <image class="title_img period" src="/images/grow_record/period.png"></image>
-              <view class="title_word">经历时期</view>
+              <view>经历时期</view>
             </view>
 
             <block wx:for="{{experience}}" wx:key="unique">
@@ -132,10 +131,10 @@
 
           <!--知识专题开始-->
           <view class="scroll-flex knowledge">
-            <view class="manager_head">
+            <view class="manager_head knowledge_head">
               <view class="daily_plan_head">
                 <image class="title_img knowledge_img" src="/images/grow_record/konwledge.png" mode="scaleToFill"></image>
-                <view class="title_word">专题知识</view>
+                <view>专题知识</view>
               </view>
               <view class="manager_entry" bindtap="goTONews">
                 <view>更多</view>
