@@ -2,7 +2,7 @@
 <view class="container">
   <!--用户信息开始-->
   <view class="part">
-    <view class="user" hover-class="push_class" hover-stay-time="150" bindtap="{{userInfo?'login':'login'}}">
+    <view class="user" hover-class="push_class" hover-stay-time="150" bindtap="login">
       <image src="{{userInfo.avatarUrl?userInfo.avatarUrl: '/images/login.png'}}" class="user_img"></image>
       <view class="userinfo">
         <view class="userinfo_message">

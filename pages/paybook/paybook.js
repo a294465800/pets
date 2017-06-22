@@ -133,10 +133,25 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    this.setData({
+    const that = this
+    that.setData({
       pet_id: options.id
     })
+
+    wx.request({
+      url: app.globalData.host + 'record/lists/feed/' + options.id + '/1',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded',
+        'Cookie': app.globalData.LaravelID
+      },
+      success: res => {
+        that.setData({
+          grow_records: res.data.data
+        })
+      }
+    })
   },
+  
   paybookChoose(e) {
     let arr = e.detail.value.split('-')
     this.setData({

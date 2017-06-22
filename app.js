@@ -50,6 +50,14 @@ App({
                       iv: res.iv
                     },
                     success: e => {
+                      if(! e.header){
+                        wx.showModal({
+                          title: '提示',
+                          content: '亲，请把微信升级到最新版本',
+                          showCancel: false
+                        })
+                        return
+                      }
                       wx.request({
                         url: that.globalData.host + 'checkLogin',
                         method: 'post',
@@ -136,6 +144,14 @@ App({
                       iv: res.iv
                     },
                     success: e => {
+                      if (!e.header) {
+                        wx.showModal({
+                          title: '提示',
+                          content: '亲，请把微信升级到最新版本',
+                          showCancel: false
+                        })
+                        return
+                      }
                       wx.request({
                         url: that.globalData.host + 'checkLogin',
                         method: 'post',
