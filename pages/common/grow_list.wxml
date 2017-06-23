@@ -11,7 +11,7 @@
         <block wx:for="{{item.data}}" wx:key="id">
           <block wx:if="{{index < 1}}">
             <view class="record_messae_title">
-              <view class="record_message_title_h">{{item.type}}cm</view>
+              <view class="record_message_title_h">{{item.type}} {{item.cost}}元</view>
             </view>
             <view class="record_message_title_s">{{item.remark}}</view>
             <view class="record_img first_img">
@@ -25,7 +25,7 @@
                 <view class="record_point2"></view>
               </view>
               <view class="record_more_title">
-              <view class="record_message_title_h">{{item.type}}cm</view>
+              <view class="record_message_title_h">{{item.type}} {{item.cost}}元</view>
                 <view class="record_message_title_s">{{item.remark}}</view>
                 <view class="record_img">
                   <image wx:for="{{item.url}}" src="{{item}}" data-src="{{item}}" mode="aspectFit" bindtap="preImage" wx:key="*this"></image>

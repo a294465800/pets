@@ -295,14 +295,37 @@ Page({
     app.globalData.time = (10 - time.getHours() <= 0 ? time.getHours() : '0' + time.getHours()) + ':' + ((10 - time.getMinutes()) <= 0 ? time.getMinutes() : '0' + time.getMinutes())
   },
   goToFirst() {
+    const that = this
     if (!app.globalData.userInfo) {
       wx.showModal({
         title: '提示',
         content: '请先登录~',
         success: res => {
           if (res.confirm) {
-            wx.navigateTo({
-              url: '/pages/mine_edit/mine_edit',
+            wx.openSetting({
+              success: res => {
+                if (res.authSetting["scope.userInfo"] == true) {
+                  app.getUserInfo((userInfo) => {
+                    if (userInfo.petNumber > 0){
+                      that.setData({
+                        first_time: false
+                      })
+                    }
+                    that.setData({
+                      userInfo: userInfo
+                    })
+                  })
+                } else if (res.authSetting["scope.userInfo"] == false) {
+                } else if (!res.authSetting["scope.userInfo"]) {
+                  app.getUserInfo((userInfo) => {
+                    that.setData({
+                      userInfo: userInfo
+                    })
+                  })
+                }
+              },
+              fail: res => {
+              }
             })
           }
         }
