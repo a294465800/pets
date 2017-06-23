@@ -52,7 +52,7 @@
                 <view class="record_messae_title">
                   <view class="record_message_title_h">{{item.type}}</view>
                 </view>
-                <view class="record_message_title_s">{{item.start}}至{{item.end}}</view>
+                <view class="record_message_title_s">{{item.Start}}至{{item.End}}</view>
                 <view class="record_message_title_s">{{item.remark}}</view>
                 <view class="record_img first_img">
                   <image wx:for="{{item.url}}" src="{{item}}" data-src="{{item}}" mode="aspectFit" bindtap="preImage" wx:key="*this"></image>
@@ -61,12 +61,12 @@
               <block wx:else>
                 <view class="record_more">
                   <view class="record_time_float">
-                    <view class="record_time">{{item.datetime}}</view>
+                    <view class="record_time">{{item.Start}}</view>
                     <view class="record_point2"></view>
                   </view>
                   <view class="record_more_title">
                     <view class="record_message_title_h">{{item.type}}</view>
-                    <view class="record_message_title_s">一直到{{item.end}}</view>
+                    <view class="record_message_title_s">一直到{{item.End}}</view>
                     <view class="record_message_title_s">{{item.remark}}</view>
                     <view class="record_img">
                       <image wx:for="{{item.url}}" src="{{item}}" data-src="{{item}}" mode="aspectFit" bindtap="preImage" wx:key="*this"></image>
