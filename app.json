@@ -1,8 +1,8 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/first_step/first_step",
     "pages/vaccine/vaccine",
+    "pages/first_step/first_step",
     "pages/manager_switch/manager_switch",
     "pages/remain_index/remain_index",
     "pages/add_remain/add_remain",

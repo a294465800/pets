@@ -55,11 +55,11 @@ Page({
   },
 
   //目录选择函数
-  categoryChange(e) {
-    this.setData({
-      index: e.detail.value
-    })
-  },
+  // categoryChange(e) {
+  //   this.setData({
+  //     index: e.detail.value
+  //   })
+  // },
 
   //选择图片函数
   imageChoose(e) {

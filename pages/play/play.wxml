@@ -9,7 +9,7 @@
     <view class="way part">
       <view class="way_left">
         <view class="word_2bit">方式：</view>
-        <input placeholder="散步" type="text" placeholder-class="p_input" class="min_width" name="type" maxlength="8"/>
+        <input placeholder="散步" type="text" placeholder-class="p_input" class="min_width" name="type" maxlength="8" />
       </view>
       <image src="/images/icon/photo.png" class="photo" mode="aspectFit" bindtap="imageChoose"></image>
     </view>
@@ -28,7 +28,7 @@
     </view>
     <view class="pre_img">
       <image src="{{item}}" wx:for="{{images}}" class="img_item" bindtap="preImage" data-src="{{item}}" mode="aspectFit" wx:key="*this">
-      <icon type="clear" size="20" class="del_img" id="{{item}}" catchtap="delImg"/>
+        <icon type="clear" size="20" class="del_img" id="{{item}}" catchtap="delImg" />
       </image>
     </view>
     <view class="btn">
@@ -39,7 +39,47 @@
 
   <!--最近信息列表开始-->
   <view class="list">
-    <include src="/pages/common/grow_list.wxml" />
+    <view class="scroll-flex glow_list">
+      <view class="record_part" wx:for="{{grow_records}}" wx:key="id">
+        <view class="record_item">
+          <view class="record_time">{{item.date}}</view>
+          <view class="record_point"></view>
+        </view>
+        <view class="record_space">
+          <view class="record_message">
+            <block wx:for="{{item.data}}" wx:key="id">
+              <block wx:if="{{index < 1}}">
+                <view class="record_messae_title">
+                  <view class="record_message_title_h">{{item.type}}</view>
+                </view>
+                <view class="record_message_title_s">{{item.start}}至{{item.end}}</view>
+                <view class="record_message_title_s">{{item.remark}}</view>
+                <view class="record_img first_img">
+                  <image wx:for="{{item.url}}" src="{{item}}" data-src="{{item}}" mode="aspectFit" bindtap="preImage" wx:key="*this"></image>
+                </view>
+              </block>
+              <block wx:else>
+                <view class="record_more">
+                  <view class="record_time_float">
+                    <view class="record_time">{{item.datetime}}</view>
+                    <view class="record_point2"></view>
+                  </view>
+                  <view class="record_more_title">
+                    <view class="record_message_title_h">{{item.type}}</view>
+                    <view class="record_message_title_s">一直到{{item.end}}</view>
+                    <view class="record_message_title_s">{{item.remark}}</view>
+                    <view class="record_img">
+                      <image wx:for="{{item.url}}" src="{{item}}" data-src="{{item}}" mode="aspectFit" bindtap="preImage" wx:key="*this"></image>
+                    </view>
+                  </view>
+                </view>
+              </block>
+            </block>
+          </view>
+        </view>
+
+      </view>
+    </view>
   </view>
   <!--最近信息列表结束-->
 

@@ -2,13 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0003dbec-efe5-4fab-a0ac-c95e9e1671c1" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/images/first_page/first.png" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/index/index.wxml" afterPath="$PROJECT_DIR$/pages/index/index.wxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.json" afterPath="$PROJECT_DIR$/app.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/eat/eat.js" afterPath="$PROJECT_DIR$/pages/eat/eat.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.wxss" afterPath="$PROJECT_DIR$/app.wxss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/common/grow_list.wxml" afterPath="$PROJECT_DIR$/pages/common/grow_list.wxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/eat/eat.wxml" afterPath="$PROJECT_DIR$/pages/eat/eat.wxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/grow/grow.wxml" afterPath="$PROJECT_DIR$/pages/grow/grow.wxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/health/health.js" afterPath="$PROJECT_DIR$/pages/health/health.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/health/health.wxml" afterPath="$PROJECT_DIR$/pages/health/health.wxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/index/index.wxss" afterPath="$PROJECT_DIR$/pages/index/index.wxss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/news/news.js" afterPath="$PROJECT_DIR$/pages/news/news.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/news/news.wxml" afterPath="$PROJECT_DIR$/pages/news/news.wxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/news/news.wxss" afterPath="$PROJECT_DIR$/pages/news/news.wxss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/mine/mine.wxml" afterPath="$PROJECT_DIR$/pages/mine/mine.wxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/play/play.wxml" afterPath="$PROJECT_DIR$/pages/play/play.wxml" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -143,7 +150,8 @@
       <workItem from="1498011119788" duration="2551000" />
       <workItem from="1498034417580" duration="31000" />
       <workItem from="1498097123701" duration="3382000" />
-      <workItem from="1498130274552" duration="12000" />
+      <workItem from="1498130274552" duration="88000" />
+      <workItem from="1498189832242" duration="8000" />
     </task>
     <task id="LOCAL-00001" summary="new">
       <created>1496227866682</created>
@@ -390,14 +398,21 @@
       <option name="project" value="LOCAL" />
       <updated>1498101160090</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="bug: scroll-view bug in news page.">
+      <created>1498130310403</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1498130310403</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="21595000" />
+    <option name="totallyTimeSpent" value="21679000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1096" extended-state="0" />
     <layout>
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24815595" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -424,7 +439,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="adjust the maxlength in each input box." />
     <MESSAGE value="fixed the bug that Cann't jump the page correctly in first_step page. And update the function about age." />
     <MESSAGE value="Now we can get the articles from the server." />
     <MESSAGE value="ES6" />
@@ -449,7 +463,8 @@
     <MESSAGE value="bug: fixed the login bug that lower version wechat can not login." />
     <MESSAGE value="new change: rebuilt the share interface." />
     <MESSAGE value="bug: fixed the line-height in each page." />
-    <option name="LAST_COMMIT_MESSAGE" value="bug: fixed the line-height in each page." />
+    <MESSAGE value="bug: scroll-view bug in news page." />
+    <option name="LAST_COMMIT_MESSAGE" value="bug: scroll-view bug in news page." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />

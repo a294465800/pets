@@ -1,8 +1,30 @@
 <!--index.wxml-->
-<view class="container">
+<view class="container" style="{{first_time?'height: 100%':''}}">
   <!--初次进入显示的界面开始-->
   <view class="first_time" hidden="{{!first_time}}">
-    <image src="/images/first_page/first.png" class="bg" mode="widthFix"></image>
+    <image src="/images/first_page/first1.png" class="bg" mode="aspectFill"></image>
+    <view class="first_content">
+      <view class="first_head">宠物养成记</view>
+      <view class="first_head_s">陪爱宠一起成长</view>
+      <view class="first_item one">
+        <view class="first_item_one">
+          <image src="/images/icon/file.png" class="first_item_img" mode="aspectFit"></image>
+          <view class="first_item_head">大数据收录宠物资料</view>
+        </view>
+      </view>
+      <view class="first_item two">
+        <view class="first_item_two">
+          <image src="/images/icon/diamond.png" class="first_item_img" mode="aspectFit"></image>
+          <view class="first_item_head">为宝宝量身定制喂养方案</view>
+        </view>
+      </view>
+      <view class="first_item three">
+        <view class="first_item_three">
+          <image src="/images/icon/phone.png" class="first_item_img" style="padding: 40rpx" mode="aspectFit"></image>
+          <view class="first_item_head">养宠必备神器，全方位呵护提醒</view>
+        </view>
+      </view>
+    </view>
     <view class="start" bindtap="goToFirst">添加宠物定制专属</view>
   </view>
   <!--初次进入显示的界面结束-->
@@ -171,7 +193,7 @@
             </view>
           </view>
           <!--知识专题结束-->
-          
+
         </scroll-view>
       </view>
       <!--今日安排结束-->

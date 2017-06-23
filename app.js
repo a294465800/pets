@@ -192,7 +192,7 @@ App({
   //全局数据
   globalData: {
     //全局服务器
-    host: 'http://119.23.202.220/api/',
+    host: 'http://119.29.240.137/api/',
 
     //key
     LaravelID: null,

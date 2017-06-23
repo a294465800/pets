@@ -205,7 +205,12 @@ input, textarea {
   background-color: #8e8e8e;
   position: absolute;
   top: 6rpx;
-  right: -11rpx;
+  right: -10rpx;
+}
+
+.record_message_gray {
+  color: #333;
+  font-size: 28rpx;
 }
 
 /*隐藏、出现*/

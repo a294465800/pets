@@ -41,13 +41,13 @@
       <image class="pet_img" mode="aspectFit" src="/images/user/collect.png"></image>
       <view class="title_message">我的收藏</view>
     </view>
-    <view class="inform_news title" hover-class="push_class" bindtap="test">
+    <!--<view class="inform_news title" hover-class="push_class" bindtap="test">
       <view class="inform_news_left">
         <image class="pet_img" mode="aspectFit" src="/images/user/inform.png"></image>
         <view class="title_message">消息通知</view>
       </view>
       <image src="/images/grow_record/more.png" class="userinfo_more"></image>
-    </view>
+    </view>-->
   </view>
   <!--收藏通知结束-->
 

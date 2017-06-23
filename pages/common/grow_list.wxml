@@ -8,27 +8,27 @@
     </view>
     <view class="record_space">
       <view class="record_message">
-        <block wx:for="{{item.category.records}}" wx:key="*this">
+        <block wx:for="{{item.data}}" wx:key="id">
           <block wx:if="{{index < 1}}">
             <view class="record_messae_title">
-              <view class="record_message_title_h" wx:for="{{item.items}}" wx:key="*this">{{item}}</view>
+              <view class="record_message_title_h">{{item.type}}cm</view>
             </view>
             <view class="record_message_title_s">{{item.remark}}</view>
             <view class="record_img first_img">
-              <image wx:for="{{item.src}}" src="{{item}}" data-src="{{item}}" mode="aspectFit" bindtap="preImage" wx:key="*this"></image>
+              <image wx:for="{{item.url}}" src="{{item}}" data-src="{{item}}" mode="aspectFit" bindtap="preImage" wx:key="*this"></image>
             </view>
           </block>
           <block wx:else>
             <view class="record_more">
               <view class="record_time_float">
-                <view class="record_time">{{item.time}}</view>
+                <view class="record_time">{{item.datetime}}</view>
                 <view class="record_point2"></view>
               </view>
               <view class="record_more_title">
-                <view class="record_message_title_h">{{item.items[0]}}</view>
+              <view class="record_message_title_h">{{item.type}}cm</view>
                 <view class="record_message_title_s">{{item.remark}}</view>
                 <view class="record_img">
-                  <image wx:for="{{item.src}}" src="{{item}}" data-src="{{item}}" mode="aspectFit" bindtap="preImage" wx:key="*this"></image>
+                  <image wx:for="{{item.url}}" src="{{item}}" data-src="{{item}}" mode="aspectFit" bindtap="preImage" wx:key="*this"></image>
                 </view>
               </view>
             </view>
