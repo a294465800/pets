@@ -189,6 +189,30 @@ App({
     })
   },
 
+  //获取成长记录函数
+  getRecords(length, records, data){
+    let arr = []
+    for (let i in data) {
+      arr.push(data[i])
+    }
+    if (!arr) {
+      return null
+    } else if (records[length - 1].date == arr[0].date) {
+      let grow_record = [...records[length - 1].data, ...arr[0].data]
+      records[length - 1].data = grow_record
+      arr.splice(0, 1)
+      return [...records, ...arr]
+      // that.setData({
+      //   records: [...records, ...arr]
+      // })
+    } else {
+      return [...records, ...arr]
+      // that.setData({
+      //   records: [...records, ...arr]
+      // })
+    }
+  },
+
   //全局数据
   globalData: {
     //全局服务器

@@ -66,7 +66,7 @@
               <block wx:else>
                 <view class="record_more">
                   <view class="record_time_float">
-                    <view class="record_time">{{item.datetime}}</view>
+                    <view class="record_time">{{item.Time}}</view>
                     <view class="record_point2"></view>
                   </view>
                   <view class="record_more_title">

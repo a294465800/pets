@@ -1,6 +1,7 @@
 // health.js
 var app = getApp()
-
+let page = 2
+let close = false
 Page({
 
   /**
@@ -21,6 +22,11 @@ Page({
    */
   onLoad(options) {
     const that = this
+    that.setData({
+      time: app.globalData.time,
+      pet_id: options.id
+    })
+
     wx.request({
       url: app.globalData.host + 'record/lists/health/' + options.id + '/1',
       header: {
@@ -28,11 +34,45 @@ Page({
         'Cookie': app.globalData.LaravelID
       },
       success: res => {
+        let arr = []
+        for (let i in res.data.data) {
+          arr.push(res.data.data[i])
+        }
+
+        if (!res.data.data) { return }
         that.setData({
-          grow_records: res.data.data,
-          time: app.globalData.time,
-          pet_id: options.id
+          grow_records: arr
         })
+      }
+    })
+  },
+
+  onShow() {
+    page = 2
+    close = false
+  },
+
+  //触底刷新
+  onReachBottom() {
+    const that = this
+    if (close) { return }
+
+    wx.request({
+      url: app.globalData.host + 'record/lists/health/' + that.data.pet_id + '/' + page,
+      header: {
+        'content-type': 'application/x-www-form-urlencoded',
+        'Cookie': app.globalData.LaravelID
+      },
+      success: res => {
+        let records = app.getRecords(that.data.grow_records.length, that.data.grow_records, res.data.data)
+        if (records) {
+          that.setData({
+            grow_records: records
+          })
+          page++
+        } else {
+          close = true
+        }
       }
     })
   },
