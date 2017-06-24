@@ -1,8 +1,4 @@
 // news.js
-let flag1 = 0
-let flag2 = 0
-let timer = null
-let timer2 = null
 let app = getApp()
 var startY = 0
 Page({
@@ -36,86 +32,10 @@ Page({
       id: 0
     }],
 
-    //切换bug
-    bug: false,
+    news: [],
 
-    //缓存文章
-    news_flag: [{
-      flag: true
-    },
-    {
-      flag: false
-    },
-    {
-      flag: false
-    },
-    {
-      flag: false
-    },
-    {
-      flag: false
-    },
-    {
-      flag: false
-    }],
-    fix_nav: false,
-    news: [{
-      title: '你好啊'
-    },
-    {
-      title: '你好啊'
-    },
-    {
-      title: '你好啊'
-    },
-    {
-      title: '你好啊'
-    },
-    {
-      title: '你好啊'
-    },
-    {
-      title: '你好啊'
-    },
-    {
-      title: '你好啊'
-    },
-    {
-      title: '你好啊'
-    },
-    {
-      title: '你好啊'
-    },
-    {
-      title: '你好啊'
-    },
-    {
-      title: '你好啊'
-    },
-    {
-      title: '你好啊'
-    },
-    {
-      title: '你好啊'
-    },
-    {
-      title: '你好啊'
-    },
-    {
-      title: '你好啊'
-    },
-    {
-      title: '你好啊'
-    },
-    {
-      title: '你好啊'
-    },
-    {
-      title: '你好啊'
-    }
-      , {
-      title: '你好啊'
-    }],
+    //效果长度
+    width: 0
   },
 
   /**
@@ -123,6 +43,9 @@ Page({
    */
   onLoad(options) {
     const that = this
+    wx.showLoading({
+      title: '加载中',
+    })
 
     //请求文章类标题
     wx.request({
@@ -133,7 +56,10 @@ Page({
       },
       success: res => {
         that.setData({
-          nav_head: [...that.data.nav_head, ...res.data.data]
+          nav_head: [...that.data.nav_head, ...res.data.data],
+        })
+        that.setData({
+          width: Math.floor(100 / that.data.nav_head.length)
         })
       }
     })
@@ -150,8 +76,9 @@ Page({
       },
       success: res => {
         that.setData({
-          news: [...that.data.news, ...res.data.data]
+          'news[0]': [...res.data.data]
         })
+        wx.hideLoading()
       }
     })
 
@@ -175,80 +102,70 @@ Page({
     // })
   },
 
-  //导航选择
-  changeNav(e) {
-    if (!this.data.bug) {
-      const that = this
-      const length = that.data.nav_head.length
-      let left = (750 / length) * e.target.id + 'rpx'
-      let animation = wx.createAnimation({
-        duration: 500,
-        timingFunction: 'ease',
-      })
-      animation.left(left).step()
-
-      that.setData({
-        current: e.target.id,
-        bug: true,
-        animationData: animation.export()
-      })
-    }
+  //动画封装
+  animationNav(id) {
+    const that = this
+    const length = that.data.nav_head.length
+    let left = (that.data.width) * id + '%'
+    let animation = wx.createAnimation({
+      duration: 500,
+      timingFunction: 'ease',
+    })
+    return animation.left(left).step()
   },
 
-  //switch切换
-  switchPage(e) {
-    clearTimeout(timer)
+  //导航选择
+  changeNav(e) {
+    wx.showLoading({
+      title: '加载中',
+    })
     const that = this
+    let id = e.target.id
+    let news = 'news[' + id + ']'
     wx.request({
       url: app.globalData.host + 'articles/list',
       data: {
         page: 1,
-        type: that.data.nav_head[e.detail.current].id || 0
+        type: that.data.nav_head[id].id || 0
       },
       success(res) {
         that.setData({
-          news: res.data.data
+          [news]: [...res.data.data]
         })
+        wx.hideLoading()
       }
     })
-    if (that.data.current == e.detail.current) {
-    } else {
-      const length = that.data.nav_head.length
-      let left = (750 / length) * e.detail.current + 'rpx'
-      let animation = wx.createAnimation({
-        duration: 500,
-        timingFunction: 'ease',
-      })
-      animation.left(left).step()
-      that.setData({
-        animationData: animation.export(),
-        current: e.detail.current,
-      })
-    }
-    let object = 'news_flag[' + e.detail.current + '].flag'
-    timer = setTimeout(() => {
-      that.setData({
-        [object]: true,
-        bug: false
-      })
-    }, 1000)
+    that.setData({
+      animationData: that.animationNav(id).export(),
+      current: id,
+    })
   },
 
-  //上拉加载
-  toTop(e) {
-    // clearTimeout(timer2)
+  //switch切换
+  switchPage(e) {
+    wx.showLoading({
+      title: '加载中',
+    })
     const that = this
-    let animation = wx.createAnimation({
-      duration: 500,
-      timingFunction: 'ease'
+    let index = e.detail.current
+    let news = 'news[' + index + ']'
+    wx.request({
+      url: app.globalData.host + 'articles/list',
+      data: {
+        page: 1,
+        type: that.data.nav_head[index].id || 0
+      },
+      success(res) {
+        that.setData({
+          [news]: [...res.data.data]
+        })
+        wx.hideLoading()
+      }
     })
-    that.animation = animation
-    animation.scale(1).step()
     that.setData({
-      fix_nav: false,
-      animationDataImg: animation.export()
+      animationData: that.animationNav(index).export(),
+      current: index,
     })
-    wx.stopPullDownRefresh()
   },
 
   //具体文章跳转
@@ -258,6 +175,53 @@ Page({
     })
   },
 
+  //上拉加载
+  toTop() {
+    const that = this
+    let animation = wx.createAnimation({
+      duration: 500,
+      timingFunction: 'ease'
+    })
+    animation.height('400rpx').step()
+    that.setData({
+      animationDataImg: animation.export()
+    })
+  },
+
+  onPullDownRefresh(e) {
+    const that = this
+    let animation = wx.createAnimation({
+      duration: 500,
+      timingFunction: 'ease'
+    })
+    animation.height('400rpx').step()
+    that.setData({
+      animationDataImg: animation.export()
+    })
+    wx.showLoading({
+      title: '加载中',
+    })
+    let index = that.data.current
+    let news = 'news[' + index + ']'
+    wx.request({
+      url: app.globalData.host + 'articles/list',
+      data: {
+        page: 1,
+        type: that.data.nav_head[index].id || 0
+      },
+      success(res) {
+        that.setData({
+          [news]: [...res.data.data]
+        })
+        wx.hideLoading()
+        wx.showToast({
+          title: '刷新成功',
+        })
+      }
+    })
+    wx.stopPullDownRefresh()
+  },
+
   //获取用户初始触摸位置
   startTouch(e) {
     startY = e.touches[0].clientY
@@ -265,24 +229,43 @@ Page({
 
   //根据用户结束触摸位置进行判断
   endTouch(e) {
-    clearTimeout(timer2)
     const that = this
     let moveY = e.changedTouches[0].clientY
     let animation = wx.createAnimation({
       duration: 500,
       timingFunction: 'ease'
     })
-    that.animation = animation
     if (startY > moveY) {
-      animation.scale(.5).step()
+      animation.height(0).step()
       that.setData({
         animationDataImg: animation.export(),
       })
-      timer2 = setTimeout(() => {
-        that.setData({
-          fix_nav: true
-        })
-      }, 300)
     }
+  },
+
+  //文章触底加载
+  toBottom() {
+    wx.showLoading({
+      title: '加载中',
+    })
+    const that = this
+    let index = that.data.current
+    let news = 'news[' + index + ']'
+    wx.request({
+      url: app.globalData.host + 'articles/list',
+      data: {
+        page: 1,
+        type: that.data.nav_head[index].id || 0
+      },
+      success(res) {
+        that.setData({
+          [news]: [...that.data.news[index], ...res.data.data]
+        })
+        wx.hideLoading()
+        wx.showToast({
+          title: '刷新成功',
+        })
+      }
+    })
   }
 })
