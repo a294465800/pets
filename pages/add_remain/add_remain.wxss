@@ -16,7 +16,7 @@
 }
 
 .remian_solution {
-  margin-bottom: 30rpx;
+  margin: 30rpx 0;
 }
 
 .solution_title {
@@ -27,7 +27,7 @@
 .remain_img {
   width: 16rpx;
   height: 30rpx;
-  margin-left: 10rpx;
+  margin-left: 20rpx;
 }
 
 /*提醒计划*/
@@ -51,6 +51,10 @@
 .remain_picker {
   min-width: 170rpx;
   color: #677f9b;
+}
+
+.solution_content {
+  text-align: justify;
 }
 
 /*保存*/

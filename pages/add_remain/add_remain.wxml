@@ -1,10 +1,20 @@
 <!--add_remain.wxml-->
 <view class="container">
+  <!--上次时间-->
+  <view class="remain_plan_item border_item">
+    <view class="remain_plan_title">上次{{title}}时间</view>
+    <view class="remain_picker">
+      <picker mode="date" start="1980-01-01" end="{{today}}" bindchange="periodTime" value="{{periodTime}}">{{periodTime}}</picker>
+      <image src="/images/user/back-icon.png" mode="aspectFit" class="remain_img"></image>
+    </view>
+  </view>
+  <!--/上次时间-->
+
   <!--解决方案-->
   <view class="remian_solution">
     <view class="solution_title">解决方案</view>
     <view class="solution_content">
-      <text selectable>1月龄以下的猫猫，需要咨询医生使用驱虫药；1月龄以上6月龄以下的猫猫，每隔一个月驱虫一次;6月龄以上的猫猫，每隔三个月驱虫一次。</text>
+      <text selectable>{{help}}</text>
     </view>
   </view>
   <!--/解决方案-->
@@ -14,16 +24,13 @@
     <view class="remain_plan_item">
       <view class="remain_plan_title">提醒计划</view>
       <view class="remain_picker">
-        <picker mode="selector">当天提醒</picker>
+        <picker mode="selector" range="{{remain_plan}}" range-key="name" value="{{index}}" bindchange="remainTime">{{remain_plan[index].name}}</picker>
         <image src="/images/user/back-icon.png" mode="aspectFit" class="remain_img"></image>
       </view>
     </view>
     <view class="remain_plan_item border_item">
-      <view class="remain_plan_title">下次驱虫时间</view>
-      <view class="remain_picker">
-        <picker mode="date" start="{{today}}" end="2030-01-01" bindchange="nextTIme" value="{{nextTime}}">{{nextTime}}</picker>
-        <image src="/images/user/back-icon.png" mode="aspectFit" class="remain_img"></image>
-      </view>
+      <view class="remain_plan_title">下次{{title}}时间</view>
+      <view class="remain_picker">{{nextTime}}</view>
     </view>
   </view>
   <!--/提醒栏目-->

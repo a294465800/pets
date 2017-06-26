@@ -394,13 +394,13 @@
   justify-content: space-between;
   align-items: center;
   border-top: 2rpx solid #eee;
-  height: 90rpx;
   width: 100%;
-  padding: 0 30rpx;
+  padding: 30rpx 30rpx;
 }
 
 .manager_message_new {
-  font: normal 32rpx/46rpx "Microsoft YaHei";
+  font: normal 32rpx "Microsoft YaHei";
+  max-width: 560rpx;
 }
 
 .manager_message_item {

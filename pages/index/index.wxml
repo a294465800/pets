@@ -69,13 +69,13 @@
               <image class="title_img" src="/images/grow_record/plan.png" mode="scaleToFill"></image>
               <view>日常计划</view>
             </view>
-            <block wx:for="{{daily_plan}}" wx:key="unique">
+            <block wx:for="{{pet.tasks}}" wx:key="id">
               <view class="daily_plan_message">
                 <view class="daily_plan_news">
-                  <text class="daily_plan_news_head">[{{item.daily_plan_head}}]</text>
-                  <text>{{item.daily_plan_content}}</text>
+                  <text class="daily_plan_news_head">[{{item.type}}]</text>
+                  <text>{{item.name}}</text>
                 </view>
-                <image class="daily_plan_punch" src="{{item.daily_plan_punch?'/images/grow_record/punch_ok.png':'/images/grow_record/punch_no.png'}}" bindtap="{{item.daily_plan_punch?'':'daily_plan_punch'}}" id="{{index}}" data-progress="{{progress}}"></image>
+                <image class="daily_plan_punch" src="{{item.finish == 1?'/images/grow_record/punch_ok.png':'/images/grow_record/punch_no.png'}}" bindtap="{{item.finish == 1?'':'daily_plan_punch'}}" data-id="{{item.id}}" data-index="{{index}}" data-progress="{{progress}}"></image>
               </view>
             </block>
           </view>
@@ -128,26 +128,31 @@
               <view>经历时期</view>
             </view>
 
-            <block wx:for="{{experience}}" wx:key="unique">
-              <view class="manager_message" wx:if="{{index < 2}}">
-                <view class="manager_message_new">
-                  <text class="manager_message_item">{{item.title}}</text>
-                  <text>，距离结束还剩</text>
-                </view>
-                <view class="manager_time">{{item.R_time}}天</view>
-              </view>
-              <view class="manager_hide {{experienceShow?'manager_show':''}}" wx:else>
-                <view class="manager_message">
+            <block wx:if="{{!pet.periods[0]}}">
+              <view class="manager_message" style="text-align: center;">爱宠暂时还有没要经历时期哦</view>
+            </block>
+            <block wx:else>
+              <block wx:for="{{pet.periods}}" wx:key="id">
+                <view class="manager_message" wx:if="{{index < 2}}">
                   <view class="manager_message_new">
-                    <text class="manager_message_item">{{item.title}}</text>
+                    <text class="manager_message_item">{{item.name}}</text>
                     <text>，距离结束还剩</text>
                   </view>
-                  <view class="manager_time">{{item.R_time}}天</view>
+                  <view class="manager_time">{{item.day}}天</view>
                 </view>
-              </view>
-            </block>
+                <view class="manager_hide {{experienceShow?'manager_show':''}}" wx:else>
+                  <view class="manager_message">
+                    <view class="manager_message_new">
+                      <text class="manager_message_item">{{item.name}}</text>
+                      <text>，距离结束还剩</text>
+                    </view>
+                    <view class="manager_time">{{item.day}}天</view>
+                  </view>
+                </view>
+              </block>
 
-            <view class="manager_more manager_message" bindtap="experienceShow" data-show="{{experienceShow}}">{{experienceShow?'收起':'点击加载更多'}}</view>
+              <view class="manager_more manager_message" bindtap="experienceShow" data-show="{{experienceShow}}">{{experienceShow?'收起':'点击加载更多'}}</view>
+            </block>
           </view>
           <!--经历时期结束-->
 

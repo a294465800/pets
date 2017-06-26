@@ -37,9 +37,14 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  min-width: 140rpx;
   font-size: 28rpx;
   color: #ccc;
+  text-align: right;
+}
+
+.remain_open {
+  min-width: 140rpx;
+  text-align: left;
 }
 
 .remain_img {

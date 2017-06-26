@@ -1,10 +1,12 @@
 // manager_switch.js
+let app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    pet_id: 0,
     remain: [{
       zn: '疫苗',
       unique: 0,
@@ -56,11 +58,29 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+    const that = this
+    let id = options.id
+    wx.request({
+      url: app.globalData.host + 'reminds/' + id,
+      header: {
+        'content-type': 'application/x-www-form-urlencoded',
+        'Cookie': app.globalData.LaravelID
+      },
+      success: res => {
+        if (200 == res.data.code) {
+          that.setData({
+            reminds: res.data.data,
+            pet_id: id
+          })
+        } else { return }
+      }
+    })
   },
-  goToRemainIndex(){
+  goToRemainIndex(e) {
+    const that = this
+    let id = e.currentTarget.dataset.id
     wx.navigateTo({
-      url: '/pages/remain_index/remain_index',
+      url: '/pages/remain_index/remain_index?pid=' + that.data.pet_id + '&&rid=' + id,
     })
   }
 

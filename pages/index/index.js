@@ -8,6 +8,7 @@ Page({
     animationData: {},
 
     first_time: true,
+    userInfo: null,
     pets: app.globalData.pets,
     pet_index: 0,
     pet: {},
@@ -266,8 +267,9 @@ Page({
               app.globalData.pets = res.data.data
               that.setData({
                 first_time: false,
+                userInfo: userInfo,
                 pets: res.data.data,
-                pet: res.data.data[that.data.pet_index],
+                pet: res.data.data[that.data.pet_index]
               })
             }
           }
@@ -306,7 +308,7 @@ Page({
               success: res => {
                 if (res.authSetting["scope.userInfo"] == true) {
                   app.getUserInfo((userInfo) => {
-                    if (userInfo.petNumber > 0){
+                    if (userInfo.petNumber > 0) {
                       that.setData({
                         first_time: false
                       })
@@ -379,23 +381,40 @@ Page({
 
   //打卡
   daily_plan_punch(e) {
+    const that = this
     let animation = wx.createAnimation({
       duration: 500,
       timingFunction: 'ease-out'
     })
-    let length = this.data.daily_plan.length
+    let length = that.data.pet.tasks.length * that.data.userInfo.petNumber
     let percent = 100 / length
     let progress = Math.ceil(Number(e.currentTarget.dataset.progress) + percent)
-    let temp = 'daily_plan[' + e.target.id + '].daily_plan_punch'
+    let temp = 'pet.tasks[' + e.currentTarget.dataset.index + '].finish'
+
+
     if (progress > 100) {
       progress = 100
     }
-    this.animation = animation
     animation.width(progress + '%').step()
-    this.setData({
-      [temp]: 'true',
-      progress: progress,
-      animationData: animation.export()
+    wx.request({
+      url: app.globalData.host + 'task/finish',
+      data: {
+        id: e.currentTarget.dataset.id,
+        pid: that.data.pet.id
+      },
+      header: {
+        'content-type': 'application/x-www-form-urlencoded',
+        'Cookie': app.globalData.LaravelID
+      },
+      success: res => {
+        if (200 == res.data.code) {
+          that.setData({
+            [temp]: 1,
+            progress: progress,
+            animationData: animation.export()
+          })
+        }
+      }
     })
   },
 
@@ -494,8 +513,9 @@ Page({
 
   //提醒管理
   goToMangaer(e) {
+    const that = this
     wx.navigateTo({
-      url: '/pages/manager_switch/manager_switch',
+      url: '/pages/manager_switch/manager_switch?id=' + that.data.pet.id,
     })
   },
 
