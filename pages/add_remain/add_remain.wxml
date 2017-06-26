@@ -30,12 +30,12 @@
     </view>
     <view class="remain_plan_item border_item">
       <view class="remain_plan_title">下次{{title}}时间</view>
-      <view class="remain_picker">{{nextTime}}</view>
+      <view class="remain_picker">{{nextTime?nextTime + '（推荐）':''}}</view>
     </view>
   </view>
   <!--/提醒栏目-->
 
   <!--保存提醒-->
-  <view class="remain_save">保存</view>
+  <view class="remain_save" bindtap="addRemind">保存</view>
   <!--/保存提醒-->
 </view>

@@ -373,10 +373,25 @@ Page({
 
   //改变导航样式
   changePart(e) {
-    this.setData({
+    const that = this
+    that.setData({
       nav_id: e.target.id,
       scroll_id: e.target.id
     })
+    if (e.target.id == 1) {
+      wx.request({
+        url: app.globalData.host + 'record/lists/all/' + that.data.pet.id + '/1',
+        header: {
+          'content-type': 'application/x-www-form-urlencoded',
+          'Cookie': app.globalData.LaravelID
+        },
+        success: res => {
+          if(200 == res.data.code){
+
+          }
+        }
+      })
+    }
   },
 
   //打卡

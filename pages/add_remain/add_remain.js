@@ -54,8 +54,8 @@ Page({
   setDate(before) {
     let date = new Date
     date.setDate(date.getDate() - before)
-    let y = date.getFullYear
-    let m = date.getMonth + 1
+    let y = date.getFullYear()
+    let m = date.getMonth() + 1
     let d = date.getDate()
     return (y + '-' + m + '-' + d)
   },
@@ -63,9 +63,6 @@ Page({
   //选择上次时间
   periodTime(e) {
     const that = this
-    that.setData({
-      periodTime: e.detail.value
-    })
     wx.request({
       url: app.globalData.host + 'compute/remind',
       header: {
@@ -81,7 +78,10 @@ Page({
       },
       success: res => {
         if (200 == res.data.code) {
-          console.log(res)
+          that.setData({
+            periodTime: e.detail.value,
+            nextTime: res.data.data.time
+          })
         }
       }
     })
@@ -100,7 +100,7 @@ Page({
         content: '请先选择上次时间',
         showCancel: false,
         success: res => {
-          if(res.confirm){ return }
+          if (res.confirm) { return }
         }
       })
       return
@@ -125,7 +125,43 @@ Page({
       },
       success: res => {
         if (200 == res.data.code) {
-          console.log(res)
+          that.setData({
+            nextTime: res.data.data.time
+          })
+        }
+      }
+    })
+  },
+
+  //保存
+  addRemind() {
+    const that = this
+    wx.request({
+      url: app.globalData.host + 'remind/schedule/add',
+      method: 'POST',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded',
+        'Cookie': app.globalData.LaravelID
+      },
+      data: {
+        rid: that.data.rid,
+        pid: that.data.pid,
+        stage: 0,
+        start: that.data.periodTime,
+        remindTime: that.data.nextTime
+      },
+      success: res => {
+        if (200 == res.data.code) {
+          wx.showToast({
+            title: '保存成功',
+          })
+          wx.navigateTo({
+            url: '/pages/index/index',
+          })
+        } else {
+          wx.showToast({
+            title: '保存失败',
+          })
         }
       }
     })
