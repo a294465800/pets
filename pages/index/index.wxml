@@ -219,7 +219,229 @@
           <!--成长记录导航结束-->
 
           <!--引入成长列表开始-->
-          <include src="/pages/common/grow_list" />
+          <view class="scroll-flex glow_list">
+            <!--喂食-->
+            <view class="record_part" wx:for="{{grow_records.feedRecords.data}}" wx:key="id" wx:for-item="feeds">
+              <view class="record_item">
+                <view class="record_time">{{feeds.date}}</view>
+                <view class="record_title">{{grow_records.feedRecords.name}}</view>
+                <view class="record_point"></view>
+              </view>
+              <view class="record_space">
+                <view class="record_message">
+                  <block wx:for="{{feeds.data}}" wx:key="id" wx:for-item="feed">
+                    <block wx:if="{{index < 1}}">
+                      <view class="record_messae_title">
+                        <view class="record_message_title_h">{{feed.category}}</view>
+                        <view class="record_message_title_h">{{feed.number}}g</view>
+                      </view>
+                      <view class="record_message_title_s">{{feed.remark}}</view>
+                      <view class="record_img first_img">
+                        <image wx:for="{{feed.img}}" src="{{item}}" data-src="{{item}}" mode="aspectFit" bindtap="preImage" wx:key="*this" data-imgs="{{feed.img}}"></image>
+                      </view>
+                    </block>
+                    <block wx:else>
+                      <view class="record_more">
+                        <view class="record_time_float">
+                          <view class="record_time">{{feed.Time}}</view>
+                          <view class="record_point2"></view>
+                        </view>
+                        <view class="record_more_title">
+                          <view class="record_message_title_h">{{feed.category}}</view>
+                          <view class="record_message_title_h">{{feed.number}}g</view>
+                          <view class="record_message_title_s">{{feed.remark}}</view>
+                          <view class="record_img">
+                            <image wx:for="{{feed.img}}" src="{{item}}" data-src="{{item}}" mode="aspectFit" bindtap="preImage" wx:key="*this" data-imgs="{{feed.img}}"></image>
+                          </view>
+                        </view>
+                      </view>
+                    </block>
+                  </block>
+                </view>
+              </view>
+
+            </view>
+            <!--/喂食-->
+
+            <!--健康-->
+            <view class="scroll-flex glow_list">
+              <view class="record_part" wx:for="{{grow_records.healthRecords.data}}" wx:key="id" wx:for-item="healths">
+                <view class="record_item">
+                  <view class="record_time">{{healths.date}}</view>
+                  <view class="record_title">{{grow_records.healthRecords.name}}</view>
+                  <view class="record_point"></view>
+                </view>
+                <view class="record_space">
+                  <view class="record_message">
+                    <block wx:for="{{healths.data}}" wx:key="id" wx:for-item="health">
+                      <block wx:if="{{index < 1}}">
+                        <view class="record_messae_title">
+                          <view class="record_message_title_h">{{health.illness}}</view>
+                          <view class="record_message_title_h">{{health.symptom}}</view>
+                        </view>
+                        <view class="record_message_title_s">{{health.remark}}</view>
+                        <view class="record_img first_img">
+                          <image wx:for="{{health.url}}" src="{{item}}" data-src="{{item}}" mode="aspectFit" bindtap="preImage" wx:key="*this" data-imgs="{{health.url}}"></image>
+                        </view>
+                      </block>
+                      <block wx:else>
+                        <view class="record_more">
+                          <view class="record_time_float">
+                            <view class="record_time">{{health.Time}}</view>
+                            <view class="record_point2"></view>
+                          </view>
+                          <view class="record_more_title">
+                            <view class="record_message_title_h">{{health.illness}}</view>
+                            <view class="record_message_title_h">{{health.symptom}}</view>
+                            <view class="record_message_title_s">{{health.remark}}</view>
+                            <view class="record_img">
+                              <image wx:for="{{health.url}}" src="{{item}}" data-src="{{item}}" mode="aspectFit" bindtap="preImage" wx:key="*this"></image>
+                            </view>
+                          </view>
+                        </view>
+                      </block>
+                    </block>
+                  </view>
+                </view>
+
+              </view>
+            </view>
+            <!--/健康-->
+
+            <!--玩耍-->
+            <view class="scroll-flex glow_list">
+              <view class="record_part" wx:for="{{grow_records.playRecords.data}}" wx:key="id" wx:for-item="plays">
+                <view class="record_item">
+                  <view class="record_time">{{plays.date}}</view>
+                  <view class="record_title">{{grow_records.playRecords.name}}</view>
+                  <view class="record_point"></view>
+                </view>
+                <view class="record_space">
+                  <view class="record_message">
+                    <block wx:for="{{plays.data}}" wx:key="id" wx:for-item="play">
+                      <block wx:if="{{index < 1}}">
+                        <view class="record_messae_title">
+                          <view class="record_message_title_h">{{play.type}}</view>
+                        </view>
+                        <view class="record_message_title_s">{{play.Start}}至{{play.End}}</view>
+                        <view class="record_message_title_s">{{play.remark}}</view>
+                        <view class="record_img first_img">
+                          <image wx:for="{{play.url}}" src="{{item}}" data-src="{{item}}" mode="aspectFit" bindtap="preImage" wx:key="*this" data-imgs="{{play.url}}"></image>
+                        </view>
+                      </block>
+                      <block wx:else>
+                        <view class="record_more">
+                          <view class="record_time_float">
+                            <view class="record_time">{{play.Start}}</view>
+                            <view class="record_point2"></view>
+                          </view>
+                          <view class="record_more_title">
+                            <view class="record_message_title_h">{{play.type}}</view>
+                            <view class="record_message_title_s">一直到{{play.End}}</view>
+                            <view class="record_message_title_s">{{play.remark}}</view>
+                            <view class="record_img">
+                              <image wx:for="{{play.url}}" src="{{item}}" data-src="{{item}}" mode="aspectFit" bindtap="preImage" wx:key="*this" data-imgs="{{play.url}}"></image>
+                            </view>
+                          </view>
+                        </view>
+                      </block>
+                    </block>
+                  </view>
+                </view>
+
+              </view>
+            </view>
+            <!--/玩耍-->
+
+            <!--身高-->
+            <view class="scroll-flex glow_list">
+              <view class="record_part" wx:for="{{grow_records.featureRecords.data}}" wx:key="id" wx:for-item="features">
+                <view class="record_item">
+                  <view class="record_time">{{features.date}}</view>
+                  <view class="record_title">{{grow_records.featureRecords.name}}</view>
+                  <view class="record_point"></view>
+                </view>
+                <view class="record_space">
+                  <view class="record_message">
+                    <block wx:for="{{features.data}}" wx:key="id" wx:for-item="feature">
+                      <block wx:if="{{index < 1}}">
+                        <view class="record_messae_title">
+                          <view class="record_message_title_h">身高：{{feature.length}}cm</view>
+                          <view class="record_message_title_h">体长：{{feature.talk}}cm</view>
+                          <view class="record_message_title_h">体重：{{feature.weight}}kg</view>
+                        </view>
+                        <view class="record_message_title_s">{{feature.remark}}</view>
+                        <view class="record_img first_img">
+                          <image wx:for="{{feature.url}}" src="{{item}}" data-src="{{item}}" mode="aspectFit" bindtap="preImage" wx:key="*this" data-imgs="{{feature.url}}"></image>
+                        </view>
+                      </block>
+                      <block wx:else>
+                        <view class="record_more">
+                          <view class="record_time_float">
+                            <view class="record_time">{{feature.Time}}</view>
+                            <view class="record_point2"></view>
+                          </view>
+                          <view class="record_more_title">
+                            <view class="record_message_title_h">身高：{{feature.length}}cm</view>
+                            <view class="record_message_title_h">体长：{{feature.talk}}cm</view>
+                            <view class="record_message_title_h">体重：{{feature.weight}}kg</view>
+                            <view class="record_message_title_s">{{feature.remark}}</view>
+                            <view class="record_img">
+                              <image wx:for="{{feature.url}}" src="{{item}}" data-src="{{item}}" mode="aspectFit" bindtap="preImage" wx:key="*this" data-imgs="{{feature.url}}"></image>
+                            </view>
+                          </view>
+                        </view>
+                      </block>
+                    </block>
+                  </view>
+                </view>
+              </view>
+            </view>
+            <!--/身高-->
+
+            <!--清洁-->
+            <view class="scroll-flex glow_list">
+              <view class="record_part" wx:for="{{grow_records.washRecords.data}}" wx:key="id" wx:for-item="washs">
+                <view class="record_item">
+                  <view class="record_time">{{washs.date}}</view>
+                  <view class="record_title">{{grow_records.washRecords.name}}</view>
+                  <view class="record_point"></view>
+                </view>
+                <view class="record_space">
+                  <view class="record_message">
+                    <block wx:for="{{washs.data}}" wx:key="id" wx:for-item="wash">
+                      <block wx:if="{{index < 1}}">
+                        <view class="record_messae_title">
+                          <view class="record_message_title_h">{{wash.type}}</view>
+                        </view>
+                        <view class="record_message_title_s">{{wash.remark}}</view>
+                        <view class="record_img first_img">
+                          <image wx:for="{{wash.url}}" src="{{item}}" data-src="{{item}}" mode="aspectFit" bindtap="preImage" wx:key="*this" data-imgs="{{wash.url}}"></image>
+                        </view>
+                      </block>
+                      <block wx:else>
+                        <view class="record_more">
+                          <view class="record_time_float">
+                            <view class="record_time">{{wash.Time}}</view>
+                            <view class="record_point2"></view>
+                          </view>
+                          <view class="record_more_title">
+                            <view class="record_message_title_h">{{wash.type}}</view>
+                            <view class="record_message_title_s">{{wash.remark}}</view>
+                            <view class="record_img">
+                              <image wx:for="{{wash.url}}" src="{{item}}" data-src="{{item}}" mode="aspectFit" bindtap="preImage" wx:key="*this" data-imgs="{{wash.url}}"></image>
+                            </view>
+                          </view>
+                        </view>
+                      </block>
+                    </block>
+                  </view>
+                </view>
+
+              </view>
+            </view>
+            <!--/清洁-->
+          </view>
           <!--成长列表结束-->
         </scroll-view>
       </view>

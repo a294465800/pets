@@ -151,7 +151,7 @@ Page({
         src: '/images/grow_record/paybook.png',
         en: 'paybook'
       }],
-    grow_records: [
+    grow_record: [
       {
         date: '2017-03-20',
         category: {
@@ -387,7 +387,9 @@ Page({
         },
         success: res => {
           if(200 == res.data.code){
-
+            that.setData({
+              grow_records: res.data.data
+            })
           }
         }
       })
